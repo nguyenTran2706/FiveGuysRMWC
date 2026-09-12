@@ -161,7 +161,7 @@ export default function App() {
     {(limited ? residents.slice(0, 3) : residents).map((resident, index) => <button key={resident.id} className={`resident-card resident-${resident.id}`} onClick={() => openResident(resident)}>
       <img src={resident.image} alt="" loading="lazy" width="640" height="440" />
       <div className="resident-scrim" /><span className="resident-number">{String(index + 1).padStart(2, '0')} <span>/</span> {resident.location[language]}</span>
-      <div className="resident-content"><span className="eyebrow">{resident.role[language]}</span><h3>{resident.name}</h3><p>{resident.subtitle[language]}</p><div className="resident-action"><span>{sessions[resident.id]?.status === 'heard' ? t.heard : sessions[resident.id]?.status === 'closed' ? t.windowClosed : sessions[resident.id] ? t.continue : t.meet}</span><ArrowRight size={19} /></div></div>
+      <div className="resident-content"><span className="eyebrow">{resident.role[language]}</span><h3>{resident.name}</h3><p>{resident.subtitle[language]}</p><p className="resident-intro">{resident.intro[language]}</p><div className="resident-action"><span>{sessions[resident.id]?.status === 'heard' ? t.heard : sessions[resident.id]?.status === 'closed' ? t.windowClosed : sessions[resident.id] ? t.continue : t.meet}</span><ArrowRight size={19} /></div></div>
     </button>)}
   </div>;
 
