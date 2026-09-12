@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 import type { Language } from '../types';
 
-function format(language: Language) {
+// The street clock follows real Sydney time (AEST/AEDT), not a fixed caption.
+function format(language: Language, date = new Date()): string {
   return new Intl.DateTimeFormat(language === 'vi' ? 'vi-VN' : 'en-AU', {
     timeZone: 'Australia/Sydney',
-    hour: '2-digit',
+    hour: language === 'vi' ? '2-digit' : 'numeric',
     minute: '2-digit',
     hour12: language !== 'vi',
-  }).format(new Date()).toUpperCase();
+  }).format(date).toUpperCase();
 }
 
-/** Live clock in Sydney time (AEST/AEDT), updated every 30 seconds. */
-export function useSydneyTime(language: Language) {
+export function useSydneyTime(language: Language): string {
   const [time, setTime] = useState(() => format(language));
   useEffect(() => {
     setTime(format(language));
-    const id = window.setInterval(() => setTime(format(language)), 30000);
-    return () => window.clearInterval(id);
+    const id = setInterval(() => setTime(format(language)), 15000);
+    return () => clearInterval(id);
   }, [language]);
   return time;
 }

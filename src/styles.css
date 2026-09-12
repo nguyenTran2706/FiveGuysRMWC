@@ -106,7 +106,8 @@ h1,h2,h3,p { margin: 0; }
 .resident-content .eyebrow { color: #d3c09e; font-size: 8px; }
 .resident-content h3 { font-family: var(--font-display); font-size: 34px; font-weight: 400; margin: 10px 0 8px; }
 .resident-content > p { font-size: 12px; line-height: 1.6; min-height: 38px; color: #c6cabd; }
-.resident-action { margin-top: 19px; border-top: 1px solid #c6c8b22e; padding-top: 15px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #d1c4a7; }
+.resident-intro { font-size: 11px; line-height: 1.75; color: #9aa294; margin-top: 8px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.resident-action { margin-top: 15px; border-top: 1px solid #c6c8b22e; padding-top: 15px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #d1c4a7; }
 .resident-tram img { object-position: 15% center; filter: brightness(.7); }
 .resident-duc img { object-position: 50% center; filter: hue-rotate(8deg) brightness(.8); }
 .resident-khoa img { object-position: 83% center; filter: brightness(.65); }
