@@ -6,6 +6,7 @@ import { residents, legalNotes } from './data/stories';
 import { copy } from './data/copy';
 import { useAmbient } from './hooks/useAmbient';
 import { Modal } from './components/Modal';
+import { TitleScreen } from './components/TitleScreen';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
@@ -173,21 +174,7 @@ export default function App() {
 
     <main id="main" tabIndex={-1} ref={mainRef}>
       {page === 'home' && <>
-        <section className="hero">
-          <img className="hero-image" src="/images/street.webp" alt="" fetchPriority="high" width="1660" height="948" />
-          <div className="hero-shade" /><div className="rain-overlay" aria-hidden="true" />
-          <div className="hero-copy"><div className="hero-eyebrow"><span>{t.presents}</span><i /><span>{t.interactive}</span></div>
-            <h1>{t.titleFirst}<br />{t.titleSecond}<span className="title-dot" /></h1>
-            <div className="hero-subtitle"><span className="short-rule" />{t.englishTitle}</div>
-            <p className="hero-intro">{t.intro}<br />{t.introSecond}</p>
-            <p className="hero-description">{t.description}</p>
-            <div className="door-actions"><button className="door-button door-story" onClick={() => openResident(residents[0])}><span className="door-icon"><Play size={19} fill="currentColor" /></span><span><small>{t.understandSub}</small><strong>{t.understand}</strong></span><ArrowRight size={20} /></button><button className="door-button door-help" onClick={beginIntake}><span className="door-icon"><MessageCircle size={21} /></span><span><small>{t.helpSub}</small><strong>{t.helpNow}</strong></span><ArrowRight size={20} /></button></div>
-            <button className="privacy-inline" onClick={() => setOverlay('privacy')}><ShieldCheck size={13} />{t.private}</button>
-          </div>
-          <div className="scene-coordinate"><span className="live-dot" />{t.location}<span className="coordinate-weather"><CloudRain size={14} />{t.time} · {t.rain}</span></div>
-          <button className="hero-chapter" onClick={() => openResident(residents[0])}><span className="chapter-number">01</span><span className="chapter-detail"><small>{t.chapter}</small><strong>{t.chapterTitle}</strong><span>{t.chapterCaption}</span></span><span className="round-play"><Play size={17} fill="currentColor" /></span></button>
-          <div className="hero-bottom"><button className="audio-toggle" onClick={() => setSound(!sound)} aria-label={sound ? t.soundOff : t.sound}><span className={`audio-bars ${sound ? 'playing' : ''}`}><i /><i /><i /><i /><i /></span><span>{t.headphones}</span>{sound ? <Volume2 size={15} /> : <VolumeX size={15} />}</button><button className="discover-link" onClick={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })}>{t.discover}<ArrowDown size={16} /></button><span className="pace-note">{t.ownPace}<span> — {t.noTimer}</span></span></div>
-        </section>
+        <TitleScreen t={t} sound={sound} onStart={() => openResident(residents[0])} onHelp={beginIntake} onSettings={() => setOverlay('settings')} onPrivacy={() => setOverlay('privacy')} onSound={() => setSound(!sound)} onDiscover={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })} />
         <section className="stories-section section-wrap" id="stories"><div className="section-heading"><div><span className="eyebrow">{t.storiesEyebrow}</span><h2>{t.storiesTitle}</h2></div><button className="text-link" onClick={() => navigate('street')}>{t.story}<ArrowRight size={18} /></button></div>{residentCards(true)}</section>
         <section className="about-section section-wrap" id="about"><div className="about-lead"><span className="eyebrow">{t.aboutEyebrow}</span><h2>{t.aboutTitle}</h2><p>{t.aboutDescription}</p></div><div className="how-list">{[[t.howOne, t.howOneText], [t.howTwo, t.howTwoText], [t.howThree, t.howThreeText]].map(([title, body], index) => <div className="how-item" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></div>)}</div></section>
         <section className="support-section section-wrap"><HeartHandshake size={28} strokeWidth={1.2} /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE NSW</span><h2>{t.supportHeading}</h2><p>{t.aboutRmwc}</p></div><a className="button button-outline" href="tel:1300513107">1300 513 107<ArrowUpRight /></a><p className="legal-disclaimer">{t.disclaimer}</p></section>
