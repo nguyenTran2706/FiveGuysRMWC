@@ -5,6 +5,7 @@ import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
 import { copy } from './data/copy';
 import { useAmbient } from './hooks/useAmbient';
+import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
 
@@ -38,6 +39,7 @@ export default function App() {
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
   const t = copy[language];
+  const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
   const completedCount = Object.values(sessions).filter(item => item.status !== 'playing').length;
   const unlocked = heardResidents.length >= 3;
@@ -174,13 +176,13 @@ export default function App() {
 
     <main id="main" tabIndex={-1} ref={mainRef}>
       {page === 'home' && <>
-        <TitleScreen t={t} sound={sound} onStart={() => openResident(residents[0])} onHelp={beginIntake} onSettings={() => setOverlay('settings')} onPrivacy={() => setOverlay('privacy')} onSound={() => setSound(!sound)} onDiscover={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })} />
+        <TitleScreen t={t} time={sydneyTime} sound={sound} onStart={() => openResident(residents[0])} onHelp={beginIntake} onSettings={() => setOverlay('settings')} onPrivacy={() => setOverlay('privacy')} onSound={() => setSound(!sound)} onDiscover={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })} />
         <section className="stories-section section-wrap" id="stories"><div className="section-heading"><div><span className="eyebrow">{t.storiesEyebrow}</span><h2>{t.storiesTitle}</h2></div><button className="text-link" onClick={() => navigate('street')}>{t.story}<ArrowRight size={18} /></button></div>{residentCards(true)}</section>
         <section className="about-section section-wrap" id="about"><div className="about-lead"><span className="eyebrow">{t.aboutEyebrow}</span><h2>{t.aboutTitle}</h2><p>{t.aboutDescription}</p></div><div className="how-list">{[[t.howOne, t.howOneText], [t.howTwo, t.howTwoText], [t.howThree, t.howThreeText]].map(([title, body], index) => <div className="how-item" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></div>)}</div></section>
         <section className="support-section section-wrap"><HeartHandshake size={28} strokeWidth={1.2} /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE NSW</span><h2>{t.supportHeading}</h2><p>{t.aboutRmwc}</p></div><a className="button button-outline" href="tel:1300513107">1300 513 107<ArrowUpRight /></a><p className="legal-disclaimer">{t.disclaimer}</p></section>
       </>}
 
-      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {t.time}</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
+      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {sydneyTime} AEST</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
         <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div><p className="legal-disclaimer">{t.disclaimer}</p>
       </section>}
 

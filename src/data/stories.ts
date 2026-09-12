@@ -29,9 +29,9 @@ export const legalNotes: Record<Archetype, Localized> = {
 const linh: Resident = {
   id: 'linh', name: 'Linh', age: 26,
   role: l('Thợ làm móng', 'Nail technician'),
-  subtitle: l('Một phong bì. Sáu ngày làm.', 'One envelope. Six days of work.'),
+  subtitle: l('Sáu ngày làm, một phong bì tiền mặt không phiếu lương.', 'Six days of work, one cash envelope and no payslip.'),
   archetype: 'underpayment', image: '/images/linh.webp',
-  location: l('Tiệm móng cuối dãy', 'The nail salon'),
+  location: l('Tiệm móng trên phố John, Cabramatta', 'Nail salon on John Street, Cabramatta'),
   intro: l('Bảng hiệu đã tắt một nửa. Sau lớp kính, Linh đang đếm lại những tờ tiền trong một phong bì.', 'Half the sign has gone dark. Behind the glass, Linh is counting the notes in an envelope again.'),
   start: 'hello',
   nodes: {
@@ -81,9 +81,9 @@ const linh: Resident = {
 const bao: Resident = {
   id: 'bao', name: 'Bảo', age: 23,
   role: l('Người giao hàng', 'Delivery rider'),
-  subtitle: l('Tên của mình. Luật chơi của người khác.', 'His name. Someone else’s rules.'),
+  subtitle: l('Chạy giao hàng dưới danh nghĩa “nhà thầu”, nhưng ca làm do người khác định.', 'Rides as a “contractor”, but someone else sets every shift.'),
   archetype: 'sham_contracting', image: '/images/bao.webp',
-  location: l('Cửa cuốn cạnh nhà hàng', 'Beside the restaurant'),
+  location: l('Hẻm sau Freedom Plaza, Cabramatta', 'Laneway behind Freedom Plaza, Cabramatta'),
   intro: l('Chiếc túi giữ nhiệt đặt cạnh một bộ găng tay ướt. Bảo nhìn bản đồ trên màn hình đã nứt.', 'An insulated bag rests beside soaked gloves. Bảo studies a map on a cracked screen.'),
   start: 'hello',
   nodes: {
@@ -128,9 +128,9 @@ const bao: Resident = {
 const hanh: Resident = {
   id: 'hanh', name: 'Cô Hạnh', age: 54,
   role: l('Phụ bếp', 'Kitchen hand'),
-  subtitle: l('“Cô nghỉ một hôm thôi.”', '“Just one day off.”'),
+  subtitle: l('Trượt trong bếp, đau vai, và được bảo “nghỉ một hôm thôi”.', 'A slip in the kitchen, a hurt shoulder, and “just take a day off”.'),
   archetype: 'workplace_injury', image: '/images/hanh.webp',
-  location: l('Cửa sổ tầng trệt', 'The ground-floor window'),
+  location: l('Bếp quán ăn phố Arthur, Cabramatta', 'Eatery kitchen on Arthur Street, Cabramatta'),
   intro: l('Hơi nước mờ ô cửa. Cô Hạnh nhấc ấm bằng tay trái; tay phải vẫn giữ sát người.', 'Steam clouds the window. Cô Hạnh lifts the kettle with her left hand; her right stays close to her body.'),
   start: 'hello',
   nodes: {
@@ -172,9 +172,9 @@ const hanh: Resident = {
 const tram: Resident = {
   id: 'tram', name: 'Trâm', age: 20,
   role: l('Nhân viên phục vụ', 'Waitress'),
-  subtitle: l('Những tin nhắn sau giờ đóng cửa.', 'Messages after closing time.'),
+  subtitle: l('Ca đêm ổn, cho đến những tin nhắn sau giờ đóng cửa.', 'The night shift is fine, until the messages after closing time.'),
   archetype: 'sexual_harassment', image: '/images/street.webp',
-  location: l('Ban công trên nhà hàng', 'Above the restaurant'),
+  location: l('Ban công trên nhà hàng, phố Hughes', 'Balcony above a Hughes Street restaurant'),
   intro: l('Trâm vẫn mặc tạp dề. Điện thoại sáng lên, rồi cô úp nó xuống bàn.', 'Trâm is still wearing her apron. Her phone lights up; she turns it face down.'),
   warning: l('Câu chuyện này đề cập đến những lời nói, tin nhắn mang tính tình dục không mong muốn và việc bị chạm vào người. Không có miêu tả trực diện. Bạn có thể bỏ qua hoặc rời đi bất cứ lúc nào.', 'This story mentions unwanted sexual comments, messages and touching, without graphic detail. You can skip it or leave at any time.'),
   start: 'hello',
@@ -206,9 +206,9 @@ const tram: Resident = {
 const duc: Resident = {
   id: 'duc', name: 'Đức', age: 41,
   role: l('Nhân viên kho', 'Warehouse storeman'),
-  subtitle: l('Thứ Hai, tên anh không còn trên lịch.', 'On Monday, his name was gone.'),
+  subtitle: l('Bốn năm trong kho, rồi tên anh biến khỏi lịch làm.', 'Four years in the warehouse, then his name vanished from the roster.'),
   archetype: 'unfair_dismissal', image: '/images/street.webp',
-  location: l('Căn hộ sau cửa lưới', 'Behind the security screen'),
+  location: l('Nhà sau cửa lưới, Canley Vale', 'Behind a security screen, Canley Vale'),
   intro: l('Một đôi giày bảo hộ nằm thẳng hàng bên cửa. Có người ở nhà, nhưng tối nay anh cần thêm một chút thời gian.', 'A pair of work boots sits neatly by the door. Someone is home, but he needs a little more time tonight.'),
   needsReturn: true, start: 'hello',
   nodes: {
@@ -239,9 +239,9 @@ const duc: Resident = {
 const khoa: Resident = {
   id: 'khoa', name: 'Khoa', age: 33,
   role: l('Nhân viên chăm sóc người cao tuổi', 'Aged care worker'),
-  subtitle: l('Cùng một công việc. Một cách đối xử khác.', 'The same work. Different treatment.'),
+  subtitle: l('Cùng bằng cấp, cùng công việc, nhưng ca làm và lời nhận xét thì khác.', 'Same qualification, same job, different shifts and different remarks.'),
   archetype: 'discrimination', image: '/images/street.webp',
-  location: l('Căn nhà có chậu chanh', 'The house with the lemon tree'),
+  location: l('Căn nhà có cây chanh, Lansvale', 'The house with the lemon tree, Lansvale'),
   intro: l('Khoa đang tưới một chậu chanh dưới mái hiên, dù ngoài đường vẫn mưa.', 'Khoa waters a lemon tree beneath the awning, even while rain falls on the street.'),
   start: 'hello',
   nodes: {
@@ -268,9 +268,9 @@ const khoa: Resident = {
 const mai: Resident = {
   id: 'mai', name: 'Mai', age: 29,
   role: l('Nhân viên vệ sinh', 'Commercial cleaner'),
-  subtitle: l('Điện thoại rung trước mỗi ca.', 'The phone vibrates before every shift.'),
+  subtitle: l('Dọn vệ sinh ca đêm, và điện thoại rung sợ trước mỗi ca.', 'Cleans on night shift, and dreads the phone before every one.'),
   archetype: 'bullying', image: '/images/street.webp',
-  location: l('Ô cửa cuối con đường', 'The last window on the street'),
+  location: l('Chung cư cuối phố Railway, Cabramatta', 'Last block on Railway Parade, Cabramatta'),
   intro: l('Sau rèm có tiếng máy may. Mai đã nghe tiếng gõ cửa; cô sẽ mở khi thấy sẵn sàng.', 'A sewing machine hums behind the curtain. Mai has heard the knock. She will open when she is ready.'),
   warning: l('Câu chuyện này có lời kể về việc bị hạ nhục lặp lại, đe dọa mất ca và lo lắng trước giờ làm. Bạn có thể bỏ qua hoặc rời đi bất cứ lúc nào mà không mất quyền tìm hỗ trợ.', 'This story describes repeated humiliation, threats of losing shifts and anxiety before work. You can skip or leave at any time and still access support.'),
   needsReturn: true, start: 'hello',

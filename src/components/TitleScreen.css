@@ -49,6 +49,7 @@
 
 .title-screen-logo {
   margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 200;
   line-height: .92;
   letter-spacing: .16em;
@@ -86,6 +87,7 @@
 }
 
 .title-screen-menu button {
+  font-family: 'Space Grotesk', sans-serif;
   background: none;
   border: 0;
   padding: .25rem 0;
