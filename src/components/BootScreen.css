@@ -1,0 +1,180 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #0a0a0c;
+  color: #cfcfc6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+}
+
+.boot-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(221, 187, 131, .07), transparent 70%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, .03) 0 1px, transparent 1px 3px);
+  pointer-events: none;
+}
+
+.boot-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 32%, rgba(255, 255, 255, .04) 33%, transparent 34%, transparent 65%, rgba(255, 255, 255, .04) 66%, transparent 67%);
+  pointer-events: none;
+}
+
+.boot-brand {
+  position: absolute;
+  top: clamp(1.4rem, 3vw, 2.6rem);
+  left: clamp(2rem, 5vw, 5rem);
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: #ddbb83;
+}
+
+.boot-brand strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: .34em;
+  color: #d9d9cf;
+}
+
+.boot-brand small {
+  display: block;
+  margin-top: .45rem;
+  font-size: .55rem;
+  letter-spacing: .3em;
+  color: #77776d;
+}
+
+.boot-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: .12em;
+  color: #b9b9b0;
+  text-transform: uppercase;
+}
+
+.boot-title span {
+  display: block;
+}
+
+.boot-title i {
+  font-style: normal;
+  color: #ddbb83;
+}
+
+.boot-sub {
+  position: relative;
+  z-index: 1;
+  margin: 1rem 0 3rem;
+  font-size: .68rem;
+  letter-spacing: .5em;
+  color: #45453f;
+}
+
+.boot-steps {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  font-size: .82rem;
+  letter-spacing: .04em;
+  color: #9c9c92;
+}
+
+.boot-steps li {
+  display: flex;
+  gap: 1.1rem;
+  opacity: 0;
+  animation: boot-line-in .5s ease forwards;
+}
+
+.boot-steps li span {
+  color: #ddbb83;
+}
+
+.boot-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 3.5rem;
+}
+
+.boot-cta strong {
+  display: block;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: .02em;
+  color: #b6b6ac;
+}
+
+.boot-cta em {
+  display: block;
+  margin-top: .5rem;
+  font-style: normal;
+  font-size: .62rem;
+  letter-spacing: .35em;
+  color: #4b4b45;
+  animation: boot-pulse 2.2s ease-in-out infinite;
+}
+
+.boot-note {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+  margin: 3rem 0 0;
+  font-size: .72rem;
+  line-height: 1.7;
+  color: #35352f;
+}
+
+.boot-footer {
+  position: absolute;
+  z-index: 1;
+  bottom: clamp(1.4rem, 3vw, 2.4rem);
+  left: clamp(2rem, 5vw, 5rem);
+  right: clamp(2rem, 5vw, 5rem);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: .6rem;
+  letter-spacing: .28em;
+  color: #3e3e38;
+  text-transform: uppercase;
+}
+
+.boot-footer kbd {
+  font: inherit;
+  border: 1px solid #2c2c27;
+  padding: .3rem .55rem;
+  color: #56564f;
+}
+
+@keyframes boot-line-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes boot-pulse {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
