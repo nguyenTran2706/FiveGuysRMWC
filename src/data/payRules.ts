@@ -127,8 +127,8 @@ export const payFindingText: Record<PayFindingCode, Localized> = {
   casual_loading_missing: { vi: 'Người làm casual thường được cộng thêm 25% (casual loading). Phần này có thể đang thiếu.', en: 'Casual employees are usually paid a 25% casual loading. That loading appears to be missing.' },
   overtime_unpaid: { vi: 'Số giờ vượt quá 38 giờ/tuần thường được tính phụ cấp làm thêm giờ.', en: 'Hours beyond 38 per week normally attract overtime penalty rates.' },
   super_missing: { vi: 'Hầu hết người lao động được đóng quỹ hưu trí (superannuation) 12%.', en: 'Most employees are entitled to 12% superannuation contributions.' },
-  super_unknown: { vi: 'Bạn có thể kiểm tra quỹ hưu trí qua myGov hoặc ATO.', en: 'You can check superannuation payments through myGov or the ATO.' },
-  cash_no_payslip: { vi: 'Trả bằng tiền mặt không sai luật, nhưng bạn vẫn phải được nhận phiếu lương và đóng hưu trí.', en: 'Being paid cash is not unlawful, but you must still receive payslips and superannuation.' },
+  super_unknown: { vi: 'Bạn có thể kiểm tra quỹ hưu trí qua myGov hoặc ATO.', en: 'Superannuation contributions may be checked through myGov or the ATO.' },
+  cash_no_payslip: { vi: 'Trả bằng tiền mặt không sai luật, nhưng bạn vẫn phải được nhận phiếu lương và đóng hưu trí.', en: 'Payment in cash is not unlawful; however, you remain entitled to payslips and superannuation.' },
 };
 
 export function payCopy(language: Language) {
