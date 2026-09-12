@@ -5,6 +5,7 @@ import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
 import { copy } from './data/copy';
 import { useAmbient } from './hooks/useAmbient';
+import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 
 const Intake = lazy(() => import('./components/Intake'));
@@ -37,6 +38,7 @@ export default function App() {
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
   const t = copy[language];
+  const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
   const completedCount = Object.values(sessions).filter(item => item.status !== 'playing').length;
   const unlocked = heardResidents.length >= 3;
@@ -159,7 +161,7 @@ export default function App() {
     {(limited ? residents.slice(0, 3) : residents).map((resident, index) => <button key={resident.id} className={`resident-card resident-${resident.id}`} onClick={() => openResident(resident)}>
       <img src={resident.image} alt="" loading="lazy" width="640" height="440" />
       <div className="resident-scrim" /><span className="resident-number">{String(index + 1).padStart(2, '0')} <span>/</span> {resident.location[language]}</span>
-      <div className="resident-content"><span className="eyebrow">{resident.role[language]}</span><h3>{resident.name}</h3><p>{resident.subtitle[language]}</p><div className="resident-action"><span>{sessions[resident.id]?.status === 'heard' ? t.heard : sessions[resident.id]?.status === 'closed' ? t.windowClosed : sessions[resident.id] ? t.continue : t.meet}</span><ArrowRight size={19} /></div></div>
+      <div className="resident-content"><span className="eyebrow">{resident.role[language]}</span><h3>{resident.name}</h3><p>{resident.subtitle[language]}</p><p className="resident-intro">{resident.intro[language]}</p><div className="resident-action"><span>{sessions[resident.id]?.status === 'heard' ? t.heard : sessions[resident.id]?.status === 'closed' ? t.windowClosed : sessions[resident.id] ? t.continue : t.meet}</span><ArrowRight size={19} /></div></div>
     </button>)}
   </div>;
 
@@ -184,7 +186,7 @@ export default function App() {
             <div className="door-actions"><button className="door-button door-story" onClick={() => openResident(residents[0])}><span className="door-icon"><Play size={19} fill="currentColor" /></span><span><small>{t.understandSub}</small><strong>{t.understand}</strong></span><ArrowRight size={20} /></button><button className="door-button door-help" onClick={beginIntake}><span className="door-icon"><MessageCircle size={21} /></span><span><small>{t.helpSub}</small><strong>{t.helpNow}</strong></span><ArrowRight size={20} /></button></div>
             <button className="privacy-inline" onClick={() => setOverlay('privacy')}><ShieldCheck size={13} />{t.private}</button>
           </div>
-          <div className="scene-coordinate"><span className="live-dot" />{t.location}<span className="coordinate-weather"><CloudRain size={14} />{t.time} · {t.rain}</span></div>
+          <div className="scene-coordinate"><span className="live-dot" />{t.location}<span className="coordinate-weather"><CloudRain size={14} />{sydneyTime} · {t.rain}</span></div>
           <button className="hero-chapter" onClick={() => openResident(residents[0])}><span className="chapter-number">01</span><span className="chapter-detail"><small>{t.chapter}</small><strong>{t.chapterTitle}</strong><span>{t.chapterCaption}</span></span><span className="round-play"><Play size={17} fill="currentColor" /></span></button>
           <div className="hero-bottom"><button className="audio-toggle" onClick={() => setSound(!sound)} aria-label={sound ? t.soundOff : t.sound}><span className={`audio-bars ${sound ? 'playing' : ''}`}><i /><i /><i /><i /><i /></span><span>{t.headphones}</span>{sound ? <Volume2 size={15} /> : <VolumeX size={15} />}</button><button className="discover-link" onClick={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })}>{t.discover}<ArrowDown size={16} /></button><span className="pace-note">{t.ownPace}<span> — {t.noTimer}</span></span></div>
         </section>
@@ -193,7 +195,7 @@ export default function App() {
         <section className="support-section section-wrap"><HeartHandshake size={28} strokeWidth={1.2} /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE NSW</span><h2>{t.supportHeading}</h2><p>{t.aboutRmwc}</p></div><a className="button button-outline" href="tel:1300513107">1300 513 107<ArrowUpRight /></a><p className="legal-disclaimer">{t.disclaimer}</p></section>
       </>}
 
-      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {t.time}</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
+      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {sydneyTime}</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
         <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div><p className="legal-disclaimer">{t.disclaimer}</p>
       </section>}
 
