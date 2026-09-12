@@ -30,9 +30,18 @@ export interface CaseFile {
     superPaid?: 'yes' | 'no' | 'unknown';
     paidCash?: boolean;
   };
+  /** Categories the worker ticked for themselves, with their own reason for each. */
+  selfReported?: {
+    categories?: Archetype[];
+    preferNotSay?: boolean;
+    other?: string;
+    reasons?: Partial<Record<Archetype, string>>;
+  };
   flags: Array<{
     archetype: Archetype;
     confidence: 'strong' | 'possible';
+    /** 'worker' means the worker declared this category themselves, rather than it being inferred. */
+    declaredBy?: 'worker';
     signals: string[];
     sourceNpc?: string;
   }>;

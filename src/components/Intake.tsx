@@ -2,6 +2,7 @@ import { useRef, useState, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, FileText, LockKeyhole, Phone, ShieldCheck, Sparkle } from 'lucide-react';
 import type { Archetype, CaseFile, Language } from '../types';
 import { FAIR_WORK_VISA_URL, intakeCopy } from '../data/intakeCopy';
+import { flagsFromSelfReport, mergeFlags } from '../data/selfReport';
 import QuestionFields from './IntakeQuestionFields';
 import '../intake.css';
 
@@ -49,7 +50,7 @@ export function Field({ label, children, hint }: { label: string; children: Reac
   return <label className="intake-field"><span>{label}</span>{children}{hint && <small>{hint}</small>}</label>;
 }
 
-function BooleanSelect({ label, value, onChange, language }: { label: string; value: boolean | undefined; onChange: (value: boolean | undefined) => void; language: Language }) {
+export function BooleanSelect({ label, value, onChange, language }: { label: string; value: boolean | undefined; onChange: (value: boolean | undefined) => void; language: Language }) {
   const copy = intakeCopy[language];
   return <Field label={label}><select value={value === undefined ? '' : String(value)} onChange={event => onChange(event.target.value === '' ? undefined : event.target.value === 'true')}><option value="">{copy.notSure}</option><option value="true">{copy.yes}</option><option value="false">{copy.no}</option></select></Field>;
 }
@@ -84,17 +85,19 @@ export default function Intake({ language, caseFile, onChange, onReview, onBack 
   const [visaFear, setVisaFear] = useState(false);
   const [narrativeLanguage] = useState<Language>(() => caseFile.narrative.vi ? 'vi' : caseFile.narrative.en ? 'en' : language);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const questions = [copy.narrativeQuestion, copy.industryQuestion, copy.employmentQuestion, copy.visaQuestion, copy.payQuestion, copy.evidenceQuestion, copy.contactQuestion, copy.alternateQuestion, copy.employerQuestion];
-  const notes = [copy.noPressure, copy.optionalField, copy.optionalField, copy.visaNote, copy.payNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
-  const pages: number[][] = [[0, 1, 2, 3, 4], [5, 6, 7, 8]];
+  const questions = [copy.narrativeQuestion, copy.industryQuestion, copy.employmentQuestion, copy.visaQuestion, copy.payQuestion, copy.selfReportQuestion, copy.detailQuestion, copy.evidenceQuestion, copy.contactQuestion, copy.alternateQuestion, copy.employerQuestion];
+  const notes = [copy.noPressure, copy.optionalField, copy.optionalField, copy.visaNote, copy.payNote, copy.selfReportNote, copy.detailNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
+  const pages: number[][] = [[0, 1, 2, 3, 4], [5, 6], [7, 8, 9, 10]];
 
   function turn(review = false) {
     const words = [caseFile.narrative.vi, caseFile.narrative.en, caseFile.profile.role, caseFile.profile.industry, caseFile.evidenceHeld.notes, caseFile.contactSafety.notes, caseFile.contactSafety.bestTimeOfDay, caseFile.emergencyContact?.name, caseFile.emergencyContact?.relationship, caseFile.employer?.name, caseFile.employer?.address].filter(Boolean).join('\n');
     if (needsImmediateSupport(words)) { setCrisis(true); return; }
     if (/visa|deport|immigra|di tru|truc xuat|bi duoi ve/.test(normalize(words))) setVisaFear(true);
     const ownWords = `${caseFile.narrative.vi}\n${caseFile.narrative.en}`;
-    const freshFlags = flagsFromOwnWords(ownWords).filter(flag => !caseFile.flags.some(existing => existing.archetype === flag.archetype));
-    if (freshFlags.length) onChange({ ...caseFile, flags: [...caseFile.flags, ...freshFlags] });
+    const declared = flagsFromSelfReport(caseFile);
+    const guessed = mergeFlags(declared, flagsFromOwnWords(ownWords));
+    const nextFlags = mergeFlags(declared, mergeFlags(guessed, caseFile.flags));
+    if (JSON.stringify(nextFlags) !== JSON.stringify(caseFile.flags)) onChange({ ...caseFile, flags: nextFlags });
     if (review || page === pages.length - 1) { onReview(); return; }
     setPage(previous => previous + 1);
     requestAnimationFrame(() => headingRef.current?.focus());
