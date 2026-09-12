@@ -1,0 +1,56 @@
+.watch-page { padding: 132px 0 96px; display: grid; gap: 34px; }
+.watch-back { justify-self: start; display: inline-flex; align-items: center; gap: 8px; }
+.watch-heading { max-width: 640px; display: grid; gap: 14px; }
+.watch-heading h1 { font-family: var(--font-display); font-size: clamp(30px, 4.4vw, 48px); font-weight: 500; line-height: 1.08; }
+.watch-heading p { color: var(--muted); font-size: 15px; }
+
+.watch-boundary { display: flex; gap: 16px; padding: 22px 24px; border: 1px solid var(--border); background: #171b18; color: var(--amber); }
+.watch-boundary > div { display: grid; gap: 8px; }
+.watch-boundary h3 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.watch-boundary p { color: var(--muted); font-size: 13px; }
+.watch-prototype { color: #cfd2c4; border-left: 2px solid var(--amber); padding-left: 12px; }
+
+.watch-columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 34px; align-items: start; }
+.watch-board { display: grid; gap: 18px; min-width: 0; }
+.watch-board h2, .watch-form h2 { font-family: var(--font-display); font-size: 20px; font-weight: 500; }
+
+.watch-search { display: flex; align-items: center; gap: 11px; padding: 0 15px; border: 1px solid var(--border); background: #141814; color: var(--muted); }
+.watch-search input { flex: 1; padding: 14px 0; border: 0; background: none; color: var(--text); }
+.watch-search input::placeholder { color: #7f8479; }
+
+.watch-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.watch-card { padding: 20px 22px; border: 1px solid var(--border); background: var(--panel); display: grid; gap: 12px; }
+.watch-card-top { display: flex; justify-content: space-between; align-items: start; gap: 14px; }
+.watch-card h3 { font-family: var(--font-display); font-size: 17px; font-weight: 500; }
+.watch-suburbs { margin-top: 4px; color: var(--muted); font-size: 12.5px; }
+.watch-badge { flex-shrink: 0; padding: 5px 10px; border: 1px solid var(--border); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.watch-count { font-size: 13px; color: var(--amber); }
+.watch-patterns { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.watch-patterns li { display: flex; justify-content: space-between; gap: 14px; padding-bottom: 7px; border-bottom: 1px solid rgba(233,235,219,.09); font-size: 13.5px; }
+.watch-patterns small { color: var(--muted); font-family: var(--font-mono); font-size: 11.5px; }
+.watch-months { color: var(--muted); font-size: 11.5px; font-family: var(--font-mono); }
+.watch-single { display: flex; gap: 9px; align-items: start; color: #e3c894; font-size: 12.5px; line-height: 1.7; }
+.watch-empty { color: var(--muted); font-size: 13.5px; }
+
+.watch-rules { padding: 20px 22px; border: 1px dashed var(--border); display: grid; gap: 11px; }
+.watch-rules h3 { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.watch-rules ul { margin: 0; padding-left: 19px; display: grid; gap: 8px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+
+.watch-form { padding: 24px; border: 1px solid var(--border); background: #151915; display: grid; gap: 15px; position: sticky; top: 124px; }
+.watch-form-note { color: var(--muted); font-size: 12.5px; }
+.watch-field { display: grid; gap: 7px; font-size: 12px; letter-spacing: .05em; color: var(--muted); }
+.watch-field input { padding: 12px 14px; border: 1px solid var(--border); background: #101311; color: var(--text); }
+.watch-patterns-picker { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.watch-patterns-picker legend { padding: 0 0 10px; font-size: 12px; color: var(--muted); }
+.watch-tag { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 1px solid var(--border); background: #101311; color: #d8dacd; font-size: 12.5px; }
+.watch-tag-on { border-color: var(--amber); color: var(--amber); background: #1d1c14; }
+.watch-message { font-size: 12.5px; }
+.watch-message-ok { color: var(--amber); }
+.watch-message-error { color: #e39a8a; }
+.watch-clear { justify-self: start; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .watch-page { padding-top: 116px; }
+  .watch-columns { grid-template-columns: 1fr; }
+  .watch-form { position: static; }
+}

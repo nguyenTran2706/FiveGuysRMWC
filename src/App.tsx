@@ -4,6 +4,7 @@ import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
 import { copy } from './data/copy';
+import { watchCopy } from './data/watchCopy';
 import { useAmbient } from './hooks/useAmbient';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
@@ -12,7 +13,8 @@ import { BootScreen } from './components/BootScreen';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
-type Page = 'home' | 'street' | 'game' | 'turn' | 'intake' | 'review';
+const EmployerWatch = lazy(() => import('./components/EmployerWatch'));
+type Page = 'home' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'watch';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
 type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
 type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
@@ -171,7 +173,7 @@ export default function App() {
     <a className="skip-link" href="#main">{language === 'vi' ? 'Đến nội dung chính' : 'Skip to main content'}</a>
     <header className="site-header">
       <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights — Home"><WindowMark /><span><strong>{t.brand}</strong><small>{t.byline}</small></span></button>
-      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
+      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
       <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
     </header>
 
@@ -221,6 +223,8 @@ export default function App() {
 
         {stage === 'epilogue' && <div className="epilogue-panel"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[session?.kept && session.status !== 'closed' ? 'kept' : 'missed'][language]}</p><p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
+
+      {page === 'watch' && <EmployerWatch language={language} onBack={() => navigate('home')} />}
 
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
       <Suspense fallback={<BootScreen t={t} />}>
