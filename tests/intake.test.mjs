@@ -77,6 +77,6 @@ test('bilingual summaries keep original free text and do not invent missing fact
   assert.ok(english.includes('Phụ bếp'));
   assert.ok(english.includes('No verified translation has been provided.'));
   assert.ok(english.includes('Visa type: Not provided'));
-  assert.ok(english.includes('Is it safe to leave voicemail?: No'));
+  assert.ok(english.includes('Is it safe to leave a voicemail message?: No'));
   assert.equal(file.narrative.en, '');
 });
