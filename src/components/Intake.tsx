@@ -84,9 +84,9 @@ export default function Intake({ language, caseFile, onChange, onReview, onBack 
   const [visaFear, setVisaFear] = useState(false);
   const [narrativeLanguage] = useState<Language>(() => caseFile.narrative.vi ? 'vi' : caseFile.narrative.en ? 'en' : language);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const questions = [copy.narrativeQuestion, copy.industryQuestion, copy.employmentQuestion, copy.visaQuestion, copy.evidenceQuestion, copy.contactQuestion, copy.alternateQuestion, copy.employerQuestion];
-  const notes = [copy.noPressure, copy.optionalField, copy.optionalField, copy.visaNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
-  const pages: number[][] = [[0, 1, 2, 3], [4, 5, 6, 7]];
+  const questions = [copy.narrativeQuestion, copy.industryQuestion, copy.employmentQuestion, copy.visaQuestion, copy.payQuestion, copy.evidenceQuestion, copy.contactQuestion, copy.alternateQuestion, copy.employerQuestion];
+  const notes = [copy.noPressure, copy.optionalField, copy.optionalField, copy.visaNote, copy.payNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
+  const pages: number[][] = [[0, 1, 2, 3, 4], [5, 6, 7, 8]];
 
   function turn(review = false) {
     const words = [caseFile.narrative.vi, caseFile.narrative.en, caseFile.profile.role, caseFile.profile.industry, caseFile.evidenceHeld.notes, caseFile.contactSafety.notes, caseFile.contactSafety.bestTimeOfDay, caseFile.emergencyContact?.name, caseFile.emergencyContact?.relationship, caseFile.employer?.name, caseFile.employer?.address].filter(Boolean).join('\n');

@@ -21,6 +21,15 @@ export interface CaseFile {
     suburb?: string;
     ageBand?: string;
   };
+  /** Answers used by the pay rules engine (src/data/payRules.ts). */
+  pay?: {
+    award?: 'hospitality' | 'restaurant' | 'fast_food' | 'retail' | 'cleaning' | 'general';
+    employmentBasis?: 'casual' | 'part_time' | 'full_time';
+    hourlyRate?: number;
+    hoursPerWeek?: number;
+    superPaid?: 'yes' | 'no' | 'unknown';
+    paidCash?: boolean;
+  };
   flags: Array<{
     archetype: Archetype;
     confidence: 'strong' | 'possible';
