@@ -5,38 +5,39 @@ import { archetypeLabels } from '../data/stories';
 import { selfReportCategories } from '../data/selfReport';
 import { watchCopy } from '../data/watchCopy';
 import {
-  clearReports, loadReports, normalizeEmployer, sampleReports, saveReport, searchSummaries, summarize,
-  type EmployerReport,
+  clearReports, industryKeys, loadReports, reportKey, sampleReports, saveReport, searchSummaries, summarize,
+  type EmployerReport, type IndustryKey,
 } from '../data/employerReports';
 import '../watch.css';
 
 /**
- * An anonymous community board: workers log fixed pattern tags against a workplace so others can
- * check before taking a job there. Reports carry no free text and no dates, only a month.
+ * An anonymous community board: workers log fixed pattern tags against an INDUSTRY and SUBURB —
+ * never a named business — so others can see what to ask about before taking a job. Reports carry
+ * no free text and no dates, only a month.
  */
 export default function EmployerWatch({ language, onBack }: { language: Language; onBack: () => void }) {
   const copy = watchCopy[language];
   const [own, setOwn] = useState<EmployerReport[]>(() => loadReports());
   const [query, setQuery] = useState('');
-  const [employer, setEmployer] = useState('');
+  const [industry, setIndustry] = useState<IndustryKey>('nail_beauty');
   const [suburb, setSuburb] = useState('');
   const [patterns, setPatterns] = useState<Archetype[]>([]);
   const [message, setMessage] = useState<{ tone: 'ok' | 'error'; text: string } | null>(null);
 
-  const ownKeys = useMemo(() => new Set(own.map(report => normalizeEmployer(report.employer))), [own]);
+  const ownKeys = useMemo(() => new Set(own.map(report => reportKey(report.industry, report.suburb))), [own]);
   const summaries = useMemo(() => summarize([...sampleReports, ...own]), [own]);
-  const results = useMemo(() => searchSummaries(summaries, query), [summaries, query]);
+  const results = useMemo(() => searchSummaries(summaries, query, key => copy.industries[key]), [summaries, query, copy]);
 
   function togglePattern(archetype: Archetype) {
     setPatterns(current => current.includes(archetype) ? current.filter(item => item !== archetype) : [...current, archetype]);
   }
 
   function submit() {
-    if (!employer.trim()) { setMessage({ tone: 'error', text: copy.needName }); return; }
+    if (!suburb.trim()) { setMessage({ tone: 'error', text: copy.needSuburb }); return; }
     if (!patterns.length) { setMessage({ tone: 'error', text: copy.needPattern }); return; }
     const month = new Date().toISOString().slice(0, 7);
-    setOwn(saveReport({ employer: employer.trim().slice(0, 90), suburb: suburb.trim().slice(0, 60) || undefined, patterns, month }));
-    setEmployer(''); setSuburb(''); setPatterns([]);
+    setOwn(saveReport({ industry, suburb: suburb.trim().slice(0, 60), patterns, month }));
+    setSuburb(''); setPatterns([]);
     setMessage({ tone: 'ok', text: copy.submitted });
   }
 
@@ -67,13 +68,13 @@ export default function EmployerWatch({ language, onBack }: { language: Language
         {!summaries.length && <p className="watch-empty">{copy.emptyBoard}</p>}
         {summaries.length > 0 && !results.length && <p className="watch-empty">{copy.noResults}</p>}
         <ul className="watch-list">
-          {results.map(summary => <li className="watch-card" key={summary.employer}>
+          {results.map(summary => <li className="watch-card" key={summary.key}>
             <div className="watch-card-top">
               <div>
-                <h3>{summary.employer}</h3>
-                {summary.suburbs.length > 0 && <p className="watch-suburbs">{summary.suburbs.join(' · ')}</p>}
+                <h3>{copy.industries[summary.industry]}</h3>
+                <p className="watch-suburbs">{summary.suburb}</p>
               </div>
-              <span className="watch-badge">{ownKeys.has(normalizeEmployer(summary.employer)) ? copy.yoursBadge : copy.sampleBadge}</span>
+              <span className="watch-badge">{ownKeys.has(summary.key) ? copy.yoursBadge : copy.sampleBadge}</span>
             </div>
             <p className="watch-count">{copy.reportCount(summary.reportCount)}</p>
             <ul className="watch-patterns">
@@ -95,7 +96,7 @@ export default function EmployerWatch({ language, onBack }: { language: Language
       <div className="watch-form">
         <h2>{copy.addTitle}</h2>
         <p className="watch-form-note">{copy.addNote}</p>
-        <label className="watch-field"><span>{copy.employerLabel}</span><input value={employer} placeholder={copy.employerPlaceholder} onChange={event => setEmployer(event.target.value)} /></label>
+        <label className="watch-field"><span>{copy.industryLabel}</span><select value={industry} onChange={event => setIndustry(event.target.value as IndustryKey)}>{industryKeys.map(key => <option key={key} value={key}>{copy.industries[key]}</option>)}</select></label>
         <label className="watch-field"><span>{copy.suburbLabel}</span><input value={suburb} placeholder={copy.suburbPlaceholder} onChange={event => setSuburb(event.target.value)} /></label>
         <fieldset className="watch-patterns-picker">
           <legend>{copy.patternsLabel}</legend>

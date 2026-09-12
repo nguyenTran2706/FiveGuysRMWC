@@ -60,3 +60,6 @@
 .summary-flag-preview p { font-size: 13.5px; }
 .summary-flag-blocked { color: var(--muted); font-size: 12.5px; }
 .summary-flag-added { color: var(--amber); font-size: 12.5px; }
+
+.summary-flag-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .summary-flag-fields { grid-template-columns: 1fr; } }
