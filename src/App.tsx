@@ -200,7 +200,7 @@ export default function App() {
       </>}
 
       {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {sydneyTime}</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
-        <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div><p className="legal-disclaimer">{t.disclaimer}</p>
+        <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div>
       </section>}
 
       {page === 'game' && <section className={`game-scene stage-${stage}`}>

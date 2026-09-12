@@ -86,7 +86,7 @@ export default function Intake({ language, caseFile, onChange, onReview, onBack 
   const [narrativeLanguage] = useState<Language>(() => caseFile.narrative.vi ? 'vi' : caseFile.narrative.en ? 'en' : language);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const questions = [copy.narrativeQuestion, copy.industryQuestion, copy.employmentQuestion, copy.visaQuestion, copy.payQuestion, copy.selfReportQuestion, copy.detailQuestion, copy.evidenceQuestion, copy.contactQuestion, copy.alternateQuestion, copy.employerQuestion];
-  const notes = [copy.noPressure, copy.optionalField, copy.optionalField, copy.visaNote, copy.payNote, copy.selfReportNote, copy.detailNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
+  const notes = [copy.noPressure, '', '', copy.visaNote, copy.payNote, copy.selfReportNote, copy.detailNote, copy.evidenceNote, copy.contactNote, copy.alternateNote, copy.employerNote];
   const pages: number[][] = [[0, 1, 2, 3, 4], [5, 6], [7, 8, 9, 10]];
 
   function turn(review = false) {
@@ -111,12 +111,12 @@ export default function Intake({ language, caseFile, onChange, onReview, onBack 
       <div className="intake-question-heading"><span className="intake-eyebrow">{copy.questions}</span><span>{copy.pageLabel[page]}</span></div><h2 ref={headingRef} tabIndex={-1}>{copy.pageTitles[page]}</h2><p className="intake-question-note">{copy.pageNotes[page]}</p>
       <div className="intake-answer-area" key={page}>
       {pages[page].map(step => <div className="intake-block" key={step}>
-        <h3>{questions[step]}</h3><p className="intake-question-note">{notes[step]}</p>
+        <h3>{questions[step]}</h3>{notes[step] && <p className="intake-question-note">{notes[step]}</p>}
         <QuestionFields step={step} language={language} caseFile={caseFile} onChange={onChange} narrativeLanguage={narrativeLanguage} onNarrativeChange={value => { onChange({ ...caseFile, narrative: { ...caseFile.narrative, [narrativeLanguage]: value } }); setVisaFear(/visa|deport|immigra|di tru|truc xuat|bi duoi ve|so.{0,25}(482|500|gio lam)/.test(normalize(value))); }} />
         {(step === 3 || (step === 0 && visaFear)) && <div className="intake-visa-note"><ShieldCheck size={18} /><div><strong>{copy.visaReassuranceTitle}</strong><p>{copy.visaReassurance}</p><a href={FAIR_WORK_VISA_URL} target="_blank" rel="noopener noreferrer">{copy.visaLink}<ArrowRight size={13} /></a></div></div>}
       </div>)}
       </div><div className="intake-form-actions"><button className="intake-text-button" type="button" onClick={() => turn()}>{copy.skipPage}</button><button className="intake-primary" type="submit">{page === pages.length - 1 ? copy.review : copy.next}<ArrowRight size={17} /></button></div>
       </form>}
-    </section></div><p className="intake-bottom-note"><LockKeyhole size={12} />{copy.optional}</p>
+    </section></div>
   </section>;
 }
