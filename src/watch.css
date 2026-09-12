@@ -54,3 +54,9 @@
   .watch-columns { grid-template-columns: 1fr; }
   .watch-form { position: static; }
 }
+
+.summary-flag-optin h2 { display: flex; align-items: center; gap: 10px; }
+.summary-flag-preview { margin: 4px 0; padding: 16px 18px; border: 1px solid var(--amber); background: #1b1a13; display: grid; gap: 6px; }
+.summary-flag-preview p { font-size: 13.5px; }
+.summary-flag-blocked { color: var(--muted); font-size: 12.5px; }
+.summary-flag-added { color: var(--amber); font-size: 12.5px; }

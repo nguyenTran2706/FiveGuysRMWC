@@ -34,6 +34,14 @@ interface WatchCopy {
   clear: string;
   back: string;
   months: string;
+  flagTitle: string;
+  flagIntro: string;
+  flagCheckbox: string;
+  flagPreviewLabel: string;
+  flagPrototype: string;
+  flagAdded: string;
+  flagNoEmployer: string;
+  flagNoPatterns: string;
 }
 
 export const watchCopy: Record<Language, WatchCopy> = {
@@ -76,6 +84,14 @@ export const watchCopy: Record<Language, WatchCopy> = {
     clear: 'Xoá những ghi nhận tôi đã thêm',
     back: 'Quay lại',
     months: 'Thời gian ghi nhận',
+    flagTitle: 'Ghi nhận nơi làm việc này vào Cảnh báo cộng đồng',
+    flagIntro: 'Bạn có thể để người lao động khác biết về những vấn đề bạn đã gặp tại nơi làm việc này. Mục này hoàn toàn tự nguyện và mặc định đang tắt.',
+    flagCheckbox: 'Thêm nơi làm việc này vào Cảnh báo cộng đồng.',
+    flagPreviewLabel: 'Nội dung sẽ được thêm, và chỉ có bấy nhiêu',
+    flagPrototype: 'Trong bản thử nghiệm này, ghi nhận chỉ được lưu trên thiết bị của bạn và không ai khác xem được. Lời kể, tiền lương, loại visa và thông tin liên lạc của bạn không bao giờ được thêm vào.',
+    flagAdded: 'Đã thêm vào Cảnh báo cộng đồng trên thiết bị này. Bỏ đánh dấu để xoá.',
+    flagNoEmployer: 'Mục này cần tên nơi làm việc. Bạn có thể điền ở phần "Nơi làm việc" bên trên nếu muốn.',
+    flagNoPatterns: 'Mục này cần ít nhất một loại vấn đề bạn đã chọn ở Phần 2 của bộ câu hỏi.',
   },
   en: {
     navLabel: 'Community warnings',
@@ -116,5 +132,13 @@ export const watchCopy: Record<Language, WatchCopy> = {
     clear: 'Delete the reports I have submitted',
     back: 'Back',
     months: 'Periods recorded',
+    flagTitle: 'Record this workplace in Community warnings',
+    flagIntro: 'You may inform other workers of the issues you encountered at this workplace. This is entirely voluntary and is switched off by default.',
+    flagCheckbox: 'Add this workplace to Community warnings.',
+    flagPreviewLabel: 'The entry that would be added, and nothing further',
+    flagPrototype: 'In this prototype, the entry is stored on your device only and no other person can view it. Your account, pay details, visa type and contact details are never included.',
+    flagAdded: 'Added to Community warnings on this device. Clear the selection to remove it.',
+    flagNoEmployer: 'This requires the name of the workplace. You may enter it in the “Workplace” section above if you wish.',
+    flagNoPatterns: 'This requires at least one issue type, as selected in Part 2 of the questionnaire.',
   },
 };

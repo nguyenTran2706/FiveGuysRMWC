@@ -53,6 +53,15 @@ export function saveReport(report: EmployerReport): EmployerReport[] {
   return next;
 }
 
+/** Removes the most recent report for one workplace and month, so an opt-in can be undone. */
+export function removeReport(employer: string, month: string): EmployerReport[] {
+  const reports = loadReports();
+  const index = reports.map(report => normalizeEmployer(report.employer) === normalizeEmployer(employer) && report.month === month).lastIndexOf(true);
+  const next = index === -1 ? reports : [...reports.slice(0, index), ...reports.slice(index + 1)];
+  try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* private browsing: nothing was stored */ }
+  return next;
+}
+
 export function clearReports(): void {
   try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* nothing to clear */ }
 }
