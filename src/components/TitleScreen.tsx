@@ -19,7 +19,6 @@ type Props = {
 export function TitleScreen({ t, time, sound, onStart, onHelp, onSettings, onPrivacy, onSound, onDiscover }: Props) {
   return (
     <section className="title-screen">
-      <img className="title-screen-portrait" src="/images/linh.webp" alt="" fetchPriority="high" />
       <div className="title-screen-fade" aria-hidden="true" />
       <div className="title-screen-scanlines" aria-hidden="true" />
 
