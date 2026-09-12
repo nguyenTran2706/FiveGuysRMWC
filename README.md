@@ -24,6 +24,8 @@ npm.cmd run dev
 
 - Cinematic scenes and branching conversations for seven residents, with consequences for how you respond, content-warning skips and a quiet transition into your own story.
 - Vietnamese/English copy, keyboard controls, optional ambient rain and browser speech playback where a suitable device voice exists.
+- A minimal cinematic title menu with original cast artwork, working Continue and settings, seven distinct local character portraits, and complete bilingual character descriptions.
+- A live AEST clock (UTC+10 year-round), updated every second. English uses a 12-hour clock and Vietnamese uses 24-hour time; the fictional scenes keep their night-time setting.
 - A shared in-memory `CaseFile`, optional guided intake, editable summary, evidence and safe-contact details.
 - Persistent quick exit and essential contact links. Quick exit replaces the current page; a website cannot erase earlier browser history, network records or downloaded files.
 - Supabase schema and a consent-validating submission function, supplied as a backend scaffold. No live database, real staff accounts or caseworker notifications are connected.
@@ -49,4 +51,4 @@ Backend tests exercise consent rejection, skipped personal fields, forged metada
 
 The browser suite (`npx playwright test`) uses installed Microsoft Edge on Windows and checks desktop/mobile layout, language state, story completion, return visits, content skips, quick exit, safe contact, local downloads and crisis interruption. Adjust the executable path in `playwright.config.mjs` on another system. Run the Vite server before browser tests.
 
-See [production integration notes](docs/production.md) for deployment boundaries, [source references](docs/legal-sources.md) for the official resources used, and [artwork notes](docs/artwork.md) for final image paths and generation prompts. Inter is bundled locally; no external font requests are made.
+See [production integration notes](docs/production.md) for deployment boundaries, [source references](docs/legal-sources.md) for the official resources used, [current artwork and prompts](docs/artwork-refresh.md), and [original artwork notes](docs/artwork.md). Inter is bundled locally; no external font requests are made. [Git in VS Code](docs/vscode-git.md) explains how to open and sync this repository.

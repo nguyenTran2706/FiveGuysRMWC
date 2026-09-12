@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme { --color-night: #101311; --color-paper: #efeee5; --color-amber: #ddbb83; }
-:root { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; --font-display: 'Space Grotesk', 'Inter', sans-serif; --font-mono: 'JetBrains Mono', ui-monospace, monospace; color: #efeee5; background: #101311; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; --bg: #101311; --panel: #1a1e1a; --text: #efeee5; --muted: #aeb1a6; --amber: #ddbb83; --border: rgba(233, 235, 219, .17); }
+:root { font-family: 'Inter Variable', 'Segoe UI', Arial, sans-serif; --font-display: 'Inter Variable', 'Segoe UI', Arial, sans-serif; --font-mono: Consolas, ui-monospace, monospace; color: #efeee5; background: #101311; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; --bg: #101311; --panel: #1a1e1a; --text: #efeee5; --muted: #aeb1a6; --amber: #ddbb83; --border: rgba(233, 235, 219, .17); }
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; }
 button, input, textarea, select { font: inherit; }
@@ -108,10 +108,6 @@ h1,h2,h3,p { margin: 0; }
 .resident-content > p { font-size: 12px; line-height: 1.6; min-height: 38px; color: #c6cabd; }
 .resident-intro { font-size: 11px; line-height: 1.75; color: #9aa294; margin-top: 8px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .resident-action { margin-top: 15px; border-top: 1px solid #c6c8b22e; padding-top: 15px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #d1c4a7; }
-.resident-tram img { object-position: 15% center; filter: brightness(.7); }
-.resident-duc img { object-position: 50% center; filter: hue-rotate(8deg) brightness(.8); }
-.resident-khoa img { object-position: 83% center; filter: brightness(.65); }
-.resident-mai img { object-position: 26% center; filter: brightness(.6); }
 .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; padding-top: 30px; padding-bottom: 90px; }
 .about-lead h2 { max-width: 450px; line-height: 1.4; margin: 18px 0 20px; }
 .about-lead > p { font-size: 13px; color: var(--muted); max-width: 420px; line-height: 1.9; }
@@ -265,6 +261,16 @@ h1,h2,h3,p { margin: 0; }
   .scene-visa-note p { font-size: 11px; }
 }
 
-/* Type system: Space Grotesk display, Inter body, JetBrains Mono metadata */
+/* Locally bundled Inter Variable with system monospace metadata. */
 h1, h2, h3, .brand strong { font-family: var(--font-display); }
 .eyebrow, .hero-eyebrow, .hero-subtitle, .scene-coordinate, .resident-number, .quick-exit kbd, .pace-note, .privacy-inline { font-family: var(--font-mono); }
+
+/* Give each full description its own space below the cinematic portrait. */
+.resident-card { display: flex; flex-direction: column; height: auto; padding: 246px 0 0; background: #151a16; }
+.resident-card img { height: 260px; object-position: 74% center; filter: saturate(.85); }
+.resident-card:hover img { transform: none; filter: saturate(1); }
+.resident-scrim { height: 270px; background: linear-gradient(180deg,#080d0b80,transparent 24%,transparent 65%,#151a16); }
+.resident-content { position: relative; left: auto; right: auto; bottom: auto; padding: 0 24px 24px; flex: 1; display: flex; flex-direction: column; }
+.resident-content > .resident-intro { display: block; overflow: visible; -webkit-line-clamp: unset; color: #b5bdb0; font-size: 12px; line-height: 1.8; margin: 12px 0 24px; }
+.resident-action { margin-top: auto; }
+@media (max-width: 600px) { .resident-card { height: auto; } }
