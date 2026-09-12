@@ -1,0 +1,3 @@
+[functions.submit-case]
+# Visitors do not need an account. This function validates consent and is the only write boundary.
+verify_jwt = false
