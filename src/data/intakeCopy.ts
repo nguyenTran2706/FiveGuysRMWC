@@ -31,6 +31,9 @@ export const intakeCopy = {
     exitsTitle: 'Bạn muốn đi tiếp thế nào?', clinicTitle: 'Liên hệ RMWC', clinicText: 'Mở trang Work Rights Clinic và tiếp tục với mẫu đơn chính thức.', clinicAction: 'Mở trang hỗ trợ', saveTitle: 'Giữ lại để xem sau', saveText: 'Tải hồ sơ và bản tóm tắt về thiết bị. Bạn quyết định khi nào sẵn sàng.', saveAction: 'Tải bản nháp', callTitle: 'Nói chuyện với một người', callText: 'RMWC · Thứ Hai–Thứ Sáu, 9:00–17:00.', callAction: 'Gọi 1300 513 107', shareTitle: 'Gửi cho người cần biết', shareText: 'Chỉ chia sẻ đường dẫn ứng dụng. Không có thông tin hồ sơ đi kèm.', shareAction: 'Chia sẻ đường dẫn',
     handoff: 'Bản nháp này chưa được gửi. Trang này mở dịch vụ RMWC hiện có; hãy tự chuyển những thông tin bạn muốn chia sẻ. Không có nhân viên nào được tự động phân công.', downloadNote: 'Tệp tải xuống có thể chứa thông tin riêng tư. Chỉ lưu trên thiết bị bạn tin tưởng.', downloaded: 'Đã tạo tệp tải xuống. Hãy kiểm tra thư mục tải về.', shared: 'Đã sao chép đường dẫn ứng dụng, không có hồ sơ.', shareFallback: 'Sao chép đường dẫn này để chia sẻ:', shareAppTitle: 'Biết quyền của mình', shareAppText: 'Bảy câu chuyện về cuộc sống và công việc. Khám phá theo nhịp của bạn.', close: 'Đóng',
     reviewLink: 'Xem bản tóm tắt bất cứ lúc nào', stepLabels: ['Lời kể', 'Công việc', 'Tình trạng làm việc', 'Visa', 'Tài liệu', 'Liên hệ an toàn', 'Người liên hệ khác', 'Nơi làm việc'],
+    pageTitles: ['Chuyện của bạn và công việc', 'Tài liệu và cách liên hệ'],
+    pageNotes: ['Trả lời những gì bạn muốn, theo thứ tự nào cũng được. Bạn có thể bỏ trống bất cứ ô nào.', 'Phần cuối. Chỉ điền những gì bạn thấy an toàn, rồi xem bản tóm tắt.'],
+    pageLabel: ['Phần 1 / 2', 'Phần 2 / 2'], questions: 'CÁC CÂU HỎI', skipPage: 'Bỏ qua phần này',
   },
   en: {
     eyebrow: 'A LITTLE SPACE FOR YOU', title: 'Now, your story.',
@@ -64,6 +67,9 @@ export const intakeCopy = {
     exitsTitle: 'How would you like to continue?', clinicTitle: 'Contact RMWC', clinicText: 'Open the Work Rights Clinic page and continue with the official enquiry form.', clinicAction: 'Open legal help', saveTitle: 'Keep it for later', saveText: 'Download your file and summary to your device. You decide when you are ready.', saveAction: 'Download my draft', callTitle: 'Talk to a person', callText: 'RMWC · Monday–Friday, 9:00–17:00.', callAction: 'Call 1300 513 107', shareTitle: 'Pass it on', shareText: 'Share only the app link with someone who might need it. No case details are included.', shareAction: 'Share app link',
     handoff: 'Your draft has not been sent. This page opens RMWC’s existing service; transfer only the information you choose to share. No caseworker is automatically assigned.', downloadNote: 'The download may contain private information. Save it only on a device you trust.', downloaded: 'Your download has been created. Check your downloads folder.', shared: 'The app link was copied without any case details.', shareFallback: 'Copy this app link to share:', shareAppTitle: 'Know Your Rights', shareAppText: 'Seven stories about work and life. Explore at your own pace.', close: 'Close',
     reviewLink: 'Review your summary at any time', stepLabels: ['Your account', 'Your work', 'Employment', 'Visa', 'Records', 'Safe contact', 'Another contact', 'Workplace'],
+    pageTitles: ['Your story and your work', 'Records and how to reach you'],
+    pageNotes: ['Answer whatever you like, in any order. Any field can be left blank.', 'Last part. Share only what feels safe, then review your summary.'],
+    pageLabel: ['Part 1 of 2', 'Part 2 of 2'], questions: 'THE QUESTIONS', skipPage: 'Skip this part',
   },
 } as const;
 
