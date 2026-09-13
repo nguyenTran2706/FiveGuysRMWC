@@ -1,23 +1,24 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
 import { copy } from './data/copy';
-import { watchCopy } from './data/watchCopy';
 import { useAmbient } from './hooks/useAmbient';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
-import { BrandMark } from './components/BrandMark';
 import { BootScreen } from './components/BootScreen';
+import { TrustMeter } from './components/TrustMeter';
+import { Debrief } from './components/Debrief';
+import { choiceWhy } from './data/feedback';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
 const RightsChat = lazy(() => import('./components/RightsChat'));
 type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'chat';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
-type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
+type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'debrief' | 'epilogue';
 type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
 
 function WindowMark({ small = false }: { small?: boolean }) {
@@ -43,6 +44,9 @@ export default function App() {
   const [activeId, setActiveId] = useState('linh');
   const [stage, setStage] = useState<Stage>('dialogue');
   const [note, setNote] = useState('');
+  const [reaction, setReaction] = useState<{ text: string; delta: number } | null>(null);
+  const [openWhy, setOpenWhy] = useState<string | null>(null);
+  const reactTimer = useRef<number | undefined>(undefined);
   const [speaking, setSpeaking] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
@@ -86,7 +90,8 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', hide);
   }, [page, cancelSpeech]);
 
-  function navigate(next: Page) { cancelSpeech(); setOverlay(null); setPage(next); }
+  function clearReaction() { window.clearTimeout(reactTimer.current); setReaction(null); setOpenWhy(null); }
+  function navigate(next: Page) { cancelSpeech(); setOverlay(null); clearReaction(); setPage(next); }
   function beginIntake() {
     if (page === 'home') setCaseFile(current => ({ ...current, source: 'agent' }));
     navigate('intake');
@@ -113,7 +118,7 @@ export default function App() {
   }
   function finish(closed = false) {
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], status: closed ? 'closed' : 'heard' } }));
-    setStage(closed ? 'epilogue' : 'reflection');
+    setStage(closed ? 'debrief' : 'reflection');
   }
   function advance() {
     if (!node || node.choices?.length) return;
@@ -121,11 +126,19 @@ export default function App() {
     else if (node.next === 'closed') finish(true);
     else setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: node.next! } }));
   }
-  function choose(choice: Choice) {
+  function applyChoice(choice: Choice) {
     const next = active.nodes[choice.next];
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: next ? choice.next : current[activeId].node, trust: current[activeId].trust + (choice.trust ?? 0), kept: current[activeId].kept || !!choice.recordEvidence } }));
     if (!next && choice.next === 'reflection') finish();
     else if (!next && choice.next === 'closed') finish(true);
+  }
+  function choose(choice: Choice) {
+    if (reaction) return;
+    const delta = choice.trust ?? 0;
+    const line = choice.recordEvidence ? t.reactionEvidence : delta > 0 ? t.reactionPositive : delta < 0 ? t.reactionNegative : t.reactionNeutral;
+    setReaction({ text: line.replace('{name}', active.name), delta });
+    window.clearTimeout(reactTimer.current);
+    reactTimer.current = window.setTimeout(() => { setReaction(null); setOpenWhy(null); applyChoice(choice); }, 1800);
   }
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
@@ -139,6 +152,7 @@ export default function App() {
     window.addEventListener('keydown', keydown);
     return () => window.removeEventListener('keydown', keydown);
   });
+  useEffect(() => () => window.clearTimeout(reactTimer.current), []);
   function speak(text: string) {
     if (speaking) { cancelSpeech(); return; }
     if (!('speechSynthesis' in window)) { setAudioError(true); return; }
@@ -158,15 +172,15 @@ export default function App() {
     } else {
       setCaseFile(current => ({ ...current, flags: current.flags.filter(flag => flag.sourceNpc !== activeId) }));
     }
-    setStage(answer === 'yes' ? 'deepening' : activeId === 'linh' ? 'artifact' : 'epilogue');
+    setStage(answer === 'yes' ? 'deepening' : activeId === 'linh' ? 'artifact' : 'debrief');
   }
   function saveNote() {
     if (note.trim()) setCaseFile(current => ({ ...current, narrative: { ...current.narrative, [language]: [current.narrative[language], note.trim()].filter(Boolean).join('\n\n') }, flags: current.flags.map(flag => flag.sourceNpc === activeId ? { ...flag, signals: [...flag.signals, note.trim()] } : flag) }));
-    setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'epilogue');
+    setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'debrief');
   }
   function payslipAnswer(answer?: 'always' | 'sometimes' | 'never') {
     if (answer) setCaseFile(current => ({ ...current, detail: { ...current.detail, underpayment: { ...current.detail.underpayment, payslips: answer } }, evidenceHeld: { ...current.evidenceHeld, payslips: answer !== 'never' } }));
-    setStage('epilogue');
+    setStage('debrief');
   }
   function fullscreen() {
     if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
@@ -206,20 +220,22 @@ export default function App() {
       {page === 'game' && <section className={`game-scene stage-${stage}`}>
         <img key={active.id} src={active.image} className="game-image" alt="" width="1672" height="940" /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
         <div className="game-topbar"><button className="text-link" onClick={() => navigate('street')}><ArrowLeft size={17} />{t.walk}</button><div className="player-controls"><button className="icon-button" onClick={() => setSound(!sound)} title={sound ? t.soundOff : t.sound} aria-label={sound ? t.soundOff : t.sound}>{sound ? <Volume2 size={19} /> : <VolumeX size={19} />}</button><button className="icon-button" onClick={() => { cancelSpeech(); setOverlay('pause'); }} title={t.pause} aria-label={t.pause}><Pause size={18} /></button><button className="icon-button" onClick={() => setOverlay('settings')} title={t.settings} aria-label={t.settings}><Settings2 size={19} /></button><button className="icon-button fullscreen-button" onClick={fullscreen} title={t.fullScreen} aria-label={t.fullScreen}><Maximize size={17} /></button></div></div>
-        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}</div>
+        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}{stage === 'dialogue' && session && <TrustMeter t={t} trust={session.trust} />}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
           <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>
           {/visa/i.test(node.text.en) && <aside className="scene-visa-note"><ShieldCheck size={17} /><div><strong>{t.visaTitle}</strong><p>{t.visaNote}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants/visa-protections-pilot-programs" target="_blank" rel="noopener noreferrer">Fair Work<ExternalLink size={11} /></a></div></aside>}
-          {node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => <button className="choice-button" key={choice.id} onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>)}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
+          {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <><button className="choice-why" aria-expanded={openWhy === choice.id} onClick={() => setOpenWhy(openWhy === choice.id ? null : choice.id)}><Info size={12} /><span>{t.whyLabel}</span></button>{openWhy === choice.id && <p className="choice-why-text">{why}</p>}</>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
         </div>}
 
-        {(stage === 'reflection' || stage === 'artifact' || stage === 'deepening') && <div className="reflection-wrap"><div className="reflection-panel"><span className="eyebrow">{t.reflectionEyebrow}</span><h2>{stage === 'deepening' ? t.deepeningTitle : stage === 'artifact' ? t.artifactQuestion : t.reflectionTitle}</h2><p>{stage === 'deepening' ? t.deepeningHint : t.reflectionText}</p>
+        {(stage === 'reflection' || stage === 'artifact' || stage === 'deepening') && <div className="reflection-wrap"><div className="reflection-panel"><span className="eyebrow">{t.reflectionEyebrow}</span><h2>{stage === 'deepening' ? t.deepeningTitle : stage === 'artifact' ? t.artifactQuestion : t.reflectionTitle}</h2><p>{stage === 'deepening' ? t.deepeningHint : t.reflectionText}</p><p className="question-explain">{stage === 'deepening' ? t.deepeningExplainer : stage === 'artifact' ? t.artifactExplainer : t.reflectionExplainer}</p>
           {stage === 'reflection' && <div className="reflection-choices">{([['yes', t.yes], ['no', t.no], ['possible', t.unsure], ['skip', t.preferSkip]] as const).map(([value, label]) => <button className="button button-outline" key={value} onClick={() => reflect(value)}>{label}<ArrowRight size={17} /></button>)}</div>}
           {stage === 'artifact' && <div className="reflection-choices">{([['always', t.always], ['sometimes', t.sometimes], ['never', t.never]] as const).map(([value, label]) => <button className="button button-outline" key={value} onClick={() => payslipAnswer(value)}>{label}<ArrowRight size={17} /></button>)}<button className="button button-outline" onClick={() => payslipAnswer()}>{t.preferSkip}<ArrowRight size={17} /></button></div>}
-          {stage === 'deepening' && <><label className="sr-only" htmlFor="reflection-note">{t.deepeningTitle}</label><textarea id="reflection-note" value={note} maxLength={10000} onChange={event => setNote(event.target.value)} placeholder={t.deepeningPlaceholder} rows={4} /><div className="reflection-actions"><button className="button button-amber" onClick={saveNote}>{t.keepNote}<ArrowRight size={17} /></button><button className="text-link" onClick={() => { setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'epilogue'); }}>{t.skip}</button></div></>}
+          {stage === 'deepening' && <><label className="sr-only" htmlFor="reflection-note">{t.deepeningTitle}</label><textarea id="reflection-note" value={note} maxLength={10000} onChange={event => setNote(event.target.value)} placeholder={t.deepeningPlaceholder} rows={4} /><div className="reflection-actions"><button className="button button-amber" onClick={saveNote}>{t.keepNote}<ArrowRight size={17} /></button><button className="text-link" onClick={() => { setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'debrief'); }}>{t.skip}</button></div></>}
           <div className="rights-note"><ShieldCheck size={19} /><div><span className="eyebrow">{t.generalInfo}</span><p>{legalNotes[active.archetype][language]}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants" target="_blank" rel="noopener noreferrer">{t.learnRights}<ExternalLink size={12} /></a></div></div>
         </div></div>}
+
+        {stage === 'debrief' && <div className="reflection-wrap"><Debrief t={t} language={language} resident={active} trust={session?.trust ?? 0} kept={!!session?.kept} status={session?.status ?? 'playing'} heardCount={heardResidents.length} unlocked={unlocked} onContinue={() => setStage('epilogue')} /></div>}
 
         {stage === 'epilogue' && <div className="epilogue-panel"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[session?.kept && session.status !== 'closed' ? 'kept' : 'missed'][language]}</p><p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
