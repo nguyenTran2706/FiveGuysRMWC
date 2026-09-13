@@ -1,4 +1,4 @@
-.watch-page { padding: 132px 0 96px; display: grid; gap: 34px; }
+.watch-page { padding-top: 132px; padding-bottom: 96px; display: grid; gap: 34px; }
 .watch-back { justify-self: start; display: inline-flex; align-items: center; gap: 8px; }
 .watch-heading { max-width: 640px; display: grid; gap: 14px; }
 .watch-heading h1 { font-family: var(--font-display); font-size: clamp(30px, 4.4vw, 48px); font-weight: 500; line-height: 1.08; }
