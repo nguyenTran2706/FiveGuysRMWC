@@ -18,6 +18,7 @@ export const copy = {
   },
   en: {
     brand: 'KNOW YOUR RIGHTS', byline: 'AN EXPERIENCE FROM RMWC', story: 'The stories', about: 'About this experience', help: 'Request support', exit: 'Quick exit', exitHint: 'Quick exit to a weather website. Press Escape.',
+    newGame: 'New game', mainMenu: 'Main menu', meetNeighbours: 'Meet the neighbours', menuSettings: 'Settings', liveClock: 'Live clock',
     presents: 'RMWC PRESENTS', interactive: 'AN INTERACTIVE STORY', titleFirst: 'AFTER', titleSecond: 'HOURS.', englishTitle: 'SAU GIỜ LÀM',
     intro: 'One street. Seven neighbours.', introSecond: 'The stories that do not clock off.', description: 'Listen, choose how to respond, and you may recognise something of your own experience.', understand: 'I would like to understand', understandSub: 'ENTER THE STORY', helpNow: 'I need support now', helpSub: 'A CONVERSATION AT YOUR OWN PACE',
     location: 'CABRAMATTA, SOUTHWEST SYDNEY', time: '10:42 PM', rain: 'LIGHT RAIN', sound: 'Turn rain sound on', soundOff: 'Turn rain sound off', headphones: 'A quiet moment, and a pair of headphones.', ownPace: 'At your own pace', noTimer: 'No countdowns. No correct answers.',
