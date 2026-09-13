@@ -26,6 +26,15 @@ export function isUnusable(answer) {
   return answer.length < 40 || UNUSABLE.test(answer);
 }
 
+// The small local model often ignores the language instruction, so a Vietnamese request is
+// verified here: Vietnamese prose always carries diacritics or đ/ơ/ư style letters.
+const VIETNAMESE_LETTERS = /[àáảãạăằắẳẵặâầấẩẫậđèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ]/i;
+
+export function looksVietnamese(text) {
+  const matches = String(text).match(new RegExp(VIETNAMESE_LETTERS, 'gi')) ?? [];
+  return matches.length >= 3;
+}
+
 export function buildPrompt(question, language, passages) {
   const languageName = language === 'vi' ? 'Vietnamese' : 'English';
   const context = passages
@@ -41,7 +50,8 @@ export function buildPrompt(question, language, passages) {
       'Never say you lack context, cannot answer, or need more information. Summarise the relevant passage instead.',
       'Never judge the user\'s own situation: do not say whether what happened to them is lawful, unlawful, discrimination, minor, acceptable or "just joking", and never tell them how it will be decided.',
       'Structure every answer this way: first state what the passages say the rule is, including the specific timeframes, amounts and steps they contain; only then, in one final sentence, add that their own case can be checked with the Fair Work Infoline on 13 13 94 or the Refugee and Migrant Workers Centre on 1300 513 107.',
-      `Answer in ${languageName}, in plain language, at most 130 words. Do not invent links.`,
+      `Write the ENTIRE answer in ${languageName} only — every sentence, including the phone-number sentence. Do not answer in any other language.`,
+      'Use plain language, at most 130 words. Do not invent links.',
       'This is general information, not legal advice.',
     ].join(' '),
     user: `Passages:\n\n${context}\n\nQuestion: ${question}`,
@@ -90,7 +100,9 @@ export async function answerQuestion(question, language = 'en', callModel = call
   } catch (error) {
     if (error?.message === 'model_loading') throw error;
   }
-  if (!answer || isUnusable(answer)) answer = passages[0].text[lang];
+  // Fall back to the curated bilingual passage when the model is unusable or answered in
+  // the wrong language, so a Vietnamese question is never answered in English.
+  if (!answer || isUnusable(answer) || (lang === 'vi' && !looksVietnamese(answer))) answer = passages[0].text[lang];
   return {
     kind: 'answer',
     grounded: true,

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { answerQuestion, buildPrompt, REFUSAL, GREETING, isUnusable } from '../api/rightsChat.mjs';
+import { answerQuestion, buildPrompt, REFUSAL, GREETING, isUnusable, looksVietnamese } from '../api/rightsChat.mjs';
 import { retrieve, knowledgeBase } from '../src/lib/retrieval.mjs';
 
 const echoModel = ({ user }) => `Answer grounded in: ${user.slice(0, 40)}`;
@@ -72,6 +72,25 @@ test('common real-world phrasings reach the right passage', async () => {
     assert.ok(grounded, `${question}: expected a grounded match`);
     assert.ok(passages.some(passage => passage.id === expectedId), `${question}: expected ${expectedId}, got ${passages.map(p => p.id).join(', ')}`);
   }
+});
+
+test('a Vietnamese question is never answered in English', async () => {
+  const english = 'An employer must give an employee a pay slip within 1 working day of pay day, even on leave.';
+  const result = await answerQuestion('Chủ không đưa phiếu lương cho tôi.', 'vi', () => english);
+  assert.equal(result.kind, 'answer');
+  assert.notEqual(result.answer, english, 'an English answer must be replaced by the Vietnamese passage');
+  assert.ok(looksVietnamese(result.answer));
+
+  // A genuine Vietnamese answer from the model is kept as-is.
+  const vietnamese = 'Chủ lao động phải đưa phiếu lương trong vòng 1 ngày làm việc sau ngày trả lương, kể cả khi bạn đang nghỉ phép.';
+  const kept = await answerQuestion('Chủ không đưa phiếu lương cho tôi.', 'vi', () => vietnamese);
+  assert.equal(kept.answer, vietnamese);
+
+  // English requests are unaffected.
+  const en = await answerQuestion('My boss never gives me pay slip.', 'en', () => english);
+  assert.equal(en.answer, english);
+  assert.ok(!looksVietnamese(english));
+  assert.match(buildPrompt('x', 'vi', retrieve('pay slip').passages).system, /ENTIRE answer in Vietnamese/);
 });
 
 test('greetings get a welcome with topic suggestions, never the refusal and never the model', async () => {

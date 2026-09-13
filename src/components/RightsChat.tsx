@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState } from 'react';
-import { ArrowRight, ExternalLink, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ArrowRight, ExternalLink, Languages, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import type { Language } from '../types';
 import { chatCopy } from '../data/chatCopy';
 import { knowledgeBase, suggestedStarters } from '../lib/retrieval.mjs';
@@ -16,7 +16,11 @@ type Turn = {
   error?: 'loading' | 'general';
 };
 
-export default function RightsChat({ language }: { language: Language }) {
+export default function RightsChat({ language: appLanguage }: { language: Language }) {
+  // The chat keeps its own language so a worker can read answers in Vietnamese without
+  // switching the whole experience; the global header choice still seeds and updates it.
+  const [language, setLanguage] = useState<Language>(appLanguage);
+  useEffect(() => { setLanguage(appLanguage); }, [appLanguage]);
   const t = chatCopy[language];
   const [question, setQuestion] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
@@ -51,7 +55,15 @@ export default function RightsChat({ language }: { language: Language }) {
 
   return <section className="chat-page">
     <div className="chat-head">
-      <span className="eyebrow">{t.eyebrow}</span>
+      <div className="chat-head-top">
+        <span className="eyebrow">{t.eyebrow}</span>
+        <button className="chat-language" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')}
+          aria-label={language === 'vi' ? 'Answer in English' : 'Trả lời bằng tiếng Việt'}>
+          <Languages size={14} />
+          <span className="chat-language-active">{language === 'vi' ? 'VI' : 'EN'}</span>
+          <span className="chat-language-alt">/ {language === 'vi' ? 'EN' : 'VI'}</span>
+        </button>
+      </div>
       <h1>{t.title}</h1>
       <p>{t.intro}</p>
     </div>

@@ -1,4 +1,8 @@
 .chat-page { max-width: 940px; margin: 0 auto; padding: 132px 24px 120px; display: flex; flex-direction: column; gap: 26px; }
+.chat-head-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.chat-language { display: flex; align-items: center; gap: 7px; font-size: 11px; font-family: var(--font-mono); letter-spacing: .08em; color: #e6ebe1; background: #151a1666; border: 1px solid #2c342c; border-radius: 999px; padding: 7px 14px; white-space: nowrap; transition: border-color .2s, background .2s; }
+.chat-language:hover { border-color: #d9a13b; background: #171d18; }
+.chat-language-alt { color: #92968b; }
 .chat-head h1 { margin: 10px 0 12px; font-size: clamp(27px, 4vw, 40px); }
 .chat-head p { color: #b5bdb0; font-size: 14px; line-height: 1.8; max-width: 62ch; }
 .chat-coverage { display: flex; flex-direction: column; gap: 12px; }
