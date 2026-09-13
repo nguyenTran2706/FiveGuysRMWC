@@ -21,6 +21,12 @@ function WindowMark({ small = false }: { small?: boolean }) {
   return <svg width={small ? 26 : 35} height={small ? 30 : 40} viewBox="0 0 35 40" fill="none" aria-hidden="true"><path d="M3 37V8l28-5v34M17 6v31M3 21h28" stroke="currentColor" strokeWidth="1.6" /><path d="M8 37V13l5-1v25" fill="currentColor" fillOpacity=".25" /></svg>;
 }
 
+function getStoryProgress(resident: Resident, currentId: string) {
+  const nodeIds = Object.keys(resident.nodes);
+  const currentIndex = Math.max(0, nodeIds.indexOf(currentId));
+  return Math.round(((currentIndex + 1) / nodeIds.length) * 100);
+}
+
 export default function App() {
   const [language, setLanguage] = useState<Language>('vi');
   const [page, setPage] = useState<Page>('home');
@@ -39,6 +45,7 @@ export default function App() {
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
+  const storyProgress = getStoryProgress(active, node?.id ?? active.start);
   const t = copy[language];
   const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
@@ -196,7 +203,7 @@ export default function App() {
       {page === 'game' && <section className={`game-scene stage-${stage}`}>
         <img key={active.id} src={active.image} className="game-image" alt="" width="1672" height="940" /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
         <div className="game-topbar"><button className="text-link" onClick={() => navigate('street')}><ArrowLeft size={17} />{t.walk}</button><div className="player-controls"><button className="icon-button" onClick={() => setSound(!sound)} title={sound ? t.soundOff : t.sound} aria-label={sound ? t.soundOff : t.sound}>{sound ? <Volume2 size={19} /> : <VolumeX size={19} />}</button><button className="icon-button" onClick={() => { cancelSpeech(); setOverlay('pause'); }} title={t.pause} aria-label={t.pause}><Pause size={18} /></button><button className="icon-button" onClick={() => setOverlay('settings')} title={t.settings} aria-label={t.settings}><Settings2 size={19} /></button><button className="icon-button fullscreen-button" onClick={fullscreen} title={t.fullScreen} aria-label={t.fullScreen}><Maximize size={17} /></button></div></div>
-        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span></div>
+        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
           <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>
