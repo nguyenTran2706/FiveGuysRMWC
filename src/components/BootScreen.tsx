@@ -24,7 +24,7 @@ export function BootScreen({ t }: { t: Copy }) {
       <div className="boot-cta"><strong>{t.bootStart}</strong><em>{t.bootWait}</em></div>
       <p className="boot-note">{t.bootNote}</p>
 
-      <div className="boot-footer"><span>{t.location}</span><span>{t.exit} <kbd>ESC</kbd></span></div>
+      <div className="boot-footer"><span>{t.location}</span></div>
     </div>
   );
 }

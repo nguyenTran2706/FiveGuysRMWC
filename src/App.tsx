@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX } from 'lucide-react';
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
@@ -65,17 +65,6 @@ export default function App() {
   useAmbient(sound && page !== 'intake' && page !== 'review' && page !== 'turn' && overlay !== 'pause' && !speaking);
 
   const cancelSpeech = useCallback(() => { window.speechSynthesis?.cancel(); setSpeaking(false); }, []);
-  const quickExit = useCallback(() => {
-    window.speechSynthesis?.cancel();
-    setSound(false); setCaseFile(createCaseFile('vi', 'street')); setSessions({}); setApproaches({}); setNote('');
-    window.history.replaceState(null, '', '/');
-    window.location.replace('https://www.bom.gov.au/');
-  }, []);
-  useEffect(() => {
-    const onEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); quickExit(); } };
-    window.addEventListener('keydown', onEscape);
-    return () => window.removeEventListener('keydown', onEscape);
-  }, [quickExit]);
   useEffect(() => {
     document.documentElement.lang = language;
     setCaseFile(current => ({ ...current, language }));
@@ -204,7 +193,7 @@ export default function App() {
     <header className="site-header">
       <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× <img src="/images/rmwc-icon.png" alt="" className="brand-rmwc" />RMWC</em></strong><small>{t.byline}</small></span></button>
       <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'chat' ? 'active' : ''} onClick={() => navigate('chat')}>{language === 'vi' ? 'Hỏi về quyền' : 'Ask your rights'}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
-      <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
+      <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button></div>
     </header>
 
     <main id="main" tabIndex={-1} ref={mainRef}>
@@ -255,7 +244,7 @@ export default function App() {
 
     <footer className="safety-footer"><span className="footer-label"><span className="live-dot" />{t.helpFooter}</span><div className="safety-links"><a href="tel:1300513107">RMWC <strong>1300 513 107</strong></a><span>·</span><a href="tel:131114">Lifeline <strong>13 11 14</strong></a><span>·</span><a href="tel:000">{t.emergency} <strong>000</strong></a></div><button onClick={() => setOverlay('privacy')}><ShieldCheck size={13} /><span>{t.privacy}</span></button></footer>
 
-    {overlay === 'privacy' && <Modal title={t.privacyTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><ShieldCheck className="modal-symbol" size={28} /><p>{t.privacyText}</p><p>{t.privacyExit}</p><p className="modal-note">{t.disclaimer}</p><button className="button button-outline" onClick={() => setOverlay(null)}>{t.close}<Check size={16} /></button></Modal>}
+    {overlay === 'privacy' && <Modal title={t.privacyTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><ShieldCheck className="modal-symbol" size={28} /><p>{t.privacyText}</p><p className="modal-note">{t.disclaimer}</p><button className="button button-outline" onClick={() => setOverlay(null)}>{t.close}<Check size={16} /></button></Modal>}
     {overlay === 'settings' && <Modal title={t.settings} closeLabel={t.close} onClose={() => setOverlay(null)}><div className="setting-row"><span><Headphones size={18} />{t.audioLabel}</span><button className={`switch ${sound ? 'on' : ''}`} role="switch" aria-checked={sound} aria-label={t.audioLabel} onClick={() => setSound(!sound)}><i /></button></div><div className="setting-row"><span><Languages size={18} />{t.subtitlesLabel}</span><button className={`switch ${bilingual ? 'on' : ''}`} role="switch" aria-checked={bilingual} aria-label={t.subtitlesLabel} onClick={() => setBilingual(!bilingual)}><i /></button></div><div className="setting-row"><span><Play size={17} />{t.reducedLabel}</span><button className={`switch ${reducedMotion ? 'on' : ''}`} role="switch" aria-checked={reducedMotion} aria-label={t.reducedLabel} onClick={() => setReducedMotion(!reducedMotion)}><i /></button></div><p className="modal-note">{t.settingsNote}</p><button className="text-link" onClick={() => setOverlay('reset')}>{t.reset}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'pause' && <Modal title={t.paused} closeLabel={t.close} onClose={() => setOverlay(null)}><p>{t.pausedText}</p><button className="button button-amber" onClick={() => setOverlay(null)}><Play size={17} />{t.resume}</button><button className="text-link modal-secondary" onClick={() => navigate('street')}>{t.walk}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'warning' && <Modal title={t.warningTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><span className="eyebrow warning-label">{t.warning}</span><p>{active.warning?.[language]}</p><p>{t.warningIntro}</p><div className="modal-actions"><button className="button button-outline" onClick={() => openResident(active, true)}>{t.enterAnyway}<ArrowRight size={17} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.skipStory}</button></div></Modal>}

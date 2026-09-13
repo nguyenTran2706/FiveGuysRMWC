@@ -162,12 +162,7 @@
   text-transform: uppercase;
 }
 
-.boot-footer kbd {
-  font: inherit;
-  border: 1px solid #2c2c27;
-  padding: .3rem .55rem;
-  color: #56564f;
-}
+
 
 @keyframes boot-line-in {
   from { opacity: 0; transform: translateY(6px); }
