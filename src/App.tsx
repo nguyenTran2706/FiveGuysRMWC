@@ -12,6 +12,8 @@ import { BootScreen } from './components/BootScreen';
 import { TrustMeter } from './components/TrustMeter';
 import { Debrief } from './components/Debrief';
 import { choiceWhy } from './data/feedback';
+import { BrandMark } from './components/BrandMark';
+import { watchCopy } from './data/watchCopy';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
