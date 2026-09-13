@@ -7,6 +7,17 @@ const REFUSAL = {
   vi: 'Tôi chỉ có thể trả lời dựa trên thông tin của Fair Work Ombudsman trong ứng dụng này, và tôi không tìm thấy nội dung nào về điều đó. Dưới đây là những chủ đề tôi có. Với các câu hỏi khác, hãy gọi Fair Work Infoline 13 13 94, hoặc Refugee and Migrant Workers Centre 1300 513 107 để được giúp về trường hợp của bạn.',
 };
 
+const GREETING = {
+  en: 'Hello. I can answer questions about workplace rights in Australia using Fair Work Ombudsman information — pay, leave, ending employment, protections at work, and rights for visa holders. What would you like to know?',
+  vi: 'Xin chào. Tôi có thể trả lời các câu hỏi về quyền tại nơi làm việc ở Úc dựa trên thông tin của Fair Work Ombudsman — tiền lương, ngày nghỉ, kết thúc việc làm, bảo vệ tại nơi làm việc, và quyền của người giữ visa. Bạn muốn biết điều gì?',
+};
+
+const GREETING_PATTERN = /^(hi|hey|hello|hallo|yo|good\s*(morning|afternoon|evening|day)|thanks|thank\s*you|ta|ok|okay|xin\s*ch[àa]o|ch[àa]o( b[ạa]n| anh| ch[ịi])?|c[ảa]m\s*[ơo]n|h[ĩi])[\s!.,?]*$/i;
+
+export function isGreeting(question) {
+  return GREETING_PATTERN.test(String(question ?? '').trim());
+}
+
 export function buildPrompt(question, language, passages) {
   const languageName = language === 'vi' ? 'Vietnamese' : 'English';
   const context = passages
@@ -53,14 +64,18 @@ async function callLocalModel({ system, user }) {
 export async function answerQuestion(question, language = 'en', callModel = callLocalModel) {
   const lang = language === 'vi' ? 'vi' : 'en';
   const { grounded, passages, suggestions } = retrieve(question ?? '');
+  if (isGreeting(question)) {
+    return { kind: 'greeting', grounded: false, answer: GREETING[lang], sources: [], suggestions, checked: knowledgeBase.checked };
+  }
   if (!grounded) {
-    return { grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
+    return { kind: 'refusal', grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
   }
   const answer = await callModel(buildPrompt(question, lang, passages));
   if (!answer || /INSUFFICIENT_CONTEXT/i.test(answer)) {
-    return { grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
+    return { kind: 'refusal', grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
   }
   return {
+    kind: 'answer',
     grounded: true,
     answer,
     sources: passages.map(passage => ({ title: passage.source.title, url: passage.source.url })),
@@ -69,4 +84,4 @@ export async function answerQuestion(question, language = 'en', callModel = call
   };
 }
 
-export { REFUSAL };
+export { REFUSAL, GREETING };

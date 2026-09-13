@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { answerQuestion, buildPrompt, REFUSAL } from '../api/rightsChat.mjs';
+import { answerQuestion, buildPrompt, REFUSAL, GREETING } from '../api/rightsChat.mjs';
 import { retrieve, knowledgeBase } from '../src/lib/retrieval.mjs';
 
 const echoModel = ({ user }) => `Answer grounded in: ${user.slice(0, 40)}`;
@@ -46,6 +46,19 @@ test('out-of-scope questions refuse and suggest covered topics, in the user lang
   }
   const vietnamese = await answerQuestion('Thời tiết Sydney mai thế nào?', 'vi', model);
   assert.equal(vietnamese.answer, REFUSAL.vi);
+});
+
+test('greetings get a welcome with topic suggestions, never the refusal and never the model', async () => {
+  const model = () => { throw new Error('model must not be called for a greeting'); };
+  for (const greeting of ['hello', 'Hi!', 'good morning', 'thanks', 'xin chào', 'Chào bạn']) {
+    const result = await answerQuestion(greeting, 'en', model);
+    assert.equal(result.kind, 'greeting', `${greeting}: expected a greeting reply`);
+    assert.notEqual(result.answer, REFUSAL.en);
+    assert.ok(result.suggestions.length >= 3);
+  }
+  const vietnamese = await answerQuestion('xin chào', 'vi', model);
+  assert.equal(vietnamese.answer, GREETING.vi);
+  assert.equal((await answerQuestion('Hello, how much annual leave do I get?', 'en', () => 'grounded reply')).kind, 'answer');
 });
 
 test('no answer text survives without a retrieved passage, and the prompt forbids outside knowledge', async () => {
