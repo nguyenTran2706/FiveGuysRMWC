@@ -16,7 +16,7 @@ export const knowledgeBase = {
     {
       "id": "minimum-wage",
       "topic": "pay",
-      "keywords": ["minimum wage", "national minimum wage", "pay rate", "hourly rate", "award", "underpaid", "how much should i be paid", "lương tối thiểu", "mức lương", "giờ", "trả thiếu"],
+      "keywords": ["minimum wage", "national minimum wage", "pay rate", "hourly rate", "award", "underpaid", "how much should i be paid", "overtime", "overtime pay", "paying overtime", "penalty rates", "weekend rates", "casual loading", "làm thêm giờ", "tăng ca", "lương tối thiểu", "mức lương", "giờ", "trả thiếu"],
       "title": { "en": "Minimum wages", "vi": "Mức lương tối thiểu" },
       "starter": { "en": "What is the minimum wage in Australia?", "vi": "Mức lương tối thiểu ở Úc là bao nhiêu?" },
       "text": {
@@ -64,7 +64,7 @@ export const knowledgeBase = {
     {
       "id": "notice-of-termination",
       "topic": "ending",
-      "keywords": ["notice", "notice period", "termination", "fired", "final pay", "payment in lieu", "serious misconduct", "probation notice", "redundancy", "thông báo", "sa thải", "nghỉ việc", "lương cuối"],
+      "keywords": ["notice", "notice period", "termination", "fired", "final pay", "payment in lieu", "serious misconduct", "probation notice", "sacked", "sack", "let go", "lost my job", "dismissed", "laid off", "bị cho nghỉ", "redundancy", "thông báo", "sa thải", "nghỉ việc", "lương cuối"],
       "title": { "en": "Dismissal and notice of termination", "vi": "Sa thải và thông báo kết thúc việc làm" },
       "starter": { "en": "How much notice must my employer give me?", "vi": "Chủ phải thông báo trước bao lâu?" },
       "text": {
@@ -76,7 +76,7 @@ export const knowledgeBase = {
     {
       "id": "unfair-dismissal",
       "topic": "ending",
-      "keywords": ["unfair dismissal", "21 days", "fair work commission", "harsh unjust unreasonable", "small business", "constructive dismissal", "eligible to apply", "sa thải không công bằng", "khiếu nại sa thải"],
+      "keywords": ["unfair dismissal", "21 days", "fair work commission", "harsh unjust unreasonable", "small business", "constructive dismissal", "sacked unfairly", "sacked for no reason", "fired unfairly", "got sacked", "bị sa thải oan", "eligible to apply", "sa thải không công bằng", "khiếu nại sa thải"],
       "title": { "en": "Unfair dismissal", "vi": "Sa thải không công bằng" },
       "starter": { "en": "I think I was unfairly dismissed. What can I do?", "vi": "Tôi nghĩ mình bị sa thải oan. Tôi có thể làm gì?" },
       "text": {
@@ -88,7 +88,7 @@ export const knowledgeBase = {
     {
       "id": "discrimination",
       "topic": "protections",
-      "keywords": ["discrimination", "race", "age", "pregnancy", "adverse action", "protected attribute", "not hired", "treated differently", "phân biệt đối xử", "chủng tộc", "tuổi", "mang thai"],
+      "keywords": ["discrimination", "race", "age", "pregnancy", "adverse action", "protected attribute", "not hired", "treated differently", "accent", "nationality", "ethnicity", "country of birth", "makes fun of", "jokes about", "mocked", "singled out", "giọng nói", "quốc tịch", "trêu", "phân biệt đối xử", "chủng tộc", "tuổi", "mang thai"],
       "title": { "en": "Protection from discrimination at work", "vi": "Bảo vệ khỏi phân biệt đối xử" },
       "starter": { "en": "Is it discrimination if my boss treats me differently?", "vi": "Chủ đối xử khác với tôi có phải phân biệt đối xử?" },
       "text": {

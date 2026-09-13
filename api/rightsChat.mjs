@@ -18,6 +18,14 @@ export function isGreeting(question) {
   return GREETING_PATTERN.test(String(question ?? '').trim());
 }
 
+// A small local model sometimes emits a refusal even with good passages; retrieval has
+// already proven the topic is covered, so treat such output as unusable, not as a refusal.
+const UNUSABLE = /insufficient[_\s]?context|i (cannot|can't|can not|am unable to) (answer|help)|not enough (context|information)|no information (is )?(provided|available)/i;
+
+export function isUnusable(answer) {
+  return answer.length < 40 || UNUSABLE.test(answer);
+}
+
 export function buildPrompt(question, language, passages) {
   const languageName = language === 'vi' ? 'Vietnamese' : 'English';
   const context = passages
@@ -28,7 +36,11 @@ export function buildPrompt(question, language, passages) {
       'You answer questions about Australian workplace rights for migrant and refugee workers.',
       'You may ONLY use the numbered passages provided. They come from the Fair Work Ombudsman.',
       'Never add information, figures, deadlines, legal advice or opinions that are not in the passages.',
-      'If the passages do not contain the answer, reply with exactly: INSUFFICIENT_CONTEXT',
+      'A search step already chose these passages as relevant, so they ARE on topic: always answer from them.',
+      'The user often describes their situation as a statement ("My boss never gives me a pay slip") instead of a question — treat it as asking what the rules are and what they can do.',
+      'Never say you lack context, cannot answer, or need more information. Summarise the relevant passage instead.',
+      'Never judge the user\'s own situation: do not say whether what happened to them is lawful, unlawful, discrimination, minor, acceptable or "just joking", and never tell them how it will be decided.',
+      'Structure every answer this way: first state what the passages say the rule is, including the specific timeframes, amounts and steps they contain; only then, in one final sentence, add that their own case can be checked with the Fair Work Infoline on 13 13 94 or the Refugee and Migrant Workers Centre on 1300 513 107.',
       `Answer in ${languageName}, in plain language, at most 130 words. Do not invent links.`,
       'This is general information, not legal advice.',
     ].join(' '),
@@ -70,10 +82,15 @@ export async function answerQuestion(question, language = 'en', callModel = call
   if (!grounded) {
     return { kind: 'refusal', grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
   }
-  const answer = await callModel(buildPrompt(question, lang, passages));
-  if (!answer || /INSUFFICIENT_CONTEXT/i.test(answer)) {
-    return { kind: 'refusal', grounded: false, answer: REFUSAL[lang], sources: [], suggestions, checked: knowledgeBase.checked };
+  // Grounding is decided by retrieval alone. If the model returns nothing usable we fall
+  // back to the curated passage text, which is already safe, sourced and bilingual.
+  let answer = '';
+  try {
+    answer = await callModel(buildPrompt(question, lang, passages));
+  } catch (error) {
+    if (error?.message === 'model_loading') throw error;
   }
+  if (!answer || isUnusable(answer)) answer = passages[0].text[lang];
   return {
     kind: 'answer',
     grounded: true,

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { answerQuestion, buildPrompt, REFUSAL, GREETING } from '../api/rightsChat.mjs';
+import { answerQuestion, buildPrompt, REFUSAL, GREETING, isUnusable } from '../api/rightsChat.mjs';
 import { retrieve, knowledgeBase } from '../src/lib/retrieval.mjs';
 
 const echoModel = ({ user }) => `Answer grounded in: ${user.slice(0, 40)}`;
@@ -48,6 +48,32 @@ test('out-of-scope questions refuse and suggest covered topics, in the user lang
   assert.equal(vietnamese.answer, REFUSAL.vi);
 });
 
+test('a covered question never refuses because of weak model output', async () => {
+  for (const output of ['INSUFFICIENT_CONTEXT', 'Insufficient context.', "I cannot answer that.", '']) {
+    const result = await answerQuestion('My boss never gives me pay slip.', 'en', () => output);
+    assert.equal(result.kind, 'answer', `model output ${JSON.stringify(output)} must not cause a refusal`);
+    assert.notEqual(result.answer, REFUSAL.en);
+    assert.ok(result.answer.length > 60, 'falls back to the curated passage text');
+    assert.ok(result.sources.some(source => source.url.includes('pay-slips')));
+  }
+  assert.ok(isUnusable('Insufficient context.'));
+  assert.ok(!isUnusable('An employer must give an employee a pay slip within 1 working day of pay day, even on leave.'));
+});
+
+test('common real-world phrasings reach the right passage', async () => {
+  const cases = [
+    ['My boss never gives me pay slip.', 'pay-slips'],
+    ['boss not paying overtime', 'minimum-wage'],
+    ['I got sacked yesterday', 'notice-of-termination'],
+    ['My manager makes fun of my accent', 'discrimination'],
+  ];
+  for (const [question, expectedId] of cases) {
+    const { grounded, passages } = retrieve(question);
+    assert.ok(grounded, `${question}: expected a grounded match`);
+    assert.ok(passages.some(passage => passage.id === expectedId), `${question}: expected ${expectedId}, got ${passages.map(p => p.id).join(', ')}`);
+  }
+});
+
 test('greetings get a welcome with topic suggestions, never the refusal and never the model', async () => {
   const model = () => { throw new Error('model must not be called for a greeting'); };
   for (const greeting of ['hello', 'Hi!', 'good morning', 'thanks', 'xin chào', 'Chào bạn']) {
@@ -61,18 +87,18 @@ test('greetings get a welcome with topic suggestions, never the refusal and neve
   assert.equal((await answerQuestion('Hello, how much annual leave do I get?', 'en', () => 'grounded reply')).kind, 'answer');
 });
 
-test('no answer text survives without a retrieved passage, and the prompt forbids outside knowledge', async () => {
-  const insufficient = await answerQuestion('What is the minimum wage?', 'en', () => 'INSUFFICIENT_CONTEXT');
-  assert.equal(insufficient.grounded, false);
-  assert.equal(insufficient.answer, REFUSAL.en);
-
-  const empty = await answerQuestion('What is the minimum wage?', 'en', () => '');
-  assert.equal(empty.grounded, false);
-
+test('the prompt forbids outside knowledge, refusals and judging the user\'s case', async () => {
   const { passages } = retrieve('What is the minimum wage?');
   const prompt = buildPrompt('What is the minimum wage?', 'vi', passages);
   assert.match(prompt.system, /ONLY use the numbered passages/);
-  assert.match(prompt.system, /INSUFFICIENT_CONTEXT/);
+  assert.match(prompt.system, /Never say you lack context/);
+  assert.match(prompt.system, /Never judge the user/);
   assert.match(prompt.system, /Vietnamese/);
   assert.ok(prompt.user.includes(passages[0].source.url));
+
+  // Off-topic questions still refuse without ever reaching the model.
+  const offTopic = await answerQuestion('How do I cook pho?', 'en', () => { throw new Error('model must not be called'); });
+  assert.equal(offTopic.kind, 'refusal');
+  assert.equal(offTopic.answer, REFUSAL.en);
+  assert.deepEqual(offTopic.sources, []);
 });
