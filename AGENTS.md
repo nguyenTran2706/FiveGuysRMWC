@@ -11,6 +11,12 @@ docker compose -f docker-compose.base44.yml up -d
 - Vite dev server on port 5173, mapped to host port 3000. Live reload is active.
 - `node_modules` lives in a named volume so installs persist across restarts.
 
+## Workplace rights chatbot
+- Knowledge base: `src/data/fairworkRights.mjs` (curated Fair Work Ombudsman content, bilingual EN/VI, one source URL per entry). Re-check sources with `node scripts/refresh-rights-kb.mjs [--write]`.
+- Retrieval + refusal: `src/lib/retrieval.mjs` (shared by browser and server; below `RELEVANCE_THRESHOLD` the answer is a deterministic refusal, the model is never called).
+- Server: `api/server.mjs` (`POST /api/rights-chat`, proxied from Vite `/api`), grounded prompt in `api/rightsChat.mjs`.
+- Model: self-hosted `llama.cpp` server (`model` service) running Qwen2.5-1.5B-Instruct GGUF pulled from Hugging Face into the `model_cache` volume. First boot downloads ~1 GB; until it's healthy the API returns `model_loading` (503) and the UI asks the user to retry. No API key or external AI service is used.
+
 ## Environment
 - `VITE_CASE_SUBMIT_URL` (optional, empty by default): leave empty to use RMWC's existing clinic enquiry handoff. No external credentials are required to boot.
 - Supabase secrets (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, etc.) are server-only and only needed if the optional submit-case Edge Function is deployed — not for local dev.
