@@ -25,27 +25,32 @@ export function buildPrompt(question, language, passages) {
   };
 }
 
-async function callOpenAI({ system, user }) {
-  const key = process.env.OPENAI_API_KEY;
-  if (!key) throw new Error('missing_api_key');
-  const base = process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1';
-  const response = await fetch(`${base}/chat/completions`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-      temperature: 0,
-      max_tokens: 400,
-      messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
-    }),
-  });
-  if (!response.ok) throw new Error(`model_error_${response.status}`);
+// Self-hosted llama.cpp server (OpenAI-compatible). No external service, no API key.
+async function callLocalModel({ system, user }) {
+  const url = process.env.MODEL_URL || 'http://127.0.0.1:8080/v1/chat/completions';
+  let response;
+  try {
+    response = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        temperature: 0,
+        max_tokens: 400,
+        messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+      }),
+      signal: AbortSignal.timeout(120000),
+    });
+  } catch {
+    throw new Error('model_loading');
+  }
+  if (response.status === 503) throw new Error('model_loading');
+  if (!response.ok) throw new Error('model_unavailable');
   const data = await response.json();
   return data.choices?.[0]?.message?.content?.trim() ?? '';
 }
 
 /** Answer a question strictly from the knowledge base. `callModel` is injectable for tests. */
-export async function answerQuestion(question, language = 'en', callModel = callOpenAI) {
+export async function answerQuestion(question, language = 'en', callModel = callLocalModel) {
   const lang = language === 'vi' ? 'vi' : 'en';
   const { grounded, passages, suggestions } = retrieve(question ?? '');
   if (!grounded) {

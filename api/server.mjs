@@ -25,8 +25,8 @@ createServer((request, response) => {
       if (typeof question !== 'string' || !question.trim()) return send(response, 400, { error: 'question_required' });
       send(response, 200, await answerQuestion(question.trim().slice(0, 600), language));
     } catch (error) {
-      const reason = error?.message === 'missing_api_key' ? 'missing_api_key' : 'model_unavailable';
-      send(response, reason === 'missing_api_key' ? 503 : 502, { error: reason });
+      const reason = error?.message === 'model_loading' ? 'model_loading' : 'model_unavailable';
+      send(response, reason === 'model_loading' ? 503 : 502, { error: reason });
     }
   });
 }).listen(PORT, '0.0.0.0', () => console.log(`rights-chat api on ${PORT}`));

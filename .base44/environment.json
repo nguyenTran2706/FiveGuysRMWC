@@ -1,6 +1,7 @@
 {
   "previewPort": 3000,
   "healthPath": "/",
+  "services": ["web", "api", "model"],
   "startCommand": "docker compose -f docker-compose.base44.yml up -d",
   "secrets": []
 }

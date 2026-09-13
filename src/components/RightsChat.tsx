@@ -13,7 +13,7 @@ type Turn = {
   sources?: { title: string; url: string }[];
   suggestions?: Suggestion[];
   pending?: boolean;
-  error?: 'key' | 'general';
+  error?: 'loading' | 'general';
 };
 
 export default function RightsChat({ language }: { language: Language }) {
@@ -40,7 +40,7 @@ export default function RightsChat({ language }: { language: Language }) {
       const data = await response.json();
       result = response.ok
         ? { question: trimmed, answer: data.answer, grounded: data.grounded, sources: data.sources, suggestions: data.suggestions }
-        : { question: trimmed, error: data.error === 'missing_api_key' ? 'key' : 'general' };
+        : { question: trimmed, error: data.error === 'model_loading' ? 'loading' : 'general' };
     } catch {
       result = { question: trimmed, error: 'general' };
     }
@@ -69,7 +69,7 @@ export default function RightsChat({ language }: { language: Language }) {
         <div className="chat-turn chat-user"><span className="chat-role"><MessageCircle size={13} />{t.you}</span><p className="chat-answer">{turn.question}</p></div>
         <div className={`chat-turn ${turn.grounded === false ? 'chat-refusal' : ''}`} style={{ marginTop: 10 }}>
           <span className="chat-role"><ShieldCheck size={13} />{t.assistant}</span>
-          <p className="chat-answer">{turn.pending ? t.thinking : turn.error ? (turn.error === 'key' ? t.errorKey : t.errorGeneral) : turn.answer}</p>
+          <p className="chat-answer">{turn.pending ? t.thinking : turn.error ? (turn.error === 'loading' ? t.errorLoading : t.errorGeneral) : turn.answer}</p>
           {!!turn.sources?.length && <div className="chat-sources"><span>{t.sources}</span>{turn.sources.map(source => <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<ExternalLink size={11} /></a>)}</div>}
           {!!turn.suggestions?.length && <div className="chat-starters" style={{ marginTop: 14 }}>
             <span className="eyebrow" style={{ gridColumn: '1 / -1' }}>{t.suggestions}</span>
