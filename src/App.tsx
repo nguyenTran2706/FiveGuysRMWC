@@ -45,7 +45,6 @@ export default function App() {
   const [stage, setStage] = useState<Stage>('dialogue');
   const [note, setNote] = useState('');
   const [reaction, setReaction] = useState<{ text: string; delta: number } | null>(null);
-  const [openWhy, setOpenWhy] = useState<string | null>(null);
   const reactTimer = useRef<number | undefined>(undefined);
   const [speaking, setSpeaking] = useState(false);
   const [audioError, setAudioError] = useState(false);
@@ -90,7 +89,7 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', hide);
   }, [page, cancelSpeech]);
 
-  function clearReaction() { window.clearTimeout(reactTimer.current); setReaction(null); setOpenWhy(null); }
+  function clearReaction() { window.clearTimeout(reactTimer.current); setReaction(null); }
   function navigate(next: Page) { cancelSpeech(); setOverlay(null); clearReaction(); setPage(next); }
   function beginIntake() {
     if (page === 'home') setCaseFile(current => ({ ...current, source: 'agent' }));
@@ -138,7 +137,7 @@ export default function App() {
     const line = choice.recordEvidence ? t.reactionEvidence : delta > 0 ? t.reactionPositive : delta < 0 ? t.reactionNegative : t.reactionNeutral;
     setReaction({ text: line.replace('{name}', active.name), delta });
     window.clearTimeout(reactTimer.current);
-    reactTimer.current = window.setTimeout(() => { setReaction(null); setOpenWhy(null); applyChoice(choice); }, 1800);
+    reactTimer.current = window.setTimeout(() => { setReaction(null); applyChoice(choice); }, 1800);
   }
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
@@ -225,7 +224,7 @@ export default function App() {
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
           <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>
           {/visa/i.test(node.text.en) && <aside className="scene-visa-note"><ShieldCheck size={17} /><div><strong>{t.visaTitle}</strong><p>{t.visaNote}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants/visa-protections-pilot-programs" target="_blank" rel="noopener noreferrer">Fair Work<ExternalLink size={11} /></a></div></aside>}
-          {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <><button className="choice-why" aria-expanded={openWhy === choice.id} onClick={() => setOpenWhy(openWhy === choice.id ? null : choice.id)}><Info size={12} /><span>{t.whyLabel}</span></button>{openWhy === choice.id && <p className="choice-why-text">{why}</p>}</>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
+          {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <span className="choice-why" tabIndex={0} aria-label={t.whyLabel}><Info size={12} /><span>{t.whyLabel}</span><span className="choice-why-tip" role="tooltip">{why}</span></span>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
         </div>}
 
         {(stage === 'reflection' || stage === 'artifact' || stage === 'deepening') && <div className="reflection-wrap"><div className="reflection-panel"><span className="eyebrow">{t.reflectionEyebrow}</span><h2>{stage === 'deepening' ? t.deepeningTitle : stage === 'artifact' ? t.artifactQuestion : t.reflectionTitle}</h2><p>{stage === 'deepening' ? t.deepeningHint : t.reflectionText}</p><p className="question-explain">{stage === 'deepening' ? t.deepeningExplainer : stage === 'artifact' ? t.artifactExplainer : t.reflectionExplainer}</p>
