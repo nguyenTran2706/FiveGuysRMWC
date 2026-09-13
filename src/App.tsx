@@ -9,6 +9,7 @@ import { useAmbient } from './hooks/useAmbient';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
+import { BrandMark } from './components/BrandMark';
 import { BootScreen } from './components/BootScreen';
 
 const Intake = lazy(() => import('./components/Intake'));
@@ -222,8 +223,6 @@ export default function App() {
 
         {stage === 'epilogue' && <div className="epilogue-panel"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[session?.kept && session.status !== 'closed' ? 'kept' : 'missed'][language]}</p><p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
-
-      {page === 'watch' && <EmployerWatch language={language} onBack={() => navigate('home')} />}
 
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
       <Suspense fallback={<BootScreen t={t} />}>
