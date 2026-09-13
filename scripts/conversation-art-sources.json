@@ -55,6 +55,26 @@
     "filename": "exec-477a9610-c980-4d16-9255-17795e05ee5a.png"
   },
   {
+    "id": "linh/goodbye",
+    "target": "public/images/conversations/linh/goodbye.webp",
+    "filename": "exec-658137e8-5f38-4b62-9cf9-9c5b1b01b2b6.png"
+  },
+  {
+    "id": "linh/closed",
+    "target": "public/images/conversations/linh/closed.webp",
+    "filename": "exec-db800b7b-2000-4f6b-8328-cd06a48bd014.png"
+  },
+  {
+    "id": "linh/ending-kept",
+    "target": "public/images/conversations/linh/ending-kept.webp",
+    "filename": "exec-634ae5f2-ab22-491f-9eaf-09d0f7bed02e.png"
+  },
+  {
+    "id": "linh/ending-missed",
+    "target": "public/images/conversations/linh/ending-missed.webp",
+    "filename": "exec-be85c120-2c1a-4c76-ae4e-c3ffc8cc2997.png"
+  },
+  {
     "id": "bao/car",
     "target": "public/images/conversations/bao/car.webp",
     "filename": "exec-763f50de-13e6-4d25-9c31-400acf671927.png"
@@ -105,6 +125,31 @@
     "filename": "exec-61d23027-bb76-4a1c-b4cc-3d5920b9099d.png"
   },
   {
+    "id": "bao/unkept",
+    "target": "public/images/conversations/bao/unkept.webp",
+    "filename": "exec-d2280a54-9195-4b3e-b857-6f53acbf6793.png"
+  },
+  {
+    "id": "bao/goodbye",
+    "target": "public/images/conversations/bao/goodbye.webp",
+    "filename": "exec-e58e1e55-c944-492b-aeee-8e7c59afa27c.png"
+  },
+  {
+    "id": "bao/closed",
+    "target": "public/images/conversations/bao/closed.webp",
+    "filename": "exec-d6ea3980-bd8a-4868-8e72-719b739dafa5.png"
+  },
+  {
+    "id": "bao/ending-kept",
+    "target": "public/images/conversations/bao/ending-kept.webp",
+    "filename": "exec-5dc836e9-dcda-409f-b051-6c4182fdd3f2.png"
+  },
+  {
+    "id": "bao/ending-missed",
+    "target": "public/images/conversations/bao/ending-missed.webp",
+    "filename": "exec-bfd553f8-5eb3-4318-91f5-3eca91232ac1.png"
+  },
+  {
     "id": "hanh/daughter",
     "target": "public/images/conversations/hanh/daughter.webp",
     "filename": "exec-3cd4abdb-f4bc-4f16-ac09-feeec367b7a6.png"
@@ -143,6 +188,43 @@
     "id": "hanh/daughter_again",
     "target": "public/images/conversations/hanh/daughter_again.webp",
     "filename": "exec-d2e29e44-8088-487f-b8bd-3acc9d1c0e6d.png"
+  },
+  {
+    "id": "hanh/witness",
+    "target": "public/images/conversations/hanh/witness.webp",
+    "filename": "exec-c75fa2ff-83cc-440b-a4f6-45d34a96866e.png"
+  },
+  {
+    "id": "hanh/kept",
+    "target": "public/images/conversations/hanh/kept.webp",
+    "filename": "exec-cf65f782-c590-4f1d-8a50-713a804f6674.png"
+  },
+  {
+    "id": "hanh/unkept",
+    "target": "public/images/conversations/hanh/unkept.webp",
+    "filename": "exec-fc264325-ceee-498c-9f79-0ed35dff4430.png"
+  },
+  {
+    "id": "hanh/goodbye",
+    "target": "public/images/conversations/hanh/goodbye.webp",
+    "filename": "exec-37988bd3-2668-4dac-96cf-6bead787866c.png"
+  },
+  {
+    "id": "hanh/closed",
+    "target": "public/images/conversations/hanh/closed.webp",
+    "filename": "exec-54232b1e-a548-41c8-86b2-d8bdb0a605f1.png",
+    "revisionPrompt": "Edit only the white bandage at the CENTER-RIGHT foreground of this image, around the forearm of the arm reaching upward to hold the window frame. REMOVE that raised/reaching-arm bandage entirely, restoring natural bare skin continuous with the wrist and elbow. This is her LEFT forearm, which must be uninjured and completely bare. KEEP the OTHER small white bandage lower down at viewer-left, on the RIGHT forearm resting along the bottom window sill. There must be exactly ONE bandage in the final image, on the low resting arm only. Preserve absolutely everything else: face, clothing, hands, pose, window, kitchen, rain, light, framing, dimensions. Do not add a bandage anywhere. Natural photographic skin texture where the removed bandage used to be.",
+    "revisionReferenceFilename": "exec-3f6e0b3c-db90-4936-85b1-f0e521142848.png"
+  },
+  {
+    "id": "hanh/ending-kept",
+    "target": "public/images/conversations/hanh/ending-kept.webp",
+    "filename": "exec-c18004a8-84ca-4828-8740-f54a6d8c1a15.png"
+  },
+  {
+    "id": "hanh/ending-missed",
+    "target": "public/images/conversations/hanh/ending-missed.webp",
+    "filename": "exec-78d766b7-a50b-49de-aa61-0dd06067e78c.png"
   },
   {
     "id": "tram/messages",
@@ -215,9 +297,19 @@
     "filename": "exec-d2fb3d38-3b8c-415c-9830-5c01e6b32c3f.png"
   },
   {
+    "id": "duc/closed",
+    "target": "public/images/conversations/duc/closed.webp",
+    "filename": "exec-33b4917c-5def-4504-9dd1-963dd46d1928.png"
+  },
+  {
     "id": "duc/ending-kept",
     "target": "public/images/conversations/duc/ending-kept.webp",
     "filename": "exec-cb339f00-1124-4c38-8769-1227e6950744.png"
+  },
+  {
+    "id": "duc/ending-missed",
+    "target": "public/images/conversations/duc/ending-missed.webp",
+    "filename": "exec-ba50514c-2e37-4436-b95e-5254a63f7425.png"
   },
   {
     "id": "khoa/work",
@@ -255,6 +347,11 @@
     "filename": "exec-1495cdf5-832f-4374-8b09-acc5e339f53b.png"
   },
   {
+    "id": "khoa/ending-missed",
+    "target": "public/images/conversations/khoa/ending-missed.webp",
+    "filename": "exec-c655350d-739d-4222-aaf2-f90afbe831e8.png"
+  },
+  {
     "id": "mai/work",
     "target": "public/images/conversations/mai/work.webp",
     "filename": "exec-c2f032e6-60e1-4229-bad4-2db7a579e0f0.png"
@@ -283,5 +380,15 @@
     "id": "mai/closed",
     "target": "public/images/conversations/mai/closed.webp",
     "filename": "exec-7965ce52-3e76-446b-b0c9-446f736b1b1b.png"
+  },
+  {
+    "id": "mai/ending-kept",
+    "target": "public/images/conversations/mai/ending-kept.webp",
+    "filename": "exec-c16a3c24-2ee3-4e83-8254-41108485e2e0.png"
+  },
+  {
+    "id": "mai/ending-missed",
+    "target": "public/images/conversations/mai/ending-missed.webp",
+    "filename": "exec-676bbb90-ade1-473e-8a06-fd2fd3435dd7.png"
   }
 ]

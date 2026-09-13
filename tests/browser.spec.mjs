@@ -13,7 +13,7 @@ test('cinematic landing, private draft, language switch and mobile layout', asyn
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await expect(page.locator('.title-screen h1')).toContainText('HOURS');
   await page.screenshot({ path: 'artifacts/home-en-desktop.png' });
-  await page.locator('.title-start').click();
+  await startOrContinue(page);
   await expect(page.locator('.dialogue-text')).toBeVisible();
   const englishLine = await page.locator('.dialogue-text').innerText();
   await page.getByRole('button', { name: 'Chuyển sang tiếng Việt' }).click();
@@ -25,21 +25,32 @@ test('cinematic landing, private draft, language switch and mobile layout', asyn
   expect(await page.evaluate(() => ({ local: localStorage.length, session: sessionStorage.length }))).toEqual({ local: 0, session: 0 });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: 'artifacts/game-mobile.png', fullPage: true });
-  await page.locator('.choice-button').last().scrollIntoViewIfNeeded();
+  // Centre the last choice above the fixed safety footer, including its new tooltip row.
+  await page.locator('.choice-button').last().evaluate(button => button.scrollIntoView({ block: 'center' }));
   const choiceBox = await page.locator('.choice-button').last().boundingBox();
   const footerBox = await page.locator('.safety-footer').boundingBox();
   expect(choiceBox.y + choiceBox.height).toBeLessThanOrEqual(footerBox.y + 1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await page.getByRole('button', { name: /Know Your Rights.*Home/ }).click();
   await page.screenshot({ path: 'artifacts/home-mobile.png', fullPage: true });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(errors).toEqual([]);
 });
 
+async function startOrContinue(page) {
+  await page.locator('.title-start').click();
+  await expect(page.locator('.street-page, .game-scene')).toBeVisible();
+  if (await page.locator('.street-page').count()) await page.locator('.resident-linh').click();
+}
+
 async function playPatiently(page) {
   for (let step = 0; step < 25; step++) {
     if (await page.locator('.reflection-panel').count()) return;
-    if (await page.locator('.choice-button').count()) await page.locator('.choice-button').first().click();
+    if (await page.locator('.choice-button').count()) {
+      const previousLine = await page.locator('.dialogue-text').innerText();
+      await page.locator('.choice-button').first().click();
+      await expect(page.locator('.dialogue-text')).not.toHaveText(previousLine);
+    }
     else if (await page.locator('.continue-button').count()) await page.locator('.continue-button').click();
     else throw new Error('Story has no available action');
   }
@@ -49,12 +60,12 @@ async function playPatiently(page) {
 test('Continue restores an unfinished reflection and its private note', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.title-start').click();
+  await startOrContinue(page);
   await playPatiently(page);
   await page.getByRole('button', { name: 'Yes', exact: true }).click();
   await page.locator('#reflection-note').fill('My unfinished reflection.');
-  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
-  await page.locator('.title-start').click();
+  await page.getByRole('button', { name: /Know Your Rights.*Home/ }).click();
+  await startOrContinue(page);
   await expect(page.locator('#reflection-note')).toHaveValue('My unfinished reflection.');
 });
 
@@ -77,7 +88,7 @@ test('the live clock remains AEST during Sydney summer and switches locale', asy
 test('title settings, continue and about preserve the current conversation', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await expect(page.locator('.title-start')).toHaveText('New Game');
+  await expect(page.locator('.title-start')).toHaveText('New game');
   await page.locator('.title-settings').click();
   const dialog = page.getByRole('dialog');
   const subtitles = dialog.getByRole('switch', { name: 'Show both languages' });
@@ -86,22 +97,22 @@ test('title settings, continue and about preserve the current conversation', asy
   await expect(subtitles).toBeChecked();
   await dialog.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.locator('.title-settings')).toBeFocused();
-  await page.locator('.title-start').click();
+  await startOrContinue(page);
   await expect(page.locator('.secondary-dialogue')).toHaveAttribute('lang', 'vi');
   await expect(page.locator('.secondary-dialogue')).not.toBeEmpty();
   const openingLine = await page.locator('.dialogue-text').innerText();
   await page.locator('.choice-button').first().click();
   await expect(page.locator('.dialogue-text')).not.toHaveText(openingLine);
   const continuedLine = await page.locator('.dialogue-text').innerText();
-  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await page.getByRole('button', { name: /Know Your Rights.*Home/ }).click();
   await expect(page.locator('.title-start')).toHaveText('Continue');
-  await page.locator('.title-screen-menu').getByRole('button', { name: 'About the experience' }).click();
-  await expect(page.locator('.about-section h1')).toHaveText('Sometimes, it starts with listening.');
-  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await page.locator('.title-screen-menu').getByRole('button', { name: 'About' }).click();
+  await expect(page.locator('.about-section h1')).toHaveText('It often begins with listening.');
+  await page.getByRole('button', { name: /Know Your Rights.*Home/ }).click();
   await page.locator('.title-settings').click();
   await expect(subtitles).toBeChecked();
   await dialog.getByRole('button', { name: 'Close', exact: true }).click();
-  await page.locator('.title-start').click();
+  await startOrContinue(page);
   await expect(page.locator('.dialogue-text')).toHaveText(continuedLine);
   await expect(page.locator('.secondary-dialogue')).toBeVisible();
 });
@@ -137,24 +148,26 @@ test('all seven neighbours have their own loaded portrait and local setting', as
 test('three stories unlock the turn and evidence choices affect the ending', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.title-start').click();
+  await startOrContinue(page);
   await playPatiently(page);
   await expect(page.locator('.reflection-panel h2')).toHaveText('Does any of this feel familiar?');
   await page.getByRole('button', { name: 'Yes', exact: true }).click();
   await page.locator('#reflection-note').fill('I also keep roster screenshots.');
   await page.getByRole('button', { name: 'Add to my draft' }).click();
-  await page.getByRole('button', { name: 'Every time I’m paid' }).click();
+  await page.getByRole('button', { name: 'Every time I am paid' }).click();
+  await page.getByRole('button', { name: 'Hear the ending' }).click();
   await expect(page.locator('.epilogue-panel')).toBeVisible();
   await page.screenshot({ path: 'artifacts/epilogue-desktop.png' });
   await page.getByRole('button', { name: 'Visit another window' }).click();
   for (const id of ['bao', 'hanh']) {
     await page.locator(`.resident-${id}`).click();
     await playPatiently(page);
-    await page.getByRole('button', { name: 'I’d rather not say' }).click();
+    await page.getByRole('button', { name: 'I would rather not say' }).click();
+    await page.getByRole('button', { name: 'Hear the ending' }).click();
     await page.getByRole('button', { name: 'Visit another window' }).click();
   }
   await expect(page.locator('.rmwc-card')).toHaveClass(/unlocked/);
-  await page.getByRole('button', { name: 'Step inside RMWC' }).click();
+  await page.getByRole('button', { name: 'Enter RMWC' }).click();
   await expect(page.locator('.turn-page h1')).toHaveText('Now, your story.');
   await page.getByRole('button', { name: 'My summary' }).click();
   await expect(page.locator('.summary-heading')).toBeVisible();
@@ -171,7 +184,7 @@ test('return visits, sensitive story skip, pause and quick exit', async ({ page 
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.locator('.title-discover').click();
   await page.locator('.resident-duc').click();
-  await expect(page.getByRole('dialog')).toContainText('Not quite the right moment.');
+  await expect(page.getByRole('dialog')).toContainText('This is not the right moment.');
   await page.getByRole('button', { name: 'Back to the street' }).click();
   await page.locator('.resident-tram').click();
   await expect(page.getByRole('dialog')).toContainText('Before you knock.');
@@ -182,8 +195,9 @@ test('return visits, sensitive story skip, pause and quick exit', async ({ page 
   await expect(page.getByRole('dialog')).toContainText('The story can wait.');
   await page.getByRole('button', { name: 'Continue the story' }).click();
   await playPatiently(page);
-  await page.getByRole('button', { name: 'I’d rather not say' }).click();
-  await page.getByRole('button', { name: 'I’d rather not say' }).click();
+  await page.getByRole('button', { name: 'I would rather not say' }).click();
+  await page.getByRole('button', { name: 'I would rather not say' }).click();
+  await page.getByRole('button', { name: 'Hear the ending' }).click();
   await page.getByRole('button', { name: 'Visit another window' }).click();
   await page.locator('.resident-duc').click();
   await expect(page.locator('.game-scene')).toBeVisible();
@@ -202,17 +216,15 @@ test('local guided intake, safe contact, editable review and downloads', async (
   await expect(page.locator('.intake-consent-boundary')).toBeVisible();
   await page.locator('.intake-consent-boundary .intake-primary').click();
   await page.locator('.intake-answer-area textarea').fill('I was underpaid and I have no payslip.');
-  await page.locator('.intake-form-actions .intake-primary').click();
   await page.locator('.intake-answer-area input').first().fill('Hospitality');
   await page.locator('.intake-answer-area input').nth(1).fill('Kitchen hand');
   await page.locator('.intake-form-actions .intake-primary').click();
   await page.locator('.intake-form-actions .intake-text-button').click();
-  await page.locator('.intake-form-actions .intake-text-button').click();
-  await page.locator('.intake-answer-area input[type="checkbox"]').nth(1).check();
-  await page.locator('.intake-form-actions .intake-primary').click();
-  await page.locator('.intake-answer-area select').nth(0).selectOption('sms');
-  await page.locator('.intake-answer-area input[type="tel"]').fill('0400000000');
-  await page.locator('.intake-answer-area select').nth(2).selectOption('false');
+  await page.locator('.intake-evidence-grid input[type="checkbox"]').nth(1).check();
+  const contact = page.locator('.intake-block').nth(1);
+  await contact.locator('select').nth(0).selectOption('sms');
+  await contact.locator('input[type="tel"]').fill('0400000000');
+  await contact.locator('select').nth(2).selectOption('false');
   await page.locator('.intake-review-link').click();
   await expect(page.locator('.summary-safety-alert')).toContainText('Do not leave voicemail');
   await expect(page.locator('.summary-flags')).toContainText('Pay and deductions');
@@ -251,6 +263,6 @@ test('crisis signals stop questions and no field is required', async ({ page }) 
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.locator('.title-help').click();
   await page.locator('.intake-consent-boundary .intake-primary').click();
-  for (let step = 0; step < 8; step++) await page.locator('.intake-form-actions .intake-text-button').click();
+  for (let step = 0; step < 3; step++) await page.locator('.intake-form-actions .intake-text-button').click();
   await expect(page.locator('.summary-heading')).toBeVisible();
 });

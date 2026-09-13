@@ -12,7 +12,7 @@ async function expectShot(page, src) {
 }
 
 test('all seven NPC conversations change shots with dialogue and reach their own endings', async ({ page }) => {
-  test.setTimeout(120000);
+  test.setTimeout(180000);
   const missing = [];
   page.on('response', response => { if (response.url().includes('/images/conversations/') && !response.ok()) missing.push(response.url()); });
   await page.goto('/');
@@ -45,8 +45,9 @@ test('all seven NPC conversations change shots with dialogue and reach their own
       }
       if (step === 24) throw new Error('Conversation never finished: ' + resident.id);
     }
-    await page.getByRole('button', { name: 'I’d rather not say' }).click();
-    if (resident.id === 'linh') await page.getByRole('button', { name: 'I’d rather not say' }).click();
+    await page.getByRole('button', { name: 'I would rather not say' }).click();
+    if (resident.id === 'linh') await page.getByRole('button', { name: 'I would rather not say' }).click();
+    await page.getByRole('button', { name: 'Hear the ending' }).click();
     await expectShot(page, '/images/conversations/' + resident.id + '/ending-' + (kept ? 'kept' : 'missed') + '.webp');
     await page.getByRole('button', { name: 'Visit another window' }).click();
   }
@@ -60,8 +61,9 @@ test('a slow previous shot cannot replace a newer conversation image', async ({ 
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.locator('.title-start').click();
+  await page.locator('.resident-linh').click();
   await page.locator('.choice-button').first().click();
-  await expect(page.locator('.dialogue-text')).toContainText('flights for Mum');
+  await expect(page.locator('.dialogue-text')).toHaveText(residents[0].nodes.mother.text.en);
   await page.locator('.continue-button').click();
   await expectShot(page, '/images/conversations/linh/hours.webp');
   const loaded = page.waitForResponse('**/images/conversations/linh/mother.webp');
@@ -81,8 +83,9 @@ test('unavailable artwork falls back without blocking choices or the next shot',
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.locator('.title-start').click();
+  await page.locator('.resident-linh').click();
   await page.locator('.choice-button').first().click();
-  await expect(page.locator('.dialogue-text')).toContainText('flights for Mum');
+  await expect(page.locator('.dialogue-text')).toHaveText(residents[0].nodes.mother.text.en);
   await expect(page.locator('.game-image-current')).toHaveAttribute('src', '/images/linh-v2.webp');
   await page.locator('.continue-button').click();
   await expectShot(page, '/images/conversations/linh/hours.webp');

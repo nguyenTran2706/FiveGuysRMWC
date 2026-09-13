@@ -3,6 +3,9 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, Copy, Download, ExternalLink
 import type { CaseFile, Language } from '../types';
 import { archetypeLabels, legalNotes } from '../data/stories';
 import { intakeCopy, RMWC_CLINIC_URL } from '../data/intakeCopy';
+import PayComparison from './PayComparison';
+import CommunityFlagOptIn from './CommunityFlagOptIn';
+import { assessPay, awardRates, money, payCopy, payFindingText } from '../data/payRules';
 import { CrisisOptions, EmployerFields, EvidenceFields, Field, SafeContactFields, needsImmediateSupport, type CasePageProps } from './Intake';
 import '../intake.css';
 
@@ -25,7 +28,9 @@ const yesNoUnknown = oneOf('yes', 'no', 'unknown');
 const caseValidator = shape({
   id: string, createdAt: value => string(value) && !Number.isNaN(Date.parse(value as string)), language: oneOf('vi', 'en'), source: oneOf('street', 'agent'), status: oneOf('draft'),
   profile: shape({ visaSubclass: oneOf(...visas), industry: string, role: string, tenureMonths: number, stillEmployed: boolean, employerSizeUnder15: boolean, suburb: string, ageBand: string }),
-  flags: list(shape({ archetype: oneOf(...archetypes), confidence: oneOf('strong', 'possible'), signals: list(string), sourceNpc: string }, ['archetype', 'confidence', 'signals'])),
+  pay: shape({ award: oneOf('hospitality', 'restaurant', 'fast_food', 'retail', 'cleaning', 'general'), employmentBasis: oneOf('casual', 'part_time', 'full_time'), hourlyRate: number, hoursPerWeek: number, superPaid: yesNoUnknown, paidCash: boolean }),
+  selfReported: shape({ categories: list(oneOf(...archetypes)), preferNotSay: boolean, other: string, reasons: shape(Object.fromEntries(archetypes.map(key => [key, string]))) }),
+  flags: list(shape({ archetype: oneOf(...archetypes), confidence: oneOf('strong', 'possible'), declaredBy: oneOf('worker'), signals: list(string), sourceNpc: string }, ['archetype', 'confidence', 'signals'])),
   detail: shape({
     underpayment: shape({ rateOrCashPerShift: string, paidCash: boolean, payslips: oneOf('always', 'sometimes', 'never'), hoursBand: string, unpaidTrial: boolean, unpaidTimeAroundShift: boolean, deductions: list(string), superPaid: yesNoUnknown, penaltyRates: yesNoUnknown }),
     shamContracting: shape({ toldToGetABN: boolean, whoSetsHours: string, ownTools: boolean, canSendSubstitute: boolean, invoices: boolean, worksForOthers: boolean }),
@@ -64,8 +69,9 @@ export function plainSummary(file: CaseFile, language: Language): string {
   return [
     copy.draft, `${copy.reference}: ${file.id}`, '', copy.factsTitle,
     ...caseFacts(file, language).map(([label, value]) => `${label}: ${value}`), '', copy.themesTitle,
-    ...file.flags.map(flag => `${archetypeLabels[flag.archetype][language]} (${flag.confidence === 'strong' ? copy.strong : copy.possible}): ${flag.signals.join('; ')}`),
+    ...file.flags.map(flag => `${archetypeLabels[flag.archetype][language]} (${flag.declaredBy === 'worker' ? copy.selfDeclared : flag.confidence === 'strong' ? copy.strong : copy.possible}): ${flag.signals.join('; ')}`),
     '', copy.bilingualTitle, copy.bilingualNote, `${copy.viNarrative}:\n${file.narrative.vi || copy.translationMissing}`, `${copy.enNarrative}:\n${file.narrative.en || copy.translationMissing}`,
+    '', ...paySummaryLines(file, language),
     '', `${copy.evidenceTitle}: ${evidence || copy.notProvided}`, file.evidenceHeld.notes ?? '', '', copy.safeContactTitle,
     `${copy.channel}: ${file.contactSafety.preferredChannel ? copy.channels[file.contactSafety.preferredChannel] : copy.notProvided}`,
     `${copy.phone}: ${file.contact?.phone || copy.notProvided}`, `Email: ${file.contact?.email || copy.notProvided}`,
@@ -76,6 +82,25 @@ export function plainSummary(file: CaseFile, language: Language): string {
     '', `${copy.employerName}: ${file.employer?.name || copy.notProvided}`, `${copy.employerAddress}: ${file.employer?.address || copy.notProvided}`,
     '', copy.handoff, copy.disclaimer,
   ].join('\n');
+}
+
+export function paySummaryLines(file: CaseFile, language: Language): string[] {
+  const copy = payCopy(language);
+  const assessment = assessPay(file.pay ?? {});
+  if (!assessment) return [copy.title, copy.empty];
+  const award = awardRates[file.pay?.award ?? 'general'];
+  return [
+    copy.title, copy.note,
+    `${copy.award}: ${award.name[language]} (${award.code})`,
+    `${copy.lawfulHourly}: ${money(assessment.lawfulHourly)}`,
+    ...(assessment.reportedHourly === undefined ? [] : [`${copy.reportedHourly}: ${money(assessment.reportedHourly)}`]),
+    ...(assessment.overtimeHours > 0 ? [`${copy.overtime}: ${assessment.overtimeHours}`] : []),
+    ...(assessment.expectedWeeklyPay === undefined ? [] : [`${copy.expected}: ${money(assessment.expectedWeeklyPay)}`]),
+    ...(assessment.reportedWeeklyPay === undefined ? [] : [`${copy.reported}: ${money(assessment.reportedWeeklyPay)}`]),
+    ...(assessment.shortfallPerWeek === undefined ? [] : [`${copy.shortfall}: ${money(assessment.shortfallPerWeek)}`]),
+    ...(assessment.superOwedPerWeek === undefined ? [] : [`${copy.superOwed}: ${money(assessment.superOwedPerWeek)}`]),
+    ...assessment.findings.map(finding => `- ${payFindingText[finding.code][language]}`),
+  ];
 }
 
 function download(value: string, filename: string, type: string) {
@@ -129,13 +154,15 @@ export default function Summary({ language, caseFile, onChange, onBack }: CasePa
     <div className="intake-topline"><button className="intake-back" onClick={onBack}><ArrowLeft size={16} />{copy.back}</button><span className="intake-private"><LockKeyhole size={13} />{copy.draft}</span></div>
     <header className="summary-heading"><span className="intake-eyebrow">{copy.summaryEyebrow}</span><h1>{copy.summaryTitle}</h1><p>{copy.summaryIntro}</p><span className="summary-reference">{copy.reference} · {caseFile.id}</span></header>
     {urgent && <CrisisOptions language={language} />}
-    <section className="summary-section"><div className="summary-section-heading"><MessageCircle size={20} /><div><h2>{copy.themesTitle}</h2><p>{copy.themesNote}</p></div></div>{rankedFlags.length ? <div className="summary-flags">{rankedFlags.map((flag, index) => <article className="summary-flag" key={`${flag.archetype}-${index}`}><div className="summary-flag-title"><h3>{archetypeLabels[flag.archetype][language]}</h3><span>{flag.confidence === 'strong' ? copy.strong : copy.possible}</span></div><p>{legalNotes[flag.archetype][language]}</p>{flag.signals.length > 0 && <blockquote>{flag.signals.join(' · ')}</blockquote>}</article>)}</div> : <p className="summary-empty">{copy.noFlags}</p>}</section>
+    <section className="summary-section"><div className="summary-section-heading"><MessageCircle size={20} /><div><h2>{copy.themesTitle}</h2><p>{copy.themesNote}</p></div></div>{rankedFlags.length ? <div className="summary-flags">{rankedFlags.map((flag, index) => <article className="summary-flag" key={`${flag.archetype}-${index}`}><div className="summary-flag-title"><h3>{archetypeLabels[flag.archetype][language]}</h3><span>{flag.declaredBy === 'worker' ? copy.selfDeclared : flag.confidence === 'strong' ? copy.strong : copy.possible}</span></div><p>{legalNotes[flag.archetype][language]}</p>{flag.signals.length > 0 && <blockquote>{flag.signals.join(' · ')}</blockquote>}</article>)}</div> : <p className="summary-empty">{copy.noFlags}</p>}</section>
     <section className="summary-section"><div className="summary-section-heading"><FileText size={20} /><div><h2>{copy.bilingualTitle}</h2><p>{copy.bilingualNote}</p></div></div><div className="summary-language-grid">{(['vi', 'en'] as Language[]).map(lang => <div className="summary-language-panel" key={lang}><span className="summary-language-label">{lang === 'vi' ? 'TIẾNG VIỆT' : 'ENGLISH'}</span><dl className="summary-facts">{caseFacts(caseFile, lang).map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><Field label={lang === 'vi' ? copy.viNarrative : copy.enNarrative}><textarea rows={6} lang={lang} value={caseFile.narrative[lang]} placeholder={copy.translationMissing} onChange={event => onChange({ ...caseFile, narrative: { ...caseFile.narrative, [lang]: event.target.value } })} /></Field></div>)}</div></section>
+    <PayComparison language={language} caseFile={caseFile} />
     <section className="summary-section"><div className="summary-section-heading"><Check size={20} /><div><h2>{copy.evidenceTitle}</h2><p>{copy.evidenceSummaryNote}</p></div></div><EvidenceFields language={language} caseFile={caseFile} onChange={onChange} /></section>
     <section className="summary-section summary-safety"><div className="summary-section-heading"><ShieldCheck size={20} /><div><h2>{copy.safeContactTitle}</h2><p>{copy.safeContactNote}</p></div></div>{(caseFile.contactSafety.safeToCall === false || caseFile.contactSafety.safeToLeaveVoicemail === false || caseFile.contactSafety.safeToEmail === false) && <div className="summary-safety-alert" role="status">{caseFile.contactSafety.safeToCall === false && <strong>{copy.noCalls}</strong>}{caseFile.contactSafety.safeToLeaveVoicemail === false && <strong>{copy.noVoicemail}</strong>}{caseFile.contactSafety.safeToEmail === false && <strong>{copy.noEmails}</strong>}</div>}<SafeContactFields language={language} caseFile={caseFile} onChange={onChange} /></section>
     <section className="summary-section"><div className="summary-section-heading"><LockKeyhole size={20} /><div><h2>{copy.employerTitle}</h2><p>{copy.employerNote}</p></div></div><EmployerFields language={language} caseFile={caseFile} onChange={onChange} /></section>
     <details className="summary-json"><summary><FileJson size={18} /><span>{copy.fullFile}</span><ChevronDown size={17} /></summary><div className="summary-json-body"><p>{copy.fullFileNote}</p><Field label={copy.fullFile}><textarea className="summary-json-input" rows={16} value={jsonDraft} spellCheck={false} autoComplete="off" aria-invalid={jsonError} onChange={event => { setJsonDraft(event.target.value); setJsonDirty(true); setJsonError(false); }} /></Field>{jsonError && <p className="summary-error" role="alert">{copy.invalidFile}</p>}<button className="intake-secondary" onClick={applyJson}>{copy.applyFile}<Check size={16} /></button></div></details>
     <section className="summary-consent"><h2>{copy.consentTitle}</h2><label className="intake-check"><input type="checkbox" checked={caseFile.consent.shareWithRMWC} onChange={event => consent('shareWithRMWC', event.target.checked)} /><span>{copy.shareConsent}</span></label><label className="intake-check"><input type="checkbox" checked={caseFile.consent.storeAnonymisedStats} onChange={event => consent('storeAnonymisedStats', event.target.checked)} /><span>{copy.statsConsent}</span></label><p>{copy.consentNote}</p></section>
+    <CommunityFlagOptIn language={language} caseFile={caseFile} />
     <section className="summary-exits-section"><span className="intake-eyebrow">{copy.exitsTitle}</span><div className="summary-exits"><article className="summary-exit"><ExternalLink size={23} /><h3>{copy.clinicTitle}</h3><p>{copy.clinicText}</p><a className="intake-secondary" href={RMWC_CLINIC_URL} target="_blank" rel="noopener noreferrer">{copy.clinicAction}<ArrowRight size={16} /></a></article><article className="summary-exit"><Download size={23} /><h3>{copy.saveTitle}</h3><p>{copy.saveText}</p><div className="summary-download-actions"><button className="intake-secondary" onClick={saveDraft}>{copy.saveAction}<span>JSON</span></button><button className="intake-secondary summary-text-download" onClick={saveText} aria-label={`${copy.saveAction} · TXT`}>TXT<Download size={14} /></button></div></article><article className="summary-exit"><Phone size={23} /><h3>{copy.callTitle}</h3><p>{copy.callText}</p><a className="intake-secondary" href="tel:1300513107">{copy.callAction}<ArrowRight size={16} /></a></article><article className="summary-exit"><Share2 size={23} /><h3>{copy.shareTitle}</h3><p>{copy.shareText}</p><button className="intake-secondary" onClick={() => void shareApp()}>{copy.shareAction}<ArrowRight size={16} /></button></article></div><p className="summary-handoff"><LockKeyhole size={15} />{copy.handoff}</p><p className="summary-download-note">{copy.downloadNote}</p></section>
     {notice && <div className="summary-notice" role="status"><Check size={17} /><span>{copy[notice]}</span><button onClick={() => setNotice(null)} aria-label={copy.close}>×</button></div>}
     {shareUrl && <div className="summary-share-fallback"><Copy size={18} /><Field label={copy.shareFallback}><input readOnly value={shareUrl} onFocus={event => event.target.select()} /></Field><button className="intake-text-button" onClick={() => setShareUrl('')}>{copy.close}</button></div>}

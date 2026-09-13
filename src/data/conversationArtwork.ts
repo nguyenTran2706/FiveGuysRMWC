@@ -1,6 +1,6 @@
 import type { Resident } from '../types';
 
-export type StoryStage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
+export type StoryStage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'debrief' | 'epilogue';
 export type Ending = 'kept' | 'missed';
 type Artwork = { nodes: Record<string, string>; endings: Record<Ending, string> };
 

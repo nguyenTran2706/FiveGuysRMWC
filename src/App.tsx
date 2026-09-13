@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
@@ -11,16 +11,29 @@ import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
 import { BootScreen } from './components/BootScreen';
 import { ConversationBackdrop } from './components/ConversationBackdrop';
+import { TrustMeter } from './components/TrustMeter';
+import { Debrief } from './components/Debrief';
+import { choiceWhy } from './data/feedback';
+import { BrandMark } from './components/BrandMark';
+import { watchCopy } from './data/watchCopy';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
-type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review';
+const RightsChat = lazy(() => import('./components/RightsChat'));
+const EmployerWatch = lazy(() => import('./components/EmployerWatch'));
+type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'chat' | 'watch';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
-type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
+type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'debrief' | 'epilogue';
 type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
 
 function WindowMark({ small = false }: { small?: boolean }) {
   return <svg width={small ? 26 : 35} height={small ? 30 : 40} viewBox="0 0 35 40" fill="none" aria-hidden="true"><path d="M3 37V8l28-5v34M17 6v31M3 21h28" stroke="currentColor" strokeWidth="1.6" /><path d="M8 37V13l5-1v25" fill="currentColor" fillOpacity=".25" /></svg>;
+}
+
+function getStoryProgress(resident: Resident, currentId: string) {
+  const nodeIds = Object.keys(resident.nodes);
+  const currentIndex = Math.max(0, nodeIds.indexOf(currentId));
+  return Math.round(((currentIndex + 1) / nodeIds.length) * 100);
 }
 
 export default function App() {
@@ -36,6 +49,8 @@ export default function App() {
   const [activeId, setActiveId] = useState('linh');
   const [stage, setStage] = useState<Stage>('dialogue');
   const [note, setNote] = useState('');
+  const [reaction, setReaction] = useState<{ text: string; delta: number } | null>(null);
+  const reactTimer = useRef<number | undefined>(undefined);
   const [speaking, setSpeaking] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
@@ -44,6 +59,7 @@ export default function App() {
   const ending = session?.kept && session.status !== 'closed' ? 'kept' : 'missed';
   const sceneImage = conversationImage(active, node?.id ?? active.start, stage, ending);
   const nextImages = stage === 'dialogue' ? nextConversationImages(active, node?.id ?? active.start, ending) : [];
+  const storyProgress = getStoryProgress(active, node?.id ?? active.start);
   const t = copy[language];
   const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
@@ -81,7 +97,8 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', hide);
   }, [page, cancelSpeech]);
 
-  function navigate(next: Page) { cancelSpeech(); setOverlay(null); setPage(next); }
+  function clearReaction() { window.clearTimeout(reactTimer.current); setReaction(null); }
+  function navigate(next: Page) { cancelSpeech(); setOverlay(null); clearReaction(); setPage(next); }
   function beginIntake() {
     if (page === 'home') setCaseFile(current => ({ ...current, source: 'agent' }));
     navigate('intake');
@@ -104,11 +121,11 @@ export default function App() {
     if (sessions[lastResidentRef.current]) {
       setActiveId(lastResidentRef.current);
       navigate('game');
-    } else openResident(residents[0]);
+    } else navigate('street');
   }
   function finish(closed = false) {
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], status: closed ? 'closed' : 'heard' } }));
-    setStage(closed ? 'epilogue' : 'reflection');
+    setStage(closed ? 'debrief' : 'reflection');
   }
   function advance() {
     if (!node || node.choices?.length) return;
@@ -116,11 +133,19 @@ export default function App() {
     else if (node.next === 'closed') finish(true);
     else setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: node.next! } }));
   }
-  function choose(choice: Choice) {
+  function applyChoice(choice: Choice) {
     const next = active.nodes[choice.next];
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: next ? choice.next : current[activeId].node, trust: current[activeId].trust + (choice.trust ?? 0), kept: current[activeId].kept || !!choice.recordEvidence } }));
     if (!next && choice.next === 'reflection') finish();
     else if (!next && choice.next === 'closed') finish(true);
+  }
+  function choose(choice: Choice) {
+    if (reaction) return;
+    const delta = choice.trust ?? 0;
+    const line = choice.recordEvidence ? t.reactionEvidence : delta > 0 ? t.reactionPositive : delta < 0 ? t.reactionNegative : t.reactionNeutral;
+    setReaction({ text: line.replace('{name}', active.name), delta });
+    window.clearTimeout(reactTimer.current);
+    reactTimer.current = window.setTimeout(() => { setReaction(null); applyChoice(choice); }, 1800);
   }
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
@@ -134,6 +159,7 @@ export default function App() {
     window.addEventListener('keydown', keydown);
     return () => window.removeEventListener('keydown', keydown);
   });
+  useEffect(() => () => window.clearTimeout(reactTimer.current), []);
   function speak(text: string) {
     if (speaking) { cancelSpeech(); return; }
     if (!('speechSynthesis' in window)) { setAudioError(true); return; }
@@ -153,15 +179,15 @@ export default function App() {
     } else {
       setCaseFile(current => ({ ...current, flags: current.flags.filter(flag => flag.sourceNpc !== activeId) }));
     }
-    setStage(answer === 'yes' ? 'deepening' : activeId === 'linh' ? 'artifact' : 'epilogue');
+    setStage(answer === 'yes' ? 'deepening' : activeId === 'linh' ? 'artifact' : 'debrief');
   }
   function saveNote() {
     if (note.trim()) setCaseFile(current => ({ ...current, narrative: { ...current.narrative, [language]: [current.narrative[language], note.trim()].filter(Boolean).join('\n\n') }, flags: current.flags.map(flag => flag.sourceNpc === activeId ? { ...flag, signals: [...flag.signals, note.trim()] } : flag) }));
-    setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'epilogue');
+    setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'debrief');
   }
   function payslipAnswer(answer?: 'always' | 'sometimes' | 'never') {
     if (answer) setCaseFile(current => ({ ...current, detail: { ...current.detail, underpayment: { ...current.detail.underpayment, payslips: answer } }, evidenceHeld: { ...current.evidenceHeld, payslips: answer !== 'never' } }));
-    setStage('epilogue');
+    setStage('debrief');
   }
   function fullscreen() {
     if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
@@ -181,8 +207,8 @@ export default function App() {
   return <div className={`app page-${page} ${reducedMotion ? 'reduce-motion' : ''}`}>
     <a className="skip-link" href="#main">{language === 'vi' ? 'Đến nội dung chính' : 'Skip to main content'}</a>
     <header className="site-header">
-      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights — Home"><WindowMark /><span><strong>{t.brand}</strong><small>{t.byline}</small></span></button>
-      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
+      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× <img src="/images/rmwc-icon.png" alt="" className="brand-rmwc" />RMWC</em></strong><small>{t.byline}</small></span></button>
+      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'chat' ? 'active' : ''} onClick={() => navigate('chat')}>{language === 'vi' ? 'Hỏi về quyền' : 'Ask your rights'}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
       <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
     </header>
 
@@ -201,26 +227,30 @@ export default function App() {
       {page === 'game' && <section className={`game-scene stage-${stage}`}>
         <ConversationBackdrop key={active.id} src={sceneImage} fallback={active.image} preload={nextImages} reducedMotion={reducedMotion} /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
         <div className="game-topbar"><button className="text-link" onClick={() => navigate('street')}><ArrowLeft size={17} />{t.walk}</button><div className="player-controls"><button className="icon-button" onClick={() => setSound(!sound)} title={sound ? t.soundOff : t.sound} aria-label={sound ? t.soundOff : t.sound}>{sound ? <Volume2 size={19} /> : <VolumeX size={19} />}</button><button className="icon-button" onClick={() => { cancelSpeech(); setOverlay('pause'); }} title={t.pause} aria-label={t.pause}><Pause size={18} /></button><button className="icon-button" onClick={() => setOverlay('settings')} title={t.settings} aria-label={t.settings}><Settings2 size={19} /></button><button className="icon-button fullscreen-button" onClick={fullscreen} title={t.fullScreen} aria-label={t.fullScreen}><Maximize size={17} /></button></div></div>
-        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span></div>
+        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}{stage === 'dialogue' && session && <TrustMeter t={t} trust={session.trust} />}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
           <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>
           {/visa/i.test(node.text.en) && <aside className="scene-visa-note"><ShieldCheck size={17} /><div><strong>{t.visaTitle}</strong><p>{t.visaNote}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants/visa-protections-pilot-programs" target="_blank" rel="noopener noreferrer">Fair Work<ExternalLink size={11} /></a></div></aside>}
-          {node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => <button className="choice-button" key={choice.id} onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>)}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
+          {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <span className="choice-why" tabIndex={0} aria-label={t.whyLabel}><Info size={12} /><span>{t.whyLabel}</span><span className="choice-why-tip" role="tooltip">{why}</span></span>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
         </div>}
 
-        {(stage === 'reflection' || stage === 'artifact' || stage === 'deepening') && <div className="reflection-wrap"><div className="reflection-panel"><span className="eyebrow">{t.reflectionEyebrow}</span><h2>{stage === 'deepening' ? t.deepeningTitle : stage === 'artifact' ? t.artifactQuestion : t.reflectionTitle}</h2><p>{stage === 'deepening' ? t.deepeningHint : t.reflectionText}</p>
+        {(stage === 'reflection' || stage === 'artifact' || stage === 'deepening') && <div className="reflection-wrap"><div className="reflection-panel"><span className="eyebrow">{t.reflectionEyebrow}</span><h2>{stage === 'deepening' ? t.deepeningTitle : stage === 'artifact' ? t.artifactQuestion : t.reflectionTitle}</h2><p>{stage === 'deepening' ? t.deepeningHint : t.reflectionText}</p><p className="question-explain">{stage === 'deepening' ? t.deepeningExplainer : stage === 'artifact' ? t.artifactExplainer : t.reflectionExplainer}</p>
           {stage === 'reflection' && <div className="reflection-choices">{([['yes', t.yes], ['no', t.no], ['possible', t.unsure], ['skip', t.preferSkip]] as const).map(([value, label]) => <button className="button button-outline" key={value} onClick={() => reflect(value)}>{label}<ArrowRight size={17} /></button>)}</div>}
           {stage === 'artifact' && <div className="reflection-choices">{([['always', t.always], ['sometimes', t.sometimes], ['never', t.never]] as const).map(([value, label]) => <button className="button button-outline" key={value} onClick={() => payslipAnswer(value)}>{label}<ArrowRight size={17} /></button>)}<button className="button button-outline" onClick={() => payslipAnswer()}>{t.preferSkip}<ArrowRight size={17} /></button></div>}
-          {stage === 'deepening' && <><label className="sr-only" htmlFor="reflection-note">{t.deepeningTitle}</label><textarea id="reflection-note" value={note} maxLength={10000} onChange={event => setNote(event.target.value)} placeholder={t.deepeningPlaceholder} rows={4} /><div className="reflection-actions"><button className="button button-amber" onClick={saveNote}>{t.keepNote}<ArrowRight size={17} /></button><button className="text-link" onClick={() => { setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'epilogue'); }}>{t.skip}</button></div></>}
+          {stage === 'deepening' && <><label className="sr-only" htmlFor="reflection-note">{t.deepeningTitle}</label><textarea id="reflection-note" value={note} maxLength={10000} onChange={event => setNote(event.target.value)} placeholder={t.deepeningPlaceholder} rows={4} /><div className="reflection-actions"><button className="button button-amber" onClick={saveNote}>{t.keepNote}<ArrowRight size={17} /></button><button className="text-link" onClick={() => { setNote(''); setStage(activeId === 'linh' ? 'artifact' : 'debrief'); }}>{t.skip}</button></div></>}
           <div className="rights-note"><ShieldCheck size={19} /><div><span className="eyebrow">{t.generalInfo}</span><p>{legalNotes[active.archetype][language]}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants" target="_blank" rel="noopener noreferrer">{t.learnRights}<ExternalLink size={12} /></a></div></div>
         </div></div>}
+
+        {stage === 'debrief' && <div className="reflection-wrap"><Debrief t={t} language={language} resident={active} trust={session?.trust ?? 0} kept={!!session?.kept} status={session?.status ?? 'playing'} heardCount={heardResidents.length} unlocked={unlocked} onContinue={() => setStage('epilogue')} /></div>}
 
         {stage === 'epilogue' && <div className="epilogue-panel"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[session?.kept && session.status !== 'closed' ? 'kept' : 'missed'][language]}</p><p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
 
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
       <Suspense fallback={<BootScreen t={t} />}>
+        {page === 'chat' && <RightsChat language={language} />}
+        {page === 'watch' && <EmployerWatch language={language} onBack={() => navigate('home')} />}
         {page === 'intake' && <Intake language={language} caseFile={caseFile} onChange={setCaseFile} onReview={() => navigate('review')} onBack={() => navigate(completedCount ? 'street' : 'home')} />}
         {page === 'review' && <Summary language={language} caseFile={caseFile} onChange={setCaseFile} onBack={() => navigate('intake')} />}
       </Suspense>
