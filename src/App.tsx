@@ -15,7 +15,8 @@ import { BootScreen } from './components/BootScreen';
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
 const RightsChat = lazy(() => import('./components/RightsChat'));
-type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'chat';
+const EmployerWatch = lazy(() => import('./components/EmployerWatch'));
+type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'chat' | 'watch';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
 type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
 type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
@@ -186,8 +187,8 @@ export default function App() {
   return <div className={`app page-${page} ${reducedMotion ? 'reduce-motion' : ''}`}>
     <a className="skip-link" href="#main">{language === 'vi' ? 'Đến nội dung chính' : 'Skip to main content'}</a>
     <header className="site-header">
-      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights — Home"><WindowMark /><span><strong>{t.brand}</strong><small>{t.byline}</small></span></button>
-      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'chat' ? 'active' : ''} onClick={() => navigate('chat')}>{language === 'vi' ? 'Hỏi về quyền' : 'Ask your rights'}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
+      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× <img src="/images/rmwc-icon.png" alt="" className="brand-rmwc" />RMWC</em></strong><small>{t.byline}</small></span></button>
+      <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'chat' ? 'active' : ''} onClick={() => navigate('chat')}>{language === 'vi' ? 'Hỏi về quyền' : 'Ask your rights'}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
       <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
     </header>
 
@@ -227,6 +228,7 @@ export default function App() {
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
       <Suspense fallback={<BootScreen t={t} />}>
         {page === 'chat' && <RightsChat language={language} />}
+        {page === 'watch' && <EmployerWatch language={language} onBack={() => navigate('home')} />}
         {page === 'intake' && <Intake language={language} caseFile={caseFile} onChange={setCaseFile} onReview={() => navigate('review')} onBack={() => navigate(completedCount ? 'street' : 'home')} />}
         {page === 'review' && <Summary language={language} caseFile={caseFile} onChange={setCaseFile} onBack={() => navigate('intake')} />}
       </Suspense>
