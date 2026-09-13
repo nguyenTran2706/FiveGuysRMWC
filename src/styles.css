@@ -25,7 +25,8 @@ h1,h2,h3,p { margin: 0; }
 .brand strong { display: block; font-size: 16px; font-weight: 500; letter-spacing: 2px; }
 .brand small { display: block; font-size: 8px; letter-spacing: 1.6px; color: #aaa99c; padding-top: 6px; }
 .brand > svg { color: var(--amber); }
-.brand-collab { font-style: normal; font-size: 11px; letter-spacing: 1.4px; color: var(--amber); margin-left: 8px; }
+.brand-collab { font-style: normal; font-size: 11px; letter-spacing: 1.4px; color: var(--amber); margin-left: 8px; display: inline-flex; align-items: center; gap: 5px; }
+.brand-rmwc { height: 1.35em; width: auto; display: block; }
 .site-header nav { display: flex; align-items: center; gap: 31px; margin-left: auto; }
 .site-header nav button { font-size: 12px; color: #c3c5ba; white-space: nowrap; display: flex; align-items: center; gap: 7px; padding: 20px 0; position: relative; transition: color .2s; }
 .site-header nav button:hover, .site-header nav button.active { color: #fff7de; }
