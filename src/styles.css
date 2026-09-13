@@ -160,8 +160,8 @@ h1,h2,h3,p { margin: 0; }
 .dialogue-copy { max-width: 850px; }
 .speaker-line { display: flex; align-items: center; gap: 16px; margin-bottom: 4px; }
 .speaker-line > span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); }
-.dialogue-text { white-space: pre-line; font-size: clamp(19px, 1.75vw, 26px); font-weight: 350; line-height: 1.65; letter-spacing: -.1px; text-shadow: 0 2px 12px #0008; }
-.secondary-dialogue { white-space: pre-line; font-size: 14px; line-height: 1.65; color: #b8c1ac; margin-top: 12px; }
+.dialogue-text { font-size: clamp(19px, 1.75vw, 26px); font-weight: 350; line-height: 1.65; letter-spacing: -.1px; text-shadow: 0 2px 12px #0008; }
+.secondary-dialogue { font-size: 14px; line-height: 1.65; color: #b8c1ac; margin-top: 12px; }
 .artifact-dialogue { max-width: 700px; padding: 25px 30px; background: #161d15dd; border: 1px solid #c5b68355; margin-bottom: 12px; }
 .artifact-dialogue .dialogue-text { font-family: 'Courier New', monospace; font-size: 16px; white-space: pre-line; }
 .choice-area { margin-top: 35px; }
