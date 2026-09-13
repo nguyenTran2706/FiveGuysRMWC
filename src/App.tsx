@@ -107,7 +107,7 @@ export default function App() {
     if (sessions[lastResidentRef.current]) {
       setActiveId(lastResidentRef.current);
       navigate('game');
-    } else openResident(residents[0]);
+    } else navigate('street');
   }
   function finish(closed = false) {
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], status: closed ? 'closed' : 'heard' } }));
