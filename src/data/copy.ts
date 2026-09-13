@@ -1,6 +1,6 @@
 export const copy = {
   vi: {
-    brand: 'KNOW YOUR RIGHTS', byline: 'MỘT TRẢI NGHIỆM TỪ RMWC', story: 'Những câu chuyện', about: 'Về trải nghiệm', help: 'Tìm sự giúp đỡ', exit: 'Thoát nhanh', exitHint: 'Thoát nhanh đến trang thời tiết. Phím Esc.',
+    brand: 'KNOW YOUR RIGHTS', byline: 'MỘT TRẢI NGHIỆM TỪ RMWC', story: 'Những câu chuyện', about: 'Giới thiệu', help: 'Yêu cầu hỗ trợ', exit: 'Thoát nhanh', exitHint: 'Thoát nhanh sang trang thời tiết. Nhấn phím Esc.',
     newGame: 'Bắt đầu', mainMenu: 'Menu chính', meetNeighbours: 'Gặp hàng xóm', menuSettings: 'Cài đặt', liveClock: 'Đồng hồ trực tiếp',
     presents: 'RMWC GIỚI THIỆU', interactive: 'MỘT CÂU CHUYỆN TƯƠNG TÁC', titleFirst: 'SAU', titleSecond: 'GIỜ LÀM.', englishTitle: 'AFTER HOURS',
     intro: 'Một con phố. Bảy người hàng xóm.', introSecond: 'Những chuyện chưa kể sau mỗi ca làm.', description: 'Lắng nghe, lựa chọn cách đáp lời, và bạn có thể nhận ra một phần hoàn cảnh của chính mình.', understand: 'Tôi muốn tìm hiểu', understandSub: 'BƯỚC VÀO CÂU CHUYỆN', helpNow: 'Tôi cần được hỗ trợ', helpSub: 'TRAO ĐỔI THEO NHỊP CỦA BẠN',
