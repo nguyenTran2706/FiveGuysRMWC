@@ -21,9 +21,27 @@ export interface CaseFile {
     suburb?: string;
     ageBand?: string;
   };
+  /** Answers used by the pay rules engine (src/data/payRules.ts). */
+  pay?: {
+    award?: 'hospitality' | 'restaurant' | 'fast_food' | 'retail' | 'cleaning' | 'general';
+    employmentBasis?: 'casual' | 'part_time' | 'full_time';
+    hourlyRate?: number;
+    hoursPerWeek?: number;
+    superPaid?: 'yes' | 'no' | 'unknown';
+    paidCash?: boolean;
+  };
+  /** Categories the worker ticked for themselves, with their own reason for each. */
+  selfReported?: {
+    categories?: Archetype[];
+    preferNotSay?: boolean;
+    other?: string;
+    reasons?: Partial<Record<Archetype, string>>;
+  };
   flags: Array<{
     archetype: Archetype;
     confidence: 'strong' | 'possible';
+    /** 'worker' means the worker declared this category themselves, rather than it being inferred. */
+    declaredBy?: 'worker';
     signals: string[];
     sourceNpc?: string;
   }>;
