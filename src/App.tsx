@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, CloudRain, ExternalLink, Headphones, HeartHandshake, Languages, Maximize, MessageCircle, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
@@ -13,14 +13,19 @@ import { BootScreen } from './components/BootScreen';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
-const EmployerWatch = lazy(() => import('./components/EmployerWatch'));
-type Page = 'home' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'watch';
+type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
 type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'epilogue';
 type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
 
 function WindowMark({ small = false }: { small?: boolean }) {
   return <svg width={small ? 26 : 35} height={small ? 30 : 40} viewBox="0 0 35 40" fill="none" aria-hidden="true"><path d="M3 37V8l28-5v34M17 6v31M3 21h28" stroke="currentColor" strokeWidth="1.6" /><path d="M8 37V13l5-1v25" fill="currentColor" fillOpacity=".25" /></svg>;
+}
+
+function getStoryProgress(resident: Resident, currentId: string) {
+  const nodeIds = Object.keys(resident.nodes);
+  const currentIndex = Math.max(0, nodeIds.indexOf(currentId));
+  return Math.round(((currentIndex + 1) / nodeIds.length) * 100);
 }
 
 export default function App() {
@@ -41,12 +46,14 @@ export default function App() {
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
+  const storyProgress = getStoryProgress(active, node?.id ?? active.start);
   const t = copy[language];
   const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
   const completedCount = Object.values(sessions).filter(item => item.status !== 'playing').length;
   const unlocked = heardResidents.length >= 3;
   const mainRef = useRef<HTMLElement>(null);
+  const lastResidentRef = useRef('linh');
   useAmbient(sound && page !== 'intake' && page !== 'review' && page !== 'turn' && overlay !== 'pause' && !speaking);
 
   const cancelSpeech = useCallback(() => { window.speechSynthesis?.cancel(); setSpeaking(false); }, []);
@@ -83,16 +90,24 @@ export default function App() {
     navigate('intake');
   }
   function openResident(resident: Resident, approved = false) {
-    setActiveId(resident.id); setNote(''); setAudioError(false);
+    setActiveId(resident.id); setAudioError(false);
     if (resident.needsReturn && (approaches[resident.id] === undefined || approaches[resident.id] >= completedCount) && !sessions[resident.id]) {
       setApproaches(current => ({ ...current, [resident.id]: completedCount }));
       setOverlay('waiting'); return;
     }
     if (resident.warning && !approved && !sessions[resident.id]) { setOverlay('warning'); return; }
+    lastResidentRef.current = resident.id;
+    setNote('');
     const existing = sessions[resident.id];
     if (!existing) setSessions(current => ({ ...current, [resident.id]: { node: resident.start, trust: 0, kept: false, status: 'playing' } }));
     setStage(existing && existing.status !== 'playing' ? 'epilogue' : 'dialogue');
     navigate('game');
+  }
+  function startOrContinue() {
+    if (sessions[lastResidentRef.current]) {
+      setActiveId(lastResidentRef.current);
+      navigate('game');
+    } else openResident(residents[0]);
   }
   function finish(closed = false) {
     setSessions(current => ({ ...current, [activeId]: { ...current[activeId], status: closed ? 'closed' : 'heard' } }));
@@ -156,10 +171,7 @@ export default function App() {
     else void document.documentElement.requestFullscreen?.().catch(() => {});
   }
   function reset() { setCaseFile(createCaseFile(language, 'street')); setSessions({}); setApproaches({}); setNote(''); setSound(false); navigate('home'); }
-  function scrollAbout() {
-    if (page !== 'home') { navigate('home'); setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' }), 60); }
-    else document.getElementById('about')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' });
-  }
+  function scrollAbout() { navigate('about'); }
 
   const residentCards = (limited = false) => <div className={`resident-grid ${limited ? 'resident-preview' : ''}`}>
     {(limited ? residents.slice(0, 3) : residents).map((resident, index) => <button key={resident.id} className={`resident-card resident-${resident.id}`} onClick={() => openResident(resident)}>
@@ -178,35 +190,21 @@ export default function App() {
     </header>
 
     <main id="main" tabIndex={-1} ref={mainRef}>
-      {page === 'home' && <>
-        <section className="hero">
-          <img className="hero-image" src="/images/street.webp" alt="" fetchPriority="high" width="1660" height="948" />
-          <div className="hero-shade" /><div className="rain-overlay" aria-hidden="true" />
-          <div className="hero-copy"><div className="hero-eyebrow"><span>{t.presents}</span><i /><span>{t.interactive}</span></div>
-            <h1>{t.titleFirst}<br />{t.titleSecond}<span className="title-dot" /></h1>
-            <div className="hero-subtitle"><span className="short-rule" />{t.englishTitle}</div>
-            <p className="hero-intro">{t.intro}<br />{t.introSecond}</p>
-            <p className="hero-description">{t.description}</p>
-            <div className="door-actions"><button className="door-button door-story" onClick={() => openResident(residents[0])}><span className="door-icon"><Play size={19} fill="currentColor" /></span><span><small>{t.understandSub}</small><strong>{t.understand}</strong></span><ArrowRight size={20} /></button><button className="door-button door-help" onClick={beginIntake}><span className="door-icon"><MessageCircle size={21} /></span><span><small>{t.helpSub}</small><strong>{t.helpNow}</strong></span><ArrowRight size={20} /></button></div>
-            <button className="privacy-inline" onClick={() => setOverlay('privacy')}><ShieldCheck size={13} />{t.private}</button>
-          </div>
-          <div className="scene-coordinate"><span className="live-dot" />{t.location}<span className="coordinate-weather"><CloudRain size={14} />{sydneyTime} · {t.rain}</span></div>
-          <button className="hero-chapter" onClick={() => openResident(residents[0])}><span className="chapter-number">01</span><span className="chapter-detail"><small>{t.chapter}</small><strong>{t.chapterTitle}</strong><span>{t.chapterCaption}</span></span><span className="round-play"><Play size={17} fill="currentColor" /></span></button>
-          <div className="hero-bottom"><button className="audio-toggle" onClick={() => setSound(!sound)} aria-label={sound ? t.soundOff : t.sound}><span className={`audio-bars ${sound ? 'playing' : ''}`}><i /><i /><i /><i /><i /></span><span>{t.headphones}</span>{sound ? <Volume2 size={15} /> : <VolumeX size={15} />}</button><button className="discover-link" onClick={() => document.getElementById('stories')?.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })}>{t.discover}<ArrowDown size={16} /></button><span className="pace-note">{t.ownPace}<span> — {t.noTimer}</span></span></div>
-        </section>
-        <section className="stories-section section-wrap" id="stories"><div className="section-heading"><div><span className="eyebrow">{t.storiesEyebrow}</span><h2>{t.storiesTitle}</h2></div><button className="text-link" onClick={() => navigate('street')}>{t.story}<ArrowRight size={18} /></button></div>{residentCards(true)}</section>
-        <section className="about-section section-wrap" id="about"><div className="about-lead"><span className="eyebrow">{t.aboutEyebrow}</span><h2>{t.aboutTitle}</h2><p>{t.aboutDescription}</p></div><div className="how-list">{[[t.howOne, t.howOneText], [t.howTwo, t.howTwoText], [t.howThree, t.howThreeText]].map(([title, body], index) => <div className="how-item" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></div>)}</div></section>
+      {page === 'home' && <TitleScreen t={t} time={sydneyTime} sound={sound} hasSession={Object.keys(sessions).length > 0} onStart={startOrContinue} onHelp={beginIntake} onSettings={() => setOverlay('settings')} onPrivacy={() => setOverlay('privacy')} onSound={() => setSound(!sound)} onDiscover={() => navigate('street')} onAbout={scrollAbout} />}
+
+      {page === 'about' && <>
+        <section className="about-section section-wrap" id="about"><div className="about-lead"><span className="eyebrow">{t.aboutEyebrow}</span><h1>{t.aboutTitle}</h1><p>{t.aboutDescription}</p></div><div className="how-list">{[[t.howOne, t.howOneText], [t.howTwo, t.howTwoText], [t.howThree, t.howThreeText]].map(([title, body], index) => <div className="how-item" key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{body}</p></div></div>)}</div></section>
         <section className="support-section section-wrap"><HeartHandshake size={28} strokeWidth={1.2} /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE NSW</span><h2>{t.supportHeading}</h2><p>{t.aboutRmwc}</p></div><a className="button button-outline" href="tel:1300513107">1300 513 107<ArrowUpRight /></a><p className="legal-disclaimer">{t.disclaimer}</p></section>
       </>}
 
-      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> {sydneyTime}</span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
-        <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div>
+      {page === 'street' && <section className="street-page section-wrap"><div className="street-heading"><span className="eyebrow">{t.location} <span className="amber-dot">·</span> <time className="aest-clock">{sydneyTime}</time></span><h1>{t.storiesTitle}</h1><p>{t.storiesIntro}</p></div>{residentCards()}
+        <div className={`rmwc-card ${unlocked ? 'unlocked' : ''}`}><WindowMark /><div><span className="eyebrow">REFUGEE AND MIGRANT WORKERS CENTRE</span><h2>{unlocked ? t.rmwcOpen : t.supportHeading}</h2><p>{unlocked ? t.rmwcOpenText : t.turnHelp}</p></div><button className="button button-outline" onClick={() => navigate(unlocked ? 'turn' : 'intake')}>{unlocked ? t.stepInside : t.help}<ArrowRight size={18} /></button></div><p className="legal-disclaimer">{t.disclaimer}</p>
       </section>}
 
       {page === 'game' && <section className={`game-scene stage-${stage}`}>
         <img key={active.id} src={active.image} className="game-image" alt="" width="1672" height="940" /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
         <div className="game-topbar"><button className="text-link" onClick={() => navigate('street')}><ArrowLeft size={17} />{t.walk}</button><div className="player-controls"><button className="icon-button" onClick={() => setSound(!sound)} title={sound ? t.soundOff : t.sound} aria-label={sound ? t.soundOff : t.sound}>{sound ? <Volume2 size={19} /> : <VolumeX size={19} />}</button><button className="icon-button" onClick={() => { cancelSpeech(); setOverlay('pause'); }} title={t.pause} aria-label={t.pause}><Pause size={18} /></button><button className="icon-button" onClick={() => setOverlay('settings')} title={t.settings} aria-label={t.settings}><Settings2 size={19} /></button><button className="icon-button fullscreen-button" onClick={fullscreen} title={t.fullScreen} aria-label={t.fullScreen}><Maximize size={17} /></button></div></div>
-        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span></div>
+        <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
           <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>

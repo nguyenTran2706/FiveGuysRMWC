@@ -6,14 +6,14 @@ test('cinematic landing, private draft, language switch and mobile layout', asyn
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'vi');
-  await expect(page.locator('.hero h1')).toContainText('GIỜ LÀM');
-  await expect(page.locator('.hero-image')).toHaveJSProperty('naturalWidth', 1600);
+  await expect(page.locator('.title-screen h1')).toContainText('GIỜ LÀM');
+  await expect(page.locator('.title-screen-art')).toHaveJSProperty('naturalWidth', 1600);
   await mkdir('artifacts', { recursive: true });
   await page.screenshot({ path: 'artifacts/home-vi-desktop.png' });
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await expect(page.locator('.hero h1')).toContainText('HOURS');
+  await expect(page.locator('.title-screen h1')).toContainText('HOURS');
   await page.screenshot({ path: 'artifacts/home-en-desktop.png' });
-  await page.locator('.door-story').click();
+  await page.locator('.title-start').click();
   await expect(page.locator('.dialogue-text')).toBeVisible();
   const englishLine = await page.locator('.dialogue-text').innerText();
   await page.getByRole('button', { name: 'Chuyển sang tiếng Việt' }).click();
@@ -46,10 +46,98 @@ async function playPatiently(page) {
   throw new Error('Story did not reach a reflection');
 }
 
+test('Continue restores an unfinished reflection and its private note', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await page.locator('.title-start').click();
+  await playPatiently(page);
+  await page.getByRole('button', { name: 'Yes', exact: true }).click();
+  await page.locator('#reflection-note').fill('My unfinished reflection.');
+  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await page.locator('.title-start').click();
+  await expect(page.locator('#reflection-note')).toHaveValue('My unfinished reflection.');
+});
+
+test('the live clock remains AEST during Sydney summer and switches locale', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-01-15T12:42:00Z') });
+  await page.clock.pauseAt(new Date('2026-01-15T12:42:01Z'));
+  await page.goto('/');
+  const clock = page.locator('.title-screen .aest-clock');
+  await expect(clock).toHaveText('22:42:01 AEST');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await expect(clock).toHaveText('10:42:01 PM AEST');
+  await page.clock.runFor(2000);
+  await expect(clock).toHaveText('10:42:03 PM AEST');
+  expect((await clock.innerText()).match(/AEST/g)).toHaveLength(1);
+  await page.clock.resume();
+  await expect(clock).not.toHaveText('10:42:03 PM AEST');
+  await expect(clock).toHaveText(/^10:42:\d{2} PM AEST$/);
+});
+
+test('title settings, continue and about preserve the current conversation', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await expect(page.locator('.title-start')).toHaveText('New Game');
+  await page.locator('.title-settings').click();
+  const dialog = page.getByRole('dialog');
+  const subtitles = dialog.getByRole('switch', { name: 'Show both languages' });
+  await expect(subtitles).not.toBeChecked();
+  await subtitles.click();
+  await expect(subtitles).toBeChecked();
+  await dialog.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(page.locator('.title-settings')).toBeFocused();
+  await page.locator('.title-start').click();
+  await expect(page.locator('.secondary-dialogue')).toHaveAttribute('lang', 'vi');
+  await expect(page.locator('.secondary-dialogue')).not.toBeEmpty();
+  const openingLine = await page.locator('.dialogue-text').innerText();
+  await page.locator('.choice-button').first().click();
+  await expect(page.locator('.dialogue-text')).not.toHaveText(openingLine);
+  const continuedLine = await page.locator('.dialogue-text').innerText();
+  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await expect(page.locator('.title-start')).toHaveText('Continue');
+  await page.locator('.title-screen-menu').getByRole('button', { name: 'About the experience' }).click();
+  await expect(page.locator('.about-section h1')).toHaveText('Sometimes, it starts with listening.');
+  await page.getByRole('button', { name: 'Know Your Rights — Home' }).click();
+  await page.locator('.title-settings').click();
+  await expect(subtitles).toBeChecked();
+  await dialog.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.locator('.title-start').click();
+  await expect(page.locator('.dialogue-text')).toHaveText(continuedLine);
+  await expect(page.locator('.secondary-dialogue')).toBeVisible();
+});
+
+test('all seven neighbours have their own loaded portrait and local setting', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await page.locator('.title-discover').click();
+  const localSettings = {
+    linh: 'John Street · Cabramatta',
+    bao: 'Freedom Plaza · Cabramatta',
+    hanh: 'Arthur Street · Cabramatta',
+    tram: 'Hughes Street · Cabramatta',
+    duc: 'Ground-floor brick flat · Canley Vale',
+    khoa: 'Lemon-tree veranda · Lansvale',
+    mai: 'Railway Parade · Cabramatta',
+  };
+  await expect(page.locator('.resident-card')).toHaveCount(7);
+  const portraitSources = [];
+  for (const [id, location] of Object.entries(localSettings)) {
+    const card = page.locator(`.resident-${id}`);
+    const portrait = card.locator('img');
+    await portrait.scrollIntoViewIfNeeded();
+    await expect(portrait).toHaveJSProperty('naturalWidth', 1600);
+    await expect(portrait).toHaveAttribute('src', `/images/${id}-v2.webp`);
+    await expect(card.locator('.resident-number')).toContainText(location);
+    await expect(card.locator('.resident-intro')).not.toBeEmpty();
+    portraitSources.push(await portrait.getAttribute('src'));
+  }
+  expect(new Set(portraitSources).size).toBe(7);
+});
+
 test('three stories unlock the turn and evidence choices affect the ending', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.door-story').click();
+  await page.locator('.title-start').click();
   await playPatiently(page);
   await expect(page.locator('.reflection-panel h2')).toHaveText('Does any of this feel familiar?');
   await page.getByRole('button', { name: 'Yes', exact: true }).click();
@@ -81,7 +169,7 @@ test('three stories unlock the turn and evidence choices affect the ending', asy
 test('return visits, sensitive story skip, pause and quick exit', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('nav').getByRole('button', { name: 'The stories' }).click();
+  await page.locator('.title-discover').click();
   await page.locator('.resident-duc').click();
   await expect(page.getByRole('dialog')).toContainText('Not quite the right moment.');
   await page.getByRole('button', { name: 'Back to the street' }).click();
@@ -110,7 +198,7 @@ test('local guided intake, safe contact, editable review and downloads', async (
   page.on('request', request => { if (!request.url().startsWith('http://127.0.0.1:5173') && !request.url().startsWith('data:')) outbound.push(request.url()); });
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.door-help').click();
+  await page.locator('.title-help').click();
   await expect(page.locator('.intake-consent-boundary')).toBeVisible();
   await page.locator('.intake-consent-boundary .intake-primary').click();
   await page.locator('.intake-answer-area textarea').fill('I was underpaid and I have no payslip.');
@@ -144,7 +232,7 @@ test('local guided intake, safe contact, editable review and downloads', async (
   expect(outbound).toEqual([]);
   await page.reload();
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.door-help').click();
+  await page.locator('.title-help').click();
   await page.locator('.intake-review-link').click();
   await expect(page.locator('textarea[lang="en"]')).toHaveValue('');
 });
@@ -152,7 +240,7 @@ test('local guided intake, safe contact, editable review and downloads', async (
 test('crisis signals stop questions and no field is required', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.door-help').click();
+  await page.locator('.title-help').click();
   await page.locator('.intake-consent-boundary .intake-primary').click();
   await page.locator('.intake-answer-area textarea').fill('My employer took my passport and I am not allowed to leave.');
   await page.locator('.intake-form-actions .intake-primary').click();
@@ -161,7 +249,7 @@ test('crisis signals stop questions and no field is required', async ({ page }) 
   await expect(page.locator('.intake-answer-area')).toHaveCount(0);
   await page.reload();
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await page.locator('.door-help').click();
+  await page.locator('.title-help').click();
   await page.locator('.intake-consent-boundary .intake-primary').click();
   for (let step = 0; step < 8; step++) await page.locator('.intake-form-actions .intake-text-button').click();
   await expect(page.locator('.summary-heading')).toBeVisible();

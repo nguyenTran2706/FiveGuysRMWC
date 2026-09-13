@@ -29,48 +29,48 @@ export const legalNotes: Record<Archetype, Localized> = {
 const linh: Resident = {
   id: 'linh', name: 'Linh', age: 26,
   role: l('Thợ làm móng', 'Nail technician'),
-  subtitle: l('Sáu ngày làm, một phong bì tiền mặt không phiếu lương.', 'Six days of work, one cash envelope and no payslip.'),
-  archetype: 'underpayment', image: '/images/linh.webp',
-  location: l('Tiệm móng trên phố John, Cabramatta', 'Nail salon on John Street, Cabramatta'),
-  intro: l('Bảng hiệu đã tắt một nửa. Sau lớp kính, Linh đang đếm lại những tờ tiền trong một phong bì.', 'Half the sign has gone dark. Behind the glass, Linh is counting the notes in an envelope again.'),
+  subtitle: l('Linh dành dụm đón mẹ sang chơi, sau từng tuần làm miệt mài ở tiệm móng.', 'She’s saving for Mum’s first visit, one long week at the salon at a time.'),
+  archetype: 'underpayment', image: '/images/linh-v2.webp',
+  location: l('John Street · Cabramatta', 'John Street · Cabramatta'),
+  intro: l('Bên cửa sổ tiệm móng trên John Street, Linh, 26 tuổi, mơ đến ngày dẫn mẹ đi dạo quanh Cabramatta. Sáu ngày làm gói trong một phong bì tiền mặt, còn tiền nhà và học phí khiến cô khó từ chối những giờ làm thêm.', 'At the nail salon window on John Street, Linh, 26, imagines showing her mum around Cabramatta. Six days of work fit into one cash envelope, while rent and tuition make it hard to turn down extra hours.'),
   start: 'hello',
   nodes: {
-    hello: n('hello', 'Em chờ chị chút, cái cửa này phải nhấc lên mới kéo được. Mưa vậy mà còn đứng ngoài hả? Chị vừa xong bộ cuối, khách bảo mai đi đám cưới nên làm kỹ một chút.', 'Give me a second. You have to lift this window before it slides. Still out in this rain? I just finished the last set; she has a wedding tomorrow, so we took a little longer.', undefined, [
+    hello: n('hello', 'Mưa gần như dọn sạch con đường. Nửa cái bảng hiệu tiệm móng vẫn nhấp nháy trên cửa kính. “Em chờ chị chút.” Chị nhấc khung cửa lên mới kéo được.', 'The rain has almost emptied the street. Half the salon sign is still flickering above the window. “Give me a second.” She lifts the window before it will slide.', undefined, [
       c('wait', 'Không vội. Chị cứ làm xong đi.', 'Take your time. Finish what you need to.', 'mother', 1),
       c('long_day', 'Hôm nay chị làm từ mấy giờ?', 'What time did you start today?', 'hours'),
       c('push', 'Muộn thế này sao chị chưa về?', 'Why haven’t you gone home by now?', 'guarded', -1),
     ]),
-    mother: n('mother', 'Chị đang xem vé máy bay cho mẹ. Mẹ chưa ra khỏi Việt Nam bao giờ, cứ hỏi bên này có chỗ mua rau muống không. Chị bảo mẹ qua đây rồi biết, mà chưa dám bấm mua vé.', 'I was looking at flights for Mum. She has never left Vietnam; she keeps asking if she can buy water spinach here. I told her she would see when she came, but I haven’t booked anything yet.', 'hours'),
-    guarded: n('guarded', 'Khách còn thì mình còn, em. Chị cũng muốn về chứ, cơm trong nồi chắc khô rồi. Thôi, chuyện trong tiệm nói ra cũng dài.', 'While there are customers, we stay. Of course I want to go home; the rice has probably dried out in the cooker. Anyway, it’s a long story.', undefined, [
+    mother: n('mother', 'Chị quay màn hình điện thoại xuống mặt bàn. “Chị đang xem vé máy bay cho mẹ.” Một nhịp lặng. “Mẹ chưa ra khỏi Việt Nam bao giờ. Cứ hỏi bên này có chỗ mua rau muống không.”', 'She turns the phone screen down on the counter. “I was looking at flights for Mum.” A pause. “She has never left Vietnam. She keeps asking if she can buy water spinach here.”', 'hours'),
+    guarded: n('guarded', 'Chị không trả lời ngay. “Khách còn thì mình còn.” Chị nhìn về phía tiệm tối phía sau. “Chị cũng muốn về chứ. Cơm trong nồi chắc khô rồi.” Mưa to hơn. “Thôi. Chuyện trong tiệm nói ra cũng dài.”', 'She doesn’t answer straight away. “While there are customers, we stay.” She looks toward the dark salon behind her. “Of course I want to go home. The rice has probably dried out in the cooker.” The rain gets louder. “Anyway. It’s a long story.”', undefined, [
       c('apologise', 'Xin lỗi chị. Em có thời gian nghe.', 'Sorry. I have time to listen.', 'hours', 1),
       c('leave', 'Vâng, em để chị nghỉ.', 'I’ll let you rest.', 'closed'),
     ]),
-    hours: n('hours', 'Sáng chín giờ chị có mặt, tối thì tùy khách. Sáu ngày tuần này được tám trăm, chị đếm hai lần rồi. Có hôm khách cuối đi rồi mình còn lau bàn, giặt khăn, đổ rác; mấy việc đó không có trên cái lịch.', 'I’m here at nine, and the finish depends on the customers. Eight hundred for six days this week. I counted twice. After the last customer there are tables, towels, bins; none of that is on the roster.', undefined, [
+    hours: n('hours', 'Bên trong, Linh đếm tiền. Một lần. Hai lần. Rồi lần thứ ba. Chị dừng lại. Vẫn chỉ có tám trăm. “Sáu ngày.” Một nhịp lặng. “Tám trăm đô.” “Sáng chín giờ chị có mặt.”', 'Inside, Linh counts the money. Once. Twice. Then a third time. She stops. There is still only $800. “Six days.” A pause. “Eight hundred dollars.” “Started at nine.”', undefined, [
       c('envelope', 'Trong phong bì còn tờ giấy nào không?', 'Is there a slip in the envelope?', 'envelope', 1),
       c('stay', 'Điều gì làm chị chưa muốn nghỉ?', 'What makes it hard to leave?', 'staying', 1),
       c('dismiss', 'Vậy thì nghỉ đi, có gì đâu.', 'Just leave, then. It’s simple.', 'closed', -2),
     ]),
-    envelope: n('envelope', 'Một phong bì trắng, ghi bằng bút bi: “Linh — 800”. Không có số giờ, không có dòng super. Góc phong bì bị ướt; Linh miết nó lên mặt bàn cho phẳng.', 'A white envelope. In ballpoint: “Linh — 800”. No hours. No line for super. One corner is wet; Linh smooths it against the counter.', 'deductions', undefined, 'artifact'),
-    deductions: n('deductions', 'Có tuần chị làm hỏng màu thì bị trừ tiền chai sơn. Tuần trước chị hỏi tiền Chủ nhật có khác không, anh bảo đã gộp hết rồi, đừng tính lẻ. Chị cũng ngại hỏi tiếp, người ta đang trả tiền nhà giúp mình tuần đầu mới qua mà.', 'Some weeks, if I spoil a colour, the bottle comes out of my pay. I asked whether Sunday was different; he said everything was already included. I felt awkward asking again. When I first arrived, he helped with the first week’s rent.', 'staying'),
-    staying: n('staying', 'Anh chủ không phải lúc nào cũng khó. Tết anh lì xì, mẹ chị bệnh anh cho đổi ca liền. Nhưng tiền phòng tháng nào cũng đến, học phí cũng vậy; chị mà nghỉ thì đâu có chỗ mới chờ sẵn.', 'He isn’t difficult all the time. He gives us red envelopes at Tết; when Mum was ill he changed my shifts straight away. But rent comes every month, and tuition too. If I leave, there isn’t another job waiting.', undefined, [
+    envelope: n('envelope', 'Chị lắc đầu. Chị lật phong bì. Một phong bì trắng. Bút bi xanh: “Linh — 800”. Không có số giờ. Chị lật lại. Không có dòng super. Ngón tay chị đè lên cái góc bị ướt. Chỉ có tên chị. Và tám trăm.', 'She shakes her head. She turns the envelope over. A white envelope. In blue pen: “Linh — 800”. No hours. She turns it back. No super. Her thumb presses against the wet corner. Just her name. And eight hundred.', 'deductions', undefined, 'artifact'),
+    deductions: n('deductions', 'Chị gấp tiền lại, cất phong bì vào túi. “Có tuần chị làm hỏng màu thì bị trừ tiền chai sơn.” Một nhịp lặng. “Tuần trước chị hỏi tiền Chủ nhật có khác không.”', 'She folds the notes back into the envelope and puts it away. “Some weeks, if I spoil a colour, the bottle comes out of my pay.” A pause. “Last week I asked whether Sunday was different.”', 'staying'),
+    staying: n('staying', '“Nhưng đó không phải cái chị lo nhất.” Chị nhìn về phía cửa tiệm. “Anh chủ không phải lúc nào cũng khó. Tết anh lì xì. Mẹ chị bệnh, anh cho đổi ca liền.”', '“But that’s not actually the part I’m worried about.” She looks toward the salon door. “He isn’t difficult all the time. He gives us red envelopes at Tết.”', undefined, [
       c('listen', 'Ừ. Vừa biết ơn, vừa thấy có điều không ổn.', 'You can be grateful and still feel something is wrong.', 'visa', 1),
       c('proof', 'Chị còn giữ lịch làm không?', 'Do you still have your rosters?', 'roster', 1),
       c('report', 'Chị phải tố cáo anh ấy ngay.', 'You have to report him immediately.', 'closed', -2),
     ]),
-    visa: n('visa', 'Chị còn đi học, visa năm trăm. Có bữa anh nhắn ở lại thêm, chị lại sợ từ chối thì mất ca. Giờ nhắc chuyện tiền chị cũng lo, chẳng biết người ta sẽ hỏi ngược lại những gì.', 'I’m still studying, on a 500 visa. Sometimes he messages asking me to stay longer, and I worry I’ll lose shifts if I say no. Now I’m afraid to ask about the money too. I don’t know what questions will come back at me.', undefined, [
+    visa: n('visa', '“Chị còn đi học. Visa năm trăm.” Điện thoại trong túi chị rung. Chị không lấy ra. “Có bữa anh nhắn ở lại thêm.” Một nhịp lặng. “Nếu chị hỏi anh chuyện tiền...” Chị dừng lại. “...thì tuần sau còn ca không?”', '“I’m still studying. On a 500 visa.” The phone in her pocket vibrates. She doesn’t take it out. “Sometimes he messages asking me to stay longer.” A pause. “If I ask him about the money...” She stops. “...what happens to next week’s shifts?”', undefined, [
       c('control', 'Chị chưa cần quyết định gì tối nay.', 'You don’t have to decide anything tonight.', 'roster', 1),
       c('pause', 'Mình nói chuyện khác một chút nhé.', 'We can talk about something else for a moment.', 'colour', 1),
     ]),
-    colour: n('colour', 'Mẹ chị thích màu đỏ, mà lần nào chị gửi ảnh bộ móng mới mẹ cũng bảo dài thế làm sao vo gạo. Chị đã mua sẵn một chai đỏ nhỏ cho mẹ rồi. Nó ở ngăn kéo đây, để riêng, không phải đồ của tiệm.', 'Mum likes red, but whenever I send her a nail photo she asks how anyone could wash rice with nails that long. I already bought her a little bottle of red. It’s in this drawer, separate from the salon’s things.', 'roster'),
-    roster: n('roster', 'Lịch nằm trong nhóm chat, anh sửa hoài. Hôm trước chị nhìn lại, ca tối thứ Sáu biến mất rồi. Điện thoại chị đầy ảnh móng, đang tính xóa cả mấy cái screenshot cũ cho nhẹ máy.', 'The roster is in the group chat, and he keeps changing it. I looked back the other day and my Friday evening had disappeared. My phone is full of nail photos; I was going to delete the old screenshots to make space.', undefined, [
+    colour: n('colour', 'Chị mở ngăn kéo. Một chai sơn đỏ nhỏ, để riêng một góc. “Mẹ chị thích màu đỏ.” Chị cười. “Lần nào chị gửi ảnh móng mới, mẹ cũng bảo dài thế làm sao vo gạo.” Một nhịp lặng. “Chai này chị mua cho mẹ. Không phải đồ của tiệm.”', 'She opens the drawer. A small bottle of red polish, kept apart from the rest. “Mum likes red.” She smiles. “Every time I send her a nail photo, she asks how anyone could wash rice with nails that long.” A pause. “This one is hers. Not the salon’s.”', 'roster'),
+    roster: n('roster', 'Chị mở nhóm chat ra. “Lịch nằm trong đây. Anh sửa hoài.” Chị cuộn lên. “Hôm trước chị nhìn lại...” Chị dừng lại. “...ca tối thứ Sáu biến mất rồi.” Điện thoại đầy ảnh móng. “Chị đang tính xóa mấy cái screenshot cũ cho nhẹ máy.”', 'She opens the group chat. “The roster lives in here. He keeps changing it.” She scrolls back. “I looked back the other day...” She stops.', undefined, [
       c('keep', 'Nếu chị thấy an toàn, giữ riêng ảnh lịch cũ đã.', 'If it feels safe, keep a separate copy of the old rosters.', 'kept', 1, true),
       c('leave_choice', 'Chuyện đó chị quyết định. Em vẫn nghe đây.', 'That is your choice. I’m still here.', 'unkept', 1),
       c('demand', 'Đưa điện thoại đây, em gửi hết cho người ta.', 'Give me your phone. I’ll send everything for you.', 'closed', -2),
     ]),
-    kept: n('kept', 'Ừ, chị có email riêng, trong tiệm không ai biết mật khẩu. Chị lưu mấy ảnh này trước đã, rồi viết thêm những hôm ở lại dọn. Chưa gửi ai đâu, chỉ để mai không phải cố nhớ lại.', 'I have my own email; nobody at work knows the password. I’ll save these first and note the nights I stayed to clean. I’m not sending them to anyone yet. Just making it so I don’t have to remember everything tomorrow.', 'goodbye'),
-    unkept: n('unkept', 'Ừ. Hôm nay đầu chị nhiều thứ quá, để chị nghĩ đã. Cái lịch cũ chắc còn đâu đó, nhưng giờ chị chỉ muốn về tháo giày ra thôi.', 'Yes. My head is full tonight. Let me think. The old roster is probably somewhere, but right now I just want to go home and take my shoes off.', 'goodbye'),
-    goodbye: n('goodbye', 'Cảm ơn em đã đứng nghe. Chị cứ tưởng kể ra người ta sẽ bảo tại mình chịu thôi. Để chị gọi mẹ trước khi bên đó đi ngủ; chuyện vé máy bay, chắc chưa nói tối nay.', 'Thanks for staying. I thought people would just say I put up with it, so it was my fault. I’ll call Mum before she goes to bed. I probably won’t mention the flights tonight.', 'reflection'),
-    closed: n('closed', 'Thôi em, chị còn phải đóng tiệm. Có nhiều thứ chị chưa kể, mà giờ chắc để bữa khác. Em về cẩn thận, ngoài đó trơn.', 'I still have to close up. There are things I haven’t told you, but maybe another day. Get home safely. It’s slippery out there.', 'closed'),
+    kept: n('kept', 'Chị nghĩ một lúc. “Chị có email riêng. Trong tiệm không ai biết mật khẩu.” Chị bắt đầu lưu ảnh. “Lưu mấy cái này trước đã.” Một nhịp lặng. “Rồi viết thêm những hôm ở lại dọn.” “Chưa gửi ai đâu. Chỉ để mai không phải cố nhớ lại.”', 'She thinks for a moment. “I have my own email. Nobody at work knows the password.” She starts saving the images. “I’ll save these first.” A pause.', 'goodbye'),
+    unkept: n('unkept', 'Chị cất điện thoại vào túi. “Ừ.” Một nhịp lặng. “Hôm nay đầu chị nhiều thứ quá.” “Cái lịch cũ chắc còn đâu đó.” Chị nhìn xuống chân. “Giờ chị chỉ muốn về tháo giày ra thôi.”', 'She puts the phone back in her pocket. “Yes.” A pause. “My head is full tonight.” “The old roster is probably somewhere.” She looks down at her feet. “Right now I just want to go home and take my shoes off.”', 'goodbye'),
+    goodbye: n('goodbye', 'Chị tắt nửa cái bảng hiệu còn nhấp nháy. “Cảm ơn em đã đứng nghe.” Một nhịp lặng. “Chị cứ tưởng kể ra người ta sẽ bảo tại mình chịu thôi.” Chị lấy điện thoại ra. “Để chị gọi mẹ trước khi bên đó đi ngủ.” “Chuyện vé máy bay... chắc chưa nói tối nay.”', 'She switches off the half-flickering sign. “Thanks for staying.” A pause. “I thought people would just say I put up with it, so it was my fault.” She takes out her phone. “I’ll call Mum before she goes to bed.” “The flights... probably not tonight.”', 'reflection'),
+    closed: n('closed', 'Chị lùi vào phía trong. “Thôi em, chị còn phải đóng tiệm.” Một nhịp lặng. “Có nhiều thứ chị chưa kể. Để bữa khác.” Cánh cửa kéo xuống một nửa. “Em về cẩn thận. Ngoài đó trơn.”', 'She steps back inside. “I still have to close up.” A pause. “There are things I haven’t told you. Maybe another day.” The window slides half down. “Get home safely. It’s slippery out there.”', 'closed'),
   },
   epilogue: {
     kept: l('Đoạn kết hư cấu: Linh giữ lại ảnh lịch làm và ghi những giờ dọn tiệm. Khi cô quyết định tìm hỗ trợ, các mốc thời gian giúp làm rõ câu chuyện; trong nhánh này, cô nhận lại một phần tiền và đặt vé cho mẹ. Kết quả ngoài đời tùy từng tình huống.', 'Fictional ending: Linh keeps her roster screenshots and notes the cleaning hours. When she chooses to seek support, the dates help tell her story; in this branch she recovers some pay and books Mum’s flight. Real outcomes depend on individual circumstances.'),
@@ -81,13 +81,13 @@ const linh: Resident = {
 const bao: Resident = {
   id: 'bao', name: 'Bảo', age: 23,
   role: l('Người giao hàng', 'Delivery rider'),
-  subtitle: l('Chạy giao hàng dưới danh nghĩa “nhà thầu”, nhưng ca làm do người khác định.', 'Rides as a “contractor”, but someone else sets every shift.'),
-  archetype: 'sham_contracting', image: '/images/bao.webp',
-  location: l('Hẻm sau Freedom Plaza, Cabramatta', 'Laneway behind Freedom Plaza, Cabramatta'),
-  intro: l('Chiếc túi giữ nhiệt đặt cạnh một bộ găng tay ướt. Bảo nhìn bản đồ trên màn hình đã nứt.', 'An insulated bag rests beside soaked gloves. Bảo studies a map on a cracked screen.'),
+  subtitle: l('Bảo mới ra trường, dành dụm mua xe riêng nhưng chưa được tự chọn ca làm.', 'A graduate saving for a car of his own, with little say over his next shift.'),
+  archetype: 'sham_contracting', image: '/images/bao-v2.webp',
+  location: l('Freedom Plaza · Cabramatta', 'Freedom Plaza · Cabramatta'),
+  intro: l('Bảo, 23 tuổi, tựa bên cửa sổ căn hộ trên quán ăn gần Freedom Plaza, mơ một chuyến ra biển bằng chiếc xe của mình. Công việc giao hàng giúp trả tiền nhà, nhưng công ty phân tuyến và cắt ca khi cậu từ chối làm.', 'Bảo, 23, leans by his flat’s window above a takeaway near Freedom Plaza, dreaming of a coastal drive in his own car. Deliveries pay the rent, but the company assigns his routes and cuts shifts when he says no.'),
   start: 'hello',
   nodes: {
-    hello: n('hello', 'Đứng nép vào đây, nước từ mái chảy đúng chỗ đó. Em vừa chạy thêm một cuốc, đồ ăn thì khô mà người ướt hết. Nhà hàng quên bỏ nước chấm, khách gọi em ba lần như thể em đang giấu nó trong túi.', 'Come under here; the roof drips right where you’re standing. One more delivery. The food stayed dry, but I didn’t. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.', undefined, [
+    hello: n('hello', 'Đứng nép vào dưới mái nhé, nước chảy đúng chỗ đó. Em vừa về sau cuốc cuối, đồ ăn thì khô mà người ướt hết. Nhà hàng quên bỏ nước chấm, khách gọi em ba lần như thể em đang giấu nó trong túi.', 'Stay under the awning; it drips right where you’re standing. I’ve just got home from the last delivery. The food stayed dry, but I didn’t. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.', undefined, [
       c('sauce', 'Rồi cuối cùng có tìm được nước chấm không?', 'Did the sauce ever turn up?', 'car', 1),
       c('shift', 'Hôm nay còn phải chạy nữa không?', 'Do you still have more work tonight?', 'roster'),
     ]),
@@ -115,7 +115,7 @@ const bao: Resident = {
       c('space', 'Tối nay em có thể nghỉ. Chuyện đó để em tự chọn.', 'You can rest tonight. That choice stays with you.', 'unkept', 1),
     ]),
     kept: n('kept', 'Một tuần thì được. Em lưu vào máy riêng, cả tin nhắn họ bảo không được nhờ người thay nữa. Để lúc nói chuyện với ai, em mở ra được chứ không chỉ nói “hình như”.', 'One week I can do. I’ll keep it on my own device, including the message about not sending a substitute. Then if I talk to someone, I can show it instead of saying “I think”.', 'goodbye'),
-    unkept: n('unkept', 'Ừ, để mai em xem. Pin còn bốn phần trăm mà điện thoại này vẫn phải làm bản đồ về nhà. Có những hôm việc nhỏ vậy cũng thấy như thêm một cuốc giao hàng nữa.', 'Tomorrow, maybe. Four per cent battery, and I still need the map to get home. Some days even a small thing feels like one more delivery.', 'goodbye'),
+    unkept: n('unkept', 'Ừ, để mai em xem. Pin còn bốn phần trăm, về tới nhà rồi mà em chưa buồn cắm sạc. Có những hôm việc nhỏ vậy cũng thấy như thêm một cuốc giao hàng nữa.', 'Tomorrow, maybe. Four per cent battery, and I’ve got home without even putting it on charge. Some days even a small thing feels like one more delivery.', 'goodbye'),
     goodbye: n('goodbye', 'Cảm ơn đã không bảo em phải làm gì ngay. Em tắt nhận đơn rồi, thật đấy. Giờ đi mua tô cháo trước khi người ta dọn, hôm nay em mới ăn có cái bánh lúc trưa.', 'Thanks for not telling me I have to do something right away. I’ve stopped taking orders. Really. I’m going to get some congee before they close; all I’ve had today is a roll at lunch.', 'reflection'),
     closed: n('closed', 'Ừ, chắc em tự tính được. Em còn một đơn phải xem lại. Để bữa khác nói chuyện nhé.', 'Right. I’ll work it out. There’s an order I need to check. Maybe we’ll talk another time.', 'closed'),
   },
@@ -128,10 +128,10 @@ const bao: Resident = {
 const hanh: Resident = {
   id: 'hanh', name: 'Cô Hạnh', age: 54,
   role: l('Phụ bếp', 'Kitchen hand'),
-  subtitle: l('Trượt trong bếp, đau vai, và được bảo “nghỉ một hôm thôi”.', 'A slip in the kitchen, a hurt shoulder, and “just take a day off”.'),
-  archetype: 'workplace_injury', image: '/images/hanh.webp',
-  location: l('Bếp quán ăn phố Arthur, Cabramatta', 'Eatery kitchen on Arthur Street, Cabramatta'),
-  intro: l('Hơi nước mờ ô cửa. Cô Hạnh nhấc ấm bằng tay trái; tay phải vẫn giữ sát người.', 'Steam clouds the window. Cô Hạnh lifts the kettle with her left hand; her right stays close to her body.'),
+  subtitle: l('Cô Hạnh mong hai mẹ con có một ngày đi biển sau kỳ thi HSC.', 'She wants a day by the sea with her daughter after the HSC exams.'),
+  archetype: 'workplace_injury', image: '/images/hanh-v2.webp',
+  location: l('Arthur Street · Cabramatta', 'Arthur Street · Cabramatta'),
+  intro: l('Bên cửa sổ bếp nhà trên Arthur Street, cô Hạnh, 54 tuổi, pha trà và mong con gái sớm thi xong để hai mẹ con đi chơi một ngày. Cánh tay phải đau sau một lần trượt ngã trong bếp nhà hàng khiến cô khó làm việc, nhưng ở tuổi này, rời căn bếp quen thuộc để tìm chỗ mới không dễ.', 'At her home kitchen window on Arthur Street, Cô Hạnh, 54, makes tea and looks forward to a day out with her daughter after exams. A slip in the restaurant kitchen has left her right arm hurting, but at her age, leaving a familiar kitchen to find another job feels daunting.'),
   start: 'hello',
   nodes: {
     hello: n('hello', 'Con đứng đó coi chừng cái chậu, nó mẻ góc rồi. Cô trồng húng quế mà mưa hoài, cây cao ngồng, chẳng được mấy lá. Uống trà không? Cô vừa pha, để nguội chút mới cầm được.', 'Mind that pot; the corner is chipped. I planted basil, but with all this rain it grows tall and hardly gives me leaves. Would you like tea? I’ve just made it. Let it cool before you hold it.', undefined, [
@@ -172,14 +172,14 @@ const hanh: Resident = {
 const tram: Resident = {
   id: 'tram', name: 'Trâm', age: 20,
   role: l('Nhân viên phục vụ', 'Waitress'),
-  subtitle: l('Ca đêm ổn, cho đến những tin nhắn sau giờ đóng cửa.', 'The night shift is fine, until the messages after closing time.'),
-  archetype: 'sexual_harassment', image: '/images/street.webp',
-  location: l('Ban công trên nhà hàng, phố Hughes', 'Balcony above a Hughes Street restaurant'),
-  intro: l('Trâm vẫn mặc tạp dề. Điện thoại sáng lên, rồi cô úp nó xuống bàn.', 'Trâm is still wearing her apron. Her phone lights up; she turns it face down.'),
+  subtitle: l('Trâm vừa học vừa phục vụ bàn, dành dụm mua máy ảnh để chụp khu phố.', 'Between study and restaurant shifts, she’s saving for a camera and a little freedom.'),
+  archetype: 'sexual_harassment', image: '/images/tram-v2.webp',
+  location: l('Hughes Street · Cabramatta', 'Hughes Street · Cabramatta'),
+  intro: l('Từ cửa sổ căn hộ thuê trên tầng ở Hughes Street, Trâm, 20 tuổi, ngắm những bảng hiệu cô muốn chụp bằng chiếc máy ảnh đang dành dụm mua. Tin nhắn của quản lý theo cô về tận nhà, còn chuyện học và căn phòng được đồng nghiệp giới thiệu khiến việc nghỉ làm không đơn giản.', 'From her upstairs rental window on Hughes Street, Trâm, 20, watches the signs she hopes to photograph with a camera of her own. Her manager’s messages follow her home, while study costs and a room found through a colleague make leaving the restaurant complicated.'),
   warning: l('Câu chuyện này đề cập đến những lời nói, tin nhắn mang tính tình dục không mong muốn và việc bị chạm vào người. Không có miêu tả trực diện. Bạn có thể bỏ qua hoặc rời đi bất cứ lúc nào.', 'This story mentions unwanted sexual comments, messages and touching, without graphic detail. You can skip it or leave at any time.'),
   start: 'hello',
   nodes: {
-    hello: n('hello', 'Hồi còn đi tuyến 400 em toàn chạy hụt xe, giờ đổi tuyến rồi vẫn hụt như thường. Em đang để dành mua máy ảnh cũ, định chụp mấy bảng hiệu trên đường này lúc mưa. Mà ca tối xong chỉ muốn nằm thôi.', 'I used to miss the 400 all the time. The route changed and somehow I still miss my bus. I’m saving for a used camera to photograph the signs on this street in the rain. After an evening shift, though, I only want to lie down.', undefined, [
+    hello: n('hello', 'Em vừa về, còn chưa cất tạp dề nữa. Em đang để dành mua máy ảnh cũ, định chụp mấy bảng hiệu trên đường này lúc mưa. Mà ca tối xong chỉ muốn nằm thôi.', 'I’ve just got home and haven’t even put my apron away. I’m saving for a used camera to photograph the signs on this street in the rain. After an evening shift, though, I only want to lie down.', undefined, [
       c('camera', 'Em thích chụp những bảng hiệu nào?', 'Which signs would you photograph?', 'messages', 1),
       c('quiet', 'Mình đứng yên một lát cũng được.', 'We can just be quiet for a moment.', 'messages', 1),
     ]),
@@ -187,37 +187,37 @@ const tram: Resident = {
       c('listen', 'Em chỉ kể đến chỗ em muốn thôi.', 'You only need to tell me what you want to.', 'staying', 1),
       c('doubt', 'Chắc anh ấy chỉ đùa thôi?', 'Maybe he is only joking?', 'closed', -2),
     ]),
-    staying: n('staying', 'Có lần anh ấy đặt tay lên eo lúc em đang lấy ly. Em né, anh cười bảo đừng nhạy cảm; ngày khác anh lại đổi ca giúp em đi thi, nên em cứ tự hỏi mình có nghĩ quá không. Em mới hai mươi, còn học, căn phòng đang thuê cũng do chị cùng tiệm giới thiệu.', 'Once he put his hand on my waist while I was getting glasses. I moved away; he laughed and told me not to be sensitive. Another day he changed my shift for an exam, and I kept wondering if I was making too much of it. I’m twenty, still studying. Even my room came through someone at work.', 'records'),
+    staying: n('staying', 'Có lần anh ấy đặt tay lên eo lúc em đang lấy ly. Em né, anh cười bảo đừng nhạy cảm; ngày khác anh lại đổi ca giúp em đi thi, nên em cứ tự hỏi mình có nghĩ quá không. Em mới hai mươi, còn học, căn phòng đang thuê cũng do chị cùng tiệm giới thiệu.', 'Once he put his hand on my waist while I was getting glasses. I moved away; he laughed and told me not to be sensitive.', 'records'),
     records: n('records', 'Em cứ muốn xóa mấy tin nhắn cho khỏi nhìn thấy. Chị làm cùng có thấy một lần, nhưng em chưa hỏi chị có nhớ không. Em chưa muốn ai gọi vào tiệm, chỉ muốn ngủ một đêm mà không giật mình khi điện thoại sáng.', 'I want to delete the messages so I don’t have to see them. A woman I work with saw something once, but I haven’t asked if she remembers. I don’t want anyone calling the restaurant. I just want one night without flinching when the phone lights up.', undefined, [
       c('keep', 'Nếu an toàn, em có thể giữ một bản ở nơi riêng tư rồi ẩn cuộc chat.', 'If safe, you could keep a private copy and hide the chat.', 'kept', 1, true),
       c('control', 'Mình không cần làm gì thêm tối nay.', 'We don’t need to do anything more tonight.', 'goodbye', 1),
       c('force', 'Phải gọi anh ta ra nói ngay.', 'We need to confront him right now.', 'closed', -2),
     ]),
     kept: n('kept', 'Em có một chỗ lưu riêng, không dùng máy của tiệm. Để em làm lúc thấy yên tâm. Cảm ơn vì không bắt em mở lại từng tin nhắn ở đây.', 'I have somewhere private, away from the work computer. I’ll do it when I feel comfortable. Thanks for not making me open every message here.', 'goodbye'),
-    goodbye: n('goodbye', 'Tối nay em gọi bạn về cùng, chỉ vậy thôi. Cái máy ảnh em vẫn sẽ mua, em không muốn mọi thứ mình kể đều là chuyện ở tiệm. Đèn xanh kia đẹp nhất lúc vừa tạnh mưa.', 'Tonight I’ll ask a friend to come home with me. That’s enough. I’m still buying the camera; I don’t want everything I talk about to be about work. That blue light looks best just after the rain stops.', 'reflection'),
+    goodbye: n('goodbye', 'Tối nay em gọi bạn sang ngồi cùng, chỉ vậy thôi. Cái máy ảnh em vẫn sẽ mua, em không muốn mọi thứ mình kể đều là chuyện ở tiệm. Đèn xanh kia đẹp nhất lúc vừa tạnh mưa.', 'Tonight I’ll ask a friend to come over and keep me company. That’s enough. I’m still buying the camera; I don’t want everything I talk about to be about work. That blue light looks best just after the rain stops.', 'reflection'),
     closed: n('closed', 'Thôi, em không muốn kể nữa. Em cần được yên một chút. Chúc anh chị về an toàn.', 'I don’t want to say any more. I need some quiet. Get home safely.', 'closed'),
   },
   epilogue: {
     kept: l('Đoạn kết hư cấu: Trâm giữ một bản tin nhắn riêng và chọn nói chuyện với người cô tin. Cô quyết định mình muốn chia sẻ đến đâu. Việc ghi lại không buộc cô phải khiếu nại và không bảo đảm một kết quả.', 'Fictional ending: Trâm keeps a private copy of the messages and chooses someone she trusts to speak with. She decides how much to share. Keeping a record does not commit her to a complaint or guarantee an outcome.'),
-    missed: l('Đoạn kết hư cấu: Trâm chưa giữ tin nhắn. Cô vẫn gọi bạn về cùng và vẫn có thể tìm người hỗ trợ khi sẵn sàng. Trách nhiệm về hành vi đó không nằm ở cô.', 'Fictional ending: Trâm has not kept the messages. She still calls a friend to go home with her and can still seek support when ready. She is not responsible for the behaviour.'),
+    missed: l('Đoạn kết hư cấu: Trâm chưa giữ tin nhắn. Cô vẫn gọi bạn sang ngồi cùng và vẫn có thể tìm người hỗ trợ khi sẵn sàng. Trách nhiệm về hành vi đó không nằm ở cô.', 'Fictional ending: Trâm has not kept the messages. She still calls a friend to keep her company and can still seek support when ready. She is not responsible for the behaviour.'),
   },
 };
 
 const duc: Resident = {
   id: 'duc', name: 'Đức', age: 41,
   role: l('Nhân viên kho', 'Warehouse storeman'),
-  subtitle: l('Bốn năm trong kho, rồi tên anh biến khỏi lịch làm.', 'Four years in the warehouse, then his name vanished from the roster.'),
-  archetype: 'unfair_dismissal', image: '/images/street.webp',
-  location: l('Nhà sau cửa lưới, Canley Vale', 'Behind a security screen, Canley Vale'),
-  intro: l('Một đôi giày bảo hộ nằm thẳng hàng bên cửa. Có người ở nhà, nhưng tối nay anh cần thêm một chút thời gian.', 'A pair of work boots sits neatly by the door. Someone is home, but he needs a little more time tonight.'),
+  subtitle: l('Đức sửa xe đạp mừng sinh nhật con, vừa ngóng một lịch làm mãi chưa tới.', 'He’s fixing his son’s birthday bicycle while waiting for a roster that never arrives.'),
+  archetype: 'unfair_dismissal', image: '/images/duc-v2.webp',
+  location: l('Căn hộ gạch tầng trệt · Canley Vale', 'Ground-floor brick flat · Canley Vale'),
+  intro: l('Sau ô cửa căn hộ gạch tầng trệt ở Canley Vale, Đức, 41 tuổi, đang lắp chuông xe đạp để kịp sinh nhật con trai. Tên anh biến mất khỏi lịch làm kho sau khi anh hỏi về chiếc xe nâng rỉ dầu, trong khi tiền nhà và chuyện học của con vẫn cần được lo.', 'Behind the window of his ground-floor brick flat in Canley Vale, Đức, 41, is fitting a bicycle bell in time for his son’s birthday. His warehouse shifts vanished after he asked about a leaking forklift, while rent and his son’s schooling still need to be paid for.'),
   needsReturn: true, start: 'hello',
   nodes: {
     hello: n('hello', 'Nãy anh chưa muốn mở, không phải tại em. Anh đang sửa cái xe đạp nhỏ, sinh nhật thằng bé tuần sau; nó chỉ thích cái chuông, đạp thì vẫn cần bố giữ. Em có nói chuyện với mấy người ngoài kia rồi hả?', 'I wasn’t ready to open earlier. It wasn’t you. I’m fixing a little bike; my boy’s birthday is next week. He mostly likes the bell. I still have to hold him up when he pedals. You’ve spoken with some of the others out there?', undefined, [
       c('patient', 'Vâng. Anh muốn kể thì em nghe.', 'Yes. I’ll listen if you want to talk.', 'roster', 1),
       c('busy', 'Em có thể chờ anh sửa xe xong.', 'I can wait while you finish the bike.', 'roster', 1),
     ]),
-    roster: n('roster', 'Thứ Hai anh mở lịch, tên không còn nữa. Anh gọi, bên công ty thuê người bảo kho không cần anh, còn quản lý kho bảo hỏi công ty. Đồng phục vẫn treo kia, chưa ai nói rõ anh còn việc hay đã hết.', 'On Monday I opened the roster and my name was gone. The labour-hire company said the warehouse didn’t need me; the warehouse manager told me to ask the agency. My uniform is still hanging there. Nobody has clearly said whether I still have a job.', 'before'),
-    before: n('before', 'Tuần trước anh có hỏi cái xe nâng rỉ dầu, không dám chạy tiếp. Quản lý nói để xem, chiều đó vẫn cho anh đi sớm đón con như mọi bữa. Rồi im luôn; anh cứ nhìn điện thoại, nghĩ chắc lịch chưa cập nhật.', 'Last week I asked about a forklift leaking oil; I didn’t want to keep driving it. The manager said he’d look into it. That afternoon he still let me leave early to collect my son, as usual. Then silence. I keep checking the phone, thinking the roster hasn’t updated yet.', undefined, [
+    roster: n('roster', 'Thứ Hai anh mở lịch, tên không còn nữa. Anh gọi, bên công ty thuê người bảo kho không cần anh, còn quản lý kho bảo hỏi công ty. Đồng phục anh vẫn giữ, chưa ai nói rõ anh còn việc hay đã hết.', 'On Monday I opened the roster and my name was gone. The labour-hire company said the warehouse didn’t need me; the warehouse manager told me to ask the agency. I still have my uniform. Nobody has clearly said whether I still have a job.', 'before'),
+    before: n('before', 'Tuần trước anh có hỏi cái xe nâng rỉ dầu, không dám chạy tiếp. Quản lý nói để xem, chiều đó vẫn cho anh đi sớm đón con như mọi bữa. Rồi im luôn; anh cứ nhìn điện thoại, nghĩ chắc lịch chưa cập nhật.', 'Last week I asked about a forklift leaking oil; I didn’t want to keep driving it. The manager said he’d look into it.', undefined, [
       c('fear', 'Sự im lặng đó chắc khó chịu lắm.', 'That silence sounds hard to live with.', 'staying', 1),
       c('blame', 'Lẽ ra anh đừng gây chuyện.', 'You shouldn’t have made trouble.', 'closed', -2),
     ]),
@@ -239,10 +239,10 @@ const duc: Resident = {
 const khoa: Resident = {
   id: 'khoa', name: 'Khoa', age: 33,
   role: l('Nhân viên chăm sóc người cao tuổi', 'Aged care worker'),
-  subtitle: l('Cùng bằng cấp, cùng công việc, nhưng ca làm và lời nhận xét thì khác.', 'Same qualification, same job, different shifts and different remarks.'),
-  archetype: 'discrimination', image: '/images/street.webp',
-  location: l('Căn nhà có cây chanh, Lansvale', 'The house with the lemon tree, Lansvale'),
-  intro: l('Khoa đang tưới một chậu chanh dưới mái hiên, dù ngoài đường vẫn mưa.', 'Khoa waters a lemon tree beneath the awning, even while rain falls on the street.'),
+  subtitle: l('Khoa hiểu từng người mình chăm sóc và mong có cơ hội học làm trưởng ca.', 'He knows his residents by heart and wants the chance to lead their care team.'),
+  archetype: 'discrimination', image: '/images/khoa-v2.webp',
+  location: l('Hiên nhà có chậu chanh · Lansvale', 'Lemon-tree veranda · Lansvale'),
+  intro: l('Dưới mái hiên nhà ở Lansvale, Khoa, 33 tuổi, tưới chậu chanh và nhẩm lời bài hát cho buổi diễn của nhóm hợp xướng khu phố. Anh muốn học làm trưởng ca ở nơi chăm sóc người cao tuổi, nhưng bị chê giọng nói dù vẫn gắn bó với những người mình đã chăm sóc nhiều năm.', 'Under his home’s veranda in Lansvale, Khoa, 33, waters a lemon tree and rehearses for the community choir. He wants team-leader training at the aged care home, but criticism of his accent holds him back, and he is reluctant to leave the people who count on his care.'),
   start: 'hello',
   nodes: {
     hello: n('hello', 'Mưa không tới được cái chậu này, nên vẫn phải tưới. Anh đang trồng cho ra đúng một trái thôi, để chứng minh với vợ là không phải cây cảnh. Cuối tuần anh còn tập hát, nhóm khu phố thiếu giọng nam mà ai cũng bắt anh đứng sau.', 'The rain never reaches this pot, so I still have to water it. I want one lemon, just to prove to my wife it isn’t ornamental. I sing on weekends too. The community choir needs men, but somehow they still put me at the back.', 'work'),
@@ -250,7 +250,7 @@ const khoa: Resident = {
       c('listen', 'Anh đã làm gì sau khi nghe vậy?', 'What happened after they said that?', 'staying', 1),
       c('dismiss', 'Chắc do anh nói tiếng Anh chưa tốt thôi.', 'Maybe your English just isn’t good enough.', 'closed', -2),
     ]),
-    staying: n('staying', 'Anh về tập nói cái câu bàn giao cả chục lần, rồi thấy mình kỳ. Anh có thường trú rồi, nhưng không phải vì vậy mà muốn bỏ những người mình chăm. Quản lý cũng có hôm rất tử tế, cho đổi ca khi vợ anh ốm; thành ra anh chẳng biết mở đầu câu hỏi đó thế nào.', 'I went home and practised the handover sentence a dozen times, then felt strange about doing it. I’m a permanent resident, but that doesn’t mean I want to walk away from the people I care for. The manager can be kind; they changed my shifts when my wife was ill. I don’t know how to begin that conversation.', 'records'),
+    staying: n('staying', 'Anh về tập nói cái câu bàn giao cả chục lần, rồi thấy mình kỳ. Anh có thường trú rồi, nhưng không phải vì vậy mà muốn bỏ những người mình chăm. Quản lý cũng có hôm rất tử tế, cho đổi ca khi vợ anh ốm; thành ra anh chẳng biết mở đầu câu hỏi đó thế nào.', 'I went home and practised the handover sentence a dozen times, then felt strange about doing it. I’m a permanent resident, but that doesn’t mean I want to walk away from the people I care for.', 'records'),
     records: n('records', 'Email xin học anh còn giữ, câu trả lời thì nói miệng ở phòng nghỉ. Có chị ngồi đó nghe được. Anh chỉ nhớ từ “chuyên nghiệp”, mấy chữ trước sau cứ nghĩ đi nghĩ lại rồi rối cả lên.', 'I kept the email asking about training. The answer was spoken in the break room, and a colleague was there. I remember “professional”. I’ve replayed the rest so often that the words around it are getting muddled.', undefined, [
       c('keep', 'Nếu muốn, anh ghi điều mình nhớ và giữ email riêng.', 'If you want, note what you remember and keep the email privately.', 'kept', 1, true),
       c('pause', 'Anh không cần chứng minh điều gì với em lúc này.', 'You don’t need to prove anything to me now.', 'goodbye', 1),
@@ -268,22 +268,22 @@ const khoa: Resident = {
 const mai: Resident = {
   id: 'mai', name: 'Mai', age: 29,
   role: l('Nhân viên vệ sinh', 'Commercial cleaner'),
-  subtitle: l('Dọn vệ sinh ca đêm, và điện thoại rung sợ trước mỗi ca.', 'Cleans on night shift, and dreads the phone before every one.'),
-  archetype: 'bullying', image: '/images/street.webp',
-  location: l('Chung cư cuối phố Railway, Cabramatta', 'Last block on Railway Parade, Cabramatta'),
-  intro: l('Sau rèm có tiếng máy may. Mai đã nghe tiếng gõ cửa; cô sẽ mở khi thấy sẵn sàng.', 'A sewing machine hums behind the curtain. Mai has heard the knock. She will open when she is ready.'),
+  subtitle: l('Mai may váy sinh nhật cho cháu, cố để tiếng điện thoại không làm mình giật thót.', 'She’s sewing a birthday dress for her niece, trying to quiet the phone beside her.'),
+  archetype: 'bullying', image: '/images/mai-v2.webp',
+  location: l('Railway Parade · Cabramatta', 'Railway Parade · Cabramatta'),
+  intro: l('Trong căn phòng thuê cuối dãy nhà thấp tầng trên Railway Parade, Mai, 29 tuổi, may thêm chiếc túi đựng đá vào váy sinh nhật của cháu gái. Những tin nhắn trách mắng lặp lại khiến cô lo trước mỗi ca vệ sinh, nhưng tiền nhà vẫn phải trả và chỗ ở cũng do người trong công ty giới thiệu.', 'In her room at the end of a low-rise rental block on Railway Parade, Mai, 29, sews a stone-collecting pocket into her niece’s birthday dress. Repeated messages shaming her make each cleaning shift harder to face, but rent is due and someone at the company helped her find this room.'),
   warning: l('Câu chuyện này có lời kể về việc bị hạ nhục lặp lại, đe dọa mất ca và lo lắng trước giờ làm. Bạn có thể bỏ qua hoặc rời đi bất cứ lúc nào mà không mất quyền tìm hỗ trợ.', 'This story describes repeated humiliation, threats of losing shifts and anxiety before work. You can skip or leave at any time and still access support.'),
   needsReturn: true, start: 'hello',
   nodes: {
-    hello: n('hello', 'Xin lỗi, lúc nãy em đang nghe điện thoại, không muốn mở cửa. Em sửa cái váy cho cháu, đường chỉ cứ xiên vì máy này cũ quá. Sinh nhật nó tháng sau, em hứa có cái túi thật để bỏ đá vào, nó thích nhặt đá hơn thích búp bê.', 'Sorry I didn’t open earlier. I was on the phone and didn’t want to. I’m fixing a dress for my niece. The machine is old and the seams keep wandering. Her birthday is next month; I promised her a real pocket for stones. She likes collecting stones more than dolls.', undefined, [
+    hello: n('hello', 'Xin lỗi, lúc nãy em đang nghe điện thoại, không muốn mở cửa. Em sửa cái váy cho cháu, đường chỉ cứ xiên vì máy này cũ quá. Sinh nhật nó tháng sau, em hứa có cái túi thật để bỏ đá vào, nó thích nhặt đá hơn thích búp bê.', 'Sorry I didn’t open earlier. I was on the phone and didn’t want to. I’m fixing a dress for my niece. The machine is old and the seams keep wandering.', undefined, [
       c('wait', 'Cái túi đó quan trọng mà. Em cứ may tiếp.', 'That pocket matters. Take your time.', 'work', 1),
       c('listen', 'Em muốn nói chuyện một chút không?', 'Would you like to talk for a while?', 'work', 1),
     ]),
-    work: n('work', 'Quản lý gửi ảnh sàn vào nhóm, khoanh đỏ rồi ghi tên em, gần như ca nào cũng vậy. Có hôm đó không phải khu em dọn. Em giải thích thì cả nhóm nhận tin nhắn thoại bảo ai không chịu nổi cứ nghỉ, ngoài kia thiếu gì người.', 'The supervisor posts floor photos in the group, circles things in red and writes my name. Almost every shift. Sometimes it isn’t even my area. If I explain, everyone gets a voice message saying anyone who can’t handle it should leave; there are plenty of replacements.', undefined, [
+    work: n('work', 'Quản lý gửi ảnh sàn vào nhóm, khoanh đỏ rồi ghi tên em, gần như ca nào cũng vậy. Có hôm đó không phải khu em dọn. Em giải thích thì cả nhóm nhận tin nhắn thoại bảo ai không chịu nổi cứ nghỉ, ngoài kia thiếu gì người.', 'The supervisor posts floor photos in the group, circles things in red and writes my name. Almost every shift. Sometimes it isn’t even my area.', undefined, [
       c('hear', 'Việc đó lặp lại khiến em thấy thế nào?', 'What has it been like having that happen repeatedly?', 'staying', 1),
       c('dismiss', 'Đi làm thì phải chịu áp lực thôi.', 'Work is stressful. You have to take it.', 'closed', -2),
     ]),
-    staying: n('staying', 'Trước mỗi ca điện thoại rung là em đau bụng. Em đang chờ giấy tờ, visa bắc cầu, tiền phòng thì không chờ; chỗ ở cũng có người trong công ty giới thiệu. Có hôm quản lý cho em đi nhờ xe, hỏi thăm cháu rất bình thường, rồi hôm sau lại mắng trước cả nhóm.', 'Before a shift, a buzzing phone makes my stomach hurt. I’m waiting on paperwork, on a bridging visa, but rent doesn’t wait. Someone at the company helped me find this room too. Some days the supervisor gives me a lift and asks about my niece, then the next day shames me in front of everyone.', 'records'),
+    staying: n('staying', 'Trước mỗi ca điện thoại rung là em đau bụng. Em đang chờ giấy tờ, visa bắc cầu, tiền phòng thì không chờ; chỗ ở cũng có người trong công ty giới thiệu. Có hôm quản lý cho em đi nhờ xe, hỏi thăm cháu rất bình thường, rồi hôm sau lại mắng trước cả nhóm.', 'Before a shift, a buzzing phone makes my stomach hurt. I’m waiting on paperwork, on a bridging visa, but rent doesn’t wait. Someone at the company helped me find this room too.', 'records'),
     records: n('records', 'Em hay xóa tin nhắn thoại sau khi nghe, không muốn mở máy ra thấy nữa. Chị làm ca bên cạnh có hỏi em ổn không, mà em chỉ bảo mệt. Em sợ kể ra rồi người ta gọi về chỗ làm trước khi em kịp nghĩ.', 'I often delete the voice messages after listening because I don’t want to see them on the phone again. A woman on the next shift asked if I was all right, and I said I was tired. I’m afraid if I tell someone they’ll call work before I’ve had time to think.', undefined, [
       c('keep', 'Nếu an toàn, em có thể giữ bản riêng và ghi ngày, theo cách em chọn.', 'If safe, you could keep private copies and dates in a way you choose.', 'kept', 1, true),
       c('control', 'Em được chọn mình kể với ai và kể đến đâu.', 'You can choose who you tell and how much you share.', 'goodbye', 1),
