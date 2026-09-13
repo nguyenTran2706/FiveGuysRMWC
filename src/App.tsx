@@ -3,12 +3,14 @@ import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, H
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
+import { conversationImage, nextConversationImages } from './data/conversationArtwork';
 import { copy } from './data/copy';
 import { useAmbient } from './hooks/useAmbient';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
 import { BootScreen } from './components/BootScreen';
+import { ConversationBackdrop } from './components/ConversationBackdrop';
 
 const Intake = lazy(() => import('./components/Intake'));
 const Summary = lazy(() => import('./components/Summary'));
@@ -39,6 +41,9 @@ export default function App() {
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
+  const ending = session?.kept && session.status !== 'closed' ? 'kept' : 'missed';
+  const sceneImage = conversationImage(active, node?.id ?? active.start, stage, ending);
+  const nextImages = stage === 'dialogue' ? nextConversationImages(active, node?.id ?? active.start, ending) : [];
   const t = copy[language];
   const sydneyTime = useSydneyTime(language);
   const heardResidents = residents.filter(resident => sessions[resident.id]?.status === 'heard');
@@ -194,7 +199,7 @@ export default function App() {
       </section>}
 
       {page === 'game' && <section className={`game-scene stage-${stage}`}>
-        <img key={active.id} src={active.image} className="game-image" alt="" width="1672" height="940" /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
+        <ConversationBackdrop key={active.id} src={sceneImage} fallback={active.image} preload={nextImages} reducedMotion={reducedMotion} /><div className="game-shade" /><div className="rain-overlay" aria-hidden="true" />
         <div className="game-topbar"><button className="text-link" onClick={() => navigate('street')}><ArrowLeft size={17} />{t.walk}</button><div className="player-controls"><button className="icon-button" onClick={() => setSound(!sound)} title={sound ? t.soundOff : t.sound} aria-label={sound ? t.soundOff : t.sound}>{sound ? <Volume2 size={19} /> : <VolumeX size={19} />}</button><button className="icon-button" onClick={() => { cancelSpeech(); setOverlay('pause'); }} title={t.pause} aria-label={t.pause}><Pause size={18} /></button><button className="icon-button" onClick={() => setOverlay('settings')} title={t.settings} aria-label={t.settings}><Settings2 size={19} /></button><button className="icon-button fullscreen-button" onClick={fullscreen} title={t.fullScreen} aria-label={t.fullScreen}><Maximize size={17} /></button></div></div>
         <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span></div>
 

@@ -193,9 +193,9 @@ test('return visits, sensitive story skip, pause and quick exit', async ({ page 
   await expect(page).toHaveTitle('Weather');
 });
 
-test('local guided intake, safe contact, editable review and downloads', async ({ page }) => {
+test('local guided intake, safe contact, editable review and downloads', async ({ page, baseURL }) => {
   const outbound = [];
-  page.on('request', request => { if (!request.url().startsWith('http://127.0.0.1:5173') && !request.url().startsWith('data:')) outbound.push(request.url()); });
+  page.on('request', request => { if (!request.url().startsWith(baseURL) && !request.url().startsWith('data:')) outbound.push(request.url()); });
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.locator('.title-help').click();

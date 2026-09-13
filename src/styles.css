@@ -274,3 +274,8 @@ h1, h2, h3, .brand strong { font-family: var(--font-display); }
 .resident-content > .resident-intro { display: block; overflow: visible; -webkit-line-clamp: unset; color: #b5bdb0; font-size: 12px; line-height: 1.8; margin: 12px 0 24px; }
 .resident-action { margin-top: auto; }
 @media (max-width: 600px) { .resident-card { height: auto; } }
+
+.conversation-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.conversation-backdrop .game-image-previous { animation: none; }
+.conversation-backdrop .game-image-current { animation: conversation-cut .45s ease-out both; }
+@keyframes conversation-cut { from { opacity: 0; } to { opacity: 1; } }

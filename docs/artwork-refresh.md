@@ -13,7 +13,7 @@ Generated with the built-in image_gen tool. All eight final assets are in `publi
 | mai-v2.webp | Mai, 29, Railway Parade rental near the railway, Cabramatta |
 | title-v2.webp | Original sliced cast montage of Linh, Bảo and Hạnh on black |
 
-The title layout takes inspiration from the supplied Late Shift menu reference; game branding, portraits and artwork are original. Each character has a distinct image used consistently on their card and in their conversation. Images were inspected for the intended person, setting, anatomy and composition, then encoded as 1600px-wide WebP at quality 82 using `scripts/prepare-images-v2.mjs`. Original source filenames are recorded in that script. The original first-version assets are retained for provenance.
+The title layout takes inspiration from the supplied Late Shift menu reference; game branding, portraits and artwork are original. Each character's portrait appears on their card and opens their conversation. Subsequent dialogue and endings use the [expanded conversation artwork](conversation-artwork.md). Portraits were inspected for the intended person, setting, anatomy and composition, then encoded as 1600px-wide WebP at quality 82 using `scripts/prepare-images-v2.mjs`. Original source filenames are recorded in that script. The original first-version assets are retained for provenance.
 
 ## Final prompts
 
