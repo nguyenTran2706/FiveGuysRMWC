@@ -9,6 +9,7 @@ import { useAmbient } from './hooks/useAmbient';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
+import { BrandMark } from './components/BrandMark';
 import { BootScreen } from './components/BootScreen';
 
 const Intake = lazy(() => import('./components/Intake'));
@@ -184,7 +185,7 @@ export default function App() {
   return <div className={`app page-${page} ${reducedMotion ? 'reduce-motion' : ''}`}>
     <a className="skip-link" href="#main">{language === 'vi' ? 'Đến nội dung chính' : 'Skip to main content'}</a>
     <header className="site-header">
-      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights — Home"><WindowMark /><span><strong>{t.brand}</strong><small>{t.byline}</small></span></button>
+      <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× RMWC</em></strong><small>{t.byline}</small></span></button>
       <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
       <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
     </header>
