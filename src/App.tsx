@@ -5,7 +5,11 @@ import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
 import { conversationImage, nextConversationImages } from './data/conversationArtwork';
 import { copy } from './data/copy';
-import { useAmbient } from './hooks/useAmbient';
+import { useStoryAudio } from './hooks/useStoryAudio';
+import { dialogueRecording, nextDialogueRecordings } from './data/dialogueAudio';
+import { audioCopy } from './data/audioCopy';
+import { INITIAL_TENSION, tensionAfterChoice } from './lib/weather';
+import { AudioSettings } from './components/AudioSettings';
 import { useSydneyTime } from './hooks/useSydneyTime';
 import { Modal } from './components/Modal';
 import { TitleScreen } from './components/TitleScreen';
@@ -24,7 +28,7 @@ const EmployerWatch = lazy(() => import('./components/EmployerWatch'));
 type Page = 'home' | 'about' | 'street' | 'game' | 'turn' | 'intake' | 'review' | 'chat' | 'watch';
 type Overlay = 'privacy' | 'settings' | 'pause' | 'warning' | 'waiting' | 'reset' | null;
 type Stage = 'dialogue' | 'reflection' | 'artifact' | 'deepening' | 'debrief' | 'epilogue';
-type Session = { node: string; trust: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
+type Session = { node: string; trust: number; tension: number; kept: boolean; status: 'playing' | 'heard' | 'closed' };
 
 function WindowMark({ small = false }: { small?: boolean }) {
   return <svg width={small ? 26 : 35} height={small ? 30 : 40} viewBox="0 0 35 40" fill="none" aria-hidden="true"><path d="M3 37V8l28-5v34M17 6v31M3 21h28" stroke="currentColor" strokeWidth="1.6" /><path d="M8 37V13l5-1v25" fill="currentColor" fillOpacity=".25" /></svg>;
@@ -41,6 +45,10 @@ export default function App() {
   const [page, setPage] = useState<Page>('home');
   const [overlay, setOverlay] = useState<Overlay>(null);
   const [sound, setSound] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
+  const [voiceVolume, setVoiceVolume] = useState(.85);
+  const [rainVolume, setRainVolume] = useState(.45);
+  const [adaptiveRain, setAdaptiveRain] = useState(true);
   const [bilingual, setBilingual] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const [caseFile, setCaseFile] = useState(() => createCaseFile('vi', 'street'));
@@ -49,10 +57,7 @@ export default function App() {
   const [activeId, setActiveId] = useState('linh');
   const [stage, setStage] = useState<Stage>('dialogue');
   const [note, setNote] = useState('');
-  const [reaction, setReaction] = useState<{ text: string; delta: number } | null>(null);
-  const reactTimer = useRef<number | undefined>(undefined);
-  const [speaking, setSpeaking] = useState(false);
-  const [audioError, setAudioError] = useState(false);
+  const [reaction, setReaction] = useState<{ text: string; delta: number; choice: Choice } | null>(null);
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
@@ -67,15 +72,28 @@ export default function App() {
   const unlocked = heardResidents.length >= 3;
   const mainRef = useRef<HTMLElement>(null);
   const lastResidentRef = useRef('linh');
-  useAmbient(sound && page !== 'intake' && page !== 'review' && page !== 'turn' && overlay !== 'pause' && !speaking);
-
-  const cancelSpeech = useCallback(() => { window.speechSynthesis?.cancel(); setSpeaking(false); }, []);
+  const audioText = stage === 'dialogue' ? node?.text[language] ?? '' : stage === 'epilogue' ? active.epilogue[ending][language] : '';
+  const audioCue = stage === 'epilogue' ? `ending-${ending}` : node?.id ?? active.start;
+  const audioSrc = audioText ? dialogueRecording(activeId, audioCue, language, audioText) : null;
+  const audio = useStoryAudio({
+    cue: `${activeId}/${language}/${stage}/${audioCue}`,
+    src: audioSrc, active: page === 'game' && !overlay && !reaction && !!audioText, autoplay,
+    preloads: stage === 'dialogue' ? nextDialogueRecordings(active, audioCue, language) : [],
+    rain: sound && ['home', 'about', 'street', 'game'].includes(page) && overlay !== 'pause' && overlay !== 'reset',
+    tension: page === 'game' ? (stage === 'dialogue' ? session?.tension ?? INITIAL_TENSION : .12) : INITIAL_TENSION,
+    adaptive: adaptiveRain, voiceVolume, rainVolume,
+  });
+  const { engine } = audio;
+  const speaking = audio.voice === 'playing' || audio.voice === 'loading';
+  const at = audioCopy[language];
+  const audioMessage = audio.voice === 'missing' || audio.voice === 'blocked' || audio.voice === 'error' || audio.voice === 'loading' ? at[audio.voice] : null;
+  const cancelSpeech = useCallback(() => engine.stopVoice(), [engine]);
   const quickExit = useCallback(() => {
-    window.speechSynthesis?.cancel();
+    engine.stopAll();
     setSound(false); setCaseFile(createCaseFile('vi', 'street')); setSessions({}); setApproaches({}); setNote('');
     window.history.replaceState(null, '', '/');
     window.location.replace('https://www.bom.gov.au/');
-  }, []);
+  }, [engine]);
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); quickExit(); } };
     window.addEventListener('keydown', onEscape);
@@ -84,9 +102,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     setCaseFile(current => ({ ...current, language }));
-    cancelSpeech();
-  }, [language, cancelSpeech]);
-  useEffect(() => { cancelSpeech(); }, [page, activeId, session?.node, stage, cancelSpeech]);
+  }, [language]);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     mainRef.current?.focus({ preventScroll: true });
@@ -97,14 +113,14 @@ export default function App() {
     return () => document.removeEventListener('visibilitychange', hide);
   }, [page, cancelSpeech]);
 
-  function clearReaction() { window.clearTimeout(reactTimer.current); setReaction(null); }
+  function clearReaction() { setReaction(null); }
   function navigate(next: Page) { cancelSpeech(); setOverlay(null); clearReaction(); setPage(next); }
   function beginIntake() {
     if (page === 'home') setCaseFile(current => ({ ...current, source: 'agent' }));
     navigate('intake');
   }
   function openResident(resident: Resident, approved = false) {
-    setActiveId(resident.id); setAudioError(false);
+    setActiveId(resident.id);
     if (resident.needsReturn && (approaches[resident.id] === undefined || approaches[resident.id] >= completedCount) && !sessions[resident.id]) {
       setApproaches(current => ({ ...current, [resident.id]: completedCount }));
       setOverlay('waiting'); return;
@@ -113,7 +129,7 @@ export default function App() {
     lastResidentRef.current = resident.id;
     setNote('');
     const existing = sessions[resident.id];
-    if (!existing) setSessions(current => ({ ...current, [resident.id]: { node: resident.start, trust: 0, kept: false, status: 'playing' } }));
+    if (!existing) setSessions(current => ({ ...current, [resident.id]: { node: resident.start, trust: 0, tension: INITIAL_TENSION, kept: false, status: 'playing' } }));
     setStage(existing && existing.status !== 'playing' ? 'epilogue' : 'dialogue');
     navigate('game');
   }
@@ -129,24 +145,35 @@ export default function App() {
   }
   function advance() {
     if (!node || node.choices?.length) return;
+    cancelSpeech();
     if (node.next === 'reflection' || !node.next) finish();
     else if (node.next === 'closed') finish(true);
     else setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: node.next! } }));
   }
-  function applyChoice(choice: Choice) {
-    const next = active.nodes[choice.next];
-    setSessions(current => ({ ...current, [activeId]: { ...current[activeId], node: next ? choice.next : current[activeId].node, trust: current[activeId].trust + (choice.trust ?? 0), kept: current[activeId].kept || !!choice.recordEvidence } }));
-    if (!next && choice.next === 'reflection') finish();
-    else if (!next && choice.next === 'closed') finish(true);
-  }
   function choose(choice: Choice) {
     if (reaction) return;
+    cancelSpeech();
     const delta = choice.trust ?? 0;
     const line = choice.recordEvidence ? t.reactionEvidence : delta > 0 ? t.reactionPositive : delta < 0 ? t.reactionNegative : t.reactionNeutral;
-    setReaction({ text: line.replace('{name}', active.name), delta });
-    window.clearTimeout(reactTimer.current);
-    reactTimer.current = window.setTimeout(() => { setReaction(null); applyChoice(choice); }, 1800);
+    setSessions(current => ({ ...current, [activeId]: { ...current[activeId], tension: tensionAfterChoice(current[activeId].tension, choice) } }));
+    setReaction({ text: line.replace('{name}', active.name), delta, choice });
   }
+  useEffect(() => {
+    if (!reaction || page !== 'game' || overlay) return;
+    const timer = window.setTimeout(() => {
+      const choice = reaction.choice;
+      const next = active.nodes[choice.next];
+      const terminal = !next && (choice.next === 'reflection' || choice.next === 'closed');
+      setSessions(current => ({ ...current, [activeId]: {
+        ...current[activeId], node: next ? choice.next : current[activeId].node,
+        trust: current[activeId].trust + (choice.trust ?? 0), kept: current[activeId].kept || !!choice.recordEvidence,
+        status: terminal ? (choice.next === 'closed' ? 'closed' : 'heard') : current[activeId].status,
+      } }));
+      if (terminal) setStage(choice.next === 'closed' ? 'debrief' : 'reflection');
+      setReaction(null);
+    }, 1800);
+    return () => window.clearTimeout(timer);
+  }, [reaction, page, overlay, active, activeId]);
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
       if (page !== 'game' || overlay || stage !== 'dialogue' || event.altKey || event.ctrlKey || event.metaKey) return;
@@ -159,19 +186,10 @@ export default function App() {
     window.addEventListener('keydown', keydown);
     return () => window.removeEventListener('keydown', keydown);
   });
-  useEffect(() => () => window.clearTimeout(reactTimer.current), []);
-  function speak(text: string) {
+  function speak() {
     if (speaking) { cancelSpeech(); return; }
-    if (!('speechSynthesis' in window)) { setAudioError(true); return; }
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = language === 'vi' ? 'vi-VN' : 'en-AU';
-    const voice = window.speechSynthesis.getVoices().find(item => item.lang.startsWith(language));
-    if (voice) utterance.voice = voice;
-    utterance.rate = .9;
-    utterance.onend = () => setSpeaking(false);
-    utterance.onerror = () => { setSpeaking(false); setAudioError(true); };
-    setSpeaking(true); setAudioError(false); window.speechSynthesis.speak(utterance);
+    engine.unlock();
+    void engine.playVoice(audioSrc);
   }
   function reflect(answer: 'yes' | 'no' | 'possible' | 'skip') {
     if (answer === 'yes' || answer === 'possible') {
@@ -204,7 +222,8 @@ export default function App() {
     </button>)}
   </div>;
 
-  return <div className={`app page-${page} ${reducedMotion ? 'reduce-motion' : ''}`}>
+  const voiceButton = <button className="icon-button" disabled={!!reaction} onClick={speak} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button>;
+  return <div className={`app page-${page} ${reducedMotion ? 'reduce-motion' : ''}`} onPointerDownCapture={() => engine.unlock()} onKeyDownCapture={event => { if (event.key === 'Enter' || event.code === 'Space' || /^[1-9]$/.test(event.key)) engine.unlock(); }}>
     <a className="skip-link" href="#main">{language === 'vi' ? 'Đến nội dung chính' : 'Skip to main content'}</a>
     <header className="site-header">
       <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× <img src="/images/rmwc-icon.png" alt="" className="brand-rmwc" />RMWC</em></strong><small>{t.byline}</small></span></button>
@@ -230,7 +249,7 @@ export default function App() {
         <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}{stage === 'dialogue' && session && <TrustMeter t={t} trust={session.trust} />}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
-          <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span><button className="icon-button" onClick={() => speak(node.text[language])} title={speaking ? t.stopReading : t.listen} aria-label={speaking ? t.stopReading : t.listen}>{speaking ? <AudioLines size={18} /> : <Volume2 size={18} />}</button></div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioError && <p className="audio-error" role="status">{t.voiceUnavailable}</p>}</div>
+          <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span>{voiceButton}</div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioMessage && <p className="audio-error" role="status">{audioMessage}</p>}</div>
           {/visa/i.test(node.text.en) && <aside className="scene-visa-note"><ShieldCheck size={17} /><div><strong>{t.visaTitle}</strong><p>{t.visaNote}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants/visa-protections-pilot-programs" target="_blank" rel="noopener noreferrer">Fair Work<ExternalLink size={11} /></a></div></aside>}
           {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <span className="choice-why" tabIndex={0} aria-label={t.whyLabel}><Info size={12} /><span>{t.whyLabel}</span><span className="choice-why-tip" role="tooltip">{why}</span></span>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
         </div>}
@@ -244,7 +263,7 @@ export default function App() {
 
         {stage === 'debrief' && <div className="reflection-wrap"><Debrief t={t} language={language} resident={active} trust={session?.trust ?? 0} kept={!!session?.kept} status={session?.status ?? 'playing'} heardCount={heardResidents.length} unlocked={unlocked} onContinue={() => setStage('epilogue')} /></div>}
 
-        {stage === 'epilogue' && <div className="epilogue-panel"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[session?.kept && session.status !== 'closed' ? 'kept' : 'missed'][language]}</p><p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
+        {stage === 'epilogue' && <div className="epilogue-panel"><div className="speaker-line"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span>{voiceButton}</div><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[ending][language]}</p>{audioMessage && <p className="audio-error" role="status">{audioMessage}</p>}<p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
 
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
@@ -254,12 +273,13 @@ export default function App() {
         {page === 'intake' && <Intake language={language} caseFile={caseFile} onChange={setCaseFile} onReview={() => navigate('review')} onBack={() => navigate(completedCount ? 'street' : 'home')} />}
         {page === 'review' && <Summary language={language} caseFile={caseFile} onChange={setCaseFile} onBack={() => navigate('intake')} />}
       </Suspense>
+      {sound && (audio.rain === 'error' || audio.rain === 'blocked') && <p className="audio-rain-status" role="status">{audio.rain === 'error' ? at.rainError : at.rainBlocked}</p>}
     </main>
 
     <footer className="safety-footer"><span className="footer-label"><span className="live-dot" />{t.helpFooter}</span><div className="safety-links"><a href="tel:1300513107">RMWC <strong>1300 513 107</strong></a><span>·</span><a href="tel:131114">Lifeline <strong>13 11 14</strong></a><span>·</span><a href="tel:000">{t.emergency} <strong>000</strong></a></div><button onClick={() => setOverlay('privacy')}><ShieldCheck size={13} /><span>{t.privacy}</span></button></footer>
 
     {overlay === 'privacy' && <Modal title={t.privacyTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><ShieldCheck className="modal-symbol" size={28} /><p>{t.privacyText}</p><p>{t.privacyExit}</p><p className="modal-note">{t.disclaimer}</p><button className="button button-outline" onClick={() => setOverlay(null)}>{t.close}<Check size={16} /></button></Modal>}
-    {overlay === 'settings' && <Modal title={t.settings} closeLabel={t.close} onClose={() => setOverlay(null)}><div className="setting-row"><span><Headphones size={18} />{t.audioLabel}</span><button className={`switch ${sound ? 'on' : ''}`} role="switch" aria-checked={sound} aria-label={t.audioLabel} onClick={() => setSound(!sound)}><i /></button></div><div className="setting-row"><span><Languages size={18} />{t.subtitlesLabel}</span><button className={`switch ${bilingual ? 'on' : ''}`} role="switch" aria-checked={bilingual} aria-label={t.subtitlesLabel} onClick={() => setBilingual(!bilingual)}><i /></button></div><div className="setting-row"><span><Play size={17} />{t.reducedLabel}</span><button className={`switch ${reducedMotion ? 'on' : ''}`} role="switch" aria-checked={reducedMotion} aria-label={t.reducedLabel} onClick={() => setReducedMotion(!reducedMotion)}><i /></button></div><p className="modal-note">{t.settingsNote}</p><button className="text-link" onClick={() => setOverlay('reset')}>{t.reset}<ArrowRight size={16} /></button></Modal>}
+    {overlay === 'settings' && <Modal title={t.settings} closeLabel={t.close} onClose={() => setOverlay(null)}><div className="setting-row"><span><Headphones size={18} />{t.audioLabel}</span><button className={`switch ${sound ? 'on' : ''}`} role="switch" aria-checked={sound} aria-label={t.audioLabel} onClick={() => setSound(!sound)}><i /></button></div><AudioSettings language={language} autoplay={autoplay} onAutoplay={setAutoplay} adaptive={adaptiveRain} onAdaptive={setAdaptiveRain} voiceVolume={voiceVolume} onVoiceVolume={setVoiceVolume} rainVolume={rainVolume} onRainVolume={setRainVolume} /><div className="setting-row"><span><Languages size={18} />{t.subtitlesLabel}</span><button className={`switch ${bilingual ? 'on' : ''}`} role="switch" aria-checked={bilingual} aria-label={t.subtitlesLabel} onClick={() => setBilingual(!bilingual)}><i /></button></div><div className="setting-row"><span><Play size={17} />{t.reducedLabel}</span><button className={`switch ${reducedMotion ? 'on' : ''}`} role="switch" aria-checked={reducedMotion} aria-label={t.reducedLabel} onClick={() => setReducedMotion(!reducedMotion)}><i /></button></div><p className="modal-note">{t.settingsNote}</p><button className="text-link" onClick={() => setOverlay('reset')}>{t.reset}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'pause' && <Modal title={t.paused} closeLabel={t.close} onClose={() => setOverlay(null)}><p>{t.pausedText}</p><button className="button button-amber" onClick={() => setOverlay(null)}><Play size={17} />{t.resume}</button><button className="text-link modal-secondary" onClick={() => navigate('street')}>{t.walk}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'warning' && <Modal title={t.warningTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><span className="eyebrow warning-label">{t.warning}</span><p>{active.warning?.[language]}</p><p>{t.warningIntro}</p><div className="modal-actions"><button className="button button-outline" onClick={() => openResident(active, true)}>{t.enterAnyway}<ArrowRight size={17} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.skipStory}</button></div></Modal>}
     {overlay === 'waiting' && <Modal title={t.waitTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><p>{t.waitBody}</p><button className="button button-outline" onClick={() => navigate('street')}>{t.walk}<ArrowRight size={17} /></button></Modal>}

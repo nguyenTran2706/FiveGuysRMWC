@@ -1,0 +1,141 @@
+import { test, expect } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+
+async function enterLinh(page) {
+  await page.locator('.title-start').click();
+  await page.locator('.resident-linh').click();
+  await expect(page.locator('.dialogue-text')).toBeVisible();
+}
+
+async function instrument(page) {
+  await page.addInitScript(() => {
+    const Native = window.AudioContext;
+    window.__audioTest = { contexts: [], sources: [], gains: [] };
+    window.AudioContext = class extends Native {
+      constructor(...args) { super(...args); window.__audioTest.contexts.push(this); }
+      createGain() { const gain = super.createGain(); window.__audioTest.gains.push(gain); return gain; }
+      createBufferSource() {
+        const source = super.createBufferSource();
+        const entry = { source, started: false, stopped: false };
+        window.__audioTest.sources.push(entry);
+        const start = source.start.bind(source);
+        const stop = source.stop.bind(source);
+        source.start = (...args) => { entry.started = true; return start(...args); };
+        source.stop = (...args) => { entry.stopped = true; return stop(...args); };
+        return source;
+      }
+    };
+    if (window.speechSynthesis) window.speechSynthesis.speak = () => { throw new Error('Synthetic speech must not run'); };
+  });
+}
+
+async function installTransportFixtures(page) {
+  // In-memory test registry only. Real rain verifies MP3 transport/decoding;
+  // these are deliberately NOT human voices or production-ready recordings.
+  await page.evaluate(async () => {
+    const { residents } = await import('/src/data/stories.ts');
+    const { recordings, recordingKey } = await import('/src/data/dialogueAudio.ts');
+    const linh = residents.find(resident => resident.id === 'linh');
+    for (const node of [...Object.values(linh.nodes), ...['kept', 'missed'].map(ending => ({ id: `ending-${ending}`, text: linh.epilogue[ending] }))]) {
+      for (const language of ['vi', 'en']) recordings[recordingKey('linh', node.id, language)] = {
+        src: '/audio/ambience/rain-calm.mp3', text: node.text[language], sha256: 'transport-test-only',
+      };
+    }
+  });
+}
+const liveVoiceCount = page => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.stopped && !item.source.loop).length);
+
+test('missing human recordings are honest; settings fit mobile and do not use TTS', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await instrument(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await enterLinh(page);
+  await expect(page.locator('.audio-error')).toContainText('no human recording yet');
+  await expect(page.locator('.choice-button')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  await expect(page.getByRole('switch', { name: 'Auto-play dialogue' })).toHaveAttribute('aria-checked', 'true');
+  await page.getByRole('switch', { name: 'Auto-play dialogue' }).click();
+  await page.getByRole('slider', { name: /Voice volume/ }).fill('0');
+  await expect(page.locator('output[for="voice-volume"]')).toHaveText('0%');
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await mkdir('artifacts', { recursive: true });
+  await page.screenshot({ path: 'artifacts/audio-settings-mobile.png', fullPage: true });
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect(page.locator('.audio-error')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test('automatic MP3 playback follows choice/next/language; pause and navigation stop it', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await instrument(page);
+  await page.goto('/');
+  await installTransportFixtures(page);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await enterLinh(page);
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.locator('.choice-button').first().click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await expect(page.locator('.dialogue-text')).toContainText('flights for Mum');
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.locator('.continue-button').click();
+  await expect(page.locator('.dialogue-text')).toContainText('counts the money');
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  const beforeLanguage = await page.evaluate(() => window.__audioTest.sources.length);
+  await page.getByRole('button', { name: 'Chuyển sang tiếng Việt' }).click();
+  await expect(page.locator('.dialogue-text')).toContainText('đếm tiền');
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  expect(await page.evaluate(() => window.__audioTest.sources.length)).toBeGreaterThan(beforeLanguage);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.locator('.speaker-line button').click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await page.locator('.speaker-line button').click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.locator('.game-topbar > button').click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  expect(errors).toEqual([]);
+});
+
+test('all real rain assets decode, layers loop, pause stops them, and choice reaction stays paused', async ({ page }) => {
+  await instrument(page);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await enterLinh(page);
+  await page.locator('.player-controls button').first().click();
+  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && item.source.loop && !item.stopped).length), { timeout: 20000 }).toBe(3);
+  const buffers = await page.evaluate(() => window.__audioTest.sources.filter(item => item.source.loop).map(item => ({ duration: item.source.buffer.duration, channels: item.source.buffer.numberOfChannels })));
+  expect(buffers.every(buffer => buffer.duration > 20 && buffer.duration < 180 && buffer.channels === 2)).toBe(true);
+  await page.locator('.choice-button').last().click();
+  const oldLine = await page.locator('.dialogue-text').innerText();
+  await page.getByRole('button', { name: 'Pause', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.stopped).length)).toBe(0);
+  // A real-time delay verifies that the old 1.8-second timeout cannot advance behind the modal.
+  await page.waitForTimeout(2100);
+  await expect(page.locator('.dialogue-text')).toHaveText(oldLine);
+  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await expect(page.locator('.dialogue-text')).toContainText('While there are customers');
+  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && item.source.loop && !item.stopped).length)).toBe(3);
+  await page.locator('.player-controls button').first().click();
+  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.stopped).length)).toBe(0);
+});
+
+test('failed voice fetch is retryable and does not block story choices', async ({ page }) => {
+  await instrument(page);
+  await page.goto('/');
+  await installTransportFixtures(page);
+  await page.route('**/audio/ambience/rain-calm.mp3', route => route.fulfill({ status: 503, body: 'unavailable' }));
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await enterLinh(page);
+  await expect(page.locator('.audio-error')).toContainText('could not load');
+  await expect(page.locator('.choice-button')).toHaveCount(3);
+  await page.unroute('**/audio/ambience/rain-calm.mp3');
+  await page.locator('.speaker-line button').click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+});

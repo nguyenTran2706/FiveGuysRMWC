@@ -1,0 +1,7 @@
+.audio-settings .setting-row > span { padding-right: 1rem; }
+.audio-settings .switch { flex-shrink: 0; }
+.audio-volume { margin: 1.2rem 0; }
+.audio-volume label { display: flex; justify-content: space-between; gap: 1rem; font-size: .875rem; }
+.audio-volume output { font-variant-numeric: tabular-nums; }
+.audio-volume input { display: block; width: 100%; margin-top: .65rem; min-height: 24px; accent-color: #d4aa67; }
+.audio-rain-status { max-width: 65ch; margin: 1rem auto; padding: 0 1rem; font-size: .85rem; }
