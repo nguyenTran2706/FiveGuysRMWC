@@ -1,0 +1,34 @@
+{
+  "textSha256": "a4bc3b9ef00e89accd64555baeb34f3c5aeaeffe03ff42e26d29c6144236f742",
+  "audioSha256": "b9fc219651e626e94fa8e0d307c1ede5f19761510fa2359d6c547d0928212668",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 11843889,
+  "spokenText": "Ừ, để mai em xem. Pin còn bốn phần trăm, về tới nhà rồi mà em chưa buồn cắm sạc. Có những hôm việc nhỏ vậy cũng thấy như thêm một cuốc giao hàng nữa.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 7.896,
+  "sampleRate": 48000,
+  "peak": 0.790048,
+  "rms": 0.130433,
+  "transcriptionCheck": {
+    "audioSha256": "b9fc219651e626e94fa8e0d307c1ede5f19761510fa2359d6c547d0928212668",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ừ, để mai em xem, tiên còn 4% về tới nhà rồi mà em chưa buồn cắm sạch, có những hôm việc nhỏ vậy cũng thấy như thêm 1 quốc giao hàng nữa.",
+    "expectedWordCoverage": 0.8,
+    "matchedWordPrecision": 0.848,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

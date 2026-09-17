@@ -1,23 +1,27 @@
-# Complete human-recording package
+# Complete character voice package
 
-7 residents · 85 story cues · 170 recordings across Vietnamese and English.
+7 residents · 85 story cues · 170 Vietnamese/English clips.
 
-Ready: **0/170**. Pending clips are intentionally silent in the app, with a readable notice; no text-to-speech fallback.
+**Audio available: 139/170. Locally AI-generated: 139.** Availability is not human listening approval.
 
-These are fixed assignments, not three full alternate casts and not random choices. Accent families are shared, but every character keeps an individual performer and delivery. Assignments are casting proposals, not new character biography.
+Listen and download each file at **/audio/voice-preview.html** on your local app server. Actual MP3s are under **public/audio/dialogue/**, grouped by accent, character and cue.
 
-| Character | Vietnamese packet | English packet | Cues per language |
+Fixed assignments, never random. Each character keeps one voice per language.
+
+| Character | Vietnamese script | English script | Cues per language |
 |---|---|---|---|
-| Linh | [Vietnamese — Southern (Saigon / Mekong Delta)](linh-vi.md) | [English — natural Vietnamese accent](linh-en.md) | 16 |
-| Bảo | [Vietnamese — Southern (Saigon / Mekong Delta)](bao-vi.md) | [English — Australian accent](bao-en.md) | 16 |
-| Cô Hạnh | [Vietnamese — Central (Da Nang)](hanh-vi.md) | [English — natural Vietnamese accent](hanh-en.md) | 16 |
-| Trâm | [Vietnamese — Southern (Saigon / Mekong Delta)](tram-vi.md) | [English — General American accent](tram-en.md) | 9 |
-| Đức | [Vietnamese — Northern (Hanoi)](duc-vi.md) | [English — natural Vietnamese accent](duc-en.md) | 10 |
-| Khoa | [Vietnamese — Central (Da Nang)](khoa-vi.md) | [English — Australian accent](khoa-en.md) | 9 |
-| Mai | [Vietnamese — Northern (Hanoi)](mai-vi.md) | [English — General American accent](mai-en.md) | 9 |
+| Linh | [Vietnamese — Southern](linh-vi.md) | [English — natural Vietnamese accent](linh-en.md) | 16 |
+| Bảo | [Vietnamese — Southern](bao-vi.md) | [English — Australian accent](bao-en.md) | 16 |
+| Cô Hạnh | [Vietnamese — Central](hanh-vi.md) | [English — natural Vietnamese accent](hanh-en.md) | 16 |
+| Trâm | [Vietnamese — Southern](tram-vi.md) | [English — General American accent](tram-en.md) | 9 |
+| Đức | [Vietnamese — Northern](duc-vi.md) | [English — natural Vietnamese accent](duc-en.md) | 10 |
+| Khoa | [Vietnamese — Central](khoa-vi.md) | [English — Australian accent](khoa-en.md) | 9 |
+| Mai | [Vietnamese — Northern](mai-vi.md) | [English — General American accent](mai-en.md) | 9 |
 
-[Production guide](../audio-production.md) · [Complete cue manifest](manifest.json)
+[Local synthesis and verification](../local-voices.md) · [Human recording guide](../audio-production.md) · [Complete cue manifest](manifest.json)
 
-Includes every dialogue node, artifact narration, closed branch and both endings. Excludes menu labels, listener choices, rights chatbot responses, personal reflections and intake answers. Those are not character speech and must not read private visitor text aloud.
+The script packets below remain suitable for future human recording. For current generated speech, explicit pause directions become pauses, and some abbreviations use a pronunciation spelling. Exact spoken input is recorded in each review JSON. Captions remain unchanged.
 
-Refresh after any caption/casting edit: `npm run audio:prepare`. Verify without writing: `npm run audio:check`. Require every human recording before a voiced release: `npm run audio:check -- --require-complete`.
+Includes every scene, artifact, closed branch and both endings. Menus, visitor choices, personal reflections and private intake text are not voiced.
+
+Refresh: npm run audio:prepare. Check files: npm run audio:check -- --require-complete. Separate human listening gate: npm run audio:check -- --require-listening-reviewed.

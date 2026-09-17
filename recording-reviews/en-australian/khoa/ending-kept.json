@@ -1,0 +1,25 @@
+{
+  "textSha256": "895c96c486e2b1423038f7e43131a86e7c1911a17991509eeed572166bab1efc",
+  "audioSha256": "4e6b6a73be997be9715f137738b14c47b65a3eb58a7dc949b837730b4a53d5c5",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 8818291,
+  "spokenText": "Fictional ending: Khoa keeps the email and notes the conversation. He chooses an appointment to discuss his treatment, and still makes Sunday choir practice. The records help him explain; they do not determine the outcome.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.51,
+  "sampleRate": 48000,
+  "peak": 0.795784,
+  "rms": 0.116735
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "31c8fafc1be18446fb38f0d883e6d0ed82061f23b46816db1835749806c2c575",
+  "audioSha256": "86b3a323ace899e6b04c158ddac5c6486cfe9c48df4d07bcdcca24a212d023de",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 8832475,
+  "spokenText": "No. I bought a bottle at the convenience store. I’m saving for a used car so I can stop paying three hundred a week to rent one; this bike is for the short runs. Maybe rain wouldn’t make me hate the job so much if the car were mine.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.522,
+  "sampleRate": 48000,
+  "peak": 0.685716,
+  "rms": 0.119459,
+  "transcriptionCheck": {
+    "audioSha256": "86b3a323ace899e6b04c158ddac5c6486cfe9c48df4d07bcdcca24a212d023de",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "No! I bought a bottle at the convenience store. I'm saving for a used car so I can stop paying $300 a week to rent one. This bike is for the short runs. Maybe Rain wouldn't make me hate the job so much if the car were mine.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 0.981,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

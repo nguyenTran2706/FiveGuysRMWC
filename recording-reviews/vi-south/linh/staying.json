@@ -1,0 +1,34 @@
+{
+  "textSha256": "c9efc1a46a36cbcb952214b52b54c37c9e2857117f2ad1aed2c4770ae17d3955",
+  "audioSha256": "85276462c555e3f24d2c9769093e8b996f0fd52712a399b34de26f202533ad9a",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 15740215,
+  "spokenText": "Nhưng đó không phải cái chị lo nhất. Chị nhìn về phía cửa tiệm. Anh chủ không phải lúc nào cũng khó. Tết anh lì xì. Mẹ chị bệnh, anh cho đổi ca liền.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.11,
+  "sampleRate": 48000,
+  "peak": 0.683097,
+  "rms": 0.114174,
+  "transcriptionCheck": {
+    "audioSha256": "85276462c555e3f24d2c9769093e8b996f0fd52712a399b34de26f202533ad9a",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Nhưng đó không phải trách trị lo nhất. Chị nhìn về phía cửa tiệm. Căn chủ không phải lúc nào cũng khó. Tất cả anh Li Xi. Mẹ chị bệnh anh cho đổi ca liền.",
+    "expectedWordCoverage": 0.882,
+    "matchedWordPrecision": 0.857,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

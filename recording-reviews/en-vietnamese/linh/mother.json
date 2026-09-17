@@ -1,0 +1,34 @@
+{
+  "textSha256": "1d4dc107f07f88fdf0f14f6f6901c5047b5a9770ae676bbe2a97a5f257726028",
+  "audioSha256": "591069813f00432225c48511f1dfd80852d05a78e9bd07b1baec250eb02eb81b",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 1059041,
+  "spokenText": "She turns the phone screen down on the counter. I was looking at flights for Mum. \n\n She has never left Vietnam. She keeps asking if she can buy water spinach here.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.706,
+  "sampleRate": 48000,
+  "peak": 0.712224,
+  "rms": 0.116665,
+  "transcriptionCheck": {
+    "audioSha256": "591069813f00432225c48511f1dfd80852d05a78e9bd07b1baec250eb02eb81b",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She turns the phone screen down on the counter. I was looking at Price for Mom. She has never left Vietnam. She keeps asking if she can buy water spinach here.",
+    "expectedWordCoverage": 0.935,
+    "matchedWordPrecision": 0.935,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

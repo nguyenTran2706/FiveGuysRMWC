@@ -1,0 +1,34 @@
+{
+  "textSha256": "d15396f575f20403c6c8cffa87f287c2f5881183e0ea6a3a85c40a9bf615bcfa",
+  "audioSha256": "87f921b275c3ec3dd8d5aa14d9557563ba1aba02a08cb374224a061703c3d6b1",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 9698020,
+  "spokenText": "Chị không trả lời ngay. Khách còn thì mình còn. Chị nhìn về phía tiệm tối phía sau. Chị cũng muốn về chứ. Cơm trong nồi chắc khô rồi. Mưa to hơn. Thôi. Chuyện trong tiệm nói ra cũng dài.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9652,
+    "temperature": 0.78
+  },
+  "durationSeconds": 11.857,
+  "sampleRate": 48000,
+  "peak": 0.753521,
+  "rms": 0.12068,
+  "transcriptionCheck": {
+    "audioSha256": "87f921b275c3ec3dd8d5aa14d9557563ba1aba02a08cb374224a061703c3d6b1",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị không trả lời ngay. Khách còn thì mình còn. Chị nhìn về viết điểm tối phía sau. Chị cũng muốn về chứ. Cơm trong nồi chắc khô rồi, mưa to hơn, thôi chuyện trong tiệm nói ra cũng dài.",
+    "expectedWordCoverage": 0.95,
+    "matchedWordPrecision": 0.95,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

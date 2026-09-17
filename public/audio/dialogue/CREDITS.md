@@ -1,0 +1,11 @@
+# Character voice provenance
+
+These MP3s are locally AI-generated speech for fictional characters, not recordings of human actors. Created for the project's existing Vietnamese and English scripts. No celebrity voice or separately obtained real-person recording is used as a cloning reference.
+
+- Vietnamese and Vietnamese-accented English: [VieNeu-TTS v3 Turbo](https://huggingface.co/pnnbao-ump/VieNeu-TTS-v3-Turbo), Phạm Nguyễn Ngọc Bảo / [VieNeu-TTS project](https://github.com/pnnbao97/VieNeu-TTS), SDK 3.8.1. Model revision `5f2a3e93092efaba9153253ff5f2e6a8e810e4f2`. Apache-2.0. Its model card states that bundled preset assets are licensed for synthetic speech generation, including commercial use, with the relevant speaker/rightsholder permissions. This is the publisher's statement, not independent verification of its training corpus.
+- VieNeu codec: [MOSS-Audio-Tokenizer-Nano](https://huggingface.co/OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano), OpenMOSS-Team, revision `6aa02b01e445cc585582cf0ba480bc3ea6c8dd68`, Apache-2.0.
+- Australian/American English reference design: [Qwen3-TTS-12Hz-1.7B-VoiceDesign](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign), Qwen Team, revision `5ecdb67327fd37bb2e042aab12ff7391903235d3`, Apache-2.0. References are synthetic voices designed from descriptions, not imitations of named real people.
+- English reference reuse: [Qwen3-TTS-12Hz-0.6B-Base](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-Base), Qwen Team, revision `5d83992436eae1d760afd27aff78a71d676296fc`, Apache-2.0; SDK `qwen-tts` 0.1.1.
+- Local transcription smoke checks: [faster-whisper](https://github.com/SYSTRAN/faster-whisper), using [faster-whisper-small](https://huggingface.co/Systran/faster-whisper-small). Transcription is not human approval or accent certification.
+
+The model/runtime files are not shipped in the website. Final audio, production scripts and per-file provenance are included in the repository; captions remain the project's existing story content. Target accents are documented in the catalogue, but actual pronunciation, accent fidelity and naturalness await listener approval. See [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) for model licensing terms.

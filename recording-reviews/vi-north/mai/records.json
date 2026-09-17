@@ -1,0 +1,34 @@
+{
+  "textSha256": "113cc660bafe064b56bb5f37de0a06762bbf39fa0405b89dd7d5901db6a6031a",
+  "audioSha256": "6f76c57fdbaef77dfbd4640aa4bc8c30b17631f100053ad9c123c24796bc1c25",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Huyền",
+  "seed": 9281620,
+  "spokenText": "Em hay xóa tin nhắn thoại sau khi nghe, không muốn mở máy ra thấy nữa. Chị làm ca bên cạnh có hỏi em ổn không, mà em chỉ bảo mệt. Em sợ kể ra rồi người ta gọi về chỗ làm trước khi em kịp nghĩ.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.193,
+  "sampleRate": 48000,
+  "peak": 0.677215,
+  "rms": 0.119975,
+  "transcriptionCheck": {
+    "audioSha256": "6f76c57fdbaef77dfbd4640aa4bc8c30b17631f100053ad9c123c24796bc1c25",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em hay xóa tin nhắn thoại sau khi nghe, không muốn mở máy ra thấy nữa. Chị làm ca bên cạnh có hỏi em ổn không mà em chỉ bảo mệt. Em sợ kể ra rồi người ta gọi về chỗ làm trước khi em kịp nghĩ.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

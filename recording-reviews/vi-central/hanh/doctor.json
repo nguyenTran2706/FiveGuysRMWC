@@ -1,0 +1,34 @@
+{
+  "textSha256": "ab65d215d1a30e35e10b65e5884b7dca83a23dab6530860f77877c6fa8268d8e",
+  "audioSha256": "bc823395ca2f64f1e06fdaa37297c8c083c3baa9f2440449f20485bc6c57e6ab",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 5154590,
+  "spokenText": "Con gái đặt hẹn cho cô rồi. Cô cứ định hủy, sợ tốn tiền, sợ phải nghỉ thêm, mà nó nói để con lo cái hẹn, mẹ chỉ việc đi. Cô chưa kể hết chuyện trong bếp cho nó nghe, sợ nó bỏ học ngồi lo.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.069,
+  "sampleRate": 48000,
+  "peak": 0.659825,
+  "rms": 0.126915,
+  "transcriptionCheck": {
+    "audioSha256": "bc823395ca2f64f1e06fdaa37297c8c083c3baa9f2440449f20485bc6c57e6ab",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Con gái đặt hèn cho cô rồi. Cô cứ đình huy, sờ tổn tiên, sờ phản nghị thêm, mà nó nói để con lo cài hèn. Mẹ chỉ việc đi. Cô chưa kể hệt chuyên trong biệt cho nọ nghe. Sờ nọ bọ học ngui lo.",
+    "expectedWordCoverage": 0.935,
+    "matchedWordPrecision": 0.935,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

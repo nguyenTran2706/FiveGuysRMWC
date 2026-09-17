@@ -1,0 +1,34 @@
+{
+  "textSha256": "2606ce435a65719bb894ffbb2dceba931aa818eb93a7a4871f88a76fe2d878b9",
+  "audioSha256": "0e9c26133c31520195171ae4a2ad9ea5a58cf0f9a1edd3a9b2c3e024d3ba2a3c",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 12928232,
+  "spokenText": "Last week I asked about a forklift leaking oil; I didn’t want to keep driving it. The manager said he’d look into it.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 7.493,
+  "sampleRate": 48000,
+  "peak": 0.794408,
+  "rms": 0.134161,
+  "transcriptionCheck": {
+    "audioSha256": "0e9c26133c31520195171ae4a2ad9ea5a58cf0f9a1edd3a9b2c3e024d3ba2a3c",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Last week I asked about a forklift leaking oil. I didn't want to keep driving it. The manager said he looked into it.",
+    "expectedWordCoverage": 0.92,
+    "matchedWordPrecision": 0.958,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

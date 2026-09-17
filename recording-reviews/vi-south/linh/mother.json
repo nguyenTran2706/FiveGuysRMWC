@@ -1,0 +1,34 @@
+{
+  "textSha256": "dcfbc4c9f70e76766419f66ab84aaf3fe1f02851f13122e96ca5fb75dad3c46b",
+  "audioSha256": "7f1ea7814ee03c9f9c1d27e9b3e217c52ab5852263b06a22938c4fa912f707c0",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 9736999,
+  "spokenText": "Chị quay màn hình điện thoại xuống mặt bàn. Chị đang xem vé máy bay cho mẹ. \n\n Mẹ chưa ra khỏi Việt Nam bao giờ. Cứ hỏi bên này có chỗ mua rau muống không.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.589,
+  "sampleRate": 48000,
+  "peak": 0.736227,
+  "rms": 0.126135,
+  "transcriptionCheck": {
+    "audioSha256": "7f1ea7814ee03c9f9c1d27e9b3e217c52ab5852263b06a22938c4fa912f707c0",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị quay mang hình điện thoại xuống mặt bàn. Chị đang xem vé mấy bày cho mẹ. Mẹ chưa ra khỏi Việt Nam bao giờ. Cứ hỏi bên này có chỗ mô rau muốn không?",
+    "expectedWordCoverage": 0.914,
+    "matchedWordPrecision": 0.914,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

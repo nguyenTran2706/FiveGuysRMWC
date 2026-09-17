@@ -1,0 +1,34 @@
+{
+  "textSha256": "56c7cb293d9f00761874db6b5a09549d547e080e43b3dc38a8792f254264d2ce",
+  "audioSha256": "2ce46389bc50b9f5641ea430d2181af33cd8f6e07bc6e16f13f345493f45c93d",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 7010835,
+  "spokenText": "Anh sẽ ghi cả ngày lẫn ai có mặt, còn câu nào không nhớ nguyên văn thì nói rõ. Anh cũng muốn hỏi tiêu chí khóa học bằng email, để biết mình cần gì chứ không tự đoán mãi. Chắc làm từng việc nhỏ vậy trước.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.239,
+  "sampleRate": 48000,
+  "peak": 0.7942,
+  "rms": 0.115916,
+  "transcriptionCheck": {
+    "audioSha256": "2ce46389bc50b9f5641ea430d2181af33cd8f6e07bc6e16f13f345493f45c93d",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Anh sẽ ghi cả ngay lần ái của mặt, còn cấu nào không nhờ nguyên văn thì nội rõ. Anh cũng muốn hỏi tiếu chỉ khoả học bằng e-mail. Để biết mình cần gì, không tư đoạn mại, chắc là từng việc nhỏ về trước.",
+    "expectedWordCoverage": 0.891,
+    "matchedWordPrecision": 0.891,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

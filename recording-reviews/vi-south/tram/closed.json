@@ -1,0 +1,34 @@
+{
+  "textSha256": "64de47e2b60e81c3f04f8c4bad6334c9604f72a5be5acf9ecd16c3692351421b",
+  "audioSha256": "6499faedc0e5cd0ec0fa14c90e623f5ee080c737372345d936901677bc715bb4",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 5072725,
+  "spokenText": "Thôi, em không muốn kể nữa. Em cần được yên một chút. Chúc anh chị về an toàn.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9652,
+    "temperature": 0.78
+  },
+  "durationSeconds": 6.473,
+  "sampleRate": 48000,
+  "peak": 0.673294,
+  "rms": 0.119737,
+  "transcriptionCheck": {
+    "audioSha256": "6499faedc0e5cd0ec0fa14c90e623f5ee080c737372345d936901677bc715bb4",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Thôi, em không muốn kể nữa. Em cần được yên một chút. Trúc anh chị về an toàn.",
+    "expectedWordCoverage": 0.944,
+    "matchedWordPrecision": 0.944,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "582adbc5dc362b3cf607d16a7f0aac9889785beaa8128a804612930d4bf8c467",
+  "audioSha256": "4cd32c6418e3331a042ff2f5e3ba80cbde95ca933ac91cf0e0b1fe0c967f9788",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 7127164,
+  "spokenText": "Trà nguội rồi, con cầm cẩn thận. Cô đi hâm cháo cho con bé, hâm thôi chứ không bưng nồi to nữa. Mai cô thử cắt bớt cây húng quế; biết đâu nó chịu ra lá.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.081,
+  "sampleRate": 48000,
+  "peak": 0.610151,
+  "rms": 0.122015,
+  "transcriptionCheck": {
+    "audioSha256": "4cd32c6418e3331a042ff2f5e3ba80cbde95ca933ac91cf0e0b1fe0c967f9788",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Trào ngùi rồi, con cầm cần thần cố đi hấm chào cho con bé. Hấm thôi, chỉ không bưng nôi to nữa. Mai cố thử các bờ cây hùng quỷ, biệt đâu nó chiều ra lã.",
+    "expectedWordCoverage": 0.806,
+    "matchedWordPrecision": 0.806,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

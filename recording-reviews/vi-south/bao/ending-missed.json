@@ -1,0 +1,34 @@
+{
+  "textSha256": "e6a0d4324c46e0594a25629ca1965e05b62f97af9a8db52c3451da6c47efe7d6",
+  "audioSha256": "854749fcc5073640068e7950753ec00c37795da64c307c87732aeb5fb17226d2",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 11676152,
+  "spokenText": "Đoạn kết hư cấu: Bảo mất quyền xem lịch sau khi đổi việc. Cậu vẫn tìm được người lắng nghe, nhưng phải ghép lại nhiều tuần từ trí nhớ. Câu chuyện chưa kết thúc; không có đủ giấy tờ không phải là hết lựa chọn.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9942,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.386,
+  "sampleRate": 48000,
+  "peak": 0.799114,
+  "rms": 0.123264,
+  "transcriptionCheck": {
+    "audioSha256": "854749fcc5073640068e7950753ec00c37795da64c307c87732aeb5fb17226d2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "vàng kết thức cấu bão mất quyền xem lịch sau khi đổi việc, cậu vẫn tìm được người lắng nghe nhưng phải ghép lại nhiều tuần từ trí nhớ. Câu chuyện chưa kết thúc, không có đủ giấy tờ không phải là hết lựa chọn.",
+    "expectedWordCoverage": 0.956,
+    "matchedWordPrecision": 0.956,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

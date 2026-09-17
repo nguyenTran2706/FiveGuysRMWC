@@ -1,3 +1,977 @@
 {
-  "recordings": {}
+  "recordings": {
+    "vi-south/linh/hello": {
+      "src": "/audio/dialogue/vi-south/linh/hello.mp3?v=c3163db8ee75",
+      "text": "Mưa gần như dọn sạch con đường. Nửa cái bảng hiệu tiệm móng vẫn nhấp nháy trên cửa kính. “Em chờ chị chút.” Chị nhấc khung cửa lên mới kéo được.",
+      "sha256": "c3163db8ee7567064b3b1d9a989e1e6688a2fe8cc021a7c7098c11aa94ed0d44",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/mother": {
+      "src": "/audio/dialogue/vi-south/linh/mother.mp3?v=7f1ea7814ee0",
+      "text": "Chị quay màn hình điện thoại xuống mặt bàn. “Chị đang xem vé máy bay cho mẹ.” Một nhịp lặng. “Mẹ chưa ra khỏi Việt Nam bao giờ. Cứ hỏi bên này có chỗ mua rau muống không.”",
+      "sha256": "7f1ea7814ee03c9f9c1d27e9b3e217c52ab5852263b06a22938c4fa912f707c0",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/guarded": {
+      "src": "/audio/dialogue/vi-south/linh/guarded.mp3?v=87f921b275c3",
+      "text": "Chị không trả lời ngay. “Khách còn thì mình còn.” Chị nhìn về phía tiệm tối phía sau. “Chị cũng muốn về chứ. Cơm trong nồi chắc khô rồi.” Mưa to hơn. “Thôi. Chuyện trong tiệm nói ra cũng dài.”",
+      "sha256": "87f921b275c3ec3dd8d5aa14d9557563ba1aba02a08cb374224a061703c3d6b1",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/hours": {
+      "src": "/audio/dialogue/vi-south/linh/hours.mp3?v=9dd96ed1d98e",
+      "text": "Bên trong, Linh đếm tiền. Một lần. Hai lần. Rồi lần thứ ba. Chị dừng lại. Vẫn chỉ có tám trăm. “Sáu ngày.” Một nhịp lặng. “Tám trăm đô.” “Sáng chín giờ chị có mặt.”",
+      "sha256": "9dd96ed1d98ec5535b1f7cc4cf9ff00b506a20ad97de2128e067bb7aaf390aca",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/envelope": {
+      "src": "/audio/dialogue/vi-south/linh/envelope.mp3?v=498c7b5721c2",
+      "text": "Chị lắc đầu. Chị lật phong bì. Một phong bì trắng. Bút bi xanh: “Linh — 800”. Không có số giờ. Chị lật lại. Không có dòng super. Ngón tay chị đè lên cái góc bị ướt. Chỉ có tên chị. Và tám trăm.",
+      "sha256": "498c7b5721c2088af09643214ca285b7e80a6dc3802d1228da212b1da42f476e",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/deductions": {
+      "src": "/audio/dialogue/vi-south/linh/deductions.mp3?v=343c40d90cf9",
+      "text": "Chị gấp tiền lại, cất phong bì vào túi. “Có tuần chị làm hỏng màu thì bị trừ tiền chai sơn.” Một nhịp lặng. “Tuần trước chị hỏi tiền Chủ nhật có khác không.”",
+      "sha256": "343c40d90cf99f45f6038f59be30c4e70eea8d3359cbeec60c00dbd68030a6bc",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/staying": {
+      "src": "/audio/dialogue/vi-south/linh/staying.mp3?v=85276462c555",
+      "text": "“Nhưng đó không phải cái chị lo nhất.” Chị nhìn về phía cửa tiệm. “Anh chủ không phải lúc nào cũng khó. Tết anh lì xì. Mẹ chị bệnh, anh cho đổi ca liền.”",
+      "sha256": "85276462c555e3f24d2c9769093e8b996f0fd52712a399b34de26f202533ad9a",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/visa": {
+      "src": "/audio/dialogue/vi-south/linh/visa.mp3?v=9c16c19373a3",
+      "text": "“Chị còn đi học. Visa năm trăm.” Điện thoại trong túi chị rung. Chị không lấy ra. “Có bữa anh nhắn ở lại thêm.” Một nhịp lặng. “Nếu chị hỏi anh chuyện tiền...” Chị dừng lại. “...thì tuần sau còn ca không?”",
+      "sha256": "9c16c19373a3514a9f40988e21ea7d47666e21ae297f2bb8103afabec7662186",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/colour": {
+      "src": "/audio/dialogue/vi-south/linh/colour.mp3?v=fbba9d777136",
+      "text": "Chị mở ngăn kéo. Một chai sơn đỏ nhỏ, để riêng một góc. “Mẹ chị thích màu đỏ.” Chị cười. “Lần nào chị gửi ảnh móng mới, mẹ cũng bảo dài thế làm sao vo gạo.” Một nhịp lặng. “Chai này chị mua cho mẹ. Không phải đồ của tiệm.”",
+      "sha256": "fbba9d777136448fc19a0b3f47c251a168e1dc09d4d979c19d37fee246e94bd2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/roster": {
+      "src": "/audio/dialogue/vi-south/linh/roster.mp3?v=40296ba5b5d4",
+      "text": "Chị mở nhóm chat ra. “Lịch nằm trong đây. Anh sửa hoài.” Chị cuộn lên. “Hôm trước chị nhìn lại...” Chị dừng lại. “...ca tối thứ Sáu biến mất rồi.” Điện thoại đầy ảnh móng. “Chị đang tính xóa mấy cái screenshot cũ cho nhẹ máy.”",
+      "sha256": "40296ba5b5d4cb09701ffa80dd0f26653e505d04a9797202ea977d115782eee4",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/kept": {
+      "src": "/audio/dialogue/vi-south/linh/kept.mp3?v=bc3085966ea0",
+      "text": "Chị nghĩ một lúc. “Chị có email riêng. Trong tiệm không ai biết mật khẩu.” Chị bắt đầu lưu ảnh. “Lưu mấy cái này trước đã.” Một nhịp lặng. “Rồi viết thêm những hôm ở lại dọn.” “Chưa gửi ai đâu. Chỉ để mai không phải cố nhớ lại.”",
+      "sha256": "bc3085966ea02d12f7f0bc33456a6e1313f1d28b7881007ec25426bc4d71d207",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/unkept": {
+      "src": "/audio/dialogue/vi-south/linh/unkept.mp3?v=0cc1f52da19b",
+      "text": "Chị cất điện thoại vào túi. “Ừ.” Một nhịp lặng. “Hôm nay đầu chị nhiều thứ quá.” “Cái lịch cũ chắc còn đâu đó.” Chị nhìn xuống chân. “Giờ chị chỉ muốn về tháo giày ra thôi.”",
+      "sha256": "0cc1f52da19b56195607032d5bfaa9bbd7fd94de7e552d203dc7d48d093db2f5",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/goodbye": {
+      "src": "/audio/dialogue/vi-south/linh/goodbye.mp3?v=0265c1f7ca0e",
+      "text": "Chị tắt nửa cái bảng hiệu còn nhấp nháy. “Cảm ơn em đã đứng nghe.” Một nhịp lặng. “Chị cứ tưởng kể ra người ta sẽ bảo tại mình chịu thôi.” Chị lấy điện thoại ra. “Để chị gọi mẹ trước khi bên đó đi ngủ.” “Chuyện vé máy bay... chắc chưa nói tối nay.”",
+      "sha256": "0265c1f7ca0e43cbd4c27adc95c200c0387103eb3733b34c4ed31d5f62859c86",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/closed": {
+      "src": "/audio/dialogue/vi-south/linh/closed.mp3?v=85d60267bb46",
+      "text": "Chị lùi vào phía trong. “Thôi em, chị còn phải đóng tiệm.” Một nhịp lặng. “Có nhiều thứ chị chưa kể. Để bữa khác.” Cánh cửa kéo xuống một nửa. “Em về cẩn thận. Ngoài đó trơn.”",
+      "sha256": "85d60267bb46560452f4c577980622369f0c8dff5e6b8034d82ffb3d27af7a3f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/ending-kept": {
+      "src": "/audio/dialogue/vi-south/linh/ending-kept.mp3?v=39b28aecc0a0",
+      "text": "Đoạn kết hư cấu: Linh giữ lại ảnh lịch làm và ghi những giờ dọn tiệm. Khi cô quyết định tìm hỗ trợ, các mốc thời gian giúp làm rõ câu chuyện; trong nhánh này, cô nhận lại một phần tiền và đặt vé cho mẹ. Kết quả ngoài đời tùy từng tình huống.",
+      "sha256": "39b28aecc0a09db5c856b293cb016f259cf95a6897110b38140c12e61a9be9a9",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/linh/ending-missed": {
+      "src": "/audio/dialogue/vi-south/linh/ending-missed.mp3?v=5c6971c1f5b0",
+      "text": "Đoạn kết hư cấu: Lịch chat bị ghi đè, những ảnh cũ không còn. Linh rời tiệm mà chưa lấy lại được tiền; việc dựng lại giờ làm trở nên khó hơn. Thiếu giấy tờ không có nghĩa là ngoài đời bạn không thể tìm hỗ trợ.",
+      "sha256": "5c6971c1f5b00028df607483183105b6dd7724434b9af6c6ddf6bc7bbc93c972",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/hello": {
+      "src": "/audio/dialogue/en-vietnamese/linh/hello.mp3?v=314324aee6f0",
+      "text": "The rain has almost emptied the street. Half the salon sign is still flickering above the window. “Give me a second.” She lifts the window before it will slide.",
+      "sha256": "314324aee6f001cc4c17b5c052db89d9921f0804ad90702130b7d5fe8af2e683",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/mother": {
+      "src": "/audio/dialogue/en-vietnamese/linh/mother.mp3?v=591069813f00",
+      "text": "She turns the phone screen down on the counter. “I was looking at flights for Mum.” A pause. “She has never left Vietnam. She keeps asking if she can buy water spinach here.”",
+      "sha256": "591069813f00432225c48511f1dfd80852d05a78e9bd07b1baec250eb02eb81b",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/guarded": {
+      "src": "/audio/dialogue/en-vietnamese/linh/guarded.mp3?v=f746bf27cec1",
+      "text": "She doesn’t answer straight away. “While there are customers, we stay.” She looks toward the dark salon behind her. “Of course I want to go home. The rice has probably dried out in the cooker.” The rain gets louder. “Anyway. It’s a long story.”",
+      "sha256": "f746bf27cec1829f5102173980d1140d62f56de00b235f7e11404e0ab8867bf5",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/hours": {
+      "src": "/audio/dialogue/en-vietnamese/linh/hours.mp3?v=186d69d65f06",
+      "text": "Inside, Linh counts the money. Once. Twice. Then a third time. She stops. There is still only $800. “Six days.” A pause. “Eight hundred dollars.” “Started at nine.”",
+      "sha256": "186d69d65f06173e74614221b0ce93f83548633978bc6393d4d2e6663cba07de",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/envelope": {
+      "src": "/audio/dialogue/en-vietnamese/linh/envelope.mp3?v=cb18f3e2f828",
+      "text": "She shakes her head. She turns the envelope over. A white envelope. In blue pen: “Linh — 800”. No hours. She turns it back. No super. Her thumb presses against the wet corner. Just her name. And eight hundred.",
+      "sha256": "cb18f3e2f82892e2b7df3303fddd0982985888bae50bbd1edfabcaeef2ae8859",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/deductions": {
+      "src": "/audio/dialogue/en-vietnamese/linh/deductions.mp3?v=a56c8d20a77c",
+      "text": "She folds the notes back into the envelope and puts it away. “Some weeks, if I spoil a colour, the bottle comes out of my pay.” A pause. “Last week I asked whether Sunday was different.”",
+      "sha256": "a56c8d20a77cf290075015ffb053655732c52a10838cf845d72f382380fc2916",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/staying": {
+      "src": "/audio/dialogue/en-vietnamese/linh/staying.mp3?v=bb12570a24ec",
+      "text": "“But that’s not actually the part I’m worried about.” She looks toward the salon door. “He isn’t difficult all the time. He gives us red envelopes at Tết.”",
+      "sha256": "bb12570a24ec476577b55e33bef7a4b70eb90b6078a10dcbc895a70a32f89d15",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/visa": {
+      "src": "/audio/dialogue/en-vietnamese/linh/visa.mp3?v=5a7c6ad98e51",
+      "text": "“I’m still studying. On a 500 visa.” The phone in her pocket vibrates. She doesn’t take it out. “Sometimes he messages asking me to stay longer.” A pause. “If I ask him about the money...” She stops. “...what happens to next week’s shifts?”",
+      "sha256": "5a7c6ad98e51b36f721722b59cf6e3dd571977b7ede5c973f1d0c13ee5028808",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/colour": {
+      "src": "/audio/dialogue/en-vietnamese/linh/colour.mp3?v=bda249c0415d",
+      "text": "She opens the drawer. A small bottle of red polish, kept apart from the rest. “Mum likes red.” She smiles. “Every time I send her a nail photo, she asks how anyone could wash rice with nails that long.” A pause. “This one is hers. Not the salon’s.”",
+      "sha256": "bda249c0415d27242ffb37cefb4d09fd8a528e63a8b98479b0b865915b090ed8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/roster": {
+      "src": "/audio/dialogue/en-vietnamese/linh/roster.mp3?v=82c4d4e2218c",
+      "text": "She opens the group chat. “The roster lives in here. He keeps changing it.” She scrolls back. “I looked back the other day...” She stops.",
+      "sha256": "82c4d4e2218caa70e8ddd7718fa5c564898ce6fde9a377741e1615cb3a98503d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/kept": {
+      "src": "/audio/dialogue/en-vietnamese/linh/kept.mp3?v=dc80b4986047",
+      "text": "She thinks for a moment. “I have my own email. Nobody at work knows the password.” She starts saving the images. “I’ll save these first.” A pause.",
+      "sha256": "dc80b4986047578d76d5d977fcfd751e39a3641ab5cb89ccd4803d36b8bcb747",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/unkept": {
+      "src": "/audio/dialogue/en-vietnamese/linh/unkept.mp3?v=e71645d70186",
+      "text": "She puts the phone back in her pocket. “Yes.” A pause. “My head is full tonight.” “The old roster is probably somewhere.” She looks down at her feet. “Right now I just want to go home and take my shoes off.”",
+      "sha256": "e71645d7018601d818c41b1cffb10871b28d5a92e4d672e2214f7292b591cb3e",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/goodbye": {
+      "src": "/audio/dialogue/en-vietnamese/linh/goodbye.mp3?v=dbc2ff0a6896",
+      "text": "She switches off the half-flickering sign. “Thanks for staying.” A pause. “I thought people would just say I put up with it, so it was my fault.” She takes out her phone. “I’ll call Mum before she goes to bed.” “The flights... probably not tonight.”",
+      "sha256": "dbc2ff0a6896f9d84464875ba3315bc743a38e9b93292db002ae57376e16b93b",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/closed": {
+      "src": "/audio/dialogue/en-vietnamese/linh/closed.mp3?v=07883d465671",
+      "text": "She steps back inside. “I still have to close up.” A pause. “There are things I haven’t told you. Maybe another day.” The window slides half down. “Get home safely. It’s slippery out there.”",
+      "sha256": "07883d46567115bf3d6249da199fab6061f384f03658c6d7909c6487da640b8a",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/ending-kept": {
+      "src": "/audio/dialogue/en-vietnamese/linh/ending-kept.mp3?v=13280ca889fe",
+      "text": "Fictional ending: Linh keeps her roster screenshots and notes the cleaning hours. When she chooses to seek support, the dates help tell her story; in this branch she recovers some pay and books Mum’s flight. Real outcomes depend on individual circumstances.",
+      "sha256": "13280ca889fea01213aa2605ee4bc17a22da93b7e60abdc3f2b2bcbed94d6b3f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/linh/ending-missed": {
+      "src": "/audio/dialogue/en-vietnamese/linh/ending-missed.mp3?v=26358737038d",
+      "text": "Fictional ending: The chat roster is overwritten and the old images are gone. Linh leaves without recovering her pay; reconstructing the hours becomes harder. Missing records do not mean you cannot seek support in real life.",
+      "sha256": "26358737038dad53c9489d36e6168bdd74102d4ec792609ea4cc1e1a114edae2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/hello": {
+      "src": "/audio/dialogue/vi-south/bao/hello.mp3?v=2d5473e003e5",
+      "text": "Đứng nép vào dưới mái nhé, nước chảy đúng chỗ đó. Em vừa về sau cuốc cuối, đồ ăn thì khô mà người ướt hết. Nhà hàng quên bỏ nước chấm, khách gọi em ba lần như thể em đang giấu nó trong túi.",
+      "sha256": "2d5473e003e506d81cb0e778676e3fe7ee22526781bd828e15cf0432eb6177db",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/car": {
+      "src": "/audio/dialogue/vi-south/bao/car.mp3?v=f9fac8f5ec94",
+      "text": "Không, em mua chai khác ở cửa hàng tiện lợi luôn. Em đang để dành mua cái xe cũ, khỏi thuê ba trăm một tuần nữa; chiếc xe đạp này để chạy mấy cuốc gần thôi. Có xe của mình chắc trời mưa sẽ đỡ ghét cái nghề này hơn một chút.",
+      "sha256": "f9fac8f5ec9433c2d9c6e56f055e39cc809be8bc0aa1661a5b6dd83e43ddf32f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/roster": {
+      "src": "/audio/dialogue/vi-south/bao/roster.mp3?v=b81c433f673c",
+      "text": "Công ty giao hàng gửi lịch tối Chủ nhật. Em muốn đổi ca phải xin trước, chạy tuyến nào cũng họ chia. Tuần rồi em từ chối một tối để dự lễ tốt nghiệp của bạn, tuần này mất hai ca.",
+      "sha256": "b81c433f673c04e5e92c8beae3eb93b8565159ed2b23c178517b14fb28c5dd2d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/abn": {
+      "src": "/audio/dialogue/vi-south/bao/abn.mp3?v=84b44d4473a9",
+      "text": "Ngày đầu họ bảo mở ABN rồi mới nhận việc, làm nhanh lắm. Em tưởng giấy đó giống số hồ sơ nhân viên. Đến lúc họ bảo em tự lo thuế với bảo hiểm, em mới thấy có nhiều thứ mình chưa hiểu.",
+      "sha256": "84b44d4473a9cd0034fa22e9b2caed14b673e23fd4f9343dea25d420ebde2656",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/paper": {
+      "src": "/audio/dialogue/vi-south/bao/paper.mp3?v=f3bd71121adf",
+      "text": "Trên màn hình là tin nhắn: “Mai 5 giờ có mặt. Đồng phục công ty. Không được tự nhờ người thay.” Bên dưới, một tệp PDF ghi tên Bảo và số ABN của cậu, với tiêu đề “Independent contractor”.",
+      "sha256": "f3bd71121adfd4b081a846200741a432aa92ce635b79ca2142e1f625fe93c035",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/substitute": {
+      "src": "/audio/dialogue/vi-south/bao/substitute.mp3?v=4a8cc25ba3da",
+      "text": "Có lần em sốt, nhờ bạn chạy hộ mà họ không cho. Nhưng xe hỏng, xăng tăng, hay khách không chịu xuống lấy thì em tự chịu. Anh điều phối gọi em là “đối tác”, rồi nhắn hỏi sao nghỉ giữa ca lâu thế.",
+      "sha256": "4a8cc25ba3dadb6fff93909441928fa1282cb1755d016271b065147c4b4e14a5",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/boss": {
+      "src": "/audio/dialogue/vi-south/bao/boss.mp3?v=c0178c57f59f",
+      "text": "Có chứ. Hôm xe chết máy, anh ấy đến đón, còn cho mượn tiền thay bình. Em vẫn nhớ chuyện đó. Nên mỗi lần muốn hỏi cái khoản họ trừ, em lại sợ nghe như mình vô ơn.",
+      "sha256": "c0178c57f59ff9876fa18c3f9cc8613340931c2862faf1dae5455af00a9db0e9",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/tax": {
+      "src": "/audio/dialogue/vi-south/bao/tax.mp3?v=008e9d3b7183",
+      "text": "Em ra trường rồi, visa bốn tám năm. Mẹ nghĩ tốt nghiệp là ổn định rồi, còn em chưa mở mấy lá thư thuế. Em sợ mình nợ một khoản không trả nổi, nên cứ nghĩ chạy thêm vài tuần rồi tính.",
+      "sha256": "008e9d3b7183b911cc5a2a5924a42b07be2f4ae4ab83c5cd634b656d0038d3e6",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/dream": {
+      "src": "/audio/dialogue/vi-south/bao/dream.mp3?v=c8cd28a2c6a2",
+      "text": "Em xem một chiếc Corolla màu bạc mấy tháng rồi. Không cần xe đẹp, chỉ cần bật điều hòa không có tiếng như máy xay. Nếu mua được, chuyến đầu em muốn chạy lên biển, điện thoại để im, không có cái túi đồ ăn phía sau.",
+      "sha256": "c8cd28a2c6a29384a5c9fc5ecec00d509f82612d56d74cd6e9f073aed1c6935f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/records": {
+      "src": "/audio/dialogue/vi-south/bao/records.mp3?v=4c8d08377752",
+      "text": "Hợp đồng em tải được, còn lịch và tiền bị trừ thì mỗi chỗ một ít. Mấy tin nhắn cũ cứ trôi mất giữa cả trăm đơn hàng. Em nhìn vào thấy rối, không biết bắt đầu từ đâu.",
+      "sha256": "4c8d083777524177b5881339b249ee8a62b390a8b4afb139d00d02806c86f53d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/kept": {
+      "src": "/audio/dialogue/vi-south/bao/kept.mp3?v=d5df223848a6",
+      "text": "Một tuần thì được. Em lưu vào máy riêng, cả tin nhắn họ bảo không được nhờ người thay nữa. Để lúc nói chuyện với ai, em mở ra được chứ không chỉ nói “hình như”.",
+      "sha256": "d5df223848a601603f1ef6c499686f603c6b644d3ca41896868fa8ce24a40918",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/unkept": {
+      "src": "/audio/dialogue/vi-south/bao/unkept.mp3?v=b9fc219651e6",
+      "text": "Ừ, để mai em xem. Pin còn bốn phần trăm, về tới nhà rồi mà em chưa buồn cắm sạc. Có những hôm việc nhỏ vậy cũng thấy như thêm một cuốc giao hàng nữa.",
+      "sha256": "b9fc219651e626e94fa8e0d307c1ede5f19761510fa2359d6c547d0928212668",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/goodbye": {
+      "src": "/audio/dialogue/vi-south/bao/goodbye.mp3?v=fb90400fab9b",
+      "text": "Cảm ơn đã không bảo em phải làm gì ngay. Em tắt nhận đơn rồi, thật đấy. Giờ đi mua tô cháo trước khi người ta dọn, hôm nay em mới ăn có cái bánh lúc trưa.",
+      "sha256": "fb90400fab9b80af4bb5e4c9fefc24d4b9ab2767cd706beb53b40f220af0dcd8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/closed": {
+      "src": "/audio/dialogue/vi-south/bao/closed.mp3?v=7273108da752",
+      "text": "Ừ, chắc em tự tính được. Em còn một đơn phải xem lại. Để bữa khác nói chuyện nhé.",
+      "sha256": "7273108da752148fe4b8986ffe90749465bdaef39b1ce0377c0250b76e126cc2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/ending-kept": {
+      "src": "/audio/dialogue/vi-south/bao/ending-kept.mp3?v=9e7fbdcc154e",
+      "text": "Đoạn kết hư cấu: Bảo giữ hợp đồng, lịch và tin nhắn. Cậu mang chúng tới một cuộc hẹn, kể rõ ai quyết định công việc và bắt đầu tìm hiểu khoản thuế mình lo. Chiếc xe bạc vẫn là một dự định; giờ cậu không phải đoán một mình.",
+      "sha256": "9e7fbdcc154e8b29a30b80e3d1a2d95253f531ca13be4750c7201b8aea855c57",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/bao/ending-missed": {
+      "src": "/audio/dialogue/vi-south/bao/ending-missed.mp3?v=854749fcc507",
+      "text": "Đoạn kết hư cấu: Bảo mất quyền xem lịch sau khi đổi việc. Cậu vẫn tìm được người lắng nghe, nhưng phải ghép lại nhiều tuần từ trí nhớ. Câu chuyện chưa kết thúc; không có đủ giấy tờ không phải là hết lựa chọn.",
+      "sha256": "854749fcc5073640068e7950753ec00c37795da64c307c87732aeb5fb17226d2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/hello": {
+      "src": "/audio/dialogue/en-australian/bao/hello.mp3?v=1deb5354e6d2",
+      "text": "Stay under the awning; it drips right where you’re standing. I’ve just got home from the last delivery. The food stayed dry, but I didn’t. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.",
+      "sha256": "1deb5354e6d255f23717cbb959c0edc59c1aba05adfc9fa072a4cecbb72d9591",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/car": {
+      "src": "/audio/dialogue/en-australian/bao/car.mp3?v=86b3a323ace8",
+      "text": "No. I bought a bottle at the convenience store. I’m saving for a used car so I can stop paying three hundred a week to rent one; this bike is for the short runs. Maybe rain wouldn’t make me hate the job so much if the car were mine.",
+      "sha256": "86b3a323ace899e6b04c158ddac5c6486cfe9c48df4d07bcdcca24a212d023de",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/roster": {
+      "src": "/audio/dialogue/en-australian/bao/roster.mp3?v=0677aac8bec7",
+      "text": "The delivery company sends the roster on Sunday night. I have to ask to change it, and they assign the routes. Last week I turned down an evening for a friend’s graduation. This week two shifts disappeared.",
+      "sha256": "0677aac8bec7ca4ff8ace9af93c45a42c31072a348904d72e1f692b183fcfaa2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/abn": {
+      "src": "/audio/dialogue/en-australian/bao/abn.mp3?v=135f5da53342",
+      "text": "On the first day they said I needed an ABN before I could start. It was quick. I thought it was like an employee number. Then they said tax and insurance were mine to handle, and I realised how much I hadn’t understood.",
+      "sha256": "135f5da533428bb68dda40d6e3356a4965155823198f638f8862d0d97ca2ffe6",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/paper": {
+      "src": "/audio/dialogue/en-australian/bao/paper.mp3?v=40ab83498e87",
+      "text": "A message reads: “Be here at 5 tomorrow. Company uniform. No substitutes without approval.” Below it, a PDF carries Bảo’s name and ABN under the heading “Independent contractor”.",
+      "sha256": "40ab83498e87000415b0ff01fb77dbcc77ef4dfaac26afa3a099b7ff294d0b2d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/substitute": {
+      "src": "/audio/dialogue/en-australian/bao/substitute.mp3?v=51d6e5dd9b21",
+      "text": "Once I had a fever and asked if a friend could cover; they said no. But if the vehicle breaks down, petrol goes up or a customer won’t come downstairs, that’s mine to deal with. The dispatcher calls me a “partner”, then messages to ask why my break is so long.",
+      "sha256": "51d6e5dd9b2156eb75d13171c8218f7fbb652485d3347dd5b07690a52ba2580e",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/boss": {
+      "src": "/audio/dialogue/en-australian/bao/boss.mp3?v=fd83f5064c56",
+      "text": "Yes. When the car died, he picked me up and lent me money for the battery. I remember that. So every time I want to ask about a deduction, I worry it sounds ungrateful.",
+      "sha256": "fd83f5064c56c694fcabab6513cab6002cc0b272318308a2fb8a4c9ea4e8f21f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/tax": {
+      "src": "/audio/dialogue/en-australian/bao/tax.mp3?v=e1794a04b285",
+      "text": "I’ve graduated, on a 485 visa. Mum thinks graduating means things have settled down. I haven’t opened some of the tax letters. I’m scared I owe more than I can pay, so I keep telling myself: a few more weeks of deliveries, then I’ll sort it out.",
+      "sha256": "e1794a04b285dffc14fe3b098ea10287ba19211125238612bd8ae5a0a26c316c",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/dream": {
+      "src": "/audio/dialogue/en-australian/bao/dream.mp3?v=c238a0604eb8",
+      "text": "I’ve had my eye on a silver Corolla for months. Nothing fancy, just air conditioning that doesn’t sound like a blender. If I get it, the first trip will be to the coast, phone silent, no food bag in the back.",
+      "sha256": "c238a0604eb8b2811ba4fb5e06f372c5c36b17b3da1f5a4698fc505618b66212",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/records": {
+      "src": "/audio/dialogue/en-australian/bao/records.mp3?v=0a92c3c5a82e",
+      "text": "I can download the contract, but the shifts and deductions are scattered around. Old messages get buried under hundreds of orders. When I look at it all, I don’t know where to start.",
+      "sha256": "0a92c3c5a82e6a0a5329c4254dfbd60cf6e5415ba9c76247a310e9e29759b5f1",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/kept": {
+      "src": "/audio/dialogue/en-australian/bao/kept.mp3?v=7ff0f078f4f3",
+      "text": "One week I can do. I’ll keep it on my own device, including the message about not sending a substitute. Then if I talk to someone, I can show it instead of saying “I think”.",
+      "sha256": "7ff0f078f4f3ab9080c7ba75a051cfdd981e5fb4c173661d4e9e645df2ee02d4",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-australian/bao/unkept": {
+      "src": "/audio/dialogue/en-australian/bao/unkept.mp3?v=f1ef12bb05a8",
+      "text": "Tomorrow, maybe. Four per cent battery, and I’ve got home without even putting it on charge. Some days even a small thing feels like one more delivery.",
+      "sha256": "f1ef12bb05a896040510530a87f954f4953c1ba139577c5a243b5d61a37c99ed",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/hello": {
+      "src": "/audio/dialogue/vi-central/hanh/hello.mp3?v=c2c70f16fdbd",
+      "text": "Con đứng đó coi chừng cái chậu, nó mẻ góc rồi. Cô trồng húng quế mà mưa hoài, cây cao ngồng, chẳng được mấy lá. Uống trà không? Cô vừa pha, để nguội chút mới cầm được.",
+      "sha256": "c2c70f16fdbd7a5bb6cee3685a5095807df94ce3a79fefc818b80ca7d4c026b3",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/daughter": {
+      "src": "/audio/dialogue/vi-central/hanh/daughter.mp3?v=342a2cefe814",
+      "text": "Con gái cô đang học trong phòng kia. Tháng Mười thi HSC, nó dán giấy ghi nhớ lên cả tủ lạnh, cô mở lấy nước cũng thấy công thức. Cô chỉ mong nó thi xong rồi hai mẹ con đi đâu một ngày, không phải nhìn đồng hồ.",
+      "sha256": "342a2cefe81418f41c88894f265d28fb5ae3c4df4263f68390c5a3c9c9b792cb",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/arm": {
+      "src": "/audio/dialogue/vi-central/hanh/arm.mp3?v=3571f23f1f97",
+      "text": "Cái tay này tuần trước trượt lúc bê nồi. Nước dưới sàn, cô bước một cái là cả người chúi xuống; lúc đó còn lo nồi canh đổ hơn lo tay. Đến tối cởi áo mới biết không giơ lên nổi.",
+      "sha256": "3571f23f1f976f112db35561ee7fed15b16c596603913995145be071ae6486c3",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/after": {
+      "src": "/audio/dialogue/vi-central/hanh/after.mp3?v=17fbd2e78a48",
+      "text": "Anh chủ đưa cô về, trời hôm đó cũng mưa. Anh mua dầu xoa, bảo nghỉ một hôm rồi đỡ; cô nghe cũng muốn tin. Nhưng hôm sau cô cầm cái lược còn đau, làm sao bưng nguyên rổ chén.",
+      "sha256": "17fbd2e78a48bf0dfe08a2b5af0db3c2d9bb1a6607cdd5554dbe0c07ff03ef36",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/doctor": {
+      "src": "/audio/dialogue/vi-central/hanh/doctor.mp3?v=bc823395ca2f",
+      "text": "Con gái đặt hẹn cho cô rồi. Cô cứ định hủy, sợ tốn tiền, sợ phải nghỉ thêm, mà nó nói để con lo cái hẹn, mẹ chỉ việc đi. Cô chưa kể hết chuyện trong bếp cho nó nghe, sợ nó bỏ học ngồi lo.",
+      "sha256": "bc823395ca2f64f1e06fdaa37297c8c083c3baa9f2440449f20485bc6c57e6ab",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/message": {
+      "src": "/audio/dialogue/vi-central/hanh/message.mp3?v=05aab2dc6c32",
+      "text": "Tin nhắn gửi lúc 7:12 sáng: “Chị cứ nói đau tay ở nhà. Làm giấy tờ phiền lắm, để anh lo.” Ảnh lịch tuần kế tiếp chỉ còn hai ca, thay vì năm. Cô Hạnh chưa trả lời tin nhắn.",
+      "sha256": "05aab2dc6c325c214df32aefad8f17f94c032b909f08976f0e2f1b00a615ff65",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/hours": {
+      "src": "/audio/dialogue/vi-central/hanh/hours.mp3?v=bed7bbbfd11c",
+      "text": "Anh nói ít khách nên bớt ca. Cô không biết có phải vì tay mình không, chỉ thấy tiền tuần sau chắc thiếu. Tiền sách ôn thi của con đã đóng rồi, còn hóa đơn điện cô để dưới cái chậu kia, chưa mở.",
+      "sha256": "bed7bbbfd11c2a5c716251eb3f8e808a1b87f3bf22a94bf1a69aaa4c44cc23c8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/staying": {
+      "src": "/audio/dialogue/vi-central/hanh/staying.mp3?v=787e31130f78",
+      "text": "Cô năm mươi tư rồi. Tiếng Anh nói chậm, đi xin chỗ khác người ta nhìn tuổi trước hay nhìn tay trước, cô cũng không biết. Ở đây cô thuộc từng cái ngăn kéo, biết ai ăn chay, ai dị ứng; rời đi không phải chỉ bỏ cái bếp.",
+      "sha256": "787e31130f78fbba556ae747321305a370a0e868ee94be1317e1830b7d3d4217",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/daughter_again": {
+      "src": "/audio/dialogue/vi-central/hanh/daughter_again.mp3?v=075921c48d0c",
+      "text": "Hồi mới qua theo chồng, cô cứ nghĩ vài năm nữa sẽ bớt lo. Giờ con lớn sắp bằng cô rồi, vẫn bảo mẹ đừng đứng suốt ngày nữa. Nó muốn làm kỹ sư, còn cô thì chưa phân biệt được mấy cái môn nó học.",
+      "sha256": "075921c48d0c3a169fc08d745f0b4057472605059e55c11a442061a43cfbdfa2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/witness": {
+      "src": "/audio/dialogue/vi-central/hanh/witness.mp3?v=44a7a0b94f14",
+      "text": "Có chị rửa chén thấy, còn một cậu mang rau tới nữa. Cô nhớ hôm đó thứ Tư vì vừa bỏ rác tái chế sáng sớm. Cứ sợ vài tuần nữa người ta hỏi lại, cô lẫn ngày rồi thành ra nói không đúng.",
+      "sha256": "44a7a0b94f14550a67527e44bb5e81c72137f8f623ac3ac39e2f5a54942a9d78",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/kept": {
+      "src": "/audio/dialogue/vi-central/hanh/kept.mp3?v=cc72099f5184",
+      "text": "Cô lấy cuốn sổ này ghi được. Ngày, cái nồi nào, ai đứng cạnh; còn tin nhắn thì cô nhờ con chỉ cách lưu riêng khi nó nghỉ học. Cô sẽ đi cái hẹn đã đặt, kể đúng chuyện mình nhớ.",
+      "sha256": "cc72099f5184c069548d71a4dcdb34acaf5135c3d4e183d3878dfc6942caeab2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/unkept": {
+      "src": "/audio/dialogue/vi-central/hanh/unkept.mp3?v=8862131aaa96",
+      "text": "Ừ, tối nay cô nghỉ đã. Có cái hẹn với bác sĩ thì cô vẫn đi. Chuyện trong bếp, để cô nghĩ xem mình muốn nói với ai.",
+      "sha256": "8862131aaa965114558b23ad617f09838991fa28a4bce988dabe9631ee3c9988",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/goodbye": {
+      "src": "/audio/dialogue/vi-central/hanh/goodbye.mp3?v=4cd32c6418e3",
+      "text": "Trà nguội rồi, con cầm cẩn thận. Cô đi hâm cháo cho con bé, hâm thôi chứ không bưng nồi to nữa. Mai cô thử cắt bớt cây húng quế; biết đâu nó chịu ra lá.",
+      "sha256": "4cd32c6418e3331a042ff2f5e3ba80cbde95ca933ac91cf0e0b1fe0c967f9788",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/closed": {
+      "src": "/audio/dialogue/vi-central/hanh/closed.mp3?v=d806081ecf68",
+      "text": "Thôi con, cô cũng mệt rồi. Con bé còn học, cô không muốn nó nghe mình nói lớn. Để cô đóng cửa cho bớt gió.",
+      "sha256": "d806081ecf68a701d48a0ce04e9f3c9aee21eb85d39b7abe7a1866c0f1b47f80",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/ending-kept": {
+      "src": "/audio/dialogue/vi-central/hanh/ending-kept.mp3?v=7879689d0b3a",
+      "text": "Đoạn kết hư cấu: Cô Hạnh đi khám, giữ tin nhắn và ghi lại ngày xảy ra sự việc. Cô mang những gì có tới buổi hỏi thông tin, cùng con gái nếu cô muốn. Mùa thi đến, hai mẹ con vẫn dành một chiều đi biển; việc hỗ trợ tiếp theo tùy tình huống.",
+      "sha256": "7879689d0b3abc154ad0b02dc7995a9a224dc03da573db7a892a0df380768ecc",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/hanh/ending-missed": {
+      "src": "/audio/dialogue/vi-central/hanh/ending-missed.mp3?v=c2f23e8d00d5",
+      "text": "Đoạn kết hư cấu: Cô Hạnh đi khám nhưng chưa ghi lại chuyện trong bếp. Khi muốn kể sau này, cô phải hỏi lại ngày và người có mặt. Cô vẫn có thể tìm hỗ trợ; không nhớ được mọi chi tiết không phải lỗi của cô.",
+      "sha256": "c2f23e8d00d5e1b756fbc1ed1f2ffc31040923284129f322039d1ded2e22562f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/hello": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/hello.mp3?v=320d3e2a9e32",
+      "text": "Mind that pot; the corner is chipped. I planted basil, but with all this rain it grows tall and hardly gives me leaves. Would you like tea? I’ve just made it. Let it cool before you hold it.",
+      "sha256": "320d3e2a9e32ce32fdebb3e258ccb3bf1f22d0bb5dbd8d45e948b315460c9398",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/daughter": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/daughter.mp3?v=14d945d06b67",
+      "text": "My daughter is studying in that room. Her HSC exams are in October. She has revision notes on the fridge; I see formulas every time I get water. After her exams, I want us to go somewhere for a day without watching the clock.",
+      "sha256": "14d945d06b67056f8b2926289cb8df14a36b1ee243b30a3f5fc6bf8ce2e13821",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/arm": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/arm.mp3?v=861f7efd8294",
+      "text": "This arm slipped last week while I was lifting a pot. Water on the floor, one step and I went forward. At the time I worried more about spilling the soup. That night I couldn’t raise my arm to take my shirt off.",
+      "sha256": "861f7efd8294cd0068e05d0ff7578e1a4dc474fe1e2cd927ef20b21c37437359",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/after": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/after.mp3?v=785a955244f0",
+      "text": "The owner drove me home. It was raining that day too. He bought liniment and said a day off would do it. I wanted to believe him. The next day it hurt to hold a comb; how was I going to carry a whole rack of dishes?",
+      "sha256": "785a955244f09483f1273267552c414e461a29c707d50897980eba8297a6f9e8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/doctor": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/doctor.mp3?v=4a6fd7949368",
+      "text": "My daughter made an appointment. I kept thinking of cancelling: the cost, more time away. She said, “Let me handle the booking. You just go.” I haven’t told her everything about the kitchen. I don’t want her sitting there worrying instead of studying.",
+      "sha256": "4a6fd7949368e0d6f7f6c07d7987aa7f96a69b0617b56447d6f6f5d042cf5cb2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/message": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/message.mp3?v=0c51b6421d5b",
+      "text": "A message sent at 7:12 am: “Just say your arm started hurting at home. Paperwork is a hassle; I’ll handle it.” Next week’s roster shows two shifts instead of five. Cô Hạnh has not replied.",
+      "sha256": "0c51b6421d5ba530e28ee422afa406117490cd5538c4e77610b484869bc6e6fa",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/hours": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/hours.mp3?v=3f66d918ce79",
+      "text": "He says there are fewer customers, so there are fewer shifts. I don’t know if it’s my arm; I only know next week’s money will be short. The revision books are paid for. The electricity bill is under that pot, unopened.",
+      "sha256": "3f66d918ce7931861ea9c5915831b78b965a230df79f68c2eccdfe85e48c3971",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/staying": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/staying.mp3?v=ec0ccf2a28f2",
+      "text": "I’m fifty-four. My English is slow. At another place, would they look at my age first or my arm? Here I know every drawer, who is vegetarian, who has allergies. Leaving would mean more than leaving a kitchen.",
+      "sha256": "ec0ccf2a28f27b60983b003c40a0b26ffe837708c2e57428ac9999c91b5d6308",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/daughter_again": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/daughter_again.mp3?v=40c56172d3ee",
+      "text": "When I first came here to join my husband, I thought a few years would make things easier. Now my daughter is nearly my height and tells me to stop standing all day. She wants to be an engineer. I can hardly tell her subjects apart.",
+      "sha256": "40c56172d3ee869029680a666e84e0523fb06d6e391754f8571f07c3f7b64083",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/witness": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/witness.mp3?v=b67b4e51053d",
+      "text": "The woman washing dishes saw it, and a young man delivering vegetables. It was Wednesday; I remember putting out the recycling that morning. I’m afraid that in a few weeks I’ll mix up the dates and sound as if I’m not telling it properly.",
+      "sha256": "b67b4e51053ddd392613d8262269000627c2602363891b60cba9d75869b6ca9b",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/kept": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/kept.mp3?v=a81e9b15d4bf",
+      "text": "I can use this notebook. The date, which pot, who was beside me. I’ll ask my daughter how to save the message separately when she takes a study break. I’ll go to the appointment and explain what I remember.",
+      "sha256": "a81e9b15d4bfb4d67444c9ea7891ee7c5ea906c75dc4a1df95acc8350bfb37bb",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/unkept": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/unkept.mp3?v=598794032ced",
+      "text": "Tonight I’ll rest. I’ll still go to the doctor’s appointment. As for the kitchen, let me think about who I want to speak with.",
+      "sha256": "598794032ced0a673fd2748d8cef18906b5c62d5df673ffd8703cb857d5e799f",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/goodbye": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/goodbye.mp3?v=1870d76adde7",
+      "text": "The tea has cooled; hold it carefully. I’m going to warm some congee for my daughter. Just warm it, no big pots. Tomorrow I might trim the basil. Maybe that will persuade it to grow some leaves.",
+      "sha256": "1870d76adde707531de8521d154851f3148072db8c1f8b147850f2c91f31c626",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/closed": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/closed.mp3?v=08487c857ab4",
+      "text": "I’m tired now. My daughter is studying and I don’t want her hearing us raise our voices. I’ll close the window against the draught.",
+      "sha256": "08487c857ab4755b53e345a3785fae9d06f363eaa101cf785eb487899278c142",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/ending-kept": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/ending-kept.mp3?v=0c9723e005af",
+      "text": "Fictional ending: Cô Hạnh sees a doctor, keeps the message and notes the date. She brings what she has to an information appointment, with her daughter if she chooses. They still find an afternoon at the coast during exam season; any further support depends on her circumstances.",
+      "sha256": "0c9723e005afcec545510e2acee3ba27b6efd45ec13939c1e56706a98e12d3ea",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/hanh/ending-missed": {
+      "src": "/audio/dialogue/en-vietnamese/hanh/ending-missed.mp3?v=7c9def9a5d47",
+      "text": "Fictional ending: Cô Hạnh sees a doctor but does not yet record what happened in the kitchen. Later she has to check the date and who was there. She can still seek support; not remembering every detail is not her fault.",
+      "sha256": "7c9def9a5d471d7a6bd224ff87c95290756422579b8eb8f716966ac0600266fe",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/hello": {
+      "src": "/audio/dialogue/vi-south/tram/hello.mp3?v=a43197d57184",
+      "text": "Em vừa về, còn chưa cất tạp dề nữa. Em đang để dành mua máy ảnh cũ, định chụp mấy bảng hiệu trên đường này lúc mưa. Mà ca tối xong chỉ muốn nằm thôi.",
+      "sha256": "a43197d5718419d0edeb2dfe3ca9b00c77ee8ef0d937350bcde8a4990bd73f7d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/messages": {
+      "src": "/audio/dialogue/vi-south/tram/messages.mp3?v=05e7c17606e1",
+      "text": "Cái bảng màu xanh đầu đường. Em có gửi ảnh vào nhóm nhân viên một lần, rồi người quản lý bắt đầu nhắn riêng, toàn chuyện không phải công việc. Em không trả lời thì hôm sau anh ấy đứng sát hỏi sao làm cao.",
+      "sha256": "05e7c17606e1d24869d92a4b55ef3582da15d539ec0b48e902058428237f405c",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/staying": {
+      "src": "/audio/dialogue/vi-south/tram/staying.mp3?v=bc0ba823c2ae",
+      "text": "Có lần anh ấy đặt tay lên eo lúc em đang lấy ly. Em né, anh cười bảo đừng nhạy cảm; ngày khác anh lại đổi ca giúp em đi thi, nên em cứ tự hỏi mình có nghĩ quá không. Em mới hai mươi, còn học, căn phòng đang thuê cũng do chị cùng tiệm giới thiệu.",
+      "sha256": "bc0ba823c2ae6751a704af14442347e7df92416e67b6fcecfcd00a534b0a6a15",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/records": {
+      "src": "/audio/dialogue/vi-south/tram/records.mp3?v=cfc6885ed2b5",
+      "text": "Em cứ muốn xóa mấy tin nhắn cho khỏi nhìn thấy. Chị làm cùng có thấy một lần, nhưng em chưa hỏi chị có nhớ không. Em chưa muốn ai gọi vào tiệm, chỉ muốn ngủ một đêm mà không giật mình khi điện thoại sáng.",
+      "sha256": "cfc6885ed2b506be36bb3dc5fa7875797642341a19369dc9eda304b7b7c68aff",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/kept": {
+      "src": "/audio/dialogue/vi-south/tram/kept.mp3?v=bf8a9bb95f4d",
+      "text": "Em có một chỗ lưu riêng, không dùng máy của tiệm. Để em làm lúc thấy yên tâm. Cảm ơn vì không bắt em mở lại từng tin nhắn ở đây.",
+      "sha256": "bf8a9bb95f4d24e75d7bd9df49fd3b3fe6edee7e38046a5adf5a51e45effa184",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/goodbye": {
+      "src": "/audio/dialogue/vi-south/tram/goodbye.mp3?v=e6461bc443c0",
+      "text": "Tối nay em gọi bạn sang ngồi cùng, chỉ vậy thôi. Cái máy ảnh em vẫn sẽ mua, em không muốn mọi thứ mình kể đều là chuyện ở tiệm. Đèn xanh kia đẹp nhất lúc vừa tạnh mưa.",
+      "sha256": "e6461bc443c0adf4b9087306a589321b0d0f23712b5b4f5c441e62f4a956cef6",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/closed": {
+      "src": "/audio/dialogue/vi-south/tram/closed.mp3?v=6499faedc0e5",
+      "text": "Thôi, em không muốn kể nữa. Em cần được yên một chút. Chúc anh chị về an toàn.",
+      "sha256": "6499faedc0e5cd0ec0fa14c90e623f5ee080c737372345d936901677bc715bb4",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/ending-kept": {
+      "src": "/audio/dialogue/vi-south/tram/ending-kept.mp3?v=5a464f4f8cce",
+      "text": "Đoạn kết hư cấu: Trâm giữ một bản tin nhắn riêng và chọn nói chuyện với người cô tin. Cô quyết định mình muốn chia sẻ đến đâu. Việc ghi lại không buộc cô phải khiếu nại và không bảo đảm một kết quả.",
+      "sha256": "5a464f4f8cce6f9b4183ec65bb63a8a1f7fb4640c07835bac31c86a66d3c1be2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-south/tram/ending-missed": {
+      "src": "/audio/dialogue/vi-south/tram/ending-missed.mp3?v=1531bbf7913d",
+      "text": "Đoạn kết hư cấu: Trâm chưa giữ tin nhắn. Cô vẫn gọi bạn sang ngồi cùng và vẫn có thể tìm người hỗ trợ khi sẵn sàng. Trách nhiệm về hành vi đó không nằm ở cô.",
+      "sha256": "1531bbf7913d4c8239672fde7191a930bb9da7c81383e446ecfa2d9af4a4e069",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/hello": {
+      "src": "/audio/dialogue/vi-north/duc/hello.mp3?v=f3f937fb950d",
+      "text": "Nãy anh chưa muốn mở, không phải tại em. Anh đang sửa cái xe đạp nhỏ, sinh nhật thằng bé tuần sau; nó chỉ thích cái chuông, đạp thì vẫn cần bố giữ. Em có nói chuyện với mấy người ngoài kia rồi hả?",
+      "sha256": "f3f937fb950d0d92c0540f5fb7aab1c0fc91d3079bdf91a807c655d099b9e083",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/roster": {
+      "src": "/audio/dialogue/vi-north/duc/roster.mp3?v=690dfe0f0f8f",
+      "text": "Thứ Hai anh mở lịch, tên không còn nữa. Anh gọi, bên công ty thuê người bảo kho không cần anh, còn quản lý kho bảo hỏi công ty. Đồng phục anh vẫn giữ, chưa ai nói rõ anh còn việc hay đã hết.",
+      "sha256": "690dfe0f0f8f6c2309ab83a0b2799253f6a0c69e1962c15d49fd642110098262",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/before": {
+      "src": "/audio/dialogue/vi-north/duc/before.mp3?v=fe09967881b9",
+      "text": "Tuần trước anh có hỏi cái xe nâng rỉ dầu, không dám chạy tiếp. Quản lý nói để xem, chiều đó vẫn cho anh đi sớm đón con như mọi bữa. Rồi im luôn; anh cứ nhìn điện thoại, nghĩ chắc lịch chưa cập nhật.",
+      "sha256": "fe09967881b92c00973a5c889295b285a8595cf3685df854718fb23c20278891",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/staying": {
+      "src": "/audio/dialogue/vi-north/duc/staying.mp3?v=d5cb85f5cccd",
+      "text": "Anh qua theo diện bốn tám hai, nhiều thứ gắn với công việc này. Chưa biết chính xác tình hình mà anh đã nghĩ đến tiền thuê nhà, rồi chuyện trường của con. Anh chưa cần ai quyết định hộ, chỉ muốn biết mình đang đứng ở đâu.",
+      "sha256": "d5cb85f5cccd6dead6246318dcb2fa5723777cb4d66837229ef47db418a721bb",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/records": {
+      "src": "/audio/dialogue/vi-north/duc/records.mp3?v=90843d313b8d",
+      "text": "Anh còn cái lịch tuần trước và tin nhắn hỏi về xe nâng. Cuộc gọi sáng nay thì không ghi gì, giờ chỉ nhớ họ bảo “tạm thời”. Anh không biết tạm thời là đến ngày nào.",
+      "sha256": "90843d313b8d633fe4be9f62b16bcc3e0477117f4b86d89f1b2553ce50e80859",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/kept": {
+      "src": "/audio/dialogue/vi-north/duc/kept.mp3?v=693e6d218677",
+      "text": "Ừ, anh ghi những gì nhớ được, chỗ nào không chắc thì để là không chắc. Xong rồi anh sẽ tìm người hỏi sớm, cứ chờ cái điện thoại này không giúp mình rõ hơn. Nhưng trước hết lắp xong cái chuông đã.",
+      "sha256": "693e6d2186773c8820a561b7a9d20f65b445b7c3cea5082e7eee0b404f798524",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/goodbye": {
+      "src": "/audio/dialogue/vi-north/duc/goodbye.mp3?v=8e9ddb6bc7fe",
+      "text": "Nghe thử cái chuông này đi. To quá phải không? Thằng bé sẽ thích lắm, hàng xóm chắc không. Cảm ơn em đã quay lại.",
+      "sha256": "8e9ddb6bc7fec9ef814c211c555f4052d874804f276c6b51d0e6efa537e07ec9",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/closed": {
+      "src": "/audio/dialogue/vi-north/duc/closed.mp3?v=d7a5d0c191cb",
+      "text": "Anh biết rồi. Anh còn cái xe đang tháo dở. Để anh làm nốt nhé.",
+      "sha256": "d7a5d0c191cb09a064e07a8c5ae8a2ca366c18ee589d9f70d0d4761fbf466380",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/ending-kept": {
+      "src": "/audio/dialogue/vi-north/duc/ending-kept.mp3?v=f09b74685cfb",
+      "text": "Đoạn kết hư cấu: Đức ghi lại ngày bị mất ca và mang lịch, tin nhắn tới một cuộc hỏi thông tin sớm. Anh chưa có câu trả lời cuối cùng, nhưng câu chuyện có mốc thời gian rõ hơn. Không có kết quả pháp lý nào được bảo đảm.",
+      "sha256": "f09b74685cfbf720f82132dbf82f4a05ee3356329ddc078e9ab9dff5443be4ac",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/duc/ending-missed": {
+      "src": "/audio/dialogue/vi-north/duc/ending-missed.mp3?v=137aa4943e2b",
+      "text": "Đoạn kết hư cấu: Đức tiếp tục chờ lịch mới. Khi muốn tìm hiểu, anh cần dựng lại ngày và các cuộc gọi. Nếu bạn vừa mất việc, một số lựa chọn có thời hạn ngắn; RMWC có thể giúp tìm hiểu sớm.",
+      "sha256": "137aa4943e2b1fd839b69fda4dc14f95e8312d6b392a643eb2253aac19548070",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/hello": {
+      "src": "/audio/dialogue/en-vietnamese/duc/hello.mp3?v=dcf0df9f3bc0",
+      "text": "I wasn’t ready to open earlier. It wasn’t you. I’m fixing a little bike; my boy’s birthday is next week. He mostly likes the bell. I still have to hold him up when he pedals. You’ve spoken with some of the others out there?",
+      "sha256": "dcf0df9f3bc02fbc89eeaab2a3f4311ff9e311e116e8b06116b12f15a37e8499",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/roster": {
+      "src": "/audio/dialogue/en-vietnamese/duc/roster.mp3?v=75fe7875550b",
+      "text": "On Monday I opened the roster and my name was gone. The labour-hire company said the warehouse didn’t need me; the warehouse manager told me to ask the agency. I still have my uniform. Nobody has clearly said whether I still have a job.",
+      "sha256": "75fe7875550b135406d78a3ab20a8cf9564c31a115c743247c7fd42f83ad1292",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/before": {
+      "src": "/audio/dialogue/en-vietnamese/duc/before.mp3?v=0e9c26133c31",
+      "text": "Last week I asked about a forklift leaking oil; I didn’t want to keep driving it. The manager said he’d look into it.",
+      "sha256": "0e9c26133c31520195171ae4a2ad9ea5a58cf0f9a1edd3a9b2c3e024d3ba2a3c",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/staying": {
+      "src": "/audio/dialogue/en-vietnamese/duc/staying.mp3?v=7cd428510865",
+      "text": "I came on a 482 visa. A lot feels tied to this job. I don’t even know exactly what has happened, and I’m already thinking about rent and my son’s school. I don’t need anyone to decide for me. I want to know where I stand.",
+      "sha256": "7cd428510865c742899b97097834027ff3c4ae4bd51143a7b992d97d04c76189",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/records": {
+      "src": "/audio/dialogue/en-vietnamese/duc/records.mp3?v=59b8f588bf5d",
+      "text": "I still have last week’s roster and the message about the forklift. I didn’t note this morning’s call; all I remember is “for now”. I don’t know what date “for now” is supposed to end.",
+      "sha256": "59b8f588bf5dfc1863b1dd78f69201a856b61cbffd34037506bf5550d7b03d1e",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/kept": {
+      "src": "/audio/dialogue/en-vietnamese/duc/kept.mp3?v=cfcd5062b968",
+      "text": "I’ll write what I remember and mark the parts I’m unsure of. Then I’ll find someone to ask soon; staring at this phone isn’t making anything clearer. First, though, I’ll finish fitting the bell.",
+      "sha256": "cfcd5062b96838baf766ca65291a6412ea96ce03a7c90dc605800e7e351f2e37",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/goodbye": {
+      "src": "/audio/dialogue/en-vietnamese/duc/goodbye.mp3?v=bb47f4655d83",
+      "text": "Listen to this bell. Too loud, isn’t it? My boy will love it. The neighbours probably won’t. Thanks for coming back.",
+      "sha256": "bb47f4655d8303b8d8d63e92c534cd90be59bacc76b1ce39bce062e818267b90",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/closed": {
+      "src": "/audio/dialogue/en-vietnamese/duc/closed.mp3?v=e607bf4f2721",
+      "text": "I hear you. I have a bike in pieces here. I’d like to finish it.",
+      "sha256": "e607bf4f2721fd51fdd27cea0dbbe5c9d2c738db6563313d8fa613111c64b1f6",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/ending-kept": {
+      "src": "/audio/dialogue/en-vietnamese/duc/ending-kept.mp3?v=89466c34cc26",
+      "text": "Fictional ending: Đức records when his shifts vanished and brings the roster and messages to an early advice conversation. He has no final answer yet, but a clearer timeline. No legal outcome is guaranteed.",
+      "sha256": "89466c34cc26fd9f2b26b6b2ad3e03a85609e56dc8aac7007b4c0a5d152508e8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "en-vietnamese/duc/ending-missed": {
+      "src": "/audio/dialogue/en-vietnamese/duc/ending-missed.mp3?v=2a463dfb94e0",
+      "text": "Fictional ending: Đức keeps waiting for a new roster. When he seeks information, he must reconstruct dates and calls. If you have recently lost a job, some options have short time limits; RMWC can help you look into them promptly.",
+      "sha256": "2a463dfb94e0956341c4800dbb7d13382edf5847d4dfb6dcd97ef9691b8f52cc",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/hello": {
+      "src": "/audio/dialogue/vi-central/khoa/hello.mp3?v=bfe2e2500a96",
+      "text": "Mưa không tới được cái chậu này, nên vẫn phải tưới. Anh đang trồng cho ra đúng một trái thôi, để chứng minh với vợ là không phải cây cảnh. Cuối tuần anh còn tập hát, nhóm khu phố thiếu giọng nam mà ai cũng bắt anh đứng sau.",
+      "sha256": "bfe2e2500a96a910a889adb5057f05376e28b8c65b6bfe6e2a08dfa9fb59e519",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/work": {
+      "src": "/audio/dialogue/vi-central/khoa/work.mp3?v=1679d3498d73",
+      "text": "Ở chỗ làm anh chăm mấy cụ lâu rồi, nhiều người nhớ tên anh hơn tên con cháu. Nhưng lúc xin học ca trưởng, quản lý bảo giọng anh nghe chưa “chuyên nghiệp”. Người mới vào sau anh thì được đi học, còn anh lại được nhờ chỉ việc cho bạn ấy.",
+      "sha256": "1679d3498d737e7aacec4caa23ed2ae3ccc4525c1773f6576f83a3bba1455497",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/staying": {
+      "src": "/audio/dialogue/vi-central/khoa/staying.mp3?v=b8949f793702",
+      "text": "Anh về tập nói cái câu bàn giao cả chục lần, rồi thấy mình kỳ. Anh có thường trú rồi, nhưng không phải vì vậy mà muốn bỏ những người mình chăm. Quản lý cũng có hôm rất tử tế, cho đổi ca khi vợ anh ốm; thành ra anh chẳng biết mở đầu câu hỏi đó thế nào.",
+      "sha256": "b8949f7937020c3df718e9c8ea87e3313939c56a942656fdb3cedf63e2400051",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/records": {
+      "src": "/audio/dialogue/vi-central/khoa/records.mp3?v=478842115fad",
+      "text": "Email xin học anh còn giữ, câu trả lời thì nói miệng ở phòng nghỉ. Có chị ngồi đó nghe được. Anh chỉ nhớ từ “chuyên nghiệp”, mấy chữ trước sau cứ nghĩ đi nghĩ lại rồi rối cả lên.",
+      "sha256": "478842115fad6c18cbdb5f5290888bf5a567b4f8128f3772cf082fa60bc3a571",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/kept": {
+      "src": "/audio/dialogue/vi-central/khoa/kept.mp3?v=2ce46389bc50",
+      "text": "Anh sẽ ghi cả ngày lẫn ai có mặt, còn câu nào không nhớ nguyên văn thì nói rõ. Anh cũng muốn hỏi tiêu chí khóa học bằng email, để biết mình cần gì chứ không tự đoán mãi. Chắc làm từng việc nhỏ vậy trước.",
+      "sha256": "2ce46389bc50b9f5641ea430d2181af33cd8f6e07bc6e16f13f345493f45c93d",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/goodbye": {
+      "src": "/audio/dialogue/vi-central/khoa/goodbye.mp3?v=ab7e51f3846b",
+      "text": "Thôi để anh đem chậu vào sát tường, gió bắt đầu mạnh rồi. Chủ nhật nhóm hát có diễn miễn phí ở hội trường, anh phải nhớ lời cho xong. Ít nhất ở đó anh được hát bằng giọng của mình.",
+      "sha256": "ab7e51f3846b1fb4d963b01226573071f57a9e250bcc9995fb95cee30bb3f344",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/closed": {
+      "src": "/audio/dialogue/vi-central/khoa/closed.mp3?v=031e77df07c1",
+      "text": "Ừ. Anh nghe câu đó rồi. Anh phải chuẩn bị đồ cho ca sáng, chúc em ngủ ngon.",
+      "sha256": "031e77df07c10951418ec44d18f77d1204d694960ff2c9597d0abaa82a848aad",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/ending-kept": {
+      "src": "/audio/dialogue/vi-central/khoa/ending-kept.mp3?v=9fa35435acc6",
+      "text": "Đoạn kết hư cấu: Khoa giữ email và ghi lại cuộc nói chuyện. Anh chọn một cuộc hẹn để hỏi về cách mình bị đối xử, rồi vẫn đi tập hát tối Chủ nhật. Việc lưu thông tin giúp anh kể rõ hơn; không quyết định kết quả.",
+      "sha256": "9fa35435acc6cfc19eedd56471e309ea5b2f99c7928bd226e86b2df1c940ccb5",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-central/khoa/ending-missed": {
+      "src": "/audio/dialogue/vi-central/khoa/ending-missed.mp3?v=c2826ff28e25",
+      "text": "Đoạn kết hư cấu: Khoa chưa ghi lại cuộc nói chuyện. Anh tiếp tục suy nghĩ về điều mình muốn hỏi; ký ức và người chứng kiến vẫn có thể là điểm bắt đầu cho một cuộc trao đổi hỗ trợ.",
+      "sha256": "c2826ff28e25ac6465615d6eac020480a5ebac3cbbab3caf20368bf9a5c405d5",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/hello": {
+      "src": "/audio/dialogue/vi-north/mai/hello.mp3?v=8531e22a10eb",
+      "text": "Xin lỗi, lúc nãy em đang nghe điện thoại, không muốn mở cửa. Em sửa cái váy cho cháu, đường chỉ cứ xiên vì máy này cũ quá. Sinh nhật nó tháng sau, em hứa có cái túi thật để bỏ đá vào, nó thích nhặt đá hơn thích búp bê.",
+      "sha256": "8531e22a10eb5d6f75d5632df4dcde350f4bb5b3e9b427155ff67707be64ef62",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/work": {
+      "src": "/audio/dialogue/vi-north/mai/work.mp3?v=cd3cc7710ca5",
+      "text": "Quản lý gửi ảnh sàn vào nhóm, khoanh đỏ rồi ghi tên em, gần như ca nào cũng vậy. Có hôm đó không phải khu em dọn. Em giải thích thì cả nhóm nhận tin nhắn thoại bảo ai không chịu nổi cứ nghỉ, ngoài kia thiếu gì người.",
+      "sha256": "cd3cc7710ca576b5a1399ee7e230f1c95a7da7bf6321d24c0b521777a88e75b9",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/staying": {
+      "src": "/audio/dialogue/vi-north/mai/staying.mp3?v=91f748c8a2db",
+      "text": "Trước mỗi ca điện thoại rung là em đau bụng. Em đang chờ giấy tờ, visa bắc cầu, tiền phòng thì không chờ; chỗ ở cũng có người trong công ty giới thiệu. Có hôm quản lý cho em đi nhờ xe, hỏi thăm cháu rất bình thường, rồi hôm sau lại mắng trước cả nhóm.",
+      "sha256": "91f748c8a2db8b03393cde06f855b9f1c2c770fa4c94e5ed65605e56231031c2",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/records": {
+      "src": "/audio/dialogue/vi-north/mai/records.mp3?v=6f76c57fdbae",
+      "text": "Em hay xóa tin nhắn thoại sau khi nghe, không muốn mở máy ra thấy nữa. Chị làm ca bên cạnh có hỏi em ổn không, mà em chỉ bảo mệt. Em sợ kể ra rồi người ta gọi về chỗ làm trước khi em kịp nghĩ.",
+      "sha256": "6f76c57fdbaef77dfbd4640aa4bc8c30b17631f100053ad9c123c24796bc1c25",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/kept": {
+      "src": "/audio/dialogue/vi-north/mai/kept.mp3?v=d1636c4d82da",
+      "text": "Em có máy riêng, công ty không dùng được. Em sẽ giữ mấy tin còn lại, ghi chuyện nào ở ca nào; chỗ nào chưa nhớ thì để trống. Rồi em muốn hỏi người ta trước cách liên lạc nào kín, chứ đừng gọi lúc em đang làm.",
+      "sha256": "d1636c4d82da75d65686bfa142944b88f5623c9d96c8b2965623037d5d27828a",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/goodbye": {
+      "src": "/audio/dialogue/vi-north/mai/goodbye.mp3?v=651101da36fc",
+      "text": "Cái túi xong rồi này, đủ to cho một nắm đá. Em tắt thông báo một lát để may nốt gấu váy. Cảm ơn đã quay lại mà không làm như em nợ một câu trả lời.",
+      "sha256": "651101da36fc8630f5e38c4794cc2240149f55042a372d192423676e55beeb63",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/closed": {
+      "src": "/audio/dialogue/vi-north/mai/closed.mp3?v=9e0761b96a57",
+      "text": "Em không muốn nói tiếp nữa. Em cần tự chọn chuyện này, được không? Em đóng cửa đây.",
+      "sha256": "9e0761b96a57846aa74de97f7eade87b190df821b6817f8bbde14d5b7cc5a7ee",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/ending-kept": {
+      "src": "/audio/dialogue/vi-north/mai/ending-kept.mp3?v=741076ff631a",
+      "text": "Đoạn kết hư cấu: Mai giữ lại những tin còn có và ghi chú trên thiết bị riêng. Cô chọn cách liên lạc an toàn trước khi chia sẻ câu chuyện. Chiếc váy được gửi đi đúng sinh nhật; bước tiếp theo vẫn do cô quyết định.",
+      "sha256": "741076ff631af6c1f97a7c2d0a6939b92cab2e0ee55c1be774df75b04c0750c8",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    },
+    "vi-north/mai/ending-missed": {
+      "src": "/audio/dialogue/vi-north/mai/ending-missed.mp3?v=b63d6b7ed66a",
+      "text": "Đoạn kết hư cấu: Mai chưa giữ các tin nhắn. Cô hoàn thành chiếc váy và nghĩ tới việc nói với người mình tin. Chưa có giấy tờ hoặc chưa sẵn sàng kể hết không làm mất quyền tìm hỗ trợ.",
+      "sha256": "b63d6b7ed66a92322d5f0e42c695159a3981788506b01d3d7a191022211e3d0e",
+      "production": "local-synthetic",
+      "listeningApproval": "pending"
+    }
+  }
 }

@@ -2,9 +2,9 @@ import type { Language } from '../types';
 
 export type VoicePack = 'vi-north' | 'vi-central' | 'vi-south' | 'en-vietnamese' | 'en-australian' | 'en-american';
 export const voicePackLabels: Record<VoicePack, string> = {
-  'vi-north': 'Vietnamese — Northern (Hanoi)',
-  'vi-central': 'Vietnamese — Central (Da Nang)',
-  'vi-south': 'Vietnamese — Southern (Saigon / Mekong Delta)',
+  'vi-north': 'Vietnamese — Northern',
+  'vi-central': 'Vietnamese — Central',
+  'vi-south': 'Vietnamese — Southern',
   'en-vietnamese': 'English — natural Vietnamese accent',
   'en-australian': 'English — Australian accent',
   'en-american': 'English — General American accent',

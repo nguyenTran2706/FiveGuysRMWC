@@ -1,0 +1,34 @@
+{
+  "textSha256": "b935d20d5eb6250b23f056996e84db15e9ece7f759e599a63fe3e2bf847f7aa6",
+  "audioSha256": "cc72099f5184c069548d71a4dcdb34acaf5135c3d4e183d3878dfc6942caeab2",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 7012932,
+  "spokenText": "Cô lấy cuốn sổ này ghi được. Ngày, cái nồi nào, ai đứng cạnh; còn tin nhắn thì cô nhờ con chỉ cách lưu riêng khi nó nghỉ học. Cô sẽ đi cái hẹn đã đặt, kể đúng chuyện mình nhớ.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.922,
+  "sampleRate": 48000,
+  "peak": 0.522234,
+  "rms": 0.116684,
+  "transcriptionCheck": {
+    "audioSha256": "cc72099f5184c069548d71a4dcdb34acaf5135c3d4e183d3878dfc6942caeab2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Cô lại cuộn sổ nay ghi được. Ngay, kè nôi nào, ai đừng canh, con tín nhặn thì cô nhớ con chỉ cách lưu riêng khi nó ngì học. Cô sẽ đi kè hàng đã đặt. Kệ đúng chuyến bên nhỡ.",
+    "expectedWordCoverage": 0.854,
+    "matchedWordPrecision": 0.854,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

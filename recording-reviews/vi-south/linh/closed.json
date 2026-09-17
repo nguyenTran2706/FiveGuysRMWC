@@ -1,0 +1,34 @@
+{
+  "textSha256": "3ec1d2124dd76e83b01a4cd4753aaa09161be9b0ca5a90920504364f3963b756",
+  "audioSha256": "85d60267bb46560452f4c577980622369f0c8dff5e6b8034d82ffb3d27af7a3f",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 5073322,
+  "spokenText": "Chị lùi vào phía trong. Thôi em, chị còn phải đóng tiệm. \n\n Có nhiều thứ chị chưa kể. Để bữa khác. Cánh cửa kéo xuống một nửa. Em về cẩn thận. Ngoài đó trơn.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9652,
+    "temperature": 0.78
+  },
+  "durationSeconds": 11.183,
+  "sampleRate": 48000,
+  "peak": 0.721696,
+  "rms": 0.114084,
+  "transcriptionCheck": {
+    "audioSha256": "85d60267bb46560452f4c577980622369f0c8dff5e6b8034d82ffb3d27af7a3f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị lùi vào phía trong, thôi em chỉ còn phải đóng tiệm. Có nhiều thứ trị chưa kể, để bước khác. Cánh cử kéo xuống một nữa, em về cẩn thận, ngoài đó trơn.",
+    "expectedWordCoverage": 0.912,
+    "matchedWordPrecision": 0.912,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "1f9b5fbec527c518e9745f0d412600424e88b648e96a95bab6cafdd8b96ac546",
+  "audioSha256": "c8cd28a2c6a29384a5c9fc5ecec00d509f82612d56d74cd6e9f073aed1c6935f",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 7671544,
+  "spokenText": "Em xem một chiếc Corolla màu bạc mấy tháng rồi. Không cần xe đẹp, chỉ cần bật điều hòa không có tiếng như máy xay. Nếu mua được, chuyến đầu em muốn chạy lên biển, điện thoại để im, không có cái túi đồ ăn phía sau.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.37,
+  "sampleRate": 48000,
+  "peak": 0.799941,
+  "rms": 0.121485,
+  "transcriptionCheck": {
+    "audioSha256": "c8cd28a2c6a29384a5c9fc5ecec00d509f82612d56d74cd6e9f073aed1c6935f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em xem một chiếc Corolla màu bạc mấy tháng rồi. Không cần xe đẹp, chỉ cần bật điều hòa, không có tiến như máy xay. Nếu mua được, chuyến đầu em muốn chạy lên biển, điện thoại để im, không có cái túi đồ ăn phía sau.",
+    "expectedWordCoverage": 0.979,
+    "matchedWordPrecision": 0.979,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

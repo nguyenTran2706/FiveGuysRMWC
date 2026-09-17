@@ -1,0 +1,34 @@
+{
+  "textSha256": "59a1e0f9a7541525a641e05fc030b98e0d416716fc4a53bc3422867d23658a48",
+  "audioSha256": "dbc2ff0a6896f9d84464875ba3315bc743a38e9b93292db002ae57376e16b93b",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 2062924,
+  "spokenText": "She switches off the half-flickering sign. Thanks for staying. \n\n I thought people would just say I put up with it, so it was my fault. She takes out her phone. I’ll call Mum before she goes to bed. The flights... probably not tonight.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.094,
+  "sampleRate": 48000,
+  "peak": 0.796355,
+  "rms": 0.120259,
+  "transcriptionCheck": {
+    "audioSha256": "dbc2ff0a6896f9d84464875ba3315bc743a38e9b93292db002ae57376e16b93b",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She sweated up the half-flickering shine. Thankful staying. It's hot people would just say I put up with it, so it was it, so it was my fault. She takes out her phone. I'll call mom before she goes to bed. The flight's probably not tonight.",
+    "expectedWordCoverage": 0.8,
+    "matchedWordPrecision": 0.72,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

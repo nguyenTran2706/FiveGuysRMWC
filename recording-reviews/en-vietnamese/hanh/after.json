@@ -1,0 +1,34 @@
+{
+  "textSha256": "68e643d7b8a3976ee7366b5fd105153eb2e2133d2136e5f31a341dd5829ae90c",
+  "audioSha256": "785a955244f09483f1273267552c414e461a29c707d50897980eba8297a6f9e8",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 8613279,
+  "spokenText": "The owner drove me home. It was raining that day too. He bought liniment and said a day off would do it. I wanted to believe him. The next day it hurt to hold a comb; how was I going to carry a whole rack of dishes?",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.595,
+  "sampleRate": 48000,
+  "peak": 0.518206,
+  "rms": 0.116383,
+  "transcriptionCheck": {
+    "audioSha256": "785a955244f09483f1273267552c414e461a29c707d50897980eba8297a6f9e8",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "The owner drove me home. It was raining that day too. He bought liniment and set a day of wood jowl it. I wanted to believe him. The next day it hurt to hold a comb. How was I going to carry a whole rack of dishes?",
+    "expectedWordCoverage": 0.915,
+    "matchedWordPrecision": 0.915,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "b5caae0613067ea4bc89752de74768a2ca05a6fee9e4ccb2351b4b4d4b3487fc",
+  "audioSha256": "861f7efd8294cd0068e05d0ff7578e1a4dc474fe1e2cd927ef20b21c37437359",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 12853885,
+  "spokenText": "This arm slipped last week while I was lifting a pot. Water on the floor, one step and I went forward. At the time I worried more about spilling the soup. That night I couldn’t raise my arm to take my shirt off.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.068,
+  "sampleRate": 48000,
+  "peak": 0.626286,
+  "rms": 0.119834,
+  "transcriptionCheck": {
+    "audioSha256": "861f7efd8294cd0068e05d0ff7578e1a4dc474fe1e2cd927ef20b21c37437359",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "This arm slipped last week while I was lifting a pot. Water on the floor one step and I went forward. At the time, I worried more about spilling the soup. That night, he couldn't raise my arm to take my shirt off.",
+    "expectedWordCoverage": 0.977,
+    "matchedWordPrecision": 0.977,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

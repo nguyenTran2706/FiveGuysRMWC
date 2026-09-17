@@ -1,0 +1,34 @@
+{
+  "textSha256": "86f44bf620453b0ffdc11b26eab0bf4c814ac29449b64c0607557d1c22181f30",
+  "audioSha256": "e71645d7018601d818c41b1cffb10871b28d5a92e4d672e2214f7292b591cb3e",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 14522201,
+  "spokenText": "She puts the phone back in her pocket. Yes. \n\n My head is full tonight. The old roster is probably somewhere. She looks down at her feet. Right now I just want to go home and take my shoes off.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.0,
+  "sampleRate": 48000,
+  "peak": 0.779277,
+  "rms": 0.114056,
+  "transcriptionCheck": {
+    "audioSha256": "e71645d7018601d818c41b1cffb10871b28d5a92e4d672e2214f7292b591cb3e",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She puts the phone back in her pocket. Yes, Nihet is full tonight. The old roster is probably somewhere. She looks down at her feet. Right now, I just want to go home and take my shoes off.",
+    "expectedWordCoverage": 0.949,
+    "matchedWordPrecision": 0.974,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

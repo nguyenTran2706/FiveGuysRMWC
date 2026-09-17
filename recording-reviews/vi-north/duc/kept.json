@@ -1,0 +1,34 @@
+{
+  "textSha256": "c46b6048c18e996532e896936df8869e805148a09ed4e842c14ef3328a60b191",
+  "audioSha256": "693e6d2186773c8820a561b7a9d20f65b445b7c3cea5082e7eee0b404f798524",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 7011634,
+  "spokenText": "Ừ, anh ghi những gì nhớ được, chỗ nào không chắc thì để là không chắc. Xong rồi anh sẽ tìm người hỏi sớm, cứ chờ cái điện thoại này không giúp mình rõ hơn. Nhưng trước hết lắp xong cái chuông đã.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.403,
+  "sampleRate": 48000,
+  "peak": 0.803254,
+  "rms": 0.127868,
+  "transcriptionCheck": {
+    "audioSha256": "693e6d2186773c8820a561b7a9d20f65b445b7c3cea5082e7eee0b404f798524",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ờ, anh nghĩ những gì nhớ được, chỗ nào không chắc thì đấy là không chắc. Sau rồi anh sẽ tìm người hỏi sớm, cứ chờ cái điện thoại này không giúp mình rõ hơn. Nhưng trước hết lắp, xong về chuông đã.",
+    "expectedWordCoverage": 0.884,
+    "matchedWordPrecision": 0.884,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

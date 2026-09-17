@@ -1,0 +1,34 @@
+{
+  "textSha256": "6aefb5415f717d8d2189b787a9f1fd31e2143be690a439d5df9afd4a9e313bb0",
+  "audioSha256": "343c40d90cf99f45f6038f59be30c4e70eea8d3359cbeec60c00dbd68030a6bc",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 9085909,
+  "spokenText": "Chị gấp tiền lại, cất phong bì vào túi. Có tuần chị làm hỏng màu thì bị trừ tiền chai sơn. \n\n Tuần trước chị hỏi tiền Chủ nhật có khác không.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.98,
+  "sampleRate": 48000,
+  "peak": 0.776749,
+  "rms": 0.126565,
+  "transcriptionCheck": {
+    "audioSha256": "343c40d90cf99f45f6038f59be30c4e70eea8d3359cbeec60c00dbd68030a6bc",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Dì gấp tiền lại, cứu phong bị vào tuối, có tuần trị làm hóng màu thì bị trừ tiền trai sân, tuần trước chỉ hỏi tiền chủ nhật có khác không?",
+    "expectedWordCoverage": 0.806,
+    "matchedWordPrecision": 0.806,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "2e05e820ae351b9416f09477f2b1e9453d0ef02d6878c903350511d5a3e29e12",
+  "audioSha256": "f1ef12bb05a896040510530a87f954f4953c1ba139577c5a243b5d61a37c99ed",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 14521902,
+  "spokenText": "Tomorrow, maybe. Four per cent battery, and I’ve got home without even putting it on charge. Some days even a small thing feels like one more delivery.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.22,
+  "sampleRate": 48000,
+  "peak": 0.654412,
+  "rms": 0.108679,
+  "transcriptionCheck": {
+    "audioSha256": "f1ef12bb05a896040510530a87f954f4953c1ba139577c5a243b5d61a37c99ed",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tomorrow may be 4% battery and I've got home without even putting it on charge. Some days even a small thing feels like one more delivery.",
+    "expectedWordCoverage": 0.893,
+    "matchedWordPrecision": 0.926,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

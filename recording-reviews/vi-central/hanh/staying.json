@@ -1,0 +1,34 @@
+{
+  "textSha256": "8064047ce8c959d88de19f16caeef97eb4b0ede266bda06c5032b202ba0915c4",
+  "audioSha256": "787e31130f78fbba556ae747321305a370a0e868ee94be1317e1830b7d3d4217",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 15743017,
+  "spokenText": "Cô năm mươi tư rồi. Tiếng Anh nói chậm, đi xin chỗ khác người ta nhìn tuổi trước hay nhìn tay trước, cô cũng không biết. Ở đây cô thuộc từng cái ngăn kéo, biết ai ăn chay, ai dị ứng; rời đi không phải chỉ bỏ cái bếp.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.931,
+  "sampleRate": 48000,
+  "peak": 0.65988,
+  "rms": 0.118168,
+  "transcriptionCheck": {
+    "audioSha256": "787e31130f78fbba556ae747321305a370a0e868ee94be1317e1830b7d3d4217",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Cô nắm mới tứ rồi, kiểm anh nói châm, đi xin chủ khạc người ta nhiên tuổi trường hay nhiên tấy trường, cô cũng không biết. Ở đấy cô thuộc tưng cảnh nắm kẻo, biệt ai ăn trái, ai dì ứng, rơi đi không phải chỉ bỏ cái bếp.",
+    "expectedWordCoverage": 0.796,
+    "matchedWordPrecision": 0.796,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

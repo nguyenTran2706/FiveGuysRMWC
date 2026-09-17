@@ -1,0 +1,34 @@
+{
+  "textSha256": "cbb206456a60a3e8d7f64e5e53729d7ff748f1a10a2aaecd80a3c54b97e1eb61",
+  "audioSha256": "3571f23f1f976f112db35561ee7fed15b16c596603913995145be071ae6486c3",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 11703546,
+  "spokenText": "Cái tay này tuần trước trượt lúc bê nồi. Nước dưới sàn, cô bước một cái là cả người chúi xuống; lúc đó còn lo nồi canh đổ hơn lo tay. Đến tối cởi áo mới biết không giơ lên nổi.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.256,
+  "sampleRate": 48000,
+  "peak": 0.615764,
+  "rms": 0.127334,
+  "transcriptionCheck": {
+    "audioSha256": "3571f23f1f976f112db35561ee7fed15b16c596603913995145be071ae6486c3",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Cái tay nay tuân trượt trước lúc bé nôi, nược dự sang cô bước một cái là cả người trùi xuống, lúc đó con ló nôi cánh độ hướng ló tay, đến tội cựu ảo mời biết không dớ lẽ nôi.",
+    "expectedWordCoverage": 0.805,
+    "matchedWordPrecision": 0.805,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

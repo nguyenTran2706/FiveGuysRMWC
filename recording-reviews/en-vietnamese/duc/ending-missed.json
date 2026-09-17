@@ -1,0 +1,34 @@
+{
+  "textSha256": "789a56ddc756fe31ed5134b0c6125eb00355ddc422a9accc702b6c17cdbcca63",
+  "audioSha256": "2a463dfb94e0956341c4800dbb7d13382edf5847d4dfb6dcd97ef9691b8f52cc",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 15761405,
+  "spokenText": "Fictional ending: Đức keeps waiting for a new roster. When he seeks information, he must reconstruct dates and calls. If you have recently lost a job, some options have short time limits; R M W C can help you look into them promptly.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.432,
+  "sampleRate": 48000,
+  "peak": 0.799683,
+  "rms": 0.113962,
+  "transcriptionCheck": {
+    "audioSha256": "2a463dfb94e0956341c4800dbb7d13382edf5847d4dfb6dcd97ef9691b8f52cc",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fixional ending. The tips waiting for the roster. When he seeks information, he must reconstruct days and calls. If you have recently lost a job, some options have short time limits. RMVC can help you look into them promptly.",
+    "expectedWordCoverage": 0.767,
+    "matchedWordPrecision": 0.846,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "91735c60bdf18cff5ffc5160f747100e3c902563728782795b0e289bab5a2098",
+  "audioSha256": "90843d313b8d633fe4be9f62b16bcc3e0477117f4b86d89f1b2553ce50e80859",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 9282818,
+  "spokenText": "Anh còn cái lịch tuần trước và tin nhắn hỏi về xe nâng. Cuộc gọi sáng nay thì không ghi gì, giờ chỉ nhớ họ bảo tạm thời. Anh không biết tạm thời là đến ngày nào.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.311,
+  "sampleRate": 48000,
+  "peak": 0.794881,
+  "rms": 0.125001,
+  "transcriptionCheck": {
+    "audioSha256": "90843d313b8d633fe4be9f62b16bcc3e0477117f4b86d89f1b2553ce50e80859",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Anh còn cái lịch tuần trước và tin nhắn hỏi về xe nâng. Cuộc gọi sáng nay thì không hi gì, rồi chỉ nhớ họ bảo tạm thời. Anh không biết tạm thời là đến ngày nào.",
+    "expectedWordCoverage": 0.946,
+    "matchedWordPrecision": 0.946,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "c80a5401af3758670882f62aa054357ef55ba4f2a63a54b30852cafe59beb4b5",
+  "audioSha256": "bda249c0415d27242ffb37cefb4d09fd8a528e63a8b98479b0b865915b090ed8",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 8353189,
+  "spokenText": "She opens the drawer. A small bottle of red polish, kept apart from the rest. Mum likes red. She smiles. Every time I send her a nail photo, she asks how anyone could wash rice with nails that long. \n\n This one is hers. Not the salon’s.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.447,
+  "sampleRate": 48000,
+  "peak": 0.794762,
+  "rms": 0.114583,
+  "transcriptionCheck": {
+    "audioSha256": "bda249c0415d27242ffb37cefb4d09fd8a528e63a8b98479b0b865915b090ed8",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She opens the drawer, a small bottle of red polish, kept apart from the rest. Mum like red, she smiles every time I send her a nail photo. She asks how anyone could wash rice with nails that long. This one is hers, not the salon's.",
+    "expectedWordCoverage": 0.979,
+    "matchedWordPrecision": 0.979,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "a10116479a25c1edc466874f148b5956c2de1d10bdc2743af7fdf47b72b4e3d9",
+  "audioSha256": "598794032ced0a673fd2748d8cef18906b5c62d5df673ffd8703cb857d5e799f",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 14525003,
+  "spokenText": "Tonight I’ll rest. I’ll still go to the doctor’s appointment. As for the kitchen, let me think about who I want to speak with.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.5,
+  "sampleRate": 48000,
+  "peak": 0.651329,
+  "rms": 0.122875,
+  "transcriptionCheck": {
+    "audioSha256": "598794032ced0a673fd2748d8cef18906b5c62d5df673ffd8703cb857d5e799f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tonight I'll rest. I'll still go to the doctor's appointment. As for the kitchen, let me think about who I want to speak with.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

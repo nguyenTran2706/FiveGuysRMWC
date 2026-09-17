@@ -1,0 +1,34 @@
+{
+  "textSha256": "4114f447adec0d35d5b6fbbe0324e934124245f7d16bb602129fc2dfc4594cb2",
+  "audioSha256": "690dfe0f0f8f6c2309ab83a0b2799253f6a0c69e1962c15d49fd642110098262",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 4802335,
+  "spokenText": "Thứ Hai anh mở lịch, tên không còn nữa. Anh gọi, bên công ty thuê người bảo kho không cần anh, còn quản lý kho bảo hỏi công ty. Đồng phục anh vẫn giữ, chưa ai nói rõ anh còn việc hay đã hết.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.041,
+  "sampleRate": 48000,
+  "peak": 0.798972,
+  "rms": 0.125692,
+  "transcriptionCheck": {
+    "audioSha256": "690dfe0f0f8f6c2309ab83a0b2799253f6a0c69e1962c15d49fd642110098262",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Nứa hai anh mở lịch, tên không còn nữa, anh gọi, bênh công ty thuyên người bảo kho không cần anh. Còn còn lý kho bảo hỏi công ty, đồng phục anh vẫn giữ, chưa ai nói do anh còn việc hay đã hết.",
+    "expectedWordCoverage": 0.886,
+    "matchedWordPrecision": 0.886,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

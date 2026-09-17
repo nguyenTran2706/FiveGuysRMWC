@@ -1,0 +1,34 @@
+{
+  "textSha256": "497758aa19a776319af34ab0f491b944668f582ddd0c623fbf286d72c6787b7f",
+  "audioSha256": "9dd96ed1d98ec5535b1f7cc4cf9ff00b506a20ad97de2128e067bb7aaf390aca",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 11524896,
+  "spokenText": "Bên trong, Linh đếm tiền. Một lần. Hai lần. Rồi lần thứ ba. Chị dừng lại. Vẫn chỉ có tám trăm. Sáu ngày. \n\n Tám trăm đô. Sáng chín giờ chị có mặt.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.366,
+  "sampleRate": 48000,
+  "peak": 0.801584,
+  "rms": 0.113764,
+  "transcriptionCheck": {
+    "audioSha256": "9dd96ed1d98ec5535b1f7cc4cf9ff00b506a20ad97de2128e067bb7aaf390aca",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Bên trong, Linh đếm tiền, một lần, hai lần, rồi lần thứ ba, chị dừng lại, vẫn chỉ có 800, 6 ngày, 800 đô, sáng 9 giờ trị có mặt.",
+    "expectedWordCoverage": 0.781,
+    "matchedWordPrecision": 0.833,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

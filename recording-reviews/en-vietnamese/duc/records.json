@@ -1,0 +1,34 @@
+{
+  "textSha256": "f1872e115f4fa1e0937753ce941434805430c24a72e3d7268ca355f5d7d8849a",
+  "audioSha256": "59b8f588bf5dfc1863b1dd78f69201a856b61cbffd34037506bf5550d7b03d1e",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 10162166,
+  "spokenText": "I still have last week’s roster and the message about the forklift. I didn’t note this morning’s call; all I remember is for now. I don’t know what date for now is supposed to end.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.763,
+  "sampleRate": 48000,
+  "peak": 0.776313,
+  "rms": 0.118166,
+  "transcriptionCheck": {
+    "audioSha256": "59b8f588bf5dfc1863b1dd78f69201a856b61cbffd34037506bf5550d7b03d1e",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I still have last week's roster and the message about the forklift I didn't notice morning's call All I remember is for now I don't know what date for now is supposed to end",
+    "expectedWordCoverage": 0.949,
+    "matchedWordPrecision": 0.974,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

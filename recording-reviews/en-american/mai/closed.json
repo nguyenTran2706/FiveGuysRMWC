@@ -1,0 +1,25 @@
+{
+  "textSha256": "e1969eaea848947cc3d041c32fd5b4dddd021ac67441fe0f2fcd292d646a6e81",
+  "audioSha256": "0fbbad94f2dd859785a83f02fa9617747d73e15e55448645d2517d214f1d1a9b",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 9287179,
+  "spokenText": "I don’t want to keep talking. I need to choose what happens with this. I’m closing the window now.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9457,
+    "temperature": 0.78
+  },
+  "durationSeconds": 7.068,
+  "sampleRate": 48000,
+  "peak": 0.628496,
+  "rms": 0.10148
+}

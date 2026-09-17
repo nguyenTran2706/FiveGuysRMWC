@@ -1,0 +1,34 @@
+{
+  "textSha256": "0045fd7dccb6f3177836983b9ad7b24ec5fd41efc92e15c32e0a8c7fc9d693c6",
+  "audioSha256": "f3bd71121adfd4b081a846200741a432aa92ce635b79ca2142e1f625fe93c035",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 11823872,
+  "spokenText": "Trên màn hình là tin nhắn: Mai 5 giờ có mặt. Đồng phục công ty. Không được tự nhờ người thay. Bên dưới, một tệp pi đi ép ghi tên Bảo và số ây bi en của cậu, với tiêu đề Independent contractor.",
+  "performance": {
+    "mood": "clear document narration",
+    "tempo": 1.0045,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.841,
+  "sampleRate": 48000,
+  "peak": 0.799243,
+  "rms": 0.124766,
+  "transcriptionCheck": {
+    "audioSha256": "f3bd71121adfd4b081a846200741a432aa92ce635b79ca2142e1f625fe93c035",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Trên màn hình là tinh nhắn, mai năm giờ có mặt đồng phục công ty. Không được tự nhờ người thay bên dưới một tẹp PDF ghi tên bão và số ABN của cậu, với tiêu đầy Independent Contractor.",
+    "expectedWordCoverage": 0.791,
+    "matchedWordPrecision": 0.872,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

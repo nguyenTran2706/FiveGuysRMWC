@@ -1,0 +1,34 @@
+{
+  "textSha256": "38a7e2ba0bbe2df1f5c8f828d0dc78eebf72cdae850c90fab0564c0c692a0434",
+  "audioSha256": "bc3085966ea02d12f7f0bc33456a6e1313f1d28b7881007ec25426bc4d71d207",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 7010130,
+  "spokenText": "Chị nghĩ một lúc. Chị có email riêng. Trong tiệm không ai biết mật khẩu. Chị bắt đầu lưu ảnh. Lưu mấy cái này trước đã. \n\n Rồi viết thêm những hôm ở lại dọn. Chưa gửi ai đâu. Chỉ để mai không phải cố nhớ lại.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.751,
+  "sampleRate": 48000,
+  "peak": 0.813524,
+  "rms": 0.124164,
+  "transcriptionCheck": {
+    "audioSha256": "bc3085966ea02d12f7f0bc33456a6e1313f1d28b7881007ec25426bc4d71d207",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị nghĩ một lúc. Chị có email riêng, trong tìm không ai biết mực khẩu. Chị bắt đầu lưu ảnh, lưu mấy cái này trước đá. Rồi viết kèm những hùng ở lại giòn. Chưa gửi ai đâu. Chị để mai không phải cố nhớ lại.",
+    "expectedWordCoverage": 0.891,
+    "matchedWordPrecision": 0.891,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

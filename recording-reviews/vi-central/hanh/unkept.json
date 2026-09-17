@@ -1,0 +1,34 @@
+{
+  "textSha256": "c263aa44b86d1a6bb6858a20adc677f1b259e425408a66e094e80ff14d42d71f",
+  "audioSha256": "8862131aaa965114558b23ad617f09838991fa28a4bce988dabe9631ee3c9988",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 11846990,
+  "spokenText": "Ừ, tối nay cô nghỉ đã. Có cái hẹn với bác sĩ thì cô vẫn đi. Chuyện trong bếp, để cô nghĩ xem mình muốn nói với ai.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.474,
+  "sampleRate": 48000,
+  "peak": 0.591685,
+  "rms": 0.124552,
+  "transcriptionCheck": {
+    "audioSha256": "8862131aaa965114558b23ad617f09838991fa28a4bce988dabe9631ee3c9988",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tối nay cô nghỉ đạ, có cái hang về bạc xì thiết cố vận đi, chuyên trong bệp để cô nghỉ xem mình mộng nỏi về ai.",
+    "expectedWordCoverage": 0.75,
+    "matchedWordPrecision": 0.778,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

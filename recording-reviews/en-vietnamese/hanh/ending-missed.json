@@ -1,0 +1,34 @@
+{
+  "textSha256": "26a47992c8636f57f5e44ddb45cdd41dc11838a8780e3d0528ec2883b0e0506a",
+  "audioSha256": "7c9def9a5d471d7a6bd224ff87c95290756422579b8eb8f716966ac0600266fe",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 15762703,
+  "spokenText": "Fictional ending: Cô Hạnh sees a doctor but does not yet record what happened in the kitchen. Later she has to check the date and who was there. She can still seek support; not remembering every detail is not her fault.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9312,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.714,
+  "sampleRate": 48000,
+  "peak": 0.667359,
+  "rms": 0.116964,
+  "transcriptionCheck": {
+    "audioSha256": "7c9def9a5d471d7a6bd224ff87c95290756422579b8eb8f716966ac0600266fe",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "fictional ending, Koh Hanh sees a doctor but does not yet record what happened in the kitchen. Later, she has to check the date and who was there. She can still seek support, not remembering every detail is not her fault.",
+    "expectedWordCoverage": 0.976,
+    "matchedWordPrecision": 0.976,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "3f067a1ae2de9a11a8b2be41e54db0b0a016189c980dee7fbc5c4683361f547e",
+  "audioSha256": "4a8cc25ba3dadb6fff93909441928fa1282cb1755d016271b065147c4b4e14a5",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 6959472,
+  "spokenText": "Có lần em sốt, nhờ bạn chạy hộ mà họ không cho. Nhưng xe hỏng, xăng tăng, hay khách không chịu xuống lấy thì em tự chịu. Anh điều phối gọi em là đối tác, rồi nhắn hỏi sao nghỉ giữa ca lâu thế.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.588,
+  "sampleRate": 48000,
+  "peak": 0.801319,
+  "rms": 0.121359,
+  "transcriptionCheck": {
+    "audioSha256": "4a8cc25ba3dadb6fff93909441928fa1282cb1755d016271b065147c4b4e14a5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Có lần em sốt, nhờ bạn cây hộ mà họ không cho, nhưng xe hổng, xăng tan hay khách không chịu xuống lấy thì em tự chịu. Anh điều phối gọi em là đối tác, rồi nhắn hỏi sao nghĩ giữa ca lâu thế.",
+    "expectedWordCoverage": 0.955,
+    "matchedWordPrecision": 0.955,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

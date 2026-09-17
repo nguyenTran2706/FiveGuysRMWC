@@ -1,0 +1,34 @@
+{
+  "textSha256": "11611e13e89d4105d7566643b3707f9de0252ef3481b77b76c4c7221a271847a",
+  "audioSha256": "5c6971c1f5b00028df607483183105b6dd7724434b9af6c6ddf6bc7bbc93c972",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 11676451,
+  "spokenText": "Đoạn kết hư cấu: Lịch chat bị ghi đè, những ảnh cũ không còn. Linh rời tiệm mà chưa lấy lại được tiền; việc dựng lại giờ làm trở nên khó hơn. Thiếu giấy tờ không có nghĩa là ngoài đời bạn không thể tìm hỗ trợ.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.409,
+  "sampleRate": 48000,
+  "peak": 0.801521,
+  "rms": 0.122231,
+  "transcriptionCheck": {
+    "audioSha256": "5c6971c1f5b00028df607483183105b6dd7724434b9af6c6ddf6bc7bbc93c972",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoạn kết thư cấu, lịch chắc bị ghi đề, những ảnh cũ không con. Linh rời tiệm mà chưa lấy lại được tiền, việc dừng lại giờ làm trở nên khó hơn. Khiếu giấy tờ không có nghĩa là ngoài đời, bạn không thể tìm hỗ trợ.",
+    "expectedWordCoverage": 0.936,
+    "matchedWordPrecision": 0.936,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

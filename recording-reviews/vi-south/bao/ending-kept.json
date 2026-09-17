@@ -1,0 +1,34 @@
+{
+  "textSha256": "422ea03a1d72c8d15a4ae16a4addcc5f8715bc8e91ebb843ce60d3744c843f7a",
+  "audioSha256": "9e7fbdcc154e8b29a30b80e3d1a2d95253f531ca13be4750c7201b8aea855c57",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 11070744,
+  "spokenText": "Đoạn kết hư cấu: Bảo giữ hợp đồng, lịch và tin nhắn. Cậu mang chúng tới một cuộc hẹn, kể rõ ai quyết định công việc và bắt đầu tìm hiểu khoản thuế mình lo. Chiếc xe bạc vẫn là một dự định; giờ cậu không phải đoán một mình.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9942,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.623,
+  "sampleRate": 48000,
+  "peak": 0.797086,
+  "rms": 0.124863,
+  "transcriptionCheck": {
+    "audioSha256": "9e7fbdcc154e8b29a30b80e3d1a2d95253f531ca13be4750c7201b8aea855c57",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoàn kết thư cấu, bảo giữ hợp đồng lịch và tin nhắn, cậu mang chung tới một cuộc hẹn, kể rõ ai quyết định công việc và bắt đầu tìm hiểu khoảng thuế mình lo. Chiếc xe bạc vẫn là một dự định, giờ cậu không phải đoán một mình.",
+    "expectedWordCoverage": 0.96,
+    "matchedWordPrecision": 0.96,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

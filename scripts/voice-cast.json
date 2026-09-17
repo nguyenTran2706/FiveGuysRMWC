@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "models": {
+    "vieneu": {"repo": "pnnbao-ump/VieNeu-TTS-v3-Turbo", "revision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2", "path": ".tools/voice-models/vieneu"},
+    "moss": {"repo": "OpenMOSS-Team/MOSS-Audio-Tokenizer-Nano", "revision": "6aa02b01e445cc585582cf0ba480bc3ea6c8dd68", "path": ".tools/voice-models/moss"},
+    "design": {"repo": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign", "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3", "path": ".tools/voice-models/qwen-design"},
+    "english": {"repo": "Qwen/Qwen3-TTS-12Hz-0.6B-Base", "revision": "5d83992436eae1d760afd27aff78a71d676296fc", "path": ".tools/voice-models/qwen-base"}
+  },
+  "characters": {
+    "linh": {
+      "name": "Linh", "viVoice": "Thục Đoan", "enEngine": "vieneu", "seed": 2601, "pace": 0.99,
+      "delivery": "Warm Southern Vietnamese woman, 26. Tired but observant; a soft, personal tone. Do not dramatise fear. Leave room around money and references to her mother."
+    },
+    "bao": {
+      "name": "Bảo", "viVoice": "Adam", "enEngine": "qwen", "seed": 2302, "pace": 1.025,
+      "delivery": "Young adult man, 23. Relaxed, lightly humorous, then thoughtful around the tax letters. Clear and conversational, never an advertisement.",
+      "design": "A 23-year-old man speaking English with a clearly Australian accent from Sydney. Natural Australian vowel sounds and non-rhotic pronunciation, not American or British. Youthful mid-low register, a light smile and gentle dry humour. An ordinary close conversation after a long delivery shift, with relaxed rhythm and small breaths. Warm, clear, unforced, not a radio announcer, not an exaggerated broad accent. Clean dry studio audio with no background sound.",
+      "referenceText": "Stay under the awning; it drips right where you are standing. I have just got home from the last delivery. The food stayed dry, but I did not. At least there is time for a cup of tea now."
+    },
+    "hanh": {
+      "name": "Cô Hạnh", "viVoice": "Ngọc Trân", "enEngine": "vieneu", "seed": 5403, "pace": 0.96,
+      "delivery": "Central Vietnamese woman, 54. Welcoming, measured and practically minded. Gentle mature warmth, never frail or helpless; concern for her daughter is contained."
+    },
+    "tram": {
+      "name": "Trâm", "viVoice": "Mỹ Duyên", "enEngine": "qwen", "seed": 2004, "pace": 0.99,
+      "delivery": "Young adult woman, 20. Quiet and attentive, clear when setting boundaries. A little brightness around photography. No threatening impressions or distressed performance.",
+      "design": "A 20-year-old adult woman speaking English with a natural General American accent. Soft clear mid-to-high voice, youthful but not childlike. Quiet, observant, slightly reserved, with a gentle thoughtful warmth and small natural breaths. Rhotic American pronunciation, conversational cadence, not a presenter or a dramatic actress. She is calmly telling one nearby listener a personal story. Clean dry studio audio, no music or background noise.",
+      "referenceText": "I used to take photographs on the way home. Nothing special, just the light in the windows and people waiting for a bus. I would like to start doing that again. We can talk here for a little while."
+    },
+    "duc": {
+      "name": "Đức", "viVoice": "Xuân Vĩnh", "enEngine": "vieneu", "seed": 4105, "pace": 0.98,
+      "delivery": "Northern Vietnamese man, 41. Measured mid-low voice, thoughtful and slightly distracted by the bicycle. Unease is in the pauses, not forced sadness; the bell returns some warmth."
+    },
+    "khoa": {
+      "name": "Khoa", "viVoice": "Quang Sơn", "enEngine": "qwen", "seed": 3306, "pace": 0.98,
+      "delivery": "Adult man, 33. Grounded, thoughtful, with a dry smile about the lemon tree. A lower and more measured register than Bảo; maintain dignity when describing unfair treatment.",
+      "design": "A 33-year-old man speaking English with a natural Australian accent from New South Wales. Distinctly Australian vowels and non-rhotic pronunciation. A mellow lower baritone, slightly textured, steady and thoughtful. More mature and unhurried than a young delivery rider. Quiet dry humour, modest warmth, natural breaths. An intimate ordinary conversation, not a newsreader, not theatrical or exaggerated. Clean dry studio recording with no background noise.",
+      "referenceText": "The lemon tree has finally started growing again. I thought I had lost it over the winter, but there are new leaves now. Come in out of the rain. There is no hurry; I can tell you what happened."
+    },
+    "mai": {
+      "name": "Mai", "viVoice": "Ngọc Huyền", "enEngine": "qwen", "seed": 2907, "pace": 0.97,
+      "delivery": "Adult woman, 29. Private and focused, a lower and more settled voice than Trâm. Small hesitations near the phone; firmer when setting her own limits. No sobbing or horror tone.",
+      "design": "A 29-year-old woman speaking English with a natural General American accent. A warm low-mid female register, a little husky, intimate and composed. Clearly an adult, more settled and lower voiced than a twenty-year-old. Rhotic American pronunciation. Private, reflective and gently cautious, with occasional small breaths and pauses. She speaks naturally to one trusted listener, never a broadcast announcer or dramatic performance. Clean dry studio audio without background noise.",
+      "referenceText": "I am fixing this dress for my niece. The stitching keeps wandering because the machine is so old. Her birthday is next month, and I promised her a real pocket. She likes collecting little stones."
+    }
+  }
+}

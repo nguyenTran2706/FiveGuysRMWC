@@ -1,0 +1,34 @@
+{
+  "textSha256": "344a7c71157525c72fa55d06414dc6b6abced6d4a7482363329a430124613c41",
+  "audioSha256": "f09b74685cfbf720f82132dbf82f4a05ee3356329ddc078e9ab9dff5443be4ac",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 11072547,
+  "spokenText": "Đoạn kết hư cấu: Đức ghi lại ngày bị mất ca và mang lịch, tin nhắn tới một cuộc hỏi thông tin sớm. Anh chưa có câu trả lời cuối cùng, nhưng câu chuyện có mốc thời gian rõ hơn. Không có kết quả pháp lý nào được bảo đảm.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.335,
+  "sampleRate": 48000,
+  "peak": 0.799508,
+  "rms": 0.119384,
+  "transcriptionCheck": {
+    "audioSha256": "f09b74685cfbf720f82132dbf82f4a05ee3356329ddc078e9ab9dff5443be4ac",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoạn kết thư cầu, Đức ghi lại ngày bị mất ca và mang lịch, tin nhắn tới mức cuộc họa thông ty sớm. Anh chưa có câu trả lời cuối cùng, nhưng câu chuyện có mốc thời gian rõ hơn. Không có kết quả pháp ghi nào được bảo đảm.",
+    "expectedWordCoverage": 0.9,
+    "matchedWordPrecision": 0.9,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

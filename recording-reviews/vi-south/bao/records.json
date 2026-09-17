@@ -1,0 +1,34 @@
+{
+  "textSha256": "2ea4fc08d7597a2433ddf852124dc27faef22f57aabd3eb8b4d615dde630ae88",
+  "audioSha256": "4c8d083777524177b5881339b249ee8a62b390a8b4afb139d00d02806c86f53d",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 9281015,
+  "spokenText": "Hợp đồng em tải được, còn lịch và tiền bị trừ thì mỗi chỗ một ít. Mấy tin nhắn cũ cứ trôi mất giữa cả trăm đơn hàng. Em nhìn vào thấy rối, không biết bắt đầu từ đâu.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.517,
+  "sampleRate": 48000,
+  "peak": 0.801291,
+  "rms": 0.129651,
+  "transcriptionCheck": {
+    "audioSha256": "4c8d083777524177b5881339b249ee8a62b390a8b4afb139d00d02806c86f53d",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Hợp đồng em tải được, còn lịch và tiền bị trừ thì mỗi chỗ mục ích. Mấy tin nhắn cũ cứ trôi mất giữa cả trăm đơn hàng. Em nhìn vào thế rối không biết bắt đầu từ đâu.",
+    "expectedWordCoverage": 0.923,
+    "matchedWordPrecision": 0.923,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

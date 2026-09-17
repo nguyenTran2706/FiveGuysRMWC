@@ -1,0 +1,34 @@
+{
+  "textSha256": "406c2de65b42fa7db886bcf424f08b996c97354a6f14f09858d4ee3a015cfd29",
+  "audioSha256": "bb12570a24ec476577b55e33bef7a4b70eb90b6078a10dcbc895a70a32f89d15",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 553367,
+  "spokenText": "But that’s not actually the part I’m worried about. She looks toward the salon door. He isn’t difficult all the time. He gives us red envelopes at Tết.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.191,
+  "sampleRate": 48000,
+  "peak": 0.799998,
+  "rms": 0.121425,
+  "transcriptionCheck": {
+    "audioSha256": "bb12570a24ec476577b55e33bef7a4b70eb90b6078a10dcbc895a70a32f89d15",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "But that's not actually the part I'm worried about. She looks toward the salon door. He isn't difficult all the time. He gives her straight envelopes at that.",
+    "expectedWordCoverage": 0.903,
+    "matchedWordPrecision": 0.903,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

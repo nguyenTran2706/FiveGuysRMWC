@@ -1,0 +1,34 @@
+{
+  "textSha256": "33079693f006854abb6b61644368921677ae7f70582e42b6ac0ec71ea91c4c18",
+  "audioSha256": "b8949f7937020c3df718e9c8ea87e3313939c56a942656fdb3cedf63e2400051",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 15740920,
+  "spokenText": "Anh về tập nói cái câu bàn giao cả chục lần, rồi thấy mình kỳ. Anh có thường trú rồi, nhưng không phải vì vậy mà muốn bỏ những người mình chăm. Quản lý cũng có hôm rất tử tế, cho đổi ca khi vợ anh ốm; thành ra anh chẳng biết mở đầu câu hỏi đó thế nào.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 17.13,
+  "sampleRate": 48000,
+  "peak": 0.79819,
+  "rms": 0.111472,
+  "transcriptionCheck": {
+    "audioSha256": "b8949f7937020c3df718e9c8ea87e3313939c56a942656fdb3cedf63e2400051",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Anh về tập nõi cái cố bang giáo cả chục lần, rồi thầy Minh Khi, anh có thương chủ rồi, nhưng không phải vì vậy, mà muộn bỏ những người minh chấm. Quang Ly cũng có hôm rất tư tế, cho đổi ca khi vợ anh ốm, thanh ra anh chẳng biết mở đâu câu hỏi đó thế nào.",
+    "expectedWordCoverage": 0.915,
+    "matchedWordPrecision": 0.915,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

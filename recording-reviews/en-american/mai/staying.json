@@ -1,0 +1,25 @@
+{
+  "textSha256": "4db8ba59a0b169ee2b0350d4d4d0fabd5389e559b0ccf98c4d303015dd9a5c87",
+  "audioSha256": "d6f6a7030eca5a20f95099c0a74b1d0fbf74878d05cab32753cbd72fe6861f6c",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 553673,
+  "spokenText": "Before a shift, a buzzing phone makes my stomach hurt. I’m waiting on paperwork, on a bridging visa, but rent doesn’t wait. Someone at the company helped me find this room too.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.694,
+  "sampleRate": 48000,
+  "peak": 0.725708,
+  "rms": 0.098556
+}

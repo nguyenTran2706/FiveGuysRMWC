@@ -1,5 +1,7 @@
 # Human voices and responsive rain — production handoff
 
+> Update: the user has now authorised local AI voice generation. The current synthetic package, actual file inventory, playback library and honest verification status are documented in [local voices](local-voices.md). The guide below is retained for a future human-recorded replacement; its original “not yet recorded” description concerns human performances, not the generated MP3 inventory.
+
 ## What is ready, and what is not
 
 The application uses locally hosted recordings, not browser speech synthesis or a voice-generation service. The complete [performer packets](recording-scripts/README.md) contain every existing character scene and both endings in both languages. Until actors record and review those files, the app displays a missing-recording notice and continues normally. Scripts and engineering cannot manufacture authentic human voices.

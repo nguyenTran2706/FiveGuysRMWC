@@ -1,0 +1,34 @@
+{
+  "textSha256": "3f56c8c6b885a0ce0fbcd0d871337cf4f8dab294c79a3fd59fabf45a6167fd71",
+  "audioSha256": "fbba9d777136448fc19a0b3f47c251a168e1dc09d4d979c19d37fee246e94bd2",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 1397197,
+  "spokenText": "Chị mở ngăn kéo. Một chai sơn đỏ nhỏ, để riêng một góc. Mẹ chị thích màu đỏ. Chị cười. Lần nào chị gửi ảnh móng mới, mẹ cũng bảo dài thế làm sao vo gạo. \n\n Chai này chị mua cho mẹ. Không phải đồ của tiệm.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.89,
+  "sampleRate": 48000,
+  "peak": 0.687434,
+  "rms": 0.114189,
+  "transcriptionCheck": {
+    "audioSha256": "fbba9d777136448fc19a0b3f47c251a168e1dc09d4d979c19d37fee246e94bd2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đi mỡn nhan kéo. Một trai sơn đỏ nhỏ để riêng một gốc. Mẹ chị thích màu đỏ. Chị cười, lần nào chị gửi anh món mới. Mẹ cũng bảo dài thế làm sao vô gạo. Cái này chị mua cho mẹ. Không phải đồ của tiệm.",
+    "expectedWordCoverage": 0.872,
+    "matchedWordPrecision": 0.872,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

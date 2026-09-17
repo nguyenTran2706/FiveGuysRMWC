@@ -1,0 +1,34 @@
+{
+  "textSha256": "ac4da871ae93cef0533e8a5d53aced3c18298f8d39b58eeb59396f7cb258fe6f",
+  "audioSha256": "84b44d4473a9cd0034fa22e9b2caed14b673e23fd4f9343dea25d420ebde2656",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 8894401,
+  "spokenText": "Ngày đầu họ bảo mở ây bi en rồi mới nhận việc, làm nhanh lắm. Em tưởng giấy đó giống số hồ sơ nhân viên. Đến lúc họ bảo em tự lo thuế với bảo hiểm, em mới thấy có nhiều thứ mình chưa hiểu.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.657,
+  "sampleRate": 48000,
+  "peak": 0.784981,
+  "rms": 0.121845,
+  "transcriptionCheck": {
+    "audioSha256": "84b44d4473a9cd0034fa22e9b2caed14b673e23fd4f9343dea25d420ebde2656",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ngày đầu họ bảo mỡ IBM rồi mới nhận việc làm nhanh lắm. Em tưởng giấy đó giống số hồi sơ nhân viên. Đến lúc họ bảo em tự lo thuê với bảo hiểm, em mới thấy có nhiều thứ mình chưa hiểu.",
+    "expectedWordCoverage": 0.911,
+    "matchedWordPrecision": 0.953,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

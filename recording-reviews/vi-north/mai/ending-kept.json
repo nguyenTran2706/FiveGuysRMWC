@@ -1,0 +1,34 @@
+{
+  "textSha256": "a7a3885d2aa246ec46eec9b40dbf6a5e6960307eeb3ffb23c2b3d36a6f5b940c",
+  "audioSha256": "741076ff631af6c1f97a7c2d0a6939b92cab2e0ee55c1be774df75b04c0750c8",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Huyền",
+  "seed": 11071349,
+  "spokenText": "Đoạn kết hư cấu: Mai giữ lại những tin còn có và ghi chú trên thiết bị riêng. Cô chọn cách liên lạc an toàn trước khi chia sẻ câu chuyện. Chiếc váy được gửi đi đúng sinh nhật; bước tiếp theo vẫn do cô quyết định.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9409,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.865,
+  "sampleRate": 48000,
+  "peak": 0.688001,
+  "rms": 0.122246,
+  "transcriptionCheck": {
+    "audioSha256": "741076ff631af6c1f97a7c2d0a6939b92cab2e0ee55c1be774df75b04c0750c8",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoàn kết thư cấu, mai giữ lại những tin còn có và ghi chú trên thiết bị riêng. Cô chọn cách liên lạc an toàn trước khi chia sẻ câu chuyện. Chứ phải được gửi đi đúng sinh nhật, đốc tiếp theo vẫn do cố quyết định.",
+    "expectedWordCoverage": 0.915,
+    "matchedWordPrecision": 0.915,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

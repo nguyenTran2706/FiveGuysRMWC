@@ -1,0 +1,34 @@
+{
+  "textSha256": "be8e6330557a1befd88885c6bc527e5275165fb95e571fac7484efa848ff54dd",
+  "audioSha256": "1870d76adde707531de8521d154851f3148072db8c1f8b147850f2c91f31c626",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 2065726,
+  "spokenText": "The tea has cooled; hold it carefully. I’m going to warm some congee for my daughter. Just warm it, no big pots. Tomorrow I might trim the basil. Maybe that will persuade it to grow some leaves.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.089,
+  "sampleRate": 48000,
+  "peak": 0.73129,
+  "rms": 0.128794,
+  "transcriptionCheck": {
+    "audioSha256": "1870d76adde707531de8521d154851f3148072db8c1f8b147850f2c91f31c626",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Thirty has cooled, hold it carefully. I'm going to warm some congee for my daughter. Just warm it, no big pot. Tomorrow I might trim the basil. Maybe that will persuade it to grow some leaves.",
+    "expectedWordCoverage": 0.921,
+    "matchedWordPrecision": 0.946,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

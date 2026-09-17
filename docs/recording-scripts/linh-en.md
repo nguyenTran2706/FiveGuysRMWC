@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/en-vietnamese/linh/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `607ff679e3cbde72e8c2b008931a7e1173aa960b93ab03be28a578f9fedfc707`
@@ -37,7 +37,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## mother
 
 - File: `public/audio/dialogue/en-vietnamese/linh/mother.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Take your time. Finish what you need to.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `1d4dc107f07f88fdf0f14f6f6901c5047b5a9770ae676bbe2a97a5f257726028`
@@ -55,7 +55,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## guarded
 
 - File: `public/audio/dialogue/en-vietnamese/linh/guarded.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Why haven’t you gone home by now?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `4efbbe18d0fc9dacce9e76047ef284b0a66f32d70519601dff57df7187bb5478`
@@ -74,7 +74,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## hours
 
 - File: `public/audio/dialogue/en-vietnamese/linh/hours.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “What time did you start today?”; mother: Continue; guarded: listener chooses “Sorry. I have time to listen.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `8deccb3cc91380f92c79b796fed8847e3633c9ec74dde082ddfc2f416f6d63d4`
@@ -94,7 +94,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## envelope
 
 - File: `public/audio/dialogue/en-vietnamese/linh/envelope.mp3`
-- Type: artifact; status: pending-recording
+- Type: artifact; status: ready
 - Lead-in (do not read): hours: listener chooses “Is there a slip in the envelope?”
 - Direction (do not read): Read the visible description and quoted document clearly; no legal-adviser delivery. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `b52e7545d42b07aee0ddd635b8625983799c7ac22f5e7ab619f968bf1a639054`
@@ -112,7 +112,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## deductions
 
 - File: `public/audio/dialogue/en-vietnamese/linh/deductions.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): envelope: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `919676b2336c49c4c957f511ffd2f1b695d323651e12a352f64e605b13018472`
@@ -130,7 +130,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/en-vietnamese/linh/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hours: listener chooses “What makes it hard to leave?”; deductions: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `406c2de65b42fa7db886bcf424f08b996c97354a6f14f09858d4ee3a015cfd29`
@@ -150,7 +150,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## visa
 
 - File: `public/audio/dialogue/en-vietnamese/linh/visa.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: listener chooses “You can be grateful and still feel something is wrong.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `645fac48b7f8da803cafb2ff6c94274c6ceb5ef54684e605f5893535b9dbf31c`
@@ -169,7 +169,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## colour
 
 - File: `public/audio/dialogue/en-vietnamese/linh/colour.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): visa: listener chooses “We can talk about something else for a moment.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `c80a5401af3758670882f62aa054357ef55ba4f2a63a54b30852cafe59beb4b5`
@@ -187,7 +187,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## roster
 
 - File: `public/audio/dialogue/en-vietnamese/linh/roster.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: listener chooses “Do you still have your rosters?”; visa: listener chooses “You don’t have to decide anything tonight.”; colour: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `9cc9ebadef95c51522d872fbaa0d08b6a12a9d3e1ac0abf7327429248f4418ff`
@@ -207,7 +207,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/en-vietnamese/linh/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “If it feels safe, keep a separate copy of the old rosters.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `352e317eba2e54543bdd3d10328689b362d083fd264815ae4c07a83af2f51dc5`
@@ -225,7 +225,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## unkept
 
 - File: `public/audio/dialogue/en-vietnamese/linh/unkept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “That is your choice. I’m still here.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `86f44bf620453b0ffdc11b26eab0bf4c814ac29449b64c0607557d1c22181f30`
@@ -243,7 +243,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/en-vietnamese/linh/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): kept: Continue; unkept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `59a1e0f9a7541525a641e05fc030b98e0d416716fc4a53bc3422867d23658a48`
@@ -261,7 +261,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/en-vietnamese/linh/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): guarded: listener chooses “I’ll let you rest.”; hours: listener chooses “Just leave, then. It’s simple.”; staying: listener chooses “You have to report him immediately.”; roster: listener chooses “Give me your phone. I’ll send everything for you.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `ce3f764b19f2ea72cd80dc70f6087701c9a4ea9ef35642002d73e1b598a053f9`
@@ -279,7 +279,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/en-vietnamese/linh/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `2dfd8a37f9238ec99230e4a9e0db09ed3af0f647ea2e9424e5b01f8d1b759489`
@@ -297,7 +297,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/en-vietnamese/linh/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `8057c99325b315d972fd7824a507d83dc0e5361e2d8621662e9e558cd4944f8d`

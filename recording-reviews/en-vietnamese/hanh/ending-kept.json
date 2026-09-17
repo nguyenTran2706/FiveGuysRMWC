@@ -1,0 +1,34 @@
+{
+  "textSha256": "78876e9a93cd35b90ab305af119c42c22c27001c4acdb64d058f9adcfaa2978e",
+  "audioSha256": "0c9723e005afcec545510e2acee3ba27b6efd45ec13939c1e56706a98e12d3ea",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 8820388,
+  "spokenText": "Fictional ending: Cô Hạnh sees a doctor, keeps the message and notes the date. She brings what she has to an information appointment, with her daughter if she chooses. They still find an afternoon at the coast during exam season; any further support depends on her circumstances.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9312,
+    "temperature": 0.8
+  },
+  "durationSeconds": 21.699,
+  "sampleRate": 48000,
+  "peak": 0.644223,
+  "rms": 0.118026,
+  "transcriptionCheck": {
+    "audioSha256": "0c9723e005afcec545510e2acee3ba27b6efd45ec13939c1e56706a98e12d3ea",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "fictional ending, Koh Hanh she's a doctor. Keep the message and note the date. She brings what she has to an information appointment with her daughter if she chooses. Take still fine and afternoon at the coast during exam season. Any further support depends on her circumstances.",
+    "expectedWordCoverage": 0.851,
+    "matchedWordPrecision": 0.833,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

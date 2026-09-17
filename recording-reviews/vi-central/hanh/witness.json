@@ -1,0 +1,34 @@
+{
+  "textSha256": "817f45f5a6c6cac96e82c0d8cd0d1afbfc526449782aaf2d47e94a5f63aee40d",
+  "audioSha256": "44a7a0b94f14550a67527e44bb5e81c72137f8f623ac3ac39e2f5a54942a9d78",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 8299502,
+  "spokenText": "Có chị rửa chén thấy, còn một cậu mang rau tới nữa. Cô nhớ hôm đó thứ Tư vì vừa bỏ rác tái chế sáng sớm. Cứ sợ vài tuần nữa người ta hỏi lại, cô lẫn ngày rồi thành ra nói không đúng.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.06,
+  "sampleRate": 48000,
+  "peak": 0.685815,
+  "rms": 0.11625,
+  "transcriptionCheck": {
+    "audioSha256": "44a7a0b94f14550a67527e44bb5e81c72137f8f623ac3ac39e2f5a54942a9d78",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Có, chỉ rửa chán thể, có một câu mang rau tới nửa, cô nhựa hôm đó thứ 4, vì vừa bỏ rạc tại chị sáng sớm. Cử sợ vai tung nửa, người ta hỏi lại, cô lận ngay rơi thanh ra ngòi không đùng.",
+    "expectedWordCoverage": 0.818,
+    "matchedWordPrecision": 0.818,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

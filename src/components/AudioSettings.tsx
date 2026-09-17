@@ -27,5 +27,6 @@ export function AudioSettings(props: Props) {
       <input id={id} type="range" min="0" max="100" step="1" value={Math.round(value * 100)} onChange={event => change(Number(event.target.value) / 100)} />
     </div>)}
     <p className="modal-note">{t.note}</p>
+    <a className="text-link" href="/audio/voice-preview.html" target="_blank" rel="noopener noreferrer">{props.language === 'vi' ? 'Mở thư viện giọng nhân vật' : 'Open character voice library'}</a>
   </div>;
 }

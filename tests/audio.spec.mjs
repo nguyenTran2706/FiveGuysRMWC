@@ -22,6 +22,7 @@ async function instrument(page) {
         const stop = source.stop.bind(source);
         source.start = (...args) => { entry.started = true; return start(...args); };
         source.stop = (...args) => { entry.stopped = true; return stop(...args); };
+        source.addEventListener('ended', () => { entry.stopped = true; });
         return source;
       }
     };
@@ -45,14 +46,64 @@ async function installTransportFixtures(page) {
 }
 const liveVoiceCount = page => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.stopped && !item.source.loop).length);
 
-test('missing human recordings are honest; settings fit mobile and do not use TTS', async ({ page }) => {
+test('the voice library lists all real recordings, filters both languages, and plays an MP3', async ({ page }) => {
+  await page.goto('/audio/voice-preview.html');
+  await expect(page.locator('#summary')).toContainText('170/170 clips available');
+  await expect(page.locator('article')).toHaveCount(170);
+  await page.locator('#character').selectOption('khoa');
+  await page.locator('#language').selectOption('en');
+  await expect(page.locator('article')).toHaveCount(9);
+  await expect(page.locator('article').first()).toContainText('Australian');
+  const first = page.locator('audio').first();
+  await first.evaluate(audio => audio.play());
+  await expect.poll(() => first.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
+  await page.locator('#stop').click();
+  await expect(first).toHaveJSProperty('paused', true);
+  await page.locator('#language').selectOption('vi');
+  await expect(page.locator('article').first()).toContainText('Central');
+  await mkdir('artifacts', { recursive: true });
+  await page.screenshot({ path: 'artifacts/voice-library-desktop.png' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/voice-library-mobile.png' });
+});
+
+for (const character of ['linh', 'bao', 'hanh', 'tram', 'duc', 'khoa', 'mai']) {
+  test(`${character}: real Vietnamese and English character MP3s automatically play`, async ({ page }) => {
+    await instrument(page);
+    const requests = [];
+    const errors = [];
+    page.on('request', request => { if (request.url().includes('/audio/dialogue/')) requests.push(request.url()); });
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto('/');
+    await page.locator('.title-start').click();
+    await page.locator(`.resident-${character}`).click();
+    await expect.poll(() => liveVoiceCount(page)).toBe(1);
+    expect(requests.some(url => new RegExp(`/vi-[^/]+/${character}/hello\\.mp3`).test(url))).toBe(true);
+    await expect(page.locator('.audio-error')).toHaveCount(0);
+    await page.getByRole('button', { name: 'Switch to English' }).click();
+    await expect.poll(() => liveVoiceCount(page)).toBe(1);
+    await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.source.loop).length)).toBe(2);
+    expect(requests.some(url => new RegExp(`/en-[^/]+/${character}/hello\\.mp3`).test(url))).toBe(true);
+    const duration = await page.evaluate(() => window.__audioTest.sources.findLast(item => item.started && !item.source.loop).source.buffer.duration);
+    expect(duration).toBeGreaterThan(1);
+    expect(duration).toBeLessThan(180);
+    await expect(page.locator('.audio-error')).toHaveCount(0);
+    await page.locator('.game-topbar > button').click();
+    await expect.poll(() => liveVoiceCount(page)).toBe(0);
+    expect(errors).toEqual([]);
+  });
+}
+
+test('missing recordings are honest; settings fit mobile and do not use browser TTS', async ({ page }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await instrument(page);
   await page.goto('/');
+  await page.evaluate(async () => { const { recordings } = await import('/src/data/dialogueAudio.ts'); for (const key of Object.keys(recordings)) delete recordings[key]; });
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await enterLinh(page);
-  await expect(page.locator('.audio-error')).toContainText('no human recording yet');
+  await expect(page.locator('.audio-error')).toContainText('no voice recording yet');
   await expect(page.locator('.choice-button')).toHaveCount(3);
   await page.getByRole('button', { name: 'Experience settings', exact: true }).click();
   await expect(page.getByRole('switch', { name: 'Auto-play dialogue' })).toHaveAttribute('aria-checked', 'true');
@@ -123,7 +174,7 @@ test('all real rain assets decode, layers loop, pause stops them, and choice rea
   await expect(page.locator('.dialogue-text')).toContainText('While there are customers');
   await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && item.source.loop && !item.stopped).length)).toBe(3);
   await page.locator('.player-controls button').first().click();
-  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && !item.stopped).length)).toBe(0);
+  await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && item.source.loop && !item.stopped).length)).toBe(0);
 });
 
 test('failed voice fetch is retryable and does not block story choices', async ({ page }) => {

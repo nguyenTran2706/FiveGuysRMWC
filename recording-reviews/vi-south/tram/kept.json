@@ -1,0 +1,34 @@
+{
+  "textSha256": "cde03bd6644aba1c6c320e4709dec548350da2dc454a45037f3f8573de6b6fff",
+  "audioSha256": "bf8a9bb95f4d24e75d7bd9df49fd3b3fe6edee7e38046a5adf5a51e45effa184",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 7009533,
+  "spokenText": "Em có một chỗ lưu riêng, không dùng máy của tiệm. Để em làm lúc thấy yên tâm. Cảm ơn vì không bắt em mở lại từng tin nhắn ở đây.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.55,
+  "sampleRate": 48000,
+  "peak": 0.591368,
+  "rms": 0.117198,
+  "transcriptionCheck": {
+    "audioSha256": "bf8a9bb95f4d24e75d7bd9df49fd3b3fe6edee7e38046a5adf5a51e45effa184",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em có một chỗ lưu riêng, không dùng máy của tiệm. Để em làm lúc thấy yên tâm. Cảm ơn vì không bắt em mở lại từng tin nhắn ở đây.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

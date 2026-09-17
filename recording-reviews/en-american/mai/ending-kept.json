@@ -1,0 +1,25 @@
+{
+  "textSha256": "0663304c17186f82b0a92e4da6bab8060d5f66c4741e4412db05732eb5829f03",
+  "audioSha256": "87c5e7e71c7bff9fd4004296dd4873c2fcdff86e6730c2b96398bc2967391927",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 8817892,
+  "spokenText": "Fictional ending: Mai saves the remaining messages and notes on her own device. She chooses a safe contact method before sharing her story. The dress arrives for the birthday. What happens next remains her decision.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9409,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.414,
+  "sampleRate": 48000,
+  "peak": 0.799003,
+  "rms": 0.103921
+}

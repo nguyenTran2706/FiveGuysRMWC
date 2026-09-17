@@ -1,0 +1,34 @@
+{
+  "textSha256": "98e8981a583a3eec3aaa47a66e797abbad1c661ab3fade607afd8b82d151e09a",
+  "audioSha256": "4ae8b82ab01c696e0ab8032d20b582b05a862142875c119d586bfc775e3f4021",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-tram",
+  "seed": 9286276,
+  "spokenText": "I don’t want to say any more. I need some quiet. Get home safely.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9652,
+    "temperature": 0.78
+  },
+  "durationSeconds": 3.992,
+  "sampleRate": 48000,
+  "peak": 0.776942,
+  "rms": 0.12041,
+  "transcriptionCheck": {
+    "audioSha256": "4ae8b82ab01c696e0ab8032d20b582b05a862142875c119d586bfc775e3f4021",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I don't want to say anymore. I need some quiet, get home safely.",
+    "expectedWordCoverage": 0.867,
+    "matchedWordPrecision": 0.929,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

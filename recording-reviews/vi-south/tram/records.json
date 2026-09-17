@@ -1,0 +1,34 @@
+{
+  "textSha256": "21a3bda19edbaf05a16a4b56464fad465e80f69dd3dacf4f865ff2aad9847bfa",
+  "audioSha256": "cfc6885ed2b506be36bb3dc5fa7875797642341a19369dc9eda304b7b7c68aff",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 9280717,
+  "spokenText": "Em cứ muốn xóa mấy tin nhắn cho khỏi nhìn thấy. Chị làm cùng có thấy một lần, nhưng em chưa hỏi chị có nhớ không. Em chưa muốn ai gọi vào tiệm, chỉ muốn ngủ một đêm mà không giật mình khi điện thoại sáng.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.212,
+  "sampleRate": 48000,
+  "peak": 0.738337,
+  "rms": 0.125635,
+  "transcriptionCheck": {
+    "audioSha256": "cfc6885ed2b506be36bb3dc5fa7875797642341a19369dc9eda304b7b7c68aff",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em cứ muốn xóa máy tin nhắn cho khỏi nhìn thấy. Chị làm cùng có thấy một lần, nhưng em chưa hỏi chị có nhớ không. Em chưa muốn ai gọi vào tiệm. Chị muốn ngủ một đêm mà không giật mình khi điện thoại sáng.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

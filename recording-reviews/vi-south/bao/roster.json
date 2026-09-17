@@ -1,0 +1,34 @@
+{
+  "textSha256": "ca7e27640835021d4a9bd587478637702ab4f4f37f6d75399537978eaae42a87",
+  "audioSha256": "b81c433f673c04e5e92c8beae3eb93b8565159ed2b23c178517b14fb28c5dd2d",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 4800532,
+  "spokenText": "Công ty giao hàng gửi lịch tối Chủ nhật. Em muốn đổi ca phải xin trước, chạy tuyến nào cũng họ chia. Tuần rồi em từ chối một tối để dự lễ tốt nghiệp của bạn, tuần này mất hai ca.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.116,
+  "sampleRate": 48000,
+  "peak": 0.752365,
+  "rms": 0.12145,
+  "transcriptionCheck": {
+    "audioSha256": "b81c433f673c04e5e92c8beae3eb93b8565159ed2b23c178517b14fb28c5dd2d",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Công ty giao hàng gửi lịch tối chủ nhật. Em muốn đổi ca phải xin trước, chạy tuyến nào cũng họ chia. Tuần rồi em từ chối một tối để dự lễ tốt nghiệp của bạn. Tuần này mất 2 ca.",
+    "expectedWordCoverage": 0.976,
+    "matchedWordPrecision": 0.976,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

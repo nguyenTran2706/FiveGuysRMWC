@@ -1,0 +1,34 @@
+{
+  "textSha256": "dc4c334840363cd10559e4f27aaf3146f7f445af4038242118b87653dba64e45",
+  "audioSha256": "1bb36df4360c34410c67361b351fd03433abc260bd791177b7e44f232dc66f25",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 9286574,
+  "spokenText": "Right. I’ll work it out. There’s an order I need to check. Maybe we’ll talk another time.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9994,
+    "temperature": 0.78
+  },
+  "durationSeconds": 6.099,
+  "sampleRate": 48000,
+  "peak": 0.74616,
+  "rms": 0.112888,
+  "transcriptionCheck": {
+    "audioSha256": "1bb36df4360c34410c67361b351fd03433abc260bd791177b7e44f232dc66f25",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Right? I'll work it out. There's an order I need to check. Maybe we'll talk another time.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

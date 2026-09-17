@@ -1,0 +1,34 @@
+{
+  "textSha256": "799efac09d73f903ab705f6c55298e77e6f01a4c3e8e79a17a721d83fb4610b8",
+  "audioSha256": "1deb5354e6d255f23717cbb959c0edc59c1aba05adfc9fa072a4cecbb72d9591",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 8609232,
+  "spokenText": "Stay under the awning; it drips right where you’re standing. I’ve just got home from the last delivery. The food stayed dry, but I didn’t. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.647,
+  "sampleRate": 48000,
+  "peak": 0.651405,
+  "rms": 0.116832,
+  "transcriptionCheck": {
+    "audioSha256": "1deb5354e6d255f23717cbb959c0edc59c1aba05adfc9fa072a4cecbb72d9591",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Stay under the awning. It drips right where you're standing. I've just got home from the last delivery. The food stayed dry, but I didn't. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

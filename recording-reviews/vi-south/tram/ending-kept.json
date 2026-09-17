@@ -1,0 +1,34 @@
+{
+  "textSha256": "26c31e8c9da03ef01335c5939bba78cb4a15d8e9e50c8710ce326d3fd2ebb77d",
+  "audioSha256": "5a464f4f8cce6f9b4183ec65bb63a8a1f7fb4640c07835bac31c86a66d3c1be2",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 11070446,
+  "spokenText": "Đoạn kết hư cấu: Trâm giữ một bản tin nhắn riêng và chọn nói chuyện với người cô tin. Cô quyết định mình muốn chia sẻ đến đâu. Việc ghi lại không buộc cô phải khiếu nại và không bảo đảm một kết quả.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.895,
+  "sampleRate": 48000,
+  "peak": 0.767342,
+  "rms": 0.115503,
+  "transcriptionCheck": {
+    "audioSha256": "5a464f4f8cce6f9b4183ec65bb63a8a1f7fb4640c07835bac31c86a66d3c1be2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoàn kết hư cấu, chăm dữ một bản tin nhắn riêng và chọn nói chuyện với người cô tin. Cô quyết định mình muốn chia sẻ đến đâu. Việc ghi lại không buộc cô phải khiếu nại và không bảo đảm một kết quả.",
+    "expectedWordCoverage": 0.955,
+    "matchedWordPrecision": 0.955,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

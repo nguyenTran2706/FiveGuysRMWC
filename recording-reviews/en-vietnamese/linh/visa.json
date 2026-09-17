@@ -1,0 +1,34 @@
+{
+  "textSha256": "645fac48b7f8da803cafb2ff6c94274c6ceb5ef54684e605f5893535b9dbf31c",
+  "audioSha256": "5a7c6ad98e51b36f721722b59cf6e3dd571977b7ede5c973f1d0c13ee5028808",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 10561461,
+  "spokenText": "I’m still studying. On a five hundred visa. The phone in her pocket vibrates. She doesn’t take it out. Sometimes he messages asking me to stay longer. \n\n If I ask him about the money... She stops. ...what happens to next week’s shifts?",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.336,
+  "sampleRate": 48000,
+  "peak": 0.795604,
+  "rms": 0.112358,
+  "transcriptionCheck": {
+    "audioSha256": "5a7c6ad98e51b36f721722b59cf6e3dd571977b7ede5c973f1d0c13ee5028808",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I'm still studying on a 500 visa. The phone in her pocket reprace. She doesn't take it out. Sometimes she messages asking me to stay longer. If we ask him about the money, she stops what happens the next week shift.",
+    "expectedWordCoverage": 0.867,
+    "matchedWordPrecision": 0.886,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

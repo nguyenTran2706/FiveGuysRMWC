@@ -1,0 +1,34 @@
+{
+  "textSha256": "cad497aafe49c6051ef1f22fbc9d4e2b66ac3cf6a6f03385a0cc3d77721118b4",
+  "audioSha256": "fe09967881b92c00973a5c889295b285a8595cf3685df854718fb23c20278891",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 10282187,
+  "spokenText": "Tuần trước anh có hỏi cái xe nâng rỉ dầu, không dám chạy tiếp. Quản lý nói để xem, chiều đó vẫn cho anh đi sớm đón con như mọi bữa. Rồi im luôn; anh cứ nhìn điện thoại, nghĩ chắc lịch chưa cập nhật.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.643,
+  "sampleRate": 48000,
+  "peak": 0.803754,
+  "rms": 0.124862,
+  "transcriptionCheck": {
+    "audioSha256": "fe09967881b92c00973a5c889295b285a8595cf3685df854718fb23c20278891",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tuần trước anh có hỏi cái xe nâng gì dầu, không dám chạy tiếp. Quản lý nó để xem. Chỉu đó vẫn cho anh đi sởm đón con như mọi bữa. Rồi yên luôn. Anh cứ nhìn điện thoại. Nghĩ chất lịch chưa cập nhật.",
+    "expectedWordCoverage": 0.889,
+    "matchedWordPrecision": 0.889,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

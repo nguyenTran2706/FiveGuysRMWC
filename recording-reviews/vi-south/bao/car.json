@@ -1,0 +1,34 @@
+{
+  "textSha256": "993f89d3ee6b5059adaaa0a18b1d37028ea08cc8093cce7509a99c799c496573",
+  "audioSha256": "f9fac8f5ec9433c2d9c6e56f055e39cc809be8bc0aa1661a5b6dd83e43ddf32f",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 5136464,
+  "spokenText": "Không, em mua chai khác ở cửa hàng tiện lợi luôn. Em đang để dành mua cái xe cũ, khỏi thuê ba trăm một tuần nữa; chiếc xe đạp này để chạy mấy cuốc gần thôi. Có xe của mình chắc trời mưa sẽ đỡ ghét cái nghề này hơn một chút.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.354,
+  "sampleRate": 48000,
+  "peak": 0.80037,
+  "rms": 0.126877,
+  "transcriptionCheck": {
+    "audioSha256": "f9fac8f5ec9433c2d9c6e56f055e39cc809be8bc0aa1661a5b6dd83e43ddf32f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Không, em mua trai khác ở cửa hàng tiện lợi luôn. Em đang để dành mua cái xe cũ khỏi thuê 301 tuần nữa, chiếc xe đạp này để chạy mấy quốc gần thôi. Cò xe của mình chắc trời mưa sẽ đỡ ghét cái nghề này hơn một chút.",
+    "expectedWordCoverage": 0.904,
+    "matchedWordPrecision": 0.94,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

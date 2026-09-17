@@ -1,0 +1,34 @@
+{
+  "textSha256": "a2a608ad6dc093539c25fdd926f97589eb6849dced4a98e1af2b0138faa3716e",
+  "audioSha256": "40296ba5b5d4cb09701ffa80dd0f26653e505d04a9797202ea977d115782eee4",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 4800831,
+  "spokenText": "Chị mở nhóm chat ra. Lịch nằm trong đây. Anh sửa hoài. Chị cuộn lên. Hôm trước chị nhìn lại... Chị dừng lại. ...ca tối thứ Sáu biến mất rồi. Điện thoại đầy ảnh móng. Chị đang tính xóa mấy cái ảnh chụp màn hình cũ cho nhẹ máy.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.23,
+  "sampleRate": 48000,
+  "peak": 0.750081,
+  "rms": 0.111452,
+  "transcriptionCheck": {
+    "audioSha256": "40296ba5b5d4cb09701ffa80dd0f26653e505d04a9797202ea977d115782eee4",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị mở nhóm chát ra. Lịch ngằm trong đây, anh sửa hoài, chị cuộn lên, không trước chị nhìn lại, chị dừng lại, ca tối thứ sau biến mất rồi, điện thoại để ảnh mống. Chị đang tính xóa mấy cái ảnh chụp mang hình cũ cho nhà máy.",
+    "expectedWordCoverage": 0.898,
+    "matchedWordPrecision": 0.898,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

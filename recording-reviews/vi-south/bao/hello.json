@@ -1,0 +1,34 @@
+{
+  "textSha256": "7ce5b2fecbbb53939db0c74f79e1fd772fb54068afde5f3acac9dbbf7a9c206e",
+  "audioSha256": "2d5473e003e506d81cb0e778676e3fe7ee22526781bd828e15cf0432eb6177db",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 10835512,
+  "spokenText": "Đứng nép vào dưới mái nhé, nước chảy đúng chỗ đó. Em vừa về sau cuốc cuối, đồ ăn thì khô mà người ướt hết. Nhà hàng quên bỏ nước chấm, khách gọi em ba lần như thể em đang giấu nó trong túi.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.612,
+  "sampleRate": 48000,
+  "peak": 0.744156,
+  "rms": 0.127405,
+  "transcriptionCheck": {
+    "audioSha256": "2d5473e003e506d81cb0e778676e3fe7ee22526781bd828e15cf0432eb6177db",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đứng nếp vào dưới máy nhé. Nước chảy đúng chỗ đó, em vừa về sau quốc cuối, đồ ăn thị khô mà người ước hết. Nhà hàng quên bỏ nước chấm, khách gọi em 3 lần như thế em đang dấu nó trong tuổi.",
+    "expectedWordCoverage": 0.864,
+    "matchedWordPrecision": 0.864,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

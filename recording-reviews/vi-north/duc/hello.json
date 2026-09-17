@@ -1,0 +1,34 @@
+{
+  "textSha256": "6dc8632927799ce55199749901f5c34c0942bbcd03caeb61d3d0f2b62b9987f4",
+  "audioSha256": "f3f937fb950d0d92c0540f5fb7aab1c0fc91d3079bdf91a807c655d099b9e083",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 10837315,
+  "spokenText": "Nãy anh chưa muốn mở, không phải tại em. Anh đang sửa cái xe đạp nhỏ, sinh nhật thằng bé tuần sau; nó chỉ thích cái chuông, đạp thì vẫn cần bố giữ. Em có nói chuyện với mấy người ngoài kia rồi hả?",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.252,
+  "sampleRate": 48000,
+  "peak": 0.810921,
+  "rms": 0.124347,
+  "transcriptionCheck": {
+    "audioSha256": "f3f937fb950d0d92c0540f5fb7aab1c0fc91d3079bdf91a807c655d099b9e083",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Nãy em chưa muốn mở, không phải tại em, anh đang sửa cái xe đắp nhỏ. Sinh nhật thằng bé tuần sau, nó chỉ thích cái chuông, là ạ, thì vẫn cần bố giữ. Em còn nói chuyện với mấy người ngoài kia rồi à?",
+    "expectedWordCoverage": 0.909,
+    "matchedWordPrecision": 0.889,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

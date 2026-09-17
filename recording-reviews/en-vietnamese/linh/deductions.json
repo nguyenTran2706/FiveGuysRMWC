@@ -1,0 +1,34 @@
+{
+  "textSha256": "919676b2336c49c4c957f511ffd2f1b695d323651e12a352f64e605b13018472",
+  "audioSha256": "a56c8d20a77cf290075015ffb053655732c52a10838cf845d72f382380fc2916",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 2765027,
+  "spokenText": "She folds the notes back into the envelope and puts it away. Some weeks, if I spoil a colour, the bottle comes out of my pay. \n\n Last week I asked whether Sunday was different.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.838,
+  "sampleRate": 48000,
+  "peak": 0.800709,
+  "rms": 0.120452,
+  "transcriptionCheck": {
+    "audioSha256": "a56c8d20a77cf290075015ffb053655732c52a10838cf845d72f382380fc2916",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She fold the nut back into the envelope and push it away. Some weeks, if I spoil a color, the bottle comes out of my pay. Last week, he asked whether Sunday was different.",
+    "expectedWordCoverage": 0.853,
+    "matchedWordPrecision": 0.853,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

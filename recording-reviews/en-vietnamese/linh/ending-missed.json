@@ -1,0 +1,34 @@
+{
+  "textSha256": "8057c99325b315d972fd7824a507d83dc0e5361e2d8621662e9e558cd4944f8d",
+  "audioSha256": "26358737038dad53c9489d36e6168bdd74102d4ec792609ea4cc1e1a114edae2",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 15759901,
+  "spokenText": "Fictional ending: The chat roster is overwritten and the old images are gone. Linh leaves without recovering her pay; reconstructing the hours becomes harder. Missing records do not mean you cannot seek support in real life.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.84,
+  "sampleRate": 48000,
+  "peak": 0.775407,
+  "rms": 0.116897,
+  "transcriptionCheck": {
+    "audioSha256": "26358737038dad53c9489d36e6168bdd74102d4ec792609ea4cc1e1a114edae2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "fictional ending, the Jack Truster is overwritten and the old images are gone. Lin leaves without recovering her pay, reconstructing the hours becomes harder. Missing Krakos don't not mean you cannot seek support in real life.",
+    "expectedWordCoverage": 0.861,
+    "matchedWordPrecision": 0.838,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

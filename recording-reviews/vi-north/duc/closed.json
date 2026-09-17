@@ -1,0 +1,34 @@
+{
+  "textSha256": "011ead8f3c9170746855d43dd0b83e22fc401ce6739160879064d98382c901a7",
+  "audioSha256": "5fc41ab84f5851e4e41e5a55291de8cf385e30fa1ff4a27f1bb95684fc2182fa",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 5174829,
+  "spokenText": "Anh biết rồi. Anh còn cái xe đang tháo dở. Để anh làm nốt nhé.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9555,
+    "temperature": 0.78
+  },
+  "durationSeconds": 4.024,
+  "sampleRate": 48000,
+  "peak": 0.804368,
+  "rms": 0.145503,
+  "transcriptionCheck": {
+    "audioSha256": "5fc41ab84f5851e4e41e5a55291de8cf385e30fa1ff4a27f1bb95684fc2182fa",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Anh biết rồi, anh còn cái xe đang tháo dở để anh làm nốt nhé.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

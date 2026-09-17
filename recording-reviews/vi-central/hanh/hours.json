@@ -1,0 +1,34 @@
+{
+  "textSha256": "bb68b98121bbf3081e758a368155be431a62489d05f473a348c2eeaa89818354",
+  "audioSha256": "bed7bbbfd11c2a5c716251eb3f8e808a1b87f3bf22a94bf1a69aaa4c44cc23c8",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 11527698,
+  "spokenText": "Anh nói ít khách nên bớt ca. Cô không biết có phải vì tay mình không, chỉ thấy tiền tuần sau chắc thiếu. Tiền sách ôn thi của con đã đóng rồi, còn hóa đơn điện cô để dưới cái chậu kia, chưa mở.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.243,
+  "sampleRate": 48000,
+  "peak": 0.647106,
+  "rms": 0.124644,
+  "transcriptionCheck": {
+    "audioSha256": "bed7bbbfd11c2a5c716251eb3f8e808a1b87f3bf22a94bf1a69aaa4c44cc23c8",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Anh nói ít khắp nên bở ca. Cô không biết có phải vi tay minh không, thì thầy tiên tuân 6 chắc hiểu. Tiên sách ôn thi của con đã động rồi, con hỏa đơn biên cố để dùi cái châu kia. Chưa mở.",
+    "expectedWordCoverage": 0.841,
+    "matchedWordPrecision": 0.841,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

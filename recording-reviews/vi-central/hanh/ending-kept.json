@@ -1,0 +1,34 @@
+{
+  "textSha256": "398df93bddb61819780fdf6d88afe866e02a81cd6fdc52aa697034e008eb5f08",
+  "audioSha256": "7879689d0b3abc154ad0b02dc7995a9a224dc03da573db7a892a0df380768ecc",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 11073845,
+  "spokenText": "Đoạn kết hư cấu: Cô Hạnh đi khám, giữ tin nhắn và ghi lại ngày xảy ra sự việc. Cô mang những gì có tới buổi hỏi thông tin, cùng con gái nếu cô muốn. Mùa thi đến, hai mẹ con vẫn dành một chiều đi biển; việc hỗ trợ tiếp theo tùy tình huống.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9312,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.861,
+  "sampleRate": 48000,
+  "peak": 0.696063,
+  "rms": 0.118496,
+  "transcriptionCheck": {
+    "audioSha256": "7879689d0b3abc154ad0b02dc7995a9a224dc03da573db7a892a0df380768ecc",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Loan kể thứ cậu có hành đi khảm, dự tính nhặn và gí lai ngay xe rát sự việc, cố mang những gì có từ buổi hỏi thông tin, cùng có gãi níu cố muốn. Mua thi đến, hai mẹ con vẫn dành một kêu đi biển, việc hổ trờ tiếp theo tuy tinh huộn.",
+    "expectedWordCoverage": 0.764,
+    "matchedWordPrecision": 0.764,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

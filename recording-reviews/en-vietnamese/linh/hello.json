@@ -1,0 +1,34 @@
+{
+  "textSha256": "607ff679e3cbde72e8c2b008931a7e1173aa960b93ab03be28a578f9fedfc707",
+  "audioSha256": "314324aee6f001cc4c17b5c052db89d9921f0804ad90702130b7d5fe8af2e683",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 8609531,
+  "spokenText": "The rain has almost emptied the street. Half the salon sign is still flickering above the window. Give me a second. She lifts the window before it will slide.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.261,
+  "sampleRate": 48000,
+  "peak": 0.811549,
+  "rms": 0.116395,
+  "transcriptionCheck": {
+    "audioSha256": "314324aee6f001cc4c17b5c052db89d9921f0804ad90702130b7d5fe8af2e683",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "The ranch has almost emptied the street. Half the salon sign is still flickering above the window. Give me a second. She lifts the window before it will slide.",
+    "expectedWordCoverage": 0.966,
+    "matchedWordPrecision": 0.966,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

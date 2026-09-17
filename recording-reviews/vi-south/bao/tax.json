@@ -1,0 +1,34 @@
+{
+  "textSha256": "f26a02016d39294baac87cc891d05b6fffa8c93d683f116052d40430ab445717",
+  "audioSha256": "008e9d3b7183b911cc5a2a5924a42b07be2f4ae4ab83c5cd634b656d0038d3e6",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 9694518,
+  "spokenText": "Em ra trường rồi, visa bốn tám năm. Mẹ nghĩ tốt nghiệp là ổn định rồi, còn em chưa mở mấy lá thư thuế. Em sợ mình nợ một khoản không trả nổi, nên cứ nghĩ chạy thêm vài tuần rồi tính.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.833,
+  "sampleRate": 48000,
+  "peak": 0.801187,
+  "rms": 0.121475,
+  "transcriptionCheck": {
+    "audioSha256": "008e9d3b7183b911cc5a2a5924a42b07be2f4ae4ab83c5cd634b656d0038d3e6",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em ra trường rồi, vì ra 4-8 năm, mẹ nghĩ tốt nghiệp là ổng định rồi, còn em chưa mở mấy lá thư thuế. Em sợ mình ở một khoảng không trả nổi, nên cứ nghĩ chạy thêm vài tuần rồi tính.",
+    "expectedWordCoverage": 0.857,
+    "matchedWordPrecision": 0.837,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

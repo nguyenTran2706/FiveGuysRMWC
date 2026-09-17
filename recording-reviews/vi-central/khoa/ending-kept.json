@@ -1,0 +1,34 @@
+{
+  "textSha256": "d2c62740bee6898fcce020357c74f22eb9dd782e377c2d47068d30f6c1baa2cc",
+  "audioSha256": "9fa35435acc6cfc19eedd56471e309ea5b2f99c7928bd226e86b2df1c940ccb5",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 11071748,
+  "spokenText": "Đoạn kết hư cấu: Khoa giữ email và ghi lại cuộc nói chuyện. Anh chọn một cuộc hẹn để hỏi về cách mình bị đối xử, rồi vẫn đi tập hát tối Chủ nhật. Việc lưu thông tin giúp anh kể rõ hơn; không quyết định kết quả.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.734,
+  "sampleRate": 48000,
+  "peak": 0.801717,
+  "rms": 0.109474,
+  "transcriptionCheck": {
+    "audioSha256": "9fa35435acc6cfc19eedd56471e309ea5b2f99c7928bd226e86b2df1c940ccb5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "đoàn kể thứ cậu, khóa dự e-mail và gí lai cuộc mỏ chuyên. Anh tròn một cuộc hèn để hỏi về cách minh bị đổi sư, rồi vẫn đi tập hạ tội chủ nhật, việc lũ thống tim giúp anh kể rõ hơn, không quyết định kết quả.",
+    "expectedWordCoverage": 0.771,
+    "matchedWordPrecision": 0.755,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

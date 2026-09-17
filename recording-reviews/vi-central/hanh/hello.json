@@ -1,0 +1,34 @@
+{
+  "textSha256": "ca55a580aeeb7ec0173d23e58b50cc8bf4b49467110f48df8ee3e9673d72f1c4",
+  "audioSha256": "c2c70f16fdbd7a5bb6cee3685a5095807df94ce3a79fefc818b80ca7d4c026b3",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 10838613,
+  "spokenText": "Con đứng đó coi chừng cái chậu, nó mẻ góc rồi. Cô trồng húng quế mà mưa hoài, cây cao ngồng, chẳng được mấy lá. Uống trà không? Cô vừa pha, để nguội chút mới cầm được.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.67,
+  "sampleRate": 48000,
+  "peak": 0.68956,
+  "rms": 0.122042,
+  "transcriptionCheck": {
+    "audioSha256": "c2c70f16fdbd7a5bb6cee3685a5095807df94ce3a79fefc818b80ca7d4c026b3",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Con lần đó có chưng cây châu, nó mè góc rồi, cô trong hùng quệ mơ mưa hoai, cái cáo ngông, chẳng được mày lạ. Quân trao, không cô vừa phá, để ngùi trục mày câm được.",
+    "expectedWordCoverage": 0.73,
+    "matchedWordPrecision": 0.73,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

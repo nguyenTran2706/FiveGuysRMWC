@@ -2,7 +2,7 @@ import type { Language, Resident } from '../types';
 import { assignedVoice } from './characterVoices';
 import catalog from './dialogueAudio.generated.json';
 
-type Recording = { src: string; text: string; sha256: string };
+type Recording = { src: string; text: string; sha256: string; production?: string; listeningApproval?: string };
 export const recordings: Record<string, Recording> = catalog.recordings;
 
 export function recordingKey(character: string, cue: string, language: Language): string {

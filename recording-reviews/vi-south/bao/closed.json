@@ -1,0 +1,34 @@
+{
+  "textSha256": "0705ab96fc7344b974e5c348e07c3d2d3870413576e316cc16d701aa5e8e5cc7",
+  "audioSha256": "7273108da752148fe4b8986ffe90749465bdaef39b1ce0377c0250b76e126cc2",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Adam",
+  "seed": 5073023,
+  "spokenText": "Ừ, chắc em tự tính được. Em còn một đơn phải xem lại. Để bữa khác nói chuyện nhé.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9994,
+    "temperature": 0.78
+  },
+  "durationSeconds": 4.442,
+  "sampleRate": 48000,
+  "peak": 0.776901,
+  "rms": 0.122288,
+  "transcriptionCheck": {
+    "audioSha256": "7273108da752148fe4b8986ffe90749465bdaef39b1ce0377c0250b76e126cc2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Người chắc em tử tính được, em còn một đơn phải xem lại để bữa khác nói chuyện nha.",
+    "expectedWordCoverage": 0.895,
+    "matchedWordPrecision": 0.895,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

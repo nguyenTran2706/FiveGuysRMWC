@@ -1,0 +1,34 @@
+{
+  "textSha256": "8f0c70d95a154a7b83e88944402f395d08099e4103e0ecd3781de368895bcc61",
+  "audioSha256": "62dd704e736b2504cb6052dacfb893c4be20231d5562be225f79d9da356d6102",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 554072,
+  "spokenText": "I went home and practised the handover sentence a dozen times, then felt strange about doing it. I’m a permanent resident, but that doesn’t mean I want to walk away from the people I care for.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.561,
+  "sampleRate": 48000,
+  "peak": 0.78982,
+  "rms": 0.115697,
+  "transcriptionCheck": {
+    "audioSha256": "62dd704e736b2504cb6052dacfb893c4be20231d5562be225f79d9da356d6102",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I went home and practiced the handover sentence a dozen times, then felt strange about doing it. I'm a permanent resident, but that doesn't mean I want to walk away from the people I care for.",
+    "expectedWordCoverage": 0.974,
+    "matchedWordPrecision": 0.974,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

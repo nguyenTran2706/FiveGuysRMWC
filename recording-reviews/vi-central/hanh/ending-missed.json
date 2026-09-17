@@ -1,0 +1,34 @@
+{
+  "textSha256": "c8d7384fc76fde617db8287a78fc7443c7ef356ce1f66f679ec866f94af3ffd4",
+  "audioSha256": "c2f23e8d00d5e1b756fbc1ed1f2ffc31040923284129f322039d1ded2e22562f",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 11679253,
+  "spokenText": "Đoạn kết hư cấu: Cô Hạnh đi khám nhưng chưa ghi lại chuyện trong bếp. Khi muốn kể sau này, cô phải hỏi lại ngày và người có mặt. Cô vẫn có thể tìm hỗ trợ; không nhớ được mọi chi tiết không phải lỗi của cô.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9312,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.18,
+  "sampleRate": 48000,
+  "peak": 0.78766,
+  "rms": 0.117037,
+  "transcriptionCheck": {
+    "audioSha256": "c2f23e8d00d5e1b756fbc1ed1f2ffc31040923284129f322039d1ded2e22562f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "đoàn kể thứ cậu cô hành đi khảm nhiếm chứa ghi là chuyên công bếp. Khi muộn kể sáo nay, cô phải hỏi lại ngay và người cộ mặt. Cô vẫn có thể tim hộ trời không nhự được mọi chi tiết không phải lội của cô.",
+    "expectedWordCoverage": 0.83,
+    "matchedWordPrecision": 0.83,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

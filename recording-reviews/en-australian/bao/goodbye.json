@@ -1,0 +1,34 @@
+{
+  "textSha256": "e0adfae03156f5886cfe3bc8713ea4df78fcf2d175de14d8b4f293ce9e77e6d3",
+  "audioSha256": "943e3c2dc432628812d6986e29143360b2c0d765ba7cb614affd883677097552",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 2062625,
+  "spokenText": "Thanks for not telling me I have to do something right away. I’ve stopped taking orders. Really. I’m going to get some congee before they close; all I’ve had today is a roll at lunch.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.681,
+  "sampleRate": 48000,
+  "peak": 0.761446,
+  "rms": 0.116136,
+  "transcriptionCheck": {
+    "audioSha256": "943e3c2dc432628812d6986e29143360b2c0d765ba7cb614affd883677097552",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Thanks for not telling me I have to do something right away. I've stopped taking orders. Really? I'm going to get some kanji before they close. All I've had today is a roll at lunch.",
+    "expectedWordCoverage": 0.974,
+    "matchedWordPrecision": 0.974,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

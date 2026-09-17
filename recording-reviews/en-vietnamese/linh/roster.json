@@ -1,0 +1,34 @@
+{
+  "textSha256": "9cc9ebadef95c51522d872fbaa0d08b6a12a9d3e1ac0abf7327429248f4418ff",
+  "audioSha256": "82c4d4e2218caa70e8ddd7718fa5c564898ce6fde9a377741e1615cb3a98503d",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 934488,
+  "spokenText": "She opens the group chat. The roster lives in here. He keeps changing it. She scrolls back. I looked back the other day... She stops.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.699,
+  "sampleRate": 48000,
+  "peak": 0.782849,
+  "rms": 0.113255,
+  "transcriptionCheck": {
+    "audioSha256": "82c4d4e2218caa70e8ddd7718fa5c564898ce6fde9a377741e1615cb3a98503d",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She opens the group chat to rush the lights in here. He keeps changing it. She scrolls back and looks back the other day. She stops.",
+    "expectedWordCoverage": 0.84,
+    "matchedWordPrecision": 0.808,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

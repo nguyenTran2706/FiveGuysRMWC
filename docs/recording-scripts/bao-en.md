@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/en-australian/bao/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `799efac09d73f903ab705f6c55298e77e6f01a4c3e8e79a17a721d83fb4610b8`
@@ -36,7 +36,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## car
 
 - File: `public/audio/dialogue/en-australian/bao/car.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Did the sauce ever turn up?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `31c8fafc1be18446fb38f0d883e6d0ed82061f23b46816db1835749806c2c575`
@@ -54,7 +54,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## roster
 
 - File: `public/audio/dialogue/en-australian/bao/roster.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Do you still have more work tonight?”; car: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `6b4be41bb232440844ed14dc7268a788c42b882d9b9e66bf640f8f1acbdd6636`
@@ -74,7 +74,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## abn
 
 - File: `public/audio/dialogue/en-australian/bao/abn.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “What do they call this arrangement?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `bccbe188ed5ab2c22ad0e57aa5a523679e1d7b6d2fe1d533af78ee3da0a6ba14`
@@ -92,7 +92,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## paper
 
 - File: `public/audio/dialogue/en-australian/bao/paper.mp3`
-- Type: artifact; status: pending-recording
+- Type: artifact; status: ready
 - Lead-in (do not read): abn: Continue
 - Direction (do not read): Read the visible description and quoted document clearly; no legal-adviser delivery. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `057803cc37cd9bcb881bd3cf89f7f4db701b55b19e528df3cb51bed5226fd6ba`
@@ -110,7 +110,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## substitute
 
 - File: `public/audio/dialogue/en-australian/bao/substitute.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “Can you choose customers or send someone in your place?”; paper: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `677c3f0f44e5ee5f744555db694758200fa7f9c9a06de83f0d6e99ededeb7666`
@@ -129,7 +129,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## boss
 
 - File: `public/audio/dialogue/en-australian/bao/boss.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): substitute: listener chooses “Does the dispatcher ever help you out?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `411c5ee44b97a9c657168f216ae10a0a13ff4ae99bada4e70526c20e10f2e81e`
@@ -147,7 +147,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## tax
 
 - File: `public/audio/dialogue/en-australian/bao/tax.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): substitute: listener chooses “It sounds like you carry the costs on both sides.”; boss: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `32b9c84d54052e47842046008c44ee90356d8937f32725b6e6f6ac0437c092a4`
@@ -167,7 +167,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## dream
 
 - File: `public/audio/dialogue/en-australian/bao/dream.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): tax: listener chooses “We can sit for a moment. You don’t have to fix everything.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `551dda75547e6edaf40dc9079145e3e6e87af88b1992a47487ba30b607ed8676`
@@ -185,7 +185,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/en-australian/bao/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): tax: listener chooses “Do you still have the contract and messages?”; dream: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `f92e3d8eb2bfbd1c574ea0fe002852cf343e34a5a230cbf23e608d4a049771c1`
@@ -204,7 +204,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/en-australian/bao/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “If it is safe, save the contract and one week of shifts first.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `7033b3f017d96ea507253da4d68f75ba39185aad3cebf9515e4f5be1d56035af`
@@ -222,7 +222,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## unkept
 
 - File: `public/audio/dialogue/en-australian/bao/unkept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “You can rest tonight. That choice stays with you.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `2e05e820ae351b9416f09477f2b1e9453d0ef02d6878c903350511d5a3e29e12`

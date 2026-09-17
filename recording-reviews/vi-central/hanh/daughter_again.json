@@ -1,0 +1,34 @@
+{
+  "textSha256": "9a8410502ee1bb7af51fb26447106e0ff9a1a82ce6ca4bbfd6a1ab94cc8bc14c",
+  "audioSha256": "075921c48d0c3a169fc08d745f0b4057472605059e55c11a442061a43cfbdfa2",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 15961136,
+  "spokenText": "Hồi mới qua theo chồng, cô cứ nghĩ vài năm nữa sẽ bớt lo. Giờ con lớn sắp bằng cô rồi, vẫn bảo mẹ đừng đứng suốt ngày nữa. Nó muốn làm kỹ sư, còn cô thì chưa phân biệt được mấy cái môn nó học.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.915,
+  "sampleRate": 48000,
+  "peak": 0.663883,
+  "rms": 0.123015,
+  "transcriptionCheck": {
+    "audioSha256": "075921c48d0c3a169fc08d745f0b4057472605059e55c11a442061a43cfbdfa2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Hôi mời quá theo trông, cô cựn nghị vai nắm nửa sẽ bợc lo, giờ con lỡn sắp băng cô rồi vẫn bảo mè đừng đựng xuống ngay nửa. Nó muốn làm kỳ sư, con cố thi chứa phấn biệt được mấy cái muôn nò học.",
+    "expectedWordCoverage": 0.891,
+    "matchedWordPrecision": 0.891,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

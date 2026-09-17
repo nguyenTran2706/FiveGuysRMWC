@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Character voice library — FiveGuysRMWC</title>
+<style>
+body{margin:0;background:#101711;color:#f1efe5;font:16px/1.6 system-ui,sans-serif}main{max-width:980px;margin:auto;padding:32px 20px}h1{line-height:1.2}a{color:#e9c788}p{max-width:75ch}.notice{padding:16px;background:#252c20;border-left:3px solid #d4b378}.filters{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0;position:sticky;top:0;background:#101711;padding:12px 0}label{display:grid;gap:5px}select,input,button{font:inherit;border:1px solid #66735b;background:#19221a;color:inherit;border-radius:4px;padding:8px}article{border-top:1px solid #45503c;padding:20px 0}h2{font-size:19px;margin:0}.meta{font-size:13px;color:#bec7b0}audio{width:min(100%,650px);display:block;margin:12px 0}.caption{white-space:pre-line}button{cursor:pointer}.path{overflow-wrap:anywhere;font-size:12px}#summary{font-weight:600}input{max-width:250px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #e9c788;outline-offset:3px}
+</style>
+<main>
+<a href="/">← Back to the story</a>
+<h1>Character voice library</h1>
+<p class="notice">These are locally AI-generated fictional character voices, not human recordings. The labels show the intended accent. Naturalness, pronunciation and accent fidelity require listening review; no human approval is implied.</p>
+<p id="summary" role="status">Loading the audio catalogue…</p>
+<div class="filters">
+<label>Character<select id="character"><option value="">All characters</option></select></label>
+<label>Language<select id="language"><option value="">Vietnamese + English</option><option value="vi">Vietnamese</option><option value="en">English</option></select></label>
+<label>Find a line<input id="search" type="search" placeholder="Cue name or caption"></label>
+<button id="stop" type="button">Stop audio</button>
+</div>
+<section id="clips" aria-label="Voice recordings"></section>
+</main>
+<script type="module">
+const summary=document.querySelector('#summary'), clips=document.querySelector('#clips'), character=document.querySelector('#character'), language=document.querySelector('#language'), search=document.querySelector('#search');
+let catalogue;
+function stop(){document.querySelectorAll('audio').forEach(audio=>{audio.pause();audio.currentTime=0;});}
+document.querySelector('#stop').onclick=stop;
+document.addEventListener('play',event=>{if(event.target instanceof HTMLAudioElement)document.querySelectorAll('audio').forEach(audio=>{if(audio!==event.target){audio.pause();audio.currentTime=0;}});},true);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+function render(){
+ stop();clips.replaceChildren();
+ const query=search.value.toLocaleLowerCase();
+ const visible=catalogue.voices.filter(voice=>(!character.value||voice.character===character.value)&&(!language.value||voice.language===language.value)&&(!query||(voice.cue+' '+voice.text).toLocaleLowerCase().includes(query)));
+ summary.textContent=`${catalogue.ready}/${catalogue.total} clips available · ${catalogue.syntheticCount} locally generated · ${visible.length} shown`;
+ for(const voice of visible){
+  const card=document.createElement('article'),title=document.createElement('h2'),meta=document.createElement('p'),caption=document.createElement('p');
+  title.textContent=`${voice.name} — ${voice.language.toUpperCase()} — ${voice.cue}`;
+  meta.className='meta';meta.textContent=`Target: ${voice.accent} · Listening review: ${voice.listeningApproval}`;
+  caption.className='caption';caption.lang=voice.language;caption.textContent=voice.text;card.append(title,meta,caption);
+  if(voice.src){const audio=document.createElement('audio');audio.controls=true;audio.preload='none';audio.src=voice.src;audio.setAttribute('aria-label',title.textContent);const link=document.createElement('a');link.href=voice.src;link.download=voice.character+'-'+voice.language+'-'+voice.cue+'.mp3';link.textContent='Download MP3';const path=document.createElement('p');path.className='path';path.textContent='Saved file: public'+voice.src.split('?')[0];card.append(audio,link,path);}else{const missing=document.createElement('p');missing.textContent='Not generated yet.';card.append(missing);}clips.append(card);
+ }
+}
+for(const input of [character,language,search])input.addEventListener('input',()=>{if(catalogue)render();});
+try{const response=await fetch('/audio/dialogue/catalog.json',{cache:'no-store'});if(!response.ok)throw Error('Catalogue unavailable');catalogue=await response.json();for(const [id,name] of new Map(catalogue.voices.map(v=>[v.character,v.name]))){const option=document.createElement('option');option.value=id;option.textContent=name;character.append(option);}render();}catch(error){summary.textContent='Could not load the catalogue. Run npm run audio:prepare and open this page through the local app server.';}
+</script>
+</html>

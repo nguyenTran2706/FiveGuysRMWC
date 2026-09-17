@@ -1,0 +1,34 @@
+{
+  "textSha256": "1e370574273490c7397082e08ab73670df5145a2d82dea727d015a604edaa3d0",
+  "audioSha256": "ec0ccf2a28f27b60983b003c40a0b26ffe837708c2e57428ac9999c91b5d6308",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 556169,
+  "spokenText": "I’m fifty-four. My English is slow. At another place, would they look at my age first or my arm? Here I know every drawer, who is vegetarian, who has allergies. Leaving would mean more than leaving a kitchen.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.159,
+  "sampleRate": 48000,
+  "peak": 0.67561,
+  "rms": 0.121445,
+  "transcriptionCheck": {
+    "audioSha256": "ec0ccf2a28f27b60983b003c40a0b26ffe837708c2e57428ac9999c91b5d6308",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I'm 54. My English is low. At another place, would they look at my age first or my arm? Here I know every drawer who is vegetarian who has allergies. Living would mean more than living at kitchen.",
+    "expectedWordCoverage": 0.9,
+    "matchedWordPrecision": 0.9,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

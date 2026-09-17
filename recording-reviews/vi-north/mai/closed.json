@@ -1,0 +1,34 @@
+{
+  "textSha256": "d95e5dcc4e8fe5974787e1fa702ca2f2c392a11807c4f1304425751395fbb053",
+  "audioSha256": "9e0761b96a57846aa74de97f7eade87b190df821b6817f8bbde14d5b7cc5a7ee",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Huyền",
+  "seed": 5073628,
+  "spokenText": "Em không muốn nói tiếp nữa. Em cần tự chọn chuyện này, được không? Em đóng cửa đây.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9457,
+    "temperature": 0.78
+  },
+  "durationSeconds": 5.071,
+  "sampleRate": 48000,
+  "peak": 0.638524,
+  "rms": 0.123343,
+  "transcriptionCheck": {
+    "audioSha256": "9e0761b96a57846aa74de97f7eade87b190df821b6817f8bbde14d5b7cc5a7ee",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em không muốn nói tiếp nữa. Em cần tự chọn chuyện này, được không? Em đóng cửa đây.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

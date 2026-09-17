@@ -1,0 +1,34 @@
+{
+  "textSha256": "e95abf4ba00aeb993ba4ec67e9a4e7ae2973599345cd797b76c2c47cc0f7b542",
+  "audioSha256": "651101da36fc8630f5e38c4794cc2240149f55042a372d192423676e55beeb63",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Huyền",
+  "seed": 7124668,
+  "spokenText": "Cái túi xong rồi này, đủ to cho một nắm đá. Em tắt thông báo một lát để may nốt gấu váy. Cảm ơn đã quay lại mà không làm như em nợ một câu trả lời.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.528,
+  "sampleRate": 48000,
+  "peak": 0.654604,
+  "rms": 0.131936,
+  "transcriptionCheck": {
+    "audioSha256": "651101da36fc8630f5e38c4794cc2240149f55042a372d192423676e55beeb63",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Cái túi xong rồi này, đủ to cho 1 nắm đá. Em tắt thông báo 1 láp để mai nốt gâu váy. Cảm ơn đã quay lại mà không làm như em nợ 1 câu trả lời.",
+    "expectedWordCoverage": 0.865,
+    "matchedWordPrecision": 0.865,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

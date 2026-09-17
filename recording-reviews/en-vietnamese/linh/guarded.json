@@ -1,0 +1,34 @@
+{
+  "textSha256": "4efbbe18d0fc9dacce9e76047ef284b0a66f32d70519601dff57df7187bb5478",
+  "audioSha256": "f746bf27cec1829f5102173980d1140d62f56de00b235f7e11404e0ab8867bf5",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 9144625,
+  "spokenText": "She doesn’t answer straight away. While there are customers, we stay. She looks toward the dark salon behind her. Of course I want to go home. The rice has probably dried out in the cooker. The rain gets louder. Anyway. It’s a long story.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9652,
+    "temperature": 0.78
+  },
+  "durationSeconds": 16.988,
+  "sampleRate": 48000,
+  "peak": 0.729189,
+  "rms": 0.110462,
+  "transcriptionCheck": {
+    "audioSha256": "f746bf27cec1829f5102173980d1140d62f56de00b235f7e11404e0ab8867bf5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She doesn't answer straight away. Well, there are customers who say she looks toward the dark salon behind her. Of course, I want to go home. The rice has probably dried out in the cooker. The rain gets louder. Anyway, it's a long story.",
+    "expectedWordCoverage": 0.935,
+    "matchedWordPrecision": 0.935,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

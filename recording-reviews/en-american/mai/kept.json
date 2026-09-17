@@ -1,0 +1,25 @@
+{
+  "textSha256": "796d8d8366e8c8d124856beb623651dfd62dec4d605078b7bd402d3f900663a8",
+  "audioSha256": "2638860c51da31391a5e54bae643a0d9b16413d679c79394e32ef7fe3468023c",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 1971674,
+  "spokenText": "I have my own device that the company can’t access. I’ll save what is left and note which shift each thing happened on; I can leave gaps where I’m unsure. Before anything else, I want to ask about a private way to stay in touch. No calls while I’m working.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.223,
+  "sampleRate": 48000,
+  "peak": 0.803707,
+  "rms": 0.107798
+}

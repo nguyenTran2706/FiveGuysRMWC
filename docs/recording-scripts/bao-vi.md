@@ -1,4 +1,4 @@
-# Bảo — Vietnamese — Southern (Saigon / Mekong Delta)
+# Bảo — Vietnamese — Southern
 
 Generated from the live story; edit the source text, then run `npm run audio:prepare`. Do not edit this packet by hand.
 
@@ -8,7 +8,7 @@ Generated from the live story; edit the source text, then run `npm run audio:pre
 
 23. Light conversational humour at first, quick but intelligible. The tax letters slow him down. Keep hope in the car story.
 
-Accent: Vietnamese — Southern (Saigon / Mekong Delta). Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
+Accent: Vietnamese — Southern. Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
 
 Đọc nguyên văn phần “Read / Đọc”, kể cả lời dẫn và câu trong ngoặc kép. Không đọc tên tệp, mã cảnh, lựa chọn của người nghe hay hướng dẫn diễn xuất. Nói tự nhiên với một người đang đứng gần; không gồng giọng, không bắt chước giọng máy.
 
@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/vi-south/bao/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `7ce5b2fecbbb53939db0c74f79e1fd772fb54068afde5f3acac9dbbf7a9c206e`
@@ -36,7 +36,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## car
 
 - File: `public/audio/dialogue/vi-south/bao/car.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Rồi cuối cùng có tìm được nước chấm không?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `993f89d3ee6b5059adaaa0a18b1d37028ea08cc8093cce7509a99c799c496573`
@@ -54,7 +54,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## roster
 
 - File: `public/audio/dialogue/vi-south/bao/roster.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Hôm nay còn phải chạy nữa không?”; car: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `ca7e27640835021d4a9bd587478637702ab4f4f37f6d75399537978eaae42a87`
@@ -74,7 +74,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## abn
 
 - File: `public/audio/dialogue/vi-south/bao/abn.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “Họ gọi công việc này là gì?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `ac4da871ae93cef0533e8a5d53aced3c18298f8d39b58eeb59396f7cb258fe6f`
@@ -92,7 +92,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## paper
 
 - File: `public/audio/dialogue/vi-south/bao/paper.mp3`
-- Type: artifact; status: pending-recording
+- Type: artifact; status: ready
 - Lead-in (do not read): abn: Continue
 - Direction (do not read): Read the visible description and quoted document clearly; no legal-adviser delivery. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `0045fd7dccb6f3177836983b9ad7b24ec5fd41efc92e15c32e0a8c7fc9d693c6`
@@ -110,7 +110,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## substitute
 
 - File: `public/audio/dialogue/vi-south/bao/substitute.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “Em có tự chọn khách hay người chạy thay không?”; paper: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `3f067a1ae2de9a11a8b2be41e54db0b0a016189c980dee7fbc5c4683361f547e`
@@ -129,7 +129,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## boss
 
 - File: `public/audio/dialogue/vi-south/bao/boss.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): substitute: listener chooses “Người điều phối có lúc nào giúp em không?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `9b042e10f866d4a43ea06077128e596e6b425e3c0c3ffbbda0d2d49e0bb77c4c`
@@ -147,7 +147,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## tax
 
 - File: `public/audio/dialogue/vi-south/bao/tax.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): substitute: listener chooses “Nghe như em phải gánh cả hai phía.”; boss: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `f26a02016d39294baac87cc891d05b6fffa8c93d683f116052d40430ab445717`
@@ -167,7 +167,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## dream
 
 - File: `public/audio/dialogue/vi-south/bao/dream.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): tax: listener chooses “Mình có thể ngồi đây một lát. Không cần giải quyết hết.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `1f9b5fbec527c518e9745f0d412600424e88b648e96a95bab6cafdd8b96ac546`
@@ -185,7 +185,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/vi-south/bao/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): tax: listener chooses “Em còn giữ hợp đồng và tin nhắn không?”; dream: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `2ea4fc08d7597a2433ddf852124dc27faef22f57aabd3eb8b4d615dde630ae88`
@@ -204,7 +204,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/vi-south/bao/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Nếu an toàn, giữ hợp đồng và một tuần lịch trước đã.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `5e18f2a9ccf6c6bc371e6e7dfaeedb99bafcf0b4a2419bf429c828ec0d3807a7`
@@ -222,7 +222,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## unkept
 
 - File: `public/audio/dialogue/vi-south/bao/unkept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Tối nay em có thể nghỉ. Chuyện đó để em tự chọn.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `a4bc3b9ef00e89accd64555baeb34f3c5aeaeffe03ff42e26d29c6144236f742`
@@ -240,7 +240,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/vi-south/bao/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): kept: Continue; unkept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `746ee301a9dcede8b502f4835057b2a9300d4860f1a584275a51f6c53cc9f280`
@@ -258,7 +258,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/vi-south/bao/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “Em ký rồi thì chịu thôi.”; tax: listener chooses “Cứ nghỉ là hết vấn đề.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `0705ab96fc7344b974e5c348e07c3d2d3870413576e316cc16d701aa5e8e5cc7`
@@ -276,7 +276,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/vi-south/bao/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `422ea03a1d72c8d15a4ae16a4addcc5f8715bc8e91ebb843ce60d3744c843f7a`
@@ -294,7 +294,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/vi-south/bao/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `e6a0d4324c46e0594a25629ca1965e05b62f97af9a8db52c3451da6c47efe7d6`

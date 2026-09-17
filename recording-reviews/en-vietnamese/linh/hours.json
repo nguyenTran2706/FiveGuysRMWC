@@ -1,0 +1,34 @@
+{
+  "textSha256": "8deccb3cc91380f92c79b796fed8847e3633c9ec74dde082ddfc2f416f6d63d4",
+  "audioSha256": "b753e5543207a9a3ae6ef686af70496f1e82f6380532264a4f5bd3a8bb7e662e",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 6814651,
+  "spokenText": "Inside, Linh counts the money. Once. Twice. Then a third time. She stops. There is still only eight hundred dollars. Six days. \n\n Eight hundred dollars. Started at nine.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.898,
+  "sampleRate": 48000,
+  "peak": 0.757615,
+  "rms": 0.108949,
+  "transcriptionCheck": {
+    "audioSha256": "b753e5543207a9a3ae6ef686af70496f1e82f6380532264a4f5bd3a8bb7e662e",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "In Shai, Lin counts the money once twice in a third time. She stopped. There is still only $800, 6 days. $800, started at 9.",
+    "expectedWordCoverage": 0.857,
+    "matchedWordPrecision": 0.828,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

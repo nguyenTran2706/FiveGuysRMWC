@@ -1,0 +1,34 @@
+{
+  "textSha256": "d5c21e2ad5928d9ec6836580d0e465dceb5185559ffd7abbf24416dfaa0fcc0e",
+  "audioSha256": "fa1c9aeb20e5af22c5a4882001ec7301d48f7b9d08f0531d2e89732956bdb302",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 10161367,
+  "spokenText": "I kept the email asking about training. The answer was spoken in the break room, and a colleague was there. I remember professional. I’ve replayed the rest so often that the words around it are getting muddled.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.482,
+  "sampleRate": 48000,
+  "peak": 0.801777,
+  "rms": 0.122394,
+  "transcriptionCheck": {
+    "audioSha256": "fa1c9aeb20e5af22c5a4882001ec7301d48f7b9d08f0531d2e89732956bdb302",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I kept the email asking about training. The answer was spoken in the break room and a colleague was there. I remember professional. I've replayed the rest so often that the words around it are getting muddled.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

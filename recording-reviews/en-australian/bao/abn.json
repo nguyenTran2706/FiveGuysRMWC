@@ -1,0 +1,34 @@
+{
+  "textSha256": "bccbe188ed5ab2c22ad0e57aa5a523679e1d7b6d2fe1d533af78ee3da0a6ba14",
+  "audioSha256": "135f5da533428bb68dda40d6e3356a4965155823198f638f8862d0d97ca2ffe6",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 14969680,
+  "spokenText": "On the first day they said I needed an A B N before I could start. It was quick. I thought it was like an employee number. Then they said tax and insurance were mine to handle, and I realised how much I hadn’t understood.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.351,
+  "sampleRate": 48000,
+  "peak": 0.800042,
+  "rms": 0.128518,
+  "transcriptionCheck": {
+    "audioSha256": "135f5da533428bb68dda40d6e3356a4965155823198f638f8862d0d97ca2ffe6",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "On the first day, they said I needed an ABN before I could start. It was quick. I thought it was like an employee number then. They said tax and insurance were mine to handle and I realized how much I hadn't understood.",
+    "expectedWordCoverage": 0.913,
+    "matchedWordPrecision": 0.955,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

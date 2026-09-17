@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const check = process.argv.includes('--check');
 const complete = process.argv.includes('--require-complete');
+const reviewed = process.argv.includes('--require-listening-reviewed');
 const hash = text => createHash('sha256').update(text).digest('hex');
 async function source(relative) {
   const result = await build({ entryPoints: [join(root, relative)], bundle: true, write: false, format: 'esm', platform: 'node' });
@@ -51,6 +52,8 @@ for (const resident of residents) {
       const reviewBytes = await optional(join(root, reviewFile));
       let status = 'pending-recording';
       let audioSha256;
+      let production = null;
+      let listeningApproval = 'pending';
       if (bytes || reviewBytes) {
         status = 'needs-review';
         try {
@@ -59,14 +62,18 @@ for (const resident of residents) {
           audioSha256 = hash(bytes);
           if (review.textSha256 !== textSha256) throw new Error('Caption hash does not match the current script');
           if (review.audioSha256 !== audioSha256) throw new Error('Audio changed since the listening review');
-          if (review.humanPerformed !== true || review.approved !== true || review.accent !== pack) throw new Error('A human performance and accent/listening approval are required');
+          const synthetic = review.production === 'local-synthetic' && review.humanPerformed === false && review.technicalValidated === true && typeof review.model === 'string' && typeof review.modelRevision === 'string';
+          const human = review.humanPerformed === true && review.approved === true;
+          if ((!synthetic && !human) || review.accent !== pack) throw new Error('A reviewed human recording or technically validated local synthesis is required');
+          production = synthetic ? 'local-synthetic' : 'human';
+          listeningApproval = human ? 'approved' : review.listeningApproval ?? 'pending';
           if (bytes.length < 512 || bytes.length > 12_000_000) throw new Error('MP3 outside 512-byte to 12 MB budget');
           if (!(bytes.subarray(0, 3).toString() === 'ID3' || (bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0))) throw new Error('Not an MP3 header');
           status = 'ready';
-          recordings[key] = { src: `${src}?v=${audioSha256.slice(0, 12)}`, text, sha256: audioSha256 };
+          recordings[key] = { src: `${src}?v=${audioSha256.slice(0, 12)}`, text, sha256: audioSha256, production, listeningApproval };
         } catch (error) { problems.push(`${key}: ${error.message}`); }
       }
-      const cue = { character: resident.id, language, pack, cue: item.id, category: item.category, text, textSha256, src, reviewFile, incoming, next: item.next ?? null, choices: (item.choices ?? []).map(choice => ({ id: choice.id, text: choice.text[language], next: choice.next })), directions, status, ...(audioSha256 ? { audioSha256 } : {}) };
+      const cue = { character: resident.id, language, pack, cue: item.id, category: item.category, text, textSha256, src, reviewFile, incoming, next: item.next ?? null, choices: (item.choices ?? []).map(choice => ({ id: choice.id, text: choice.text[language], next: choice.next })), directions, status, production, listeningApproval, ...(audioSha256 ? { audioSha256 } : {}) };
       cues.push(cue);
       const context = incoming.length ? incoming.map(entry => entry.type === 'choice' ? `${entry.from}: listener chooses “${sentence(entry.text)}”` : `${entry.from}: Continue`).join('; ') : item.id === resident.start ? 'First meeting after entering this story.' : 'After the debrief; use this ending only when selected by the story.';
       sections.push(`## ${item.id}\n\n- File: \`public${src}\`\n- Type: ${item.category}; status: ${status}\n- Lead-in (do not read): ${context}\n- Direction (do not read): ${directions.join(' ')}\n- Caption SHA-256: \`${textSha256}\`\n\n### Read / Đọc\n\n${text}\n\n### Exit cue (do not read)\n\n${cue.choices.length ? cue.choices.map(choice => `- Listener: “${sentence(choice.text)}” → \`${choice.next}\``).join('\n') : item.next ? `Continue → \`${item.next}\`` : 'Return to the street or continue to support.'}\n\nTakes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption checked [ ]\n`);
@@ -75,9 +82,11 @@ for (const resident of residents) {
   }
 }
 const ready = cues.filter(cue => cue.status === 'ready').length;
+const syntheticCount = cues.filter(cue => cue.status === 'ready' && cue.production === 'local-synthetic').length;
 files.set('docs/recording-scripts/manifest.json', JSON.stringify({ version: 1, total: cues.length, ready, cues }, null, 2) + '\n');
 files.set('src/data/dialogueAudio.generated.json', JSON.stringify({ recordings }, null, 2) + '\n');
-files.set('docs/recording-scripts/README.md', `# Complete human-recording package\n\n${residents.length} residents · ${cues.length / 2} story cues · ${cues.length} recordings across Vietnamese and English.\n\nReady: **${ready}/${cues.length}**. Pending clips are intentionally silent in the app, with a readable notice; no text-to-speech fallback.\n\nThese are fixed assignments, not three full alternate casts and not random choices. Accent families are shared, but every character keeps an individual performer and delivery. Assignments are casting proposals, not new character biography.\n\n| Character | Vietnamese packet | English packet | Cues per language |\n|---|---|---|---|\n${residents.map(resident => `| ${resident.name} | [${voicePackLabels[characterVoices[resident.id].vi]}](${resident.id}-vi.md) | [${voicePackLabels[characterVoices[resident.id].en]}](${resident.id}-en.md) | ${Object.keys(resident.nodes).length + 2} |`).join('\n')}\n\n[Production guide](../audio-production.md) · [Complete cue manifest](manifest.json)\n\nIncludes every dialogue node, artifact narration, closed branch and both endings. Excludes menu labels, listener choices, rights chatbot responses, personal reflections and intake answers. Those are not character speech and must not read private visitor text aloud.\n\nRefresh after any caption/casting edit: \`npm run audio:prepare\`. Verify without writing: \`npm run audio:check\`. Require every human recording before a voiced release: \`npm run audio:check -- --require-complete\`.\n`);
+files.set('public/audio/dialogue/catalog.json', JSON.stringify({ total: cues.length, ready, syntheticCount, voices: cues.map(cue => ({ character: cue.character, name: residents.find(resident => resident.id === cue.character).name, language: cue.language, accent: voicePackLabels[cue.pack], cue: cue.cue, text: cue.text, src: cue.status === 'ready' ? recordings[`${cue.pack}/${cue.character}/${cue.cue}`].src : null, production: cue.production, listeningApproval: cue.listeningApproval })) }, null, 2) + '\n');
+files.set('docs/recording-scripts/README.md', `# Complete character voice package\n\n${residents.length} residents · ${cues.length / 2} story cues · ${cues.length} Vietnamese/English clips.\n\n**Audio available: ${ready}/${cues.length}. Locally AI-generated: ${syntheticCount}.** Availability is not human listening approval.\n\nListen and download each file at **/audio/voice-preview.html** on your local app server. Actual MP3s are under **public/audio/dialogue/**, grouped by accent, character and cue.\n\nFixed assignments, never random. Each character keeps one voice per language.\n\n| Character | Vietnamese script | English script | Cues per language |\n|---|---|---|---|\n${residents.map(resident => `| ${resident.name} | [${voicePackLabels[characterVoices[resident.id].vi]}](${resident.id}-vi.md) | [${voicePackLabels[characterVoices[resident.id].en]}](${resident.id}-en.md) | ${Object.keys(resident.nodes).length + 2} |`).join('\n')}\n\n[Local synthesis and verification](../local-voices.md) · [Human recording guide](../audio-production.md) · [Complete cue manifest](manifest.json)\n\nThe script packets below remain suitable for future human recording. For current generated speech, explicit pause directions become pauses, and some abbreviations use a pronunciation spelling. Exact spoken input is recorded in each review JSON. Captions remain unchanged.\n\nIncludes every scene, artifact, closed branch and both endings. Menus, visitor choices, personal reflections and private intake text are not voiced.\n\nRefresh: npm run audio:prepare. Check files: npm run audio:check -- --require-complete. Separate human listening gate: npm run audio:check -- --require-listening-reviewed.\n`);
 
 for (const [relative, content] of files) {
   const path = join(root, relative);
@@ -86,6 +95,7 @@ for (const [relative, content] of files) {
     if ((await optional(path))?.toString('utf8').replaceAll('\r\n', '\n') !== content) problems.push(`${relative}: missing or stale; run npm run audio:prepare`);
   } else { await mkdir(dirname(path), { recursive: true }); await writeFile(path, content, 'utf8'); }
 }
-if (complete && ready !== cues.length) problems.push(`Human recordings incomplete: ${ready}/${cues.length} ready`);
-console.log(`${check ? 'Checked' : 'Prepared'} ${cues.length} cues in ${residents.length * 2} performer packets; ${ready} approved recordings.`);
+if (complete && ready !== cues.length) problems.push(`Voice audio incomplete: ${ready}/${cues.length} available`);
+if (reviewed && cues.some(cue => cue.status !== 'ready' || cue.listeningApproval !== 'approved')) problems.push('Listening approval is incomplete; technical validation does not establish naturalness or accent authenticity.');
+console.log(`${check ? 'Checked' : 'Prepared'} ${cues.length} cues in ${residents.length * 2} packets; ${ready} playable recordings (${syntheticCount} locally generated).`);
 if (problems.length) { console.error(problems.join('\n')); process.exitCode = 1; }

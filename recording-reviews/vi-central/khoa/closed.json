@@ -1,0 +1,34 @@
+{
+  "textSha256": "5c62cb1b000dcec99375657352a9cb06dbab372c0a804711c572046da0a397cc",
+  "audioSha256": "031e77df07c10951418ec44d18f77d1204d694960ff2c9597d0abaa82a848aad",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 5074027,
+  "spokenText": "Ừ. Anh nghe câu đó rồi. Anh phải chuẩn bị đồ cho ca sáng, chúc em ngủ ngon.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9555,
+    "temperature": 0.78
+  },
+  "durationSeconds": 6.071,
+  "sampleRate": 48000,
+  "peak": 0.781831,
+  "rms": 0.114804,
+  "transcriptionCheck": {
+    "audioSha256": "031e77df07c10951418ec44d18f77d1204d694960ff2c9597d0abaa82a848aad",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ừm, hả nhé câu đỏ rồi. Anh phải chuẩn bị đô cho các sản chúc em ngồn ngon.",
+    "expectedWordCoverage": 0.667,
+    "matchedWordPrecision": 0.667,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "8933fb1d1e80b42a63c6174de92a8526390f3abcb056d49a2425324efb74342f",
+  "audioSha256": "c3163db8ee7567064b3b1d9a989e1e6688a2fe8cc021a7c7098c11aa94ed0d44",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 10835811,
+  "spokenText": "Mưa gần như dọn sạch con đường. Nửa cái bảng hiệu tiệm móng vẫn nhấp nháy trên cửa kính. Em chờ chị chút. Chị nhấc khung cửa lên mới kéo được.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 8.813,
+  "sampleRate": 48000,
+  "peak": 0.723093,
+  "rms": 0.115887,
+  "transcriptionCheck": {
+    "audioSha256": "c3163db8ee7567064b3b1d9a989e1e6688a2fe8cc021a7c7098c11aa94ed0d44",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Mưa gần như giọng sạch con đường, nộ cái bản hiệu tìm móng phân nhấp nhái trên cự kính. Em chờ chị chúc, chị nhắc khung cửa lên mới kéo được.",
+    "expectedWordCoverage": 0.742,
+    "matchedWordPrecision": 0.742,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

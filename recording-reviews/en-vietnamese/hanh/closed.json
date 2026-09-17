@@ -1,0 +1,34 @@
+{
+  "textSha256": "2cd4ca018415df31907e664c08c29ec85a7d89aa41dffae7a808bc852a2fcf2a",
+  "audioSha256": "08487c857ab4755b53e345a3785fae9d06f363eaa101cf785eb487899278c142",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 9289675,
+  "spokenText": "I’m tired now. My daughter is studying and I don’t want her hearing us raise our voices. I’ll close the window against the draught.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.936,
+    "temperature": 0.78
+  },
+  "durationSeconds": 9.266,
+  "sampleRate": 48000,
+  "peak": 0.775673,
+  "rms": 0.124254,
+  "transcriptionCheck": {
+    "audioSha256": "08487c857ab4755b53e345a3785fae9d06f363eaa101cf785eb487899278c142",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I'm Tia now. My daughter is studying and I don't want her hearing us raise our voices. I'll close the window against the draft.",
+    "expectedWordCoverage": 0.926,
+    "matchedWordPrecision": 0.926,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "352e317eba2e54543bdd3d10328689b362d083fd264815ae4c07a83af2f51dc5",
+  "audioSha256": "dc80b4986047578d76d5d977fcfd751e39a3641ab5cb89ccd4803d36b8bcb747",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 1971368,
+  "spokenText": "She thinks for a moment. I have my own email. Nobody at work knows the password. She starts saving the images. I’ll save these first.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 9.386,
+  "sampleRate": 48000,
+  "peak": 0.790312,
+  "rms": 0.110489,
+  "transcriptionCheck": {
+    "audioSha256": "dc80b4986047578d76d5d977fcfd751e39a3641ab5cb89ccd4803d36b8bcb747",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She thinks for a moment, he helped me own email. Nobody at work knows the password. She stopped saving the images. I'll save this first.",
+    "expectedWordCoverage": 0.808,
+    "matchedWordPrecision": 0.808,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

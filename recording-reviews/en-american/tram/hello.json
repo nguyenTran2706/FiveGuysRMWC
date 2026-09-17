@@ -1,0 +1,34 @@
+{
+  "textSha256": "b785c4c1b14a27b2973d873c2f5963f070af77cc1ea4e8e1297797e01e8ad71e",
+  "audioSha256": "e38ac780eea6b3481a3fd1e04ef1ea774a2c20d86b5c4a825b27a216546c29f5",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-tram",
+  "seed": 8608934,
+  "spokenText": "I’ve just got home and haven’t even put my apron away. I’m saving for a used camera to photograph the signs on this street in the rain. After an evening shift, though, I only want to lie down.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.354,
+  "sampleRate": 48000,
+  "peak": 0.809729,
+  "rms": 0.122678,
+  "transcriptionCheck": {
+    "audioSha256": "e38ac780eea6b3481a3fd1e04ef1ea774a2c20d86b5c4a825b27a216546c29f5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I've just got home and haven't even put my apron away. I'm saving for a used camera to photograph the signs on this street in the rain. After an evening shift though, I only wanna lie down.",
+    "expectedWordCoverage": 0.951,
+    "matchedWordPrecision": 0.975,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

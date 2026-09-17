@@ -1,0 +1,34 @@
+{
+  "textSha256": "5e388b2d46092e594440971fd706d972bcf6f64dab776602db7251df4f5a8066",
+  "audioSha256": "76139446629d4629561df95aff464544f6c73324ddf9e97b6a12fabd55bbf401",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 15759602,
+  "spokenText": "Fictional ending: Bảo loses access to the roster after changing jobs. Someone still listens, but he has to piece weeks together from memory. His story is unfinished; missing documents do not mean there are no options.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9942,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.649,
+  "sampleRate": 48000,
+  "peak": 0.632083,
+  "rms": 0.100417,
+  "transcriptionCheck": {
+    "audioSha256": "76139446629d4629561df95aff464544f6c73324ddf9e97b6a12fabd55bbf401",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fictional ending. Baugh loses access to the roster after changing jobs. Someone still listens, but he has to piece weeks together from memory. His story is unfinished. Missing documents do not mean there are no options.",
+    "expectedWordCoverage": 0.972,
+    "matchedWordPrecision": 0.972,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

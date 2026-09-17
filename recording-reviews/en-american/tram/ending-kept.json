@@ -1,0 +1,34 @@
+{
+  "textSha256": "6c7422281a9cf6c8c203481ae88b7fafcfff48f99ef6a53ca039777a77a25a06",
+  "audioSha256": "c5ff7ecc6df7ac96fca5e850efd9d6462545ef74abac30f90aa215eb7298a6a0",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-tram",
+  "seed": 8816989,
+  "spokenText": "Fictional ending: Trâm keeps a private copy of the messages and chooses someone she trusts to speak with. She decides how much to share. Keeping a record does not commit her to a complaint or guarantee an outcome.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.986,
+  "sampleRate": 48000,
+  "peak": 0.792258,
+  "rms": 0.102202,
+  "transcriptionCheck": {
+    "audioSha256": "c5ff7ecc6df7ac96fca5e850efd9d6462545ef74abac30f90aa215eb7298a6a0",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fictional ending. Tram keeps a private copy of the messages and chooses someone she trusts to speak with. She decides how much to share. Keeping a record does not commit her to a complaint or guarantee an outcome.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

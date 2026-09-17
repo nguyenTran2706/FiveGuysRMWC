@@ -1,0 +1,34 @@
+{
+  "textSha256": "b52e7545d42b07aee0ddd635b8625983799c7ac22f5e7ab619f968bf1a639054",
+  "audioSha256": "cb18f3e2f82892e2b7df3303fddd0982985888bae50bbd1edfabcaeef2ae8859",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 4921295,
+  "spokenText": "She shakes her head. She turns the envelope over. A white envelope. In blue pen: Linh , 800. No hours. She turns it back. No super. Her thumb presses against the wet corner. Just her name. And eight hundred.",
+  "performance": {
+    "mood": "clear document narration",
+    "tempo": 0.9702,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.664,
+  "sampleRate": 48000,
+  "peak": 0.801494,
+  "rms": 0.116334,
+  "transcriptionCheck": {
+    "audioSha256": "cb18f3e2f82892e2b7df3303fddd0982985888bae50bbd1edfabcaeef2ae8859",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "She shakes her head. She turns the envelope over. A white envelope. In blue pen, Lin 800, no hours, she turns it back. No super, her thumb presses against the red corner. Just her name, N800.",
+    "expectedWordCoverage": 0.872,
+    "matchedWordPrecision": 0.919,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "526b766a2a5a40bd6cedebf387cdac1331df9e981de429f898603cd2864a0918",
+  "audioSha256": "3826a917817252fcd6b908627b59b56747fed767e5c2b62e7a6e6a224cc49fd9",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-tram",
+  "seed": 2062327,
+  "spokenText": "Tonight I’ll ask a friend to come over and keep me company. That’s enough. I’m still buying the camera; I don’t want everything I talk about to be about work. That blue light looks best just after the rain stops.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.412,
+  "sampleRate": 48000,
+  "peak": 0.800193,
+  "rms": 0.121871,
+  "transcriptionCheck": {
+    "audioSha256": "3826a917817252fcd6b908627b59b56747fed767e5c2b62e7a6e6a224cc49fd9",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tonight, I'll ask a friend to come over and keep me company. That's enough. I'm still buying the camera. I don't want everything I talk about to be about work. That blue light looks best just after the rain stops.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

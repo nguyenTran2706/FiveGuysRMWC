@@ -1,0 +1,25 @@
+{
+  "textSha256": "b77ccdae307f87d9ab68914e6726ae9b36dcf69c00275f0f723b302813d2f807",
+  "audioSha256": "0abc35a09d09ef08aee1ef82aab46fa04f5460dc4c3818d6ee9570f52da79c28",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 2063629,
+  "spokenText": "I’ll move the pot closer to the wall; the wind is picking up. The choir has a free performance at the hall on Sunday. I need to learn the words. At least there I get to sing in my own voice.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.842,
+  "sampleRate": 48000,
+  "peak": 0.791262,
+  "rms": 0.115812
+}

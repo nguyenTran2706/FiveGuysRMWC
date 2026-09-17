@@ -1,0 +1,34 @@
+{
+  "textSha256": "7033b3f017d96ea507253da4d68f75ba39185aad3cebf9515e4f5be1d56035af",
+  "audioSha256": "7ff0f078f4f3ab9080c7ba75a051cfdd981e5fb4c173661d4e9e645df2ee02d4",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 1971069,
+  "spokenText": "One week I can do. I’ll keep it on my own device, including the message about not sending a substitute. Then if I talk to someone, I can show it instead of saying I think.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 1.025,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.473,
+  "sampleRate": 48000,
+  "peak": 0.793867,
+  "rms": 0.10592,
+  "transcriptionCheck": {
+    "audioSha256": "7ff0f078f4f3ab9080c7ba75a051cfdd981e5fb4c173661d4e9e645df2ee02d4",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "One week I can do, I'll keep it on my own device, including the message about not sending a substitute. Then if I talk to someone, I can show it instead of saying I think.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

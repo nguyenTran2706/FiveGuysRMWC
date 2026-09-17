@@ -1,0 +1,34 @@
+{
+  "textSha256": "e90361410325a427a5b7e2fef813c79bd2f314dae7a1566bf8f86dc1d136c63b",
+  "audioSha256": "e607bf4f2721fd51fdd27cea0dbbe5c9d2c738db6563313d8fa613111c64b1f6",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 9288377,
+  "spokenText": "I hear you. I have a bike in pieces here. I’d like to finish it.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9555,
+    "temperature": 0.78
+  },
+  "durationSeconds": 4.364,
+  "sampleRate": 48000,
+  "peak": 0.802636,
+  "rms": 0.137096,
+  "transcriptionCheck": {
+    "audioSha256": "e607bf4f2721fd51fdd27cea0dbbe5c9d2c738db6563313d8fa613111c64b1f6",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Yeah you, I have a parking pieces here. I'd like to finish it.",
+    "expectedWordCoverage": 0.75,
+    "matchedWordPrecision": 0.857,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

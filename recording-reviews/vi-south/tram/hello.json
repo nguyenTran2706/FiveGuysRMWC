@@ -1,0 +1,34 @@
+{
+  "textSha256": "ccb01e5d27e504b6f1c74166c2a4e7cea672d2a652ded213f2b2f120013c606e",
+  "audioSha256": "a43197d5718419d0edeb2dfe3ca9b00c77ee8ef0d937350bcde8a4990bd73f7d",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 10835214,
+  "spokenText": "Em vừa về, còn chưa cất tạp dề nữa. Em đang để dành mua máy ảnh cũ, định chụp mấy bảng hiệu trên đường này lúc mưa. Mà ca tối xong chỉ muốn nằm thôi.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.058,
+  "sampleRate": 48000,
+  "peak": 0.802,
+  "rms": 0.131878,
+  "transcriptionCheck": {
+    "audioSha256": "a43197d5718419d0edeb2dfe3ca9b00c77ee8ef0d937350bcde8a4990bd73f7d",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Em vừa về, còn chưa cất tạp về nữa, em đang để dành mua máy ảnh cổ, định chụp máy bản hiệu trên đường này lúc mưa, mà ca tối xong chỉ muốn nằm thôi.",
+    "expectedWordCoverage": 0.914,
+    "matchedWordPrecision": 0.914,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

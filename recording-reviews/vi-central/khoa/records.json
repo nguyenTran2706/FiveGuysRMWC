@@ -1,0 +1,34 @@
+{
+  "textSha256": "7dea8fb1feb3a22c187180be7cb0574b9116812674ab476d4282adae4479a499",
+  "audioSha256": "478842115fad6c18cbdb5f5290888bf5a567b4f8128f3772cf082fa60bc3a571",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 9282019,
+  "spokenText": "Email xin học anh còn giữ, câu trả lời thì nói miệng ở phòng nghỉ. Có chị ngồi đó nghe được. Anh chỉ nhớ từ chuyên nghiệp, mấy chữ trước sau cứ nghĩ đi nghĩ lại rồi rối cả lên.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.263,
+  "sampleRate": 48000,
+  "peak": 0.677089,
+  "rms": 0.111344,
+  "transcriptionCheck": {
+    "audioSha256": "478842115fad6c18cbdb5f5290888bf5a567b4f8128f3772cf082fa60bc3a571",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Tìm máu xin học ăn con dự, cấu trả lơi thế nội miền là phong nghị, có chi ngôi đỏ ngẽ được. Anh chỉ nhở từ chuyến nghiệp, mậy trừ trước xấu, cựu nghị dính nghị lai rồi, rồi trả lên.",
+    "expectedWordCoverage": 0.7,
+    "matchedWordPrecision": 0.683,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

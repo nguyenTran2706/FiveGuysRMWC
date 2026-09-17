@@ -1,0 +1,34 @@
+{
+  "textSha256": "85dc6754280062698e57aad716615250f3aa52ea58cc7ca95a766a6c973aa44d",
+  "audioSha256": "bfe2e2500a96a910a889adb5057f05376e28b8c65b6bfe6e2a08dfa9fb59e519",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 10836516,
+  "spokenText": "Mưa không tới được cái chậu này, nên vẫn phải tưới. Anh đang trồng cho ra đúng một trái thôi, để chứng minh với vợ là không phải cây cảnh. Cuối tuần anh còn tập hát, nhóm khu phố thiếu giọng nam mà ai cũng bắt anh đứng sau.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.728,
+  "sampleRate": 48000,
+  "peak": 0.799144,
+  "rms": 0.112978,
+  "transcriptionCheck": {
+    "audioSha256": "bfe2e2500a96a910a889adb5057f05376e28b8c65b6bfe6e2a08dfa9fb59e519",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ngứa không tợi được cái châu này, ném vẫn phải tự. Anh đang trong cho ra đụng một trải thôi, để trình minh về vờ là không phải cây canh. Nguội tuân anh con tập hát, nhỏng khú phụ Thiệu Dông Nam mà ai cùng bắt anh đừng sâu.",
+    "expectedWordCoverage": 0.816,
+    "matchedWordPrecision": 0.816,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

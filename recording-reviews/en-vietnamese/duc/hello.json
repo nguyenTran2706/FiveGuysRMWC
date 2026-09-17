@@ -1,0 +1,34 @@
+{
+  "textSha256": "98f895781eb2bb082d93f4f815bbd44a592c8b40300d42d013153398628926d7",
+  "audioSha256": "dcf0df9f3bc02fbc89eeaab2a3f4311ff9e311e116e8b06116b12f15a37e8499",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 8611035,
+  "spokenText": "I wasn’t ready to open earlier. It wasn’t you. I’m fixing a little bike; my boy’s birthday is next week. He mostly likes the bell. I still have to hold him up when he pedals. You’ve spoken with some of the others out there?",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.081,
+  "sampleRate": 48000,
+  "peak": 0.794151,
+  "rms": 0.118675,
+  "transcriptionCheck": {
+    "audioSha256": "dcf0df9f3bc02fbc89eeaab2a3f4311ff9e311e116e8b06116b12f15a37e8499",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "He wasn't ready to open earlier. It wasn't you. I'm fixing a little bike. My boy's birthday is next week. He mostly likes the bell. I still have to hold him up when he paddles. You've spoken with some of the others out there.",
+    "expectedWordCoverage": 0.959,
+    "matchedWordPrecision": 0.959,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

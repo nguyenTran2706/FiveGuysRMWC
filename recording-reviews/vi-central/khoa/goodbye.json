@@ -1,0 +1,34 @@
+{
+  "textSha256": "9e5823c53e532595d5d1a499085828885c94060e6117816e27234431e99184bf",
+  "audioSha256": "ab7e51f3846b1fb4d963b01226573071f57a9e250bcc9995fb95cee30bb3f344",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 7125067,
+  "spokenText": "Thôi để anh đem chậu vào sát tường, gió bắt đầu mạnh rồi. Chủ nhật nhóm hát có diễn miễn phí ở hội trường, anh phải nhớ lời cho xong. Ít nhất ở đó anh được hát bằng giọng của mình.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.007,
+  "sampleRate": 48000,
+  "peak": 0.72648,
+  "rms": 0.11067,
+  "transcriptionCheck": {
+    "audioSha256": "ab7e51f3846b1fb4d963b01226573071f57a9e250bcc9995fb95cee30bb3f344",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Thối đề anh đém châu vào sạch tương, gió bắt đấu manh rồi. Chù nhật nhộm hạt và diêng miệng phí ở hôi trương, anh phải nhờ lơi cho sống. Ít nhất ở đó anh được hạt mang dòng của mình.",
+    "expectedWordCoverage": 0.829,
+    "matchedWordPrecision": 0.829,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

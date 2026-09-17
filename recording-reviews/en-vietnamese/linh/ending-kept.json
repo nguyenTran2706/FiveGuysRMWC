@@ -1,0 +1,34 @@
+{
+  "textSha256": "2dfd8a37f9238ec99230e4a9e0db09ed3af0f647ea2e9424e5b01f8d1b759489",
+  "audioSha256": "13280ca889fea01213aa2605ee4bc17a22da93b7e60abdc3f2b2bcbed94d6b3f",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 8817586,
+  "spokenText": "Fictional ending: Linh keeps her roster screenshots and notes the cleaning hours. When she chooses to seek support, the dates help tell her story; in this branch she recovers some pay and books Mum’s flight. Real outcomes depend on individual circumstances.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 17.369,
+  "sampleRate": 48000,
+  "peak": 0.796248,
+  "rms": 0.114069,
+  "transcriptionCheck": {
+    "audioSha256": "13280ca889fea01213aa2605ee4bc17a22da93b7e60abdc3f2b2bcbed94d6b3f",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "The fictional ending then keeps her roster screenshot and notes the cleaning hours. When she chooses to seek support, the death helps tell her story. In this branch, she recovers some pay-in books mom's flight. Real outcomes depend on individual circumstances.",
+    "expectedWordCoverage": 0.857,
+    "matchedWordPrecision": 0.837,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

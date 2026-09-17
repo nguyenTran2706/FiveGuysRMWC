@@ -1,0 +1,25 @@
+{
+  "textSha256": "6120ce924d2de9f69f36b88a47916c5aa6078730f5d2365dd41915cbb7c4b3ee",
+  "audioSha256": "5e43a3d116e18f2bdec5021cd3e34d4216b186b888bd3e8337569e66f4f68d43",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 2063230,
+  "spokenText": "The pocket is finished. Big enough for a handful of stones. I’ll silence the notifications for a while and finish the hem. Thanks for coming back without acting as though I owed you an answer.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.413,
+  "sampleRate": 48000,
+  "peak": 0.783984,
+  "rms": 0.103055
+}

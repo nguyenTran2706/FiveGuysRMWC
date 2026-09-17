@@ -1,4 +1,4 @@
-# Khoa — Vietnamese — Central (Da Nang)
+# Khoa — Vietnamese — Central
 
 Generated from the live story; edit the source text, then run `npm run audio:prepare`. Do not edit this packet by hand.
 
@@ -8,7 +8,7 @@ Generated from the live story; edit the source text, then run `npm run audio:pre
 
 33. Thoughtful and grounded, with a dry smile about the lemon tree. Keep his confidence and dignity when recalling the accent criticism.
 
-Accent: Vietnamese — Central (Da Nang). Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
+Accent: Vietnamese — Central. Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
 
 Đọc nguyên văn phần “Read / Đọc”, kể cả lời dẫn và câu trong ngoặc kép. Không đọc tên tệp, mã cảnh, lựa chọn của người nghe hay hướng dẫn diễn xuất. Nói tự nhiên với một người đang đứng gần; không gồng giọng, không bắt chước giọng máy.
 
@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/vi-central/khoa/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `85dc6754280062698e57aad716615250f3aa52ea58cc7ca95a766a6c973aa44d`
@@ -35,7 +35,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## work
 
 - File: `public/audio/dialogue/vi-central/khoa/work.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `1e092e1b62ed543a938d2d07683d6e1ee7f3bc31ff81fd1694a131071cad5404`
@@ -54,7 +54,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/vi-central/khoa/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “Anh đã làm gì sau khi nghe vậy?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `33079693f006854abb6b61644368921677ae7f70582e42b6ac0ec71ea91c4c18`
@@ -72,7 +72,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/vi-central/khoa/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `7dea8fb1feb3a22c187180be7cb0574b9116812674ab476d4282adae4479a499`
@@ -91,7 +91,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/vi-central/khoa/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Nếu muốn, anh ghi điều mình nhớ và giữ email riêng.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `56c7cb293d9f00761874db6b5a09549d547e080e43b3dc38a8792f254264d2ce`
@@ -109,7 +109,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/vi-central/khoa/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Anh không cần chứng minh điều gì với em lúc này.”; kept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `9e5823c53e532595d5d1a499085828885c94060e6117816e27234431e99184bf`
@@ -127,7 +127,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/vi-central/khoa/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “Chắc do anh nói tiếng Anh chưa tốt thôi.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `5c62cb1b000dcec99375657352a9cb06dbab372c0a804711c572046da0a397cc`
@@ -145,7 +145,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/vi-central/khoa/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `d2c62740bee6898fcce020357c74f22eb9dd782e377c2d47068d30f6c1baa2cc`
@@ -163,7 +163,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/vi-central/khoa/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `71418a0ebf6db8621a7d2149ac729cd7549c43a0d20abbf64c67b3867928c3a7`

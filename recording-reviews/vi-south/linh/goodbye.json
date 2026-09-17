@@ -1,0 +1,34 @@
+{
+  "textSha256": "92db1d9e6f5515d0d27c37f737faac0ebf3ee69115ff21bbc74eeba002057308",
+  "audioSha256": "0265c1f7ca0e43cbd4c27adc95c200c0387103eb3733b34c4ed31d5f62859c86",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 7124362,
+  "spokenText": "Chị tắt nửa cái bảng hiệu còn nhấp nháy. Cảm ơn em đã đứng nghe. \n\n Chị cứ tưởng kể ra người ta sẽ bảo tại mình chịu thôi. Chị lấy điện thoại ra. Để chị gọi mẹ trước khi bên đó đi ngủ. Chuyện vé máy bay... chắc chưa nói tối nay.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.979,
+  "sampleRate": 48000,
+  "peak": 0.782407,
+  "rms": 0.115869,
+  "transcriptionCheck": {
+    "audioSha256": "0265c1f7ca0e43cbd4c27adc95c200c0387103eb3733b34c4ed31d5f62859c86",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị tắt nửa cái bản hiệu còn nhấp nháy, cảm ơn em đã đứng nghe. Kì cứ tưởng kể ra người ta sẽ bảo tại mình chiều thôi. Chị lấy điện thoại ra để chị gọi mẹ trước khi bên đó đi ngủ, chuyện với máy bay chắc chưa nói tối nay.",
+    "expectedWordCoverage": 0.923,
+    "matchedWordPrecision": 0.923,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

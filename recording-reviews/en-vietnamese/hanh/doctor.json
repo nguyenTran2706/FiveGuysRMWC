@@ -1,0 +1,34 @@
+{
+  "textSha256": "92ce6f8c650bf43d1b15773d529b2654a21f4a893f08ec53f9c16d77ba3de5bf",
+  "audioSha256": "4a6fd7949368e0d6f7f6c07d7987aa7f96a69b0617b56447d6f6f5d042cf5cb2",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 1180934,
+  "spokenText": "My daughter made an appointment. I kept thinking of cancelling: the cost, more time away. She said, Let me handle the booking. You just go. I haven’t told her everything about the kitchen. I don’t want her sitting there worrying instead of studying.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 18.277,
+  "sampleRate": 48000,
+  "peak": 0.718139,
+  "rms": 0.124563,
+  "transcriptionCheck": {
+    "audioSha256": "4a6fd7949368e0d6f7f6c07d7987aa7f96a69b0617b56447d6f6f5d042cf5cb2",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "my daughter made an appointment. I kept thinking of cancelling the cost more time away. She said let me handle the booking. You just go. I haven't told her everything about the kitchen. I don't want her sitting there worrying instead of studying.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

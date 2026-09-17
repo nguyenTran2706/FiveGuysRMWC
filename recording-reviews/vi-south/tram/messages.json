@@ -1,0 +1,34 @@
+{
+  "textSha256": "69cd24a6226227343ace7d5ee17b2cd8f2ac85f48dec4f1986507434229a6a49",
+  "audioSha256": "05e7c17606e1d24869d92a4b55ef3582da15d539ec0b48e902058428237f405c",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 6419475,
+  "spokenText": "Cái bảng màu xanh đầu đường. Em có gửi ảnh vào nhóm nhân viên một lần, rồi người quản lý bắt đầu nhắn riêng, toàn chuyện không phải công việc. Em không trả lời thì hôm sau anh ấy đứng sát hỏi sao làm cao.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 13.943,
+  "sampleRate": 48000,
+  "peak": 0.762017,
+  "rms": 0.11903,
+  "transcriptionCheck": {
+    "audioSha256": "05e7c17606e1d24869d92a4b55ef3582da15d539ec0b48e902058428237f405c",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Cái bản màu xanh đầu đường. Em có gửi ảnh vào nhóm nhân viên một lần, rồi người quản lý bắt đầu nhắn riêng, toàn chuyện không phải công việc. Em không cả lời thì hôm sau anh ấy đứng xác hỏi sao làm cao.",
+    "expectedWordCoverage": 0.933,
+    "matchedWordPrecision": 0.933,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

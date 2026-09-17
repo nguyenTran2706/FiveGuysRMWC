@@ -1,0 +1,34 @@
+{
+  "textSha256": "71418a0ebf6db8621a7d2149ac729cd7549c43a0d20abbf64c67b3867928c3a7",
+  "audioSha256": "c2826ff28e25ac6465615d6eac020480a5ebac3cbbab3caf20368bf9a5c405d5",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Quang Sơn",
+  "seed": 11677156,
+  "spokenText": "Đoạn kết hư cấu: Khoa chưa ghi lại cuộc nói chuyện. Anh tiếp tục suy nghĩ về điều mình muốn hỏi; ký ức và người chứng kiến vẫn có thể là điểm bắt đầu cho một cuộc trao đổi hỗ trợ.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 11.62,
+  "sampleRate": 48000,
+  "peak": 0.799812,
+  "rms": 0.116362,
+  "transcriptionCheck": {
+    "audioSha256": "c2826ff28e25ac6465615d6eac020480a5ebac3cbbab3caf20368bf9a5c405d5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "đoàn kể thứ Cậu Ú, Khoa chưa ghi lại cuộc nói chuyện. Anh tiếp tục, phí nghi về điều minh mộng hỏi, tỷ ức và người trưởng kiểm vẫn có thể là điểm bắt đầu cho một cuộc cháo đội hỗ trợ.",
+    "expectedWordCoverage": 0.805,
+    "matchedWordPrecision": 0.786,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

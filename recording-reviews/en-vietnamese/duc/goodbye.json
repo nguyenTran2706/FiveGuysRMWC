@@ -1,0 +1,34 @@
+{
+  "textSha256": "841fa8bd55ba20bd3cdbf37a811744ebeb76214cf5dee7a52a210fb9d137df1f",
+  "audioSha256": "bb47f4655d8303b8d8d63e92c534cd90be59bacc76b1ce39bce062e818267b90",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 2064428,
+  "spokenText": "Listen to this bell. Too loud, isn’t it? My boy will love it. The neighbours probably won’t. Thanks for coming back.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 7.675,
+  "sampleRate": 48000,
+  "peak": 0.745786,
+  "rms": 0.122622,
+  "transcriptionCheck": {
+    "audioSha256": "bb47f4655d8303b8d8d63e92c534cd90be59bacc76b1ce39bce062e818267b90",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Listen to this bell. Too loud, isn't it? My boy will love it. The neighbors probably won't. Thanks for coming back.",
+    "expectedWordCoverage": 0.957,
+    "matchedWordPrecision": 0.957,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

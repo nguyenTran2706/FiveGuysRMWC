@@ -1,0 +1,34 @@
+{
+  "textSha256": "d6d5914e8239757cd4ac9292f8395e0598b4cc80acf9bec1a7bb2f5405f49f9f",
+  "audioSha256": "0c51b6421d5ba530e28ee422afa406117490cd5538c4e77610b484869bc6e6fa",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 4808000,
+  "spokenText": "A message sent at 7:12 am: Just say your arm started hurting at home. Paperwork is a hassle; I’ll handle it. Next week’s roster shows two shifts instead of five. Cô Hạnh has not replied.",
+  "performance": {
+    "mood": "clear document narration",
+    "tempo": 0.9408,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.966,
+  "sampleRate": 48000,
+  "peak": 0.798481,
+  "rms": 0.120886,
+  "transcriptionCheck": {
+    "audioSha256": "0c51b6421d5ba530e28ee422afa406117490cd5538c4e77610b484869bc6e6fa",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Ah, message sent at 7.12am. Just say your arm started hurting at home. Paperwork is a hassle. I'll handle it.\" Next week, roster shows two shifting instead of five. Koh Han has not replied.",
+    "expectedWordCoverage": 0.816,
+    "matchedWordPrecision": 0.861,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

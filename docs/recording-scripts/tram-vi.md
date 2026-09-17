@@ -1,4 +1,4 @@
-# Trâm — Vietnamese — Southern (Saigon / Mekong Delta)
+# Trâm — Vietnamese — Southern
 
 Generated from the live story; edit the source text, then run `npm run audio:prepare`. Do not edit this packet by hand.
 
@@ -8,7 +8,7 @@ Generated from the live story; edit the source text, then run `npm run audio:pre
 
 20. Quiet, alert, still interested in photography. Boundaries are firm. Do not dramatise the harassment or perform the manager as a separate threatening voice.
 
-Accent: Vietnamese — Southern (Saigon / Mekong Delta). Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
+Accent: Vietnamese — Southern. Use a fluent speaker who naturally uses this accent. Do not turn an accent into an impression or change spelling to imitate it. Vietnamese and English scripts intentionally follow their own existing captions; do not translate missing sentences yourself.
 
 Đọc nguyên văn phần “Read / Đọc”, kể cả lời dẫn và câu trong ngoặc kép. Không đọc tên tệp, mã cảnh, lựa chọn của người nghe hay hướng dẫn diễn xuất. Nói tự nhiên với một người đang đứng gần; không gồng giọng, không bắt chước giọng máy.
 
@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/vi-south/tram/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `ccb01e5d27e504b6f1c74166c2a4e7cea672d2a652ded213f2b2f120013c606e`
@@ -36,7 +36,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## messages
 
 - File: `public/audio/dialogue/vi-south/tram/messages.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Em thích chụp những bảng hiệu nào?”; hello: listener chooses “Mình đứng yên một lát cũng được.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `69cd24a6226227343ace7d5ee17b2cd8f2ac85f48dec4f1986507434229a6a49`
@@ -55,7 +55,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/vi-south/tram/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): messages: listener chooses “Em chỉ kể đến chỗ em muốn thôi.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `3f28ec5ed45cd7e4be490efba546389997125f0998013d93c82457e4961480b5`
@@ -73,7 +73,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/vi-south/tram/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `21a3bda19edbaf05a16a4b56464fad465e80f69dd3dacf4f865ff2aad9847bfa`
@@ -93,7 +93,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/vi-south/tram/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Nếu an toàn, em có thể giữ một bản ở nơi riêng tư rồi ẩn cuộc chat.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `cde03bd6644aba1c6c320e4709dec548350da2dc454a45037f3f8573de6b6fff`
@@ -111,7 +111,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/vi-south/tram/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “Mình không cần làm gì thêm tối nay.”; kept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `8de069d2daaae4fc8b03f1b0ad5c7a2ab0cbacbb19a22932940d36b07915c339`
@@ -129,7 +129,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/vi-south/tram/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): messages: listener chooses “Chắc anh ấy chỉ đùa thôi?”; records: listener chooses “Phải gọi anh ta ra nói ngay.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `64de47e2b60e81c3f04f8c4bad6334c9604f72a5be5acf9ecd16c3692351421b`
@@ -147,7 +147,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/vi-south/tram/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `26c31e8c9da03ef01335c5939bba78cb4a15d8e9e50c8710ce326d3fd2ebb77d`
@@ -165,7 +165,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/vi-south/tram/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `15e231e2637fd36598d23f80240121685e51b64be683737ef4c12e7c2ae6b38e`

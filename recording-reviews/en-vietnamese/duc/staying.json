@@ -1,0 +1,34 @@
+{
+  "textSha256": "ace49efb2ca03dd1481da73ce6b748616ed49cc73d9fb9f3e4c991e278ae9d16",
+  "audioSha256": "7cd428510865c742899b97097834027ff3c4ae4bd51143a7b992d97d04c76189",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 554871,
+  "spokenText": "I came on a 482 visa. A lot feels tied to this job. I don’t even know exactly what has happened, and I’m already thinking about rent and my son’s school. I don’t need anyone to decide for me. I want to know where I stand.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 16.017,
+  "sampleRate": 48000,
+  "peak": 0.799261,
+  "rms": 0.116219,
+  "transcriptionCheck": {
+    "audioSha256": "7cd428510865c742899b97097834027ff3c4ae4bd51143a7b992d97d04c76189",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "He came on a 482 visa. A lot feels tied to this job, I don't even know exactly what has happened, and I'm already thinking about rent at my son's school. I don't need anyone to decide for me, I want to know where I stand.",
+    "expectedWordCoverage": 0.962,
+    "matchedWordPrecision": 0.962,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

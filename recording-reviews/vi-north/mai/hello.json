@@ -1,0 +1,34 @@
+{
+  "textSha256": "603181cae29e5096fa6fbe3716d7825c4359e5d8d2ca05d802787fa21e3875b9",
+  "audioSha256": "8531e22a10eb5d6f75d5632df4dcde350f4bb5b3e9b427155ff67707be64ef62",
+  "accent": "vi-north",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Huyền",
+  "seed": 10836117,
+  "spokenText": "Xin lỗi, lúc nãy em đang nghe điện thoại, không muốn mở cửa. Em sửa cái váy cho cháu, đường chỉ cứ xiên vì máy này cũ quá. Sinh nhật nó tháng sau, em hứa có cái túi thật để bỏ đá vào, nó thích nhặt đá hơn thích búp bê.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.868,
+  "sampleRate": 48000,
+  "peak": 0.719303,
+  "rms": 0.125666,
+  "transcriptionCheck": {
+    "audioSha256": "8531e22a10eb5d6f75d5632df4dcde350f4bb5b3e9b427155ff67707be64ef62",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Xin lỗi, lúc nãy em đang nghe điện thoại, không muốn mở cửa, em sửa cái vấy cho cháu, đường chỉ cứ riêng vì máy này cũ quá. Xin nhật nó tháng sau, em hứa có cái túi thật để bỏ đá vào, nó thích nhặt đá hơn kích búp bề.",
+    "expectedWordCoverage": 0.941,
+    "matchedWordPrecision": 0.941,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

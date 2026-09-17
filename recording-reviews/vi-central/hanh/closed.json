@@ -1,0 +1,34 @@
+{
+  "textSha256": "af72b93c911648eaa1f5a2a9d7d73300c6ccc9cd4113defd8088f095eea57751",
+  "audioSha256": "d806081ecf68a701d48a0ce04e9f3c9aee21eb85d39b7abe7a1866c0f1b47f80",
+  "accent": "vi-central",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 5076124,
+  "spokenText": "Thôi con, cô cũng mệt rồi. Con bé còn học, cô không muốn nó nghe mình nói lớn. Để cô đóng cửa cho bớt gió.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.936,
+    "temperature": 0.78
+  },
+  "durationSeconds": 7.347,
+  "sampleRate": 48000,
+  "peak": 0.589431,
+  "rms": 0.123157,
+  "transcriptionCheck": {
+    "audioSha256": "d806081ecf68a701d48a0ce04e9f3c9aee21eb85d39b7abe7a1866c0f1b47f80",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Thôi con, cô cùng mệt rồi. Con bẻ con học, cô không muốn nó nghe minh nội lượng để cô đồng cửa cho bực gió.",
+    "expectedWordCoverage": 0.92,
+    "matchedWordPrecision": 0.92,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

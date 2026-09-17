@@ -1,0 +1,25 @@
+{
+  "textSha256": "cb5dce0ae0996d6b8970e0d63098034a77b66483ef505dfd58e303795915b2c7",
+  "audioSha256": "6d9598deaf4aa7bb0e08b34ee27530ba4c8245cce36d47cb5b13bbe93678089a",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 8609837,
+  "spokenText": "Sorry I didn’t open earlier. I was on the phone and didn’t want to. I’m fixing a dress for my niece. The machine is old and the seams keep wandering.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.97,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.305,
+  "sampleRate": 48000,
+  "peak": 0.747822,
+  "rms": 0.107588
+}

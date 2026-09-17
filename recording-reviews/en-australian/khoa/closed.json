@@ -1,0 +1,25 @@
+{
+  "textSha256": "30db69d673175d70e868767e934f270eca322342f1912e3c9fd751e4a0eff9ae",
+  "audioSha256": "18826e96d5367cee1d54686c54107bf4b901f94c9232c89e03d5319867945ddd",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 9287578,
+  "spokenText": "Yes. I’ve heard that before. I need to get ready for the morning shift. Good night.",
+  "performance": {
+    "mood": "guarded, contained",
+    "tempo": 0.9555,
+    "temperature": 0.78
+  },
+  "durationSeconds": 5.33,
+  "sampleRate": 48000,
+  "peak": 0.799789,
+  "rms": 0.116928
+}

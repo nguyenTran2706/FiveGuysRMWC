@@ -1,0 +1,34 @@
+{
+  "textSha256": "83db514b24a097a266af9248531489b0ac5771f0171d72d6d0cc7cde13e1a543",
+  "audioSha256": "be2f9576f3cdd3db7123eab9bae968c2425d76d05b0e7de6c99b0683681826dd",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 5075604,
+  "spokenText": "I’ve cared for some residents for years. A few remember my name more easily than their grandchildren’s. When I asked about team-leader training, the manager said my accent wasn’t professional enough. Someone who started after me got the training, and I was asked to show them the work.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.175,
+  "sampleRate": 48000,
+  "peak": 0.669533,
+  "rms": 0.112638,
+  "transcriptionCheck": {
+    "audioSha256": "be2f9576f3cdd3db7123eab9bae968c2425d76d05b0e7de6c99b0683681826dd",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I've cared for some residents for years. A few remember my name more easily than their grandchildren's. When I asked about team leader training, the manager said my accent wasn't professional enough. Someone who started after me got the training and I was asked to show them the work.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "textSha256": "881a2777ed0be580afb9278871ab7abc0593d1c4b9cec629137563487068aefd",
+  "audioSha256": "870031b5d8aeb6ab7e68e4bf682675eaf1dfde48750ad972203a8824c2a312b9",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-khoa",
+  "seed": 15760606,
+  "spokenText": "Fictional ending: Khoa has not recorded the conversation. He keeps thinking about what he wants to ask; his memory and someone who was there may still be a starting point for seeking support.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9506,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.374,
+  "sampleRate": 48000,
+  "peak": 0.79731,
+  "rms": 0.117299
+}

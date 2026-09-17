@@ -1,0 +1,34 @@
+{
+  "textSha256": "4941ae81cbaa9575dd57532e4de3835e6d24026221fb1a3ca561decba30203e8",
+  "audioSha256": "cfcd5062b96838baf766ca65291a6412ea96ce03a7c90dc605800e7e351f2e37",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 1972872,
+  "spokenText": "I’ll write what I remember and mark the parts I’m unsure of. Then I’ll find someone to ask soon; staring at this phone isn’t making anything clearer. First, though, I’ll finish fitting the bell.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 10.736,
+  "sampleRate": 48000,
+  "peak": 0.797553,
+  "rms": 0.116064,
+  "transcriptionCheck": {
+    "audioSha256": "cfcd5062b96838baf766ca65291a6412ea96ce03a7c90dc605800e7e351f2e37",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Now write what you remember and mark the parts you want to show off. Then I'll find someone to ask soon. Staring at this phone isn't making anything clearer. First though, I'll finish fitting the bell.",
+    "expectedWordCoverage": 0.821,
+    "matchedWordPrecision": 0.821,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "e11f77590128aebc39fc57bb88071fb0f0ab5ff099f9eb337c0c4d6d3c1148bb",
+  "audioSha256": "39b28aecc0a09db5c856b293cb016f259cf95a6897110b38140c12e61a9be9a9",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 11071043,
+  "spokenText": "Đoạn kết hư cấu: Linh giữ lại ảnh lịch làm và ghi những giờ dọn tiệm. Khi cô quyết định tìm hỗ trợ, các mốc thời gian giúp làm rõ câu chuyện; trong nhánh này, cô nhận lại một phần tiền và đặt vé cho mẹ. Kết quả ngoài đời tùy từng tình huống.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9603,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.726,
+  "sampleRate": 48000,
+  "peak": 0.795081,
+  "rms": 0.120918,
+  "transcriptionCheck": {
+    "audioSha256": "39b28aecc0a09db5c856b293cb016f259cf95a6897110b38140c12e61a9be9a9",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Đoàn cách hư cấu lên giữ lại ảnh lịch làm và ghi những giờ dòng tiệm. Khi cô quyết định tiền hỗ trợ, các quốc thời gian giúp làm rõ câu chuyện trong nhánh này, cô nhận lại một phần tiền và đặt vé cho mẹ. Kết quả ngoài đời tuy tương tình húng.",
+    "expectedWordCoverage": 0.87,
+    "matchedWordPrecision": 0.87,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "textSha256": "3f28ec5ed45cd7e4be490efba546389997125f0998013d93c82457e4961480b5",
+  "audioSha256": "bc0ba823c2ae6751a704af14442347e7df92416e67b6fcecfcd00a534b0a6a15",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Mỹ Duyên",
+  "seed": 15739618,
+  "spokenText": "Có lần anh ấy đặt tay lên eo lúc em đang lấy ly. Em né, anh cười bảo đừng nhạy cảm; ngày khác anh lại đổi ca giúp em đi thi, nên em cứ tự hỏi mình có nghĩ quá không. Em mới hai mươi, còn học, căn phòng đang thuê cũng do chị cùng tiệm giới thiệu.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 18.324,
+  "sampleRate": 48000,
+  "peak": 0.717035,
+  "rms": 0.125988,
+  "transcriptionCheck": {
+    "audioSha256": "bc0ba823c2ae6751a704af14442347e7df92416e67b6fcecfcd00a534b0a6a15",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Có lần anh ấy đặt tay lên Eo lúc em đang lấy ly, em nế, anh cười bảo đừng nhạy cảm, ngày khác anh lại đổi ca giúp em đi thi nên em cứ tự hỏi mình có nghĩ quá không. Em mới 20, còn học, căng phòng đang thuê cũng do chị cùng tiệm giới thiệu.",
+    "expectedWordCoverage": 0.948,
+    "matchedWordPrecision": 0.965,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

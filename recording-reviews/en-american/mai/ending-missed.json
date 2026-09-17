@@ -1,0 +1,25 @@
+{
+  "textSha256": "2a1dcbf82d77bc888d522d82d2b8a7053b6980317495a765660b1a3006d3ecdc",
+  "audioSha256": "00d788be92d6e8f3c6d47fd1a2941fec42dcb128b728d79dbc477e45e0f6caea",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-mai",
+  "seed": 15760207,
+  "spokenText": "Fictional ending: Mai has not saved the messages. She finishes the dress and considers speaking with someone she trusts. Having no documents, or not being ready to tell everything, does not prevent seeking support.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9409,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.875,
+  "sampleRate": 48000,
+  "peak": 0.799496,
+  "rms": 0.107107
+}

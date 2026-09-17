@@ -1,0 +1,34 @@
+{
+  "textSha256": "ab1218ffdc4ffa3122034af8ffde3d87175e036f48761f116ab00e2695a79cde",
+  "audioSha256": "75fe7875550b135406d78a3ab20a8cf9564c31a115c743247c7fd42f83ad1292",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Xuân Vĩnh",
+  "seed": 935992,
+  "spokenText": "On Monday I opened the roster and my name was gone. The labour-hire company said the warehouse didn’t need me; the warehouse manager told me to ask the agency. I still have my uniform. Nobody has clearly said whether I still have a job.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.98,
+    "temperature": 0.8
+  },
+  "durationSeconds": 14.273,
+  "sampleRate": 48000,
+  "peak": 0.801138,
+  "rms": 0.11482,
+  "transcriptionCheck": {
+    "audioSha256": "75fe7875550b135406d78a3ab20a8cf9564c31a115c743247c7fd42f83ad1292",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "On Monday, it opened the roster and my name was gone. The labor hire company said the warehouse did need me. The warehouse manager told me to ask the agency. I still have my uniform. Nobody has clearly said whether I still have a job.",
+    "expectedWordCoverage": 0.913,
+    "matchedWordPrecision": 0.933,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

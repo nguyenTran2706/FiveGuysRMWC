@@ -1,0 +1,34 @@
+{
+  "textSha256": "dad579148d9c0570beca697f55ae36f7776981805ceaf4ebcbf49cd99091cf67",
+  "audioSha256": "9c16c19373a3514a9f40988e21ea7d47666e21ae297f2bb8103afabec7662186",
+  "accent": "vi-south",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Thục Đoan",
+  "seed": 6988253,
+  "spokenText": "Chị còn đi học. Visa năm trăm. Điện thoại trong túi chị rung. Chị không lấy ra. Có bữa anh nhắn ở lại thêm. \n\n Nếu chị hỏi anh chuyện tiền... Chị dừng lại. ...thì tuần sau còn ca không?",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.646,
+  "sampleRate": 48000,
+  "peak": 0.785616,
+  "rms": 0.115275,
+  "transcriptionCheck": {
+    "audioSha256": "9c16c19373a3514a9f40988e21ea7d47666e21ae297f2bb8103afabec7662186",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Chị còn bí học. Về xa 500. Điện thoại trong túi chị Rung, chị không lấy ra có bữa anh nhắn ở lại thêm. Kéo chị hỏi anh chuyện tiền. Chị dừng lại khi tuần sau còn ca không?",
+    "expectedWordCoverage": 0.846,
+    "matchedWordPrecision": 0.846,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

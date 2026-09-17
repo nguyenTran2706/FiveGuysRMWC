@@ -1,0 +1,34 @@
+{
+  "textSha256": "32ddb67c9bcd9fb9792efbb0ad36c81f097bc4b1f0f442e29bc6da94c96380f4",
+  "audioSha256": "201dd780c31b788f026d42e3e55d1ad68c8834d43fb008d5fb26d13780ec3ffb",
+  "accent": "en-american",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-tram",
+  "seed": 10160065,
+  "spokenText": "I want to delete the messages so I don’t have to see them. A woman I work with saw something once, but I haven’t asked if she remembers. I don’t want anyone calling the restaurant. I just want one night without flinching when the phone lights up.",
+  "performance": {
+    "mood": "conversational",
+    "tempo": 0.99,
+    "temperature": 0.8
+  },
+  "durationSeconds": 12.786,
+  "sampleRate": 48000,
+  "peak": 0.806778,
+  "rms": 0.110811,
+  "transcriptionCheck": {
+    "audioSha256": "201dd780c31b788f026d42e3e55d1ad68c8834d43fb008d5fb26d13780ec3ffb",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I want to delete the messages so I don't have to see them. A woman I work with saw something once, but I haven't asked if she remembers. I don't want anyone calling the restaurant. I just want one night without flinching when the phone lights up.",
+    "expectedWordCoverage": 1.0,
+    "matchedWordPrecision": 1.0,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

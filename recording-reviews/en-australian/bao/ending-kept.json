@@ -1,0 +1,34 @@
+{
+  "textSha256": "b9ec7411d4a6a41eda102bffa3ff66efca0b29303a5a6da006e9c41344904b2c",
+  "audioSha256": "f83c206115214fa2549f7fd37951084d3bc3aa5a7b5259a8764bdc9e9b24761a",
+  "accent": "en-australian",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+  "modelRevision": "5d83992436eae1d760afd27aff78a71d676296fc",
+  "voice": "designed-bao",
+  "seed": 8817287,
+  "spokenText": "Fictional ending: Bảo saves the contract, shifts and messages. He brings them to an appointment, explains who controls the work and starts finding out about the tax he fears. The silver car is still a plan, but he is no longer guessing alone.",
+  "performance": {
+    "mood": "reflective narration",
+    "tempo": 0.9942,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.02,
+  "sampleRate": 48000,
+  "peak": 0.655054,
+  "rms": 0.10797,
+  "transcriptionCheck": {
+    "audioSha256": "f83c206115214fa2549f7fd37951084d3bc3aa5a7b5259a8764bdc9e9b24761a",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fictional ending. Ba saves the contract, shifts and messages. He brings them to an appointment, explains who controls the work and starts finding out about the tax he fears. The silver car is still a plan, but he is no longer guessing alone.",
+    "expectedWordCoverage": 0.977,
+    "matchedWordPrecision": 0.977,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}

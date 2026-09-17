@@ -1,0 +1,34 @@
+{
+  "textSha256": "801b874a6c09a88b8bd203c8e4b16987f45c568980c3d33dc61e81377720301f",
+  "audioSha256": "a81e9b15d4bfb4d67444c9ea7891ee7c5ea906c75dc4a1df95acc8350bfb37bb",
+  "accent": "en-vietnamese",
+  "humanPerformed": false,
+  "approved": false,
+  "production": "local-synthetic",
+  "technicalValidated": true,
+  "listeningApproval": "pending",
+  "accentVerification": "pending-native-listener",
+  "model": "pnnbao-ump/VieNeu-TTS-v3-Turbo",
+  "modelRevision": "5f2a3e93092efaba9153253ff5f2e6a8e810e4f2",
+  "voice": "Ngọc Trân",
+  "seed": 1974170,
+  "spokenText": "I can use this notebook. The date, which pot, who was beside me. I’ll ask my daughter how to save the message separately when she takes a study break. I’ll go to the appointment and explain what I remember.",
+  "performance": {
+    "mood": "cautious relief",
+    "tempo": 0.96,
+    "temperature": 0.8
+  },
+  "durationSeconds": 15.698,
+  "sampleRate": 48000,
+  "peak": 0.787684,
+  "rms": 0.124005,
+  "transcriptionCheck": {
+    "audioSha256": "a81e9b15d4bfb4d67444c9ea7891ee7c5ea906c75dc4a1df95acc8350bfb37bb",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I can use this notebook, the date, week part, who was beside me. I'll ask my daughter how to save the message separately when she takes a steady break. I'll talk to the appointment and explain what I remember.",
+    "expectedWordCoverage": 0.902,
+    "matchedWordPrecision": 0.902,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
+}
