@@ -155,7 +155,7 @@ test('voice ducks rain and volumes/mute remain independent; ending restores rain
   assert.equal(state().rain, 'off');
 });
 
-test('missing, failed and suspended playback report honest states', async t => {
+test('missing and failed playback report honest states', async t => {
   const { engine, state } = fixture(t, async () => ({ ok: false }));
   await engine.playVoice(null);
   assert.equal(state().voice, 'missing');
@@ -163,6 +163,22 @@ test('missing, failed and suspended playback report honest states', async t => {
   assert.equal(state().voice, 'error');
   await engine.startRain();
   assert.equal(state().rain, 'error');
+});
+
+test('blocked playback starts no sources and a later gesture can retry', async t => {
+  const { engine, state } = fixture(t);
+  engine.unlock();
+  const context = Context.instances.at(-1);
+  context.state = 'suspended';
+  t.mock.method(context, 'resume', async () => {});
+  await engine.playVoice('/line');
+  assert.equal(state().voice, 'blocked');
+  await engine.startRain();
+  assert.equal(state().rain, 'blocked');
+  assert.equal(context.sources.length, 0);
+  context.state = 'running';
+  await engine.playVoice('/line');
+  assert.equal(state().voice, 'playing');
 });
 
 test('pending voice and rain stay stopped after privacy exit or disposal', async t => {

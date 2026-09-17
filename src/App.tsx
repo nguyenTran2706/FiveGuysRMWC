@@ -57,7 +57,7 @@ export default function App() {
   const [activeId, setActiveId] = useState('linh');
   const [stage, setStage] = useState<Stage>('dialogue');
   const [note, setNote] = useState('');
-  const [reaction, setReaction] = useState<{ text: string; delta: number; choice: Choice } | null>(null);
+  const [reaction, setReaction] = useState<{ text: string; delta: number; tension: number; choice: Choice } | null>(null);
   const active = residents.find(resident => resident.id === activeId) ?? residents[0];
   const session = sessions[activeId];
   const node = active.nodes[session?.node ?? active.start];
@@ -80,7 +80,7 @@ export default function App() {
     src: audioSrc, active: page === 'game' && !overlay && !reaction && !!audioText, autoplay,
     preloads: stage === 'dialogue' ? nextDialogueRecordings(active, audioCue, language) : [],
     rain: sound && ['home', 'about', 'street', 'game'].includes(page) && overlay !== 'pause' && overlay !== 'reset',
-    tension: page === 'game' ? (stage === 'dialogue' ? session?.tension ?? INITIAL_TENSION : .12) : INITIAL_TENSION,
+    tension: page === 'game' ? (stage === 'dialogue' ? reaction?.tension ?? session?.tension ?? INITIAL_TENSION : .12) : INITIAL_TENSION,
     adaptive: adaptiveRain, voiceVolume, rainVolume,
   });
   const { engine } = audio;
@@ -155,8 +155,7 @@ export default function App() {
     cancelSpeech();
     const delta = choice.trust ?? 0;
     const line = choice.recordEvidence ? t.reactionEvidence : delta > 0 ? t.reactionPositive : delta < 0 ? t.reactionNegative : t.reactionNeutral;
-    setSessions(current => ({ ...current, [activeId]: { ...current[activeId], tension: tensionAfterChoice(current[activeId].tension, choice) } }));
-    setReaction({ text: line.replace('{name}', active.name), delta, choice });
+    setReaction({ text: line.replace('{name}', active.name), delta, tension: tensionAfterChoice(session?.tension ?? INITIAL_TENSION, choice), choice });
   }
   useEffect(() => {
     if (!reaction || page !== 'game' || overlay) return;
@@ -166,7 +165,7 @@ export default function App() {
       const terminal = !next && (choice.next === 'reflection' || choice.next === 'closed');
       setSessions(current => ({ ...current, [activeId]: {
         ...current[activeId], node: next ? choice.next : current[activeId].node,
-        trust: current[activeId].trust + (choice.trust ?? 0), kept: current[activeId].kept || !!choice.recordEvidence,
+        trust: current[activeId].trust + (choice.trust ?? 0), tension: reaction.tension, kept: current[activeId].kept || !!choice.recordEvidence,
         status: terminal ? (choice.next === 'closed' ? 'closed' : 'heard') : current[activeId].status,
       } }));
       if (terminal) setStage(choice.next === 'closed' ? 'debrief' : 'reflection');

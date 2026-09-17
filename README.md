@@ -24,7 +24,7 @@ npm.cmd run dev
 
 - Cinematic scenes and branching conversations for seven residents, with consequences for how you respond, content-warning skips and a quiet transition into your own story.
 - A distinct image for every dialogue beat and both endings across all seven residents: 85 story images, with smooth transitions and preloading of the next choices. See the [scene artwork and prompts](docs/conversation-artwork.md).
-- Vietnamese/English copy, keyboard controls, optional ambient rain and browser speech playback where a suitable device voice exists.
+- Vietnamese/English copy, keyboard controls, real recorded rain with choice-responsive intensity and gentle distant thunder, plus a human-recording dialogue player with fixed accents per character (voice recordings still to be supplied).
 - A minimal cinematic title menu with original cast artwork, working Continue and settings, seven distinct local character portraits, and complete bilingual character descriptions.
 - A live AEST clock (UTC+10 year-round), updated every second. English uses a 12-hour clock and Vietnamese uses 24-hour time; the fictional scenes keep their night-time setting.
 - A shared in-memory `CaseFile`, optional guided intake, editable summary, evidence and safe-contact details.
@@ -35,11 +35,25 @@ The guided intake follows local, deterministic questions and matching rules. It 
 
 The default handoff uses [RMWC's existing legal-help page](https://migrants.org.au/legal-help). Opening that page does not send the draft or prefill their form. RMWC can decide whether to use its existing enquiry process or adopt the optional backend.
 
+## Human voice recording
+
+The [14 complete performer packets](docs/recording-scripts/README.md) cover 170 Vietnamese/English recordings, including every branch and both endings. See the [recording and import guide](docs/audio-production.md) for casting, recording without generation services, exact filenames and listening review. Rain sources and licences are in [audio credits](public/audio/ambience/CREDITS.md).
+
+Dialogue auto-plays when entering or advancing a scene once its approved recording is present. Missing recordings display a notice and leave the story playable; there is no synthetic speech fallback. Voice and rain have separate volume controls, and adaptive rain can be switched off. Personal answers never affect the weather.
+
+```sh
+npm run audio:prepare
+npm run audio:check
+# Fully voiced release gate; intentionally fails until all 170 clips are supplied:
+npm run audio:check -- --require-complete
+```
+
 ## Validation
 
 ```sh
 npm run build
 npm test
+npm run audio:check
 ```
 
 If the Windows sandbox blocks test child processes, use:

@@ -54,7 +54,7 @@ test('missing human recordings are honest; settings fit mobile and do not use TT
   await enterLinh(page);
   await expect(page.locator('.audio-error')).toContainText('no human recording yet');
   await expect(page.locator('.choice-button')).toHaveCount(3);
-  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  await page.getByRole('button', { name: 'Experience settings', exact: true }).click();
   await expect(page.getByRole('switch', { name: 'Auto-play dialogue' })).toHaveAttribute('aria-checked', 'true');
   await page.getByRole('switch', { name: 'Auto-play dialogue' }).click();
   await page.getByRole('slider', { name: /Voice volume/ }).fill('0');
@@ -92,7 +92,7 @@ test('automatic MP3 playback follows choice/next/language; pause and navigation 
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
   await expect.poll(() => liveVoiceCount(page)).toBe(0);
-  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.getByRole('button', { name: 'Continue the story', exact: true }).click();
   await expect.poll(() => liveVoiceCount(page)).toBe(1);
   await page.locator('.speaker-line button').click();
   await expect.poll(() => liveVoiceCount(page)).toBe(0);
@@ -119,7 +119,7 @@ test('all real rain assets decode, layers loop, pause stops them, and choice rea
   // A real-time delay verifies that the old 1.8-second timeout cannot advance behind the modal.
   await page.waitForTimeout(2100);
   await expect(page.locator('.dialogue-text')).toHaveText(oldLine);
-  await page.getByRole('button', { name: 'Resume', exact: true }).click();
+  await page.getByRole('button', { name: 'Continue the story', exact: true }).click();
   await expect(page.locator('.dialogue-text')).toContainText('While there are customers');
   await expect.poll(() => page.evaluate(() => window.__audioTest.sources.filter(item => item.started && item.source.loop && !item.stopped).length)).toBe(3);
   await page.locator('.player-controls button').first().click();
@@ -138,4 +138,40 @@ test('failed voice fetch is retryable and does not block story choices', async (
   await page.unroute('**/audio/ambience/rain-calm.mp3');
   await page.locator('.speaker-line button').click();
   await expect.poll(() => liveVoiceCount(page)).toBe(1);
+});
+
+test('endings auto-play but private reflection does not; manual mode and hidden tabs stop correctly', async ({ page }) => {
+  await instrument(page);
+  await page.goto('/');
+  await installTransportFixtures(page);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await enterLinh(page);
+  await page.locator('.choice-button').last().click();
+  await expect(page.locator('.dialogue-text')).toContainText('While there are customers');
+  await page.locator('.choice-button').last().click();
+  await expect(page.locator('.dialogue-text')).toContainText('I still have to close up');
+  await page.locator('.continue-button').click();
+  await expect(page.locator('.debrief-panel')).toBeVisible();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await page.locator('.debrief-actions button').click();
+  await expect(page.locator('.epilogue-text')).toContainText('Fictional ending: The chat roster is overwritten');
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.getByRole('button', { name: 'Experience settings', exact: true }).click();
+  await page.getByRole('switch', { name: 'Auto-play dialogue' }).click();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await page.locator('.speaker-line button').click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => false });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.getByRole('button', { name: 'Continue the story', exact: true }).click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(0);
 });

@@ -82,7 +82,8 @@ files.set('docs/recording-scripts/README.md', `# Complete human-recording packag
 for (const [relative, content] of files) {
   const path = join(root, relative);
   if (check) {
-    if ((await optional(path))?.toString('utf8') !== content) problems.push(`${relative}: missing or stale; run npm run audio:prepare`);
+    // Git may check text files out as CRLF on Windows; that is not script drift.
+    if ((await optional(path))?.toString('utf8').replaceAll('\r\n', '\n') !== content) problems.push(`${relative}: missing or stale; run npm run audio:prepare`);
   } else { await mkdir(dirname(path), { recursive: true }); await writeFile(path, content, 'utf8'); }
 }
 if (complete && ready !== cues.length) problems.push(`Human recordings incomplete: ${ready}/${cues.length} ready`);
