@@ -92,7 +92,7 @@ export default function App() {
     engine.stopAll();
     setSound(false); setCaseFile(createCaseFile('vi', 'street')); setSessions({}); setApproaches({}); setNote('');
     window.history.replaceState(null, '', '/');
-    window.location.replace('https://www.bom.gov.au/');
+    window.location.replace('https://migrants.org.au/');
   }, [engine]);
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); quickExit(); } };

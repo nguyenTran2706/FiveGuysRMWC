@@ -201,11 +201,25 @@ test('return visits, sensitive story skip, pause and quick exit', async ({ page 
   await page.getByRole('button', { name: 'Visit another window' }).click();
   await page.locator('.resident-duc').click();
   await expect(page.locator('.game-scene')).toBeVisible();
-  await page.route('https://www.bom.gov.au/**', route => route.fulfill({ body: '<html><title>Weather</title><body>Weather</body></html>', contentType: 'text/html' }));
+  await page.route('https://migrants.org.au/**', route => route.fulfill({ body: '<html><title>RMWC</title><body>RMWC</body></html>', contentType: 'text/html' }));
   await page.keyboard.press('Escape');
-  await expect(page).toHaveURL('https://www.bom.gov.au/');
-  await expect(page).toHaveTitle('Weather');
+  await expect(page).toHaveURL('https://migrants.org.au/');
+  await expect(page).toHaveTitle('RMWC');
 });
+
+for (const language of ['vi', 'en']) {
+  test(`Quick exit button opens RMWC and explains its destination in ${language}`, async ({ page }) => {
+    await page.route('https://migrants.org.au/**', route => route.fulfill({ body: '<html><title>RMWC</title><body>RMWC</body></html>', contentType: 'text/html' }));
+    await page.goto('/');
+    if (language === 'en') await page.getByRole('button', { name: 'Switch to English' }).click();
+    await expect(page.locator('.quick-exit')).toHaveAttribute('title', language === 'en' ? 'Quick exit to the RMWC website. Press Escape.' : 'Thoát nhanh sang trang web RMWC. Nhấn phím Esc.');
+    await page.locator('.safety-footer > button').click();
+    await expect(page.getByRole('dialog')).toContainText(language === 'en' ? 'Quick exit replaces this page with the RMWC website.' : 'Chức năng thoát nhanh thay thế trang này bằng trang web RMWC.');
+    await page.locator('.quick-exit').click();
+    await expect(page).toHaveURL('https://migrants.org.au/');
+    await expect(page).toHaveTitle('RMWC');
+  });
+}
 
 test('local guided intake, safe contact, editable review and downloads', async ({ page, baseURL }) => {
   const outbound = [];
