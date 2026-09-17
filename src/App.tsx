@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, AudioLines, Check, ChevronRight, ExternalLink, Headphones, HeartHandshake, Info, Languages, Maximize, Pause, Play, Settings2, ShieldCheck, Volume2, VolumeX } from 'lucide-react';
 import type { Choice, Language, Resident } from './types';
 import { createCaseFile } from './types';
 import { residents, legalNotes } from './data/stories';
@@ -7,7 +7,8 @@ import { conversationImage, nextConversationImages } from './data/conversationAr
 import { copy } from './data/copy';
 import { useStoryAudio } from './hooks/useStoryAudio';
 import { dialogueRecording, nextDialogueRecordings } from './data/dialogueAudio';
-import { audioCopy } from './data/audioCopy';
+import { audioCopy, noVoiceCopy } from './data/audioCopy';
+import { deviceVoiceLocales } from './data/characterVoices';
 import { INITIAL_TENSION, tensionAfterChoice } from './lib/weather';
 import { AudioSettings } from './components/AudioSettings';
 import { useSydneyTime } from './hooks/useSydneyTime';
@@ -49,6 +50,8 @@ export default function App() {
   const [voiceVolume, setVoiceVolume] = useState(.85);
   const [rainVolume, setRainVolume] = useState(.45);
   const [adaptiveRain, setAdaptiveRain] = useState(true);
+  // Off by default: the team wants real recordings, not a synthetic voice. Visitors may opt in.
+  const [deviceVoice, setDeviceVoice] = useState(false);
   const [bilingual, setBilingual] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const [caseFile, setCaseFile] = useState(() => createCaseFile('vi', 'street'));
@@ -75,9 +78,11 @@ export default function App() {
   const audioText = stage === 'dialogue' ? node?.text[language] ?? '' : stage === 'epilogue' ? active.epilogue[ending][language] : '';
   const audioCue = stage === 'epilogue' ? `ending-${ending}` : node?.id ?? active.start;
   const audioSrc = audioText ? dialogueRecording(activeId, audioCue, language, audioText) : null;
+  // Only fixed story captions are ever read by the device voice, never a visitor's own words.
+  const audioSpeech = audioText ? { cue: `${activeId}/${audioCue} (${language})`, text: audioText, lang: language, locales: deviceVoiceLocales(activeId, language) } : null;
   const audio = useStoryAudio({
     cue: `${activeId}/${language}/${stage}/${audioCue}`,
-    src: audioSrc, active: page === 'game' && !overlay && !reaction && !!audioText, autoplay,
+    src: audioSrc, speech: audioSpeech, deviceVoice, active: page === 'game' && !overlay && !reaction && !!audioText, autoplay,
     preloads: stage === 'dialogue' ? nextDialogueRecordings(active, audioCue, language) : [],
     rain: sound && ['home', 'about', 'street', 'game'].includes(page) && overlay !== 'pause' && overlay !== 'reset',
     tension: page === 'game' ? (stage === 'dialogue' ? reaction?.tension ?? session?.tension ?? INITIAL_TENSION : .12) : INITIAL_TENSION,
@@ -86,7 +91,14 @@ export default function App() {
   const { engine } = audio;
   const speaking = audio.voice === 'playing' || audio.voice === 'loading';
   const at = audioCopy[language];
-  const audioMessage = audio.voice === 'missing' || audio.voice === 'blocked' || audio.voice === 'error' || audio.voice === 'loading' ? at[audio.voice] : null;
+  const otherLanguage = language === 'vi' ? 'en' : 'vi';
+  const audioNotice = audio.voice === 'no-voice'
+    ? <p className="audio-error" role="status">{noVoiceCopy[language][language]} <span className="audio-error-secondary" lang={otherLanguage}>{noVoiceCopy[language][otherLanguage]}</span></p>
+    : audio.voice === 'playing' && audio.source === 'device'
+      ? <p className="audio-device-note">{at.deviceReading}</p>
+      : audio.voice === 'missing' || audio.voice === 'blocked' || audio.voice === 'error' || audio.voice === 'loading'
+        ? <p className="audio-error" role="status">{at[audio.voice]}</p>
+        : null;
   const cancelSpeech = useCallback(() => engine.stopVoice(), [engine]);
   const quickExit = useCallback(() => {
     engine.stopAll();
@@ -188,7 +200,7 @@ export default function App() {
   function speak() {
     if (speaking) { cancelSpeech(); return; }
     engine.unlock();
-    void engine.playVoice(audioSrc);
+    void engine.playVoice(audioSrc, audioSpeech);
   }
   function reflect(answer: 'yes' | 'no' | 'possible' | 'skip') {
     if (answer === 'yes' || answer === 'possible') {
@@ -227,7 +239,7 @@ export default function App() {
     <header className="site-header">
       <button className="brand" onClick={() => navigate('home')} aria-label="Know Your Rights × RMWC — Home"><BrandMark /><span><strong>{t.brand} <em className="brand-collab">× <img src="/images/rmwc-icon.png" alt="" className="brand-rmwc" />RMWC</em></strong><small>{t.byline}</small></span></button>
       <nav aria-label={language === 'vi' ? 'Điều hướng chính' : 'Main navigation'}><button className={page === 'street' || page === 'game' ? 'active' : ''} onClick={() => navigate('street')}>{t.story}</button><button className={page === 'chat' ? 'active' : ''} onClick={() => navigate('chat')}>{language === 'vi' ? 'Hỏi về quyền' : 'Ask your rights'}</button><button className={page === 'watch' ? 'active' : ''} onClick={() => navigate('watch')}>{watchCopy[language].navLabel}</button><button onClick={scrollAbout}>{t.about}</button><button onClick={beginIntake}>{t.help}<ArrowUpRight /></button></nav>
-      <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button><button className="quick-exit" title={t.exitHint} onClick={quickExit}>{t.exit}<X size={15} /><kbd>ESC</kbd></button></div>
+      <div className="header-actions"><button className="language-button" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={language === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}><Languages size={15} /><span>{language === 'vi' ? 'VI' : 'EN'}</span><span className="language-alternative">/ {language === 'vi' ? 'EN' : 'VI'}</span></button></div>
     </header>
 
     <main id="main" tabIndex={-1} ref={mainRef}>
@@ -248,7 +260,7 @@ export default function App() {
         <div className="scene-id"><span className="eyebrow">{active.location[language]}</span><span className="scene-name">{active.name}</span><span className="scene-role">{active.role[language]}</span>{stage === 'dialogue' && <div className="story-progress" role="progressbar" aria-label={t.progress} aria-valuemin={0} aria-valuemax={100} aria-valuenow={storyProgress}><span className="story-progress-label">{t.progress}</span><span className="story-progress-value">{storyProgress}%</span><span className="story-progress-track"><i style={{ width: `${storyProgress}%` }} /></span></div>}{stage === 'dialogue' && session && <TrustMeter t={t} trust={session.trust} />}</div>
 
         {stage === 'dialogue' && node && <div className="dialogue-panel" key={`${activeId}-${node.id}`}>
-          <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span>{voiceButton}</div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioMessage && <p className="audio-error" role="status">{audioMessage}</p>}</div>
+          <div className={`dialogue-copy ${node.kind === 'artifact' ? 'artifact-dialogue' : ''}`}><div className="speaker-line"><span>{node.speaker ?? active.name}</span>{voiceButton}</div><p className="dialogue-text" aria-live="polite">{node.text[language]}</p>{bilingual && <p className="secondary-dialogue" lang={language === 'vi' ? 'en' : 'vi'}>{node.text[language === 'vi' ? 'en' : 'vi']}</p>}{audioNotice}</div>
           {/visa/i.test(node.text.en) && <aside className="scene-visa-note"><ShieldCheck size={17} /><div><strong>{t.visaTitle}</strong><p>{t.visaNote}</p><a href="https://www.fairwork.gov.au/find-help-for/visa-holders-migrants/visa-protections-pilot-programs" target="_blank" rel="noopener noreferrer">Fair Work<ExternalLink size={11} /></a></div></aside>}
           {reaction ? <div className="reaction-panel" role="status"><span className={`reaction-delta ${reaction.delta > 0 ? 'up' : reaction.delta < 0 ? 'down' : ''}`}>{reaction.delta > 0 ? `+${reaction.delta}` : reaction.delta < 0 ? String(reaction.delta) : '·'}</span><p>{reaction.text}</p></div> : node.choices?.length ? <div className="choice-area"><div className="choice-heading"><span>{t.choose}</span><span>{t.choicesHint}</span></div><div className="choices">{node.choices.map((choice, index) => { const why = choiceWhy[`${active.id}:${choice.id}`]?.[language]; return <div className="choice-item" key={choice.id}><button className="choice-button" onClick={() => choose(choice)}><span className="choice-index">{index + 1}</span><span>{choice.text[language]}</span><ChevronRight size={18} /></button>{why && <span className="choice-why" tabIndex={0} aria-label={t.whyLabel}><Info size={12} /><span>{t.whyLabel}</span><span className="choice-why-tip" role="tooltip">{why}</span></span>}</div>; })}</div></div> : <div className="continue-row"><span className="scene-caption"><span className="short-rule" />{t.fictional}</span><button className="continue-button" onClick={advance}>{t.next}<span className="keycap">{t.space}</span><ArrowRight size={20} /></button></div>}
         </div>}
@@ -262,7 +274,7 @@ export default function App() {
 
         {stage === 'debrief' && <div className="reflection-wrap"><Debrief t={t} language={language} resident={active} trust={session?.trust ?? 0} kept={!!session?.kept} status={session?.status ?? 'playing'} heardCount={heardResidents.length} unlocked={unlocked} onContinue={() => setStage('epilogue')} /></div>}
 
-        {stage === 'epilogue' && <div className="epilogue-panel"><div className="speaker-line"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span>{voiceButton}</div><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[ending][language]}</p>{audioMessage && <p className="audio-error" role="status">{audioMessage}</p>}<p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
+        {stage === 'epilogue' && <div className="epilogue-panel"><div className="speaker-line"><span className="eyebrow">{t.epilogueEyebrow} <span>· {active.name}</span></span>{voiceButton}</div><h2>{t.epilogueTitle}</h2><p className="epilogue-text">{active.epilogue[ending][language]}</p>{audioNotice}<p className="fiction-note">{t.fiction}</p><div className="epilogue-actions"><button className="button button-amber" onClick={() => navigate('street')}>{t.nextDoor}<ArrowRight size={18} /></button>{unlocked && <button className="button button-outline" onClick={() => navigate('turn')}>{t.stepInside}<ArrowRight size={18} /></button>}</div></div>}
       </section>}
 
       {page === 'turn' && <section className="turn-page"><WindowMark /><span className="eyebrow">{t.turnEyebrow}</span><h1>{t.turnTitle}</h1><p className="turn-intro">{t.turnText.replace('{names}', heardResidents.map(item => item.name).join(', '))}</p><div className="turn-boundary"><ShieldCheck size={21} /><div><p>{t.turnPrivacy}</p><p>{t.disclaimer}</p></div></div><div className="turn-actions"><button className="button button-amber" onClick={beginIntake}>{t.beginIntake}<ArrowRight size={18} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.keepExploring}</button></div><button className="text-link" onClick={() => navigate('review')}>{t.review}<ArrowRight size={16} /></button></section>}
@@ -278,7 +290,7 @@ export default function App() {
     <footer className="safety-footer"><span className="footer-label"><span className="live-dot" />{t.helpFooter}</span><div className="safety-links"><a href="tel:1300513107">RMWC <strong>1300 513 107</strong></a><span>·</span><a href="tel:131114">Lifeline <strong>13 11 14</strong></a><span>·</span><a href="tel:000">{t.emergency} <strong>000</strong></a></div><button onClick={() => setOverlay('privacy')}><ShieldCheck size={13} /><span>{t.privacy}</span></button></footer>
 
     {overlay === 'privacy' && <Modal title={t.privacyTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><ShieldCheck className="modal-symbol" size={28} /><p>{t.privacyText}</p><p>{t.privacyExit}</p><p className="modal-note">{t.disclaimer}</p><button className="button button-outline" onClick={() => setOverlay(null)}>{t.close}<Check size={16} /></button></Modal>}
-    {overlay === 'settings' && <Modal title={t.settings} closeLabel={t.close} onClose={() => setOverlay(null)}><div className="setting-row"><span><Headphones size={18} />{t.audioLabel}</span><button className={`switch ${sound ? 'on' : ''}`} role="switch" aria-checked={sound} aria-label={t.audioLabel} onClick={() => setSound(!sound)}><i /></button></div><AudioSettings language={language} autoplay={autoplay} onAutoplay={setAutoplay} adaptive={adaptiveRain} onAdaptive={setAdaptiveRain} voiceVolume={voiceVolume} onVoiceVolume={setVoiceVolume} rainVolume={rainVolume} onRainVolume={setRainVolume} /><div className="setting-row"><span><Languages size={18} />{t.subtitlesLabel}</span><button className={`switch ${bilingual ? 'on' : ''}`} role="switch" aria-checked={bilingual} aria-label={t.subtitlesLabel} onClick={() => setBilingual(!bilingual)}><i /></button></div><div className="setting-row"><span><Play size={17} />{t.reducedLabel}</span><button className={`switch ${reducedMotion ? 'on' : ''}`} role="switch" aria-checked={reducedMotion} aria-label={t.reducedLabel} onClick={() => setReducedMotion(!reducedMotion)}><i /></button></div><p className="modal-note">{t.settingsNote}</p><button className="text-link" onClick={() => setOverlay('reset')}>{t.reset}<ArrowRight size={16} /></button></Modal>}
+    {overlay === 'settings' && <Modal title={t.settings} closeLabel={t.close} onClose={() => setOverlay(null)}><div className="setting-row"><span><Headphones size={18} />{t.audioLabel}</span><button className={`switch ${sound ? 'on' : ''}`} role="switch" aria-checked={sound} aria-label={t.audioLabel} onClick={() => setSound(!sound)}><i /></button></div><AudioSettings language={language} autoplay={autoplay} onAutoplay={setAutoplay} adaptive={adaptiveRain} onAdaptive={setAdaptiveRain} deviceVoice={deviceVoice} onDeviceVoice={setDeviceVoice} voiceVolume={voiceVolume} onVoiceVolume={setVoiceVolume} rainVolume={rainVolume} onRainVolume={setRainVolume} /><div className="setting-row"><span><Languages size={18} />{t.subtitlesLabel}</span><button className={`switch ${bilingual ? 'on' : ''}`} role="switch" aria-checked={bilingual} aria-label={t.subtitlesLabel} onClick={() => setBilingual(!bilingual)}><i /></button></div><div className="setting-row"><span><Play size={17} />{t.reducedLabel}</span><button className={`switch ${reducedMotion ? 'on' : ''}`} role="switch" aria-checked={reducedMotion} aria-label={t.reducedLabel} onClick={() => setReducedMotion(!reducedMotion)}><i /></button></div><p className="modal-note">{t.settingsNote}</p><button className="text-link" onClick={() => setOverlay('reset')}>{t.reset}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'pause' && <Modal title={t.paused} closeLabel={t.close} onClose={() => setOverlay(null)}><p>{t.pausedText}</p><button className="button button-amber" onClick={() => setOverlay(null)}><Play size={17} />{t.resume}</button><button className="text-link modal-secondary" onClick={() => navigate('street')}>{t.walk}<ArrowRight size={16} /></button></Modal>}
     {overlay === 'warning' && <Modal title={t.warningTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><span className="eyebrow warning-label">{t.warning}</span><p>{active.warning?.[language]}</p><p>{t.warningIntro}</p><div className="modal-actions"><button className="button button-outline" onClick={() => openResident(active, true)}>{t.enterAnyway}<ArrowRight size={17} /></button><button className="button button-outline" onClick={() => navigate('street')}>{t.skipStory}</button></div></Modal>}
     {overlay === 'waiting' && <Modal title={t.waitTitle} closeLabel={t.close} onClose={() => setOverlay(null)}><p>{t.waitBody}</p><button className="button button-outline" onClick={() => navigate('street')}>{t.walk}<ArrowRight size={17} /></button></Modal>}

@@ -119,8 +119,13 @@ begin
   end if;
   if p_document #> '{consent,storeAnonymisedStats}' = 'true'::jsonb then
     -- Never promote user-entered free text into an ostensibly anonymous aggregate.
-    v_industry := lower(coalesce(p_document #>> '{profile,industry}', ''));
-    if v_industry not in ('hospitality', 'beauty', 'cleaning', 'construction', 'aged care', 'delivery', 'agriculture', 'retail') then v_industry := 'other_or_not_shared'; end if;
+    -- Industry is an ANZSIC division key from src/data/occupations.ts; 'other' and older free text are not aggregated.
+    v_industry := coalesce(p_document #>> '{profile,industry}', '');
+    if v_industry not in ('agriculture_forestry_fishing', 'mining', 'manufacturing', 'electricity_gas_water_waste', 'construction',
+      'wholesale_trade', 'retail_trade', 'accommodation_food', 'transport_postal_warehousing', 'information_media_telecommunications',
+      'financial_insurance', 'rental_hiring_real_estate', 'professional_scientific_technical', 'administrative_support',
+      'public_administration_safety', 'education_training', 'health_care_social_assistance', 'arts_recreation', 'other_services')
+      then v_industry := 'other_or_not_shared'; end if;
     v_visa := coalesce(p_document #>> '{profile,visaSubclass}', 'prefer_not_say');
     if v_visa not in ('500', '482', '485', '417', '462', 'PALM', 'bridging', 'PR', 'citizen', 'other', 'prefer_not_say') then v_visa := 'prefer_not_say'; end if;
     v_suburb := lower(trim(coalesce(p_document #>> '{profile,suburb}', '')));

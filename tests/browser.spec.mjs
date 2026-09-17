@@ -208,14 +208,15 @@ test('return visits, sensitive story skip, pause and quick exit', async ({ page 
 });
 
 for (const language of ['vi', 'en']) {
-  test(`Quick exit button opens RMWC and explains its destination in ${language}`, async ({ page }) => {
+  test(`No quick exit button is shown; Escape still opens RMWC and the privacy note explains it in ${language}`, async ({ page }) => {
     await page.route('https://migrants.org.au/**', route => route.fulfill({ body: '<html><title>RMWC</title><body>RMWC</body></html>', contentType: 'text/html' }));
     await page.goto('/');
     if (language === 'en') await page.getByRole('button', { name: 'Switch to English' }).click();
-    await expect(page.locator('.quick-exit')).toHaveAttribute('title', language === 'en' ? 'Quick exit to the RMWC website. Press Escape.' : 'Thoát nhanh sang trang web RMWC. Nhấn phím Esc.');
+    await expect(page.locator('.header-actions button')).toHaveCount(1);
+    await expect(page.getByRole('button', { name: /Quick exit|Thoát nhanh/ })).toHaveCount(0);
     await page.locator('.safety-footer > button').click();
     await expect(page.getByRole('dialog')).toContainText(language === 'en' ? 'Quick exit replaces this page with the RMWC website.' : 'Chức năng thoát nhanh thay thế trang này bằng trang web RMWC.');
-    await page.locator('.quick-exit').click();
+    await page.keyboard.press('Escape');
     await expect(page).toHaveURL('https://migrants.org.au/');
     await expect(page).toHaveTitle('RMWC');
   });
@@ -230,8 +231,9 @@ test('local guided intake, safe contact, editable review and downloads', async (
   await expect(page.locator('.intake-consent-boundary')).toBeVisible();
   await page.locator('.intake-consent-boundary .intake-primary').click();
   await page.locator('.intake-answer-area textarea').fill('I was underpaid and I have no payslip.');
-  await page.locator('.intake-answer-area input').first().fill('Hospitality');
-  await page.locator('.intake-answer-area input').nth(1).fill('Kitchen hand');
+  await page.getByRole('combobox', { name: 'Job / role' }).fill('kitchen');
+  await page.locator('#work-role-menu').getByRole('option', { name: /^Kitchen hand/ }).click();
+  await expect(page.getByRole('combobox', { name: 'Industry / sector' })).toHaveValue('Accommodation and Food Services');
   await page.locator('.intake-form-actions .intake-primary').click();
   await page.locator('.intake-form-actions .intake-text-button').click();
   await page.locator('.intake-evidence-grid input[type="checkbox"]').nth(1).check();
@@ -250,6 +252,8 @@ test('local guided intake, safe contact, editable review and downloads', async (
   expect(file.consent.shareWithRMWC).toBe(false);
   expect(file.evidenceHeld.rosters).toBe(true);
   expect(file.evidenceHeld.payslips).toBeUndefined();
+  expect(file.profile).toMatchObject({ industry: 'accommodation_food', role: 'kitchen_hand' });
+  await expect(page.locator('.summary-facts').first()).toContainText('Phụ bếp');
   await page.screenshot({ path: 'artifacts/summary-desktop.png', fullPage: true });
   const downloadPromise = page.waitForEvent('download');
   await page.locator('.summary-download-actions button').first().click();
@@ -261,6 +265,72 @@ test('local guided intake, safe contact, editable review and downloads', async (
   await page.locator('.title-help').click();
   await page.locator('.intake-review-link').click();
   await expect(page.locator('textarea[lang="en"]')).toHaveValue('');
+});
+
+test('job and industry lists: search, keyboard, Esc, Other, language switch and mobile', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('https://migrants.org.au/**', route => route.fulfill({ body: '<html><title>RMWC</title></html>', contentType: 'text/html' }));
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await page.locator('.title-help').click();
+  await page.locator('.intake-consent-boundary .intake-primary').click();
+  const industry = page.getByRole('combobox', { name: 'Industry / sector' });
+  const role = page.getByRole('combobox', { name: 'Job / role' });
+  const industryOptions = page.locator('#work-industry-menu').getByRole('option');
+  const roleOptions = page.locator('#work-role-menu').getByRole('option');
+
+  // Keyboard: open with ArrowDown, move, choose with Enter; the saved value is a key, the field shows a label.
+  await industry.focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(industry).toHaveAttribute('aria-expanded', 'true');
+  await expect(industryOptions).toHaveCount(20);
+  await page.keyboard.type('accom');
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await expect(industry).toHaveValue('Accommodation and Food Services');
+
+  // The selected industry's jobs are listed first; accents are optional when searching.
+  await role.click();
+  await expect(page.locator('#work-role-menu .combobox-group-label').first()).toContainText('In your selected industry');
+  await role.fill('chay ban');
+  await expect(roleOptions.filter({ hasText: /^Waiter \/ waitress/ })).toBeVisible();
+
+  // Esc closes an open list without leaving the page or changing the saved choice.
+  await page.keyboard.press('Escape');
+  await expect(role).toHaveAttribute('aria-expanded', 'false');
+  await expect(role).toHaveValue('');
+  await expect(page).not.toHaveURL(/migrants\.org\.au/);
+
+  // Nothing matches: "Other" is still offered and keeps what was typed.
+  await role.fill('screen printer');
+  await expect(page.locator('.combobox-empty')).toBeVisible();
+  await roleOptions.filter({ hasText: 'Other (please specify)' }).click();
+  await expect(page.getByLabel('Your job')).toHaveValue('screen printer');
+
+  // Labels follow the language toggle.
+  await page.getByRole('button', { name: 'Chuyển sang tiếng Việt' }).click();
+  await expect(page.getByRole('combobox', { name: 'Ngành / lĩnh vực' })).toHaveValue(/^Lưu trú và dịch vụ ăn uống/);
+  await expect(page.getByRole('combobox', { name: 'Công việc / vai trò' })).toHaveValue('Khác (vui lòng ghi rõ)');
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+
+  // Phone: tap to open, tap an option, no sideways scroll.
+  await page.setViewportSize({ width: 390, height: 844 });
+  await industry.click();
+  await industryOptions.filter({ hasText: /^Other Services/ }).click();
+  await expect(industry).toHaveValue('Other Services');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await role.click();
+  await role.fill('nail');
+  await page.screenshot({ path: 'artifacts/work-combobox-mobile.png' });
+  await roleOptions.filter({ hasText: /^Nail technician/ }).click();
+  await expect(page.getByLabel('Your job')).toHaveCount(0);
+
+  // With the list closed, Esc is still the quick exit.
+  await role.focus();
+  await page.keyboard.press('Escape');
+  await expect(page).toHaveURL('https://migrants.org.au/');
+  expect(errors).toEqual([]);
 });
 
 test('crisis signals stop questions and no field is required', async ({ page }) => {

@@ -14,6 +14,8 @@ const { characterVoices, assignedVoice } = await bundle('../src/data/characterVo
 const { tensionAfterChoice, rainMix, INITIAL_TENSION } = await bundle('../src/lib/weather.ts');
 const { recordings, recordingKey, dialogueRecording, nextDialogueRecordings } = await bundle('../src/data/dialogueAudio.ts');
 const { StoryAudio } = await bundle('../src/lib/storyAudio.ts');
+const { pickVoice, speechChunks, MAX_CHUNK_LENGTH } = await bundle('../src/lib/deviceVoice.ts');
+const { deviceVoiceLocales } = await bundle('../src/data/characterVoices.ts');
 const manifest = JSON.parse(await readFile(new URL('../docs/recording-scripts/manifest.json', import.meta.url), 'utf8'));
 
 test('all 170 cues and both endings have exact scripts and fixed regional casting', () => {
@@ -35,7 +37,7 @@ test('all 170 cues and both endings have exact scripts and fixed regional castin
   }
 });
 
-test('missing and stale recordings never fall back to synthesis; preload is bounded', () => {
+test('missing and stale recordings are never played; preload is bounded', () => {
   const key = recordingKey('linh', 'hello', 'vi');
   const previous = recordings[key];
   try {
@@ -102,12 +104,14 @@ class Context {
   async resume() { this.state = 'running'; }
   async close() { this.state = 'closed'; }
 }
-function fixture(t, fetcher = async () => ({ ok: true, arrayBuffer: async () => new ArrayBuffer(1024) })) {
+function fixture(t, fetcher = async () => ({ ok: true, arrayBuffer: async () => new ArrayBuffer(1024) }), options = {}) {
   t.mock.method(globalThis, 'fetch', fetcher);
+  t.mock.method(console, 'warn', () => {});
   const original = globalThis.AudioContext;
   globalThis.AudioContext = Context;
   t.after(() => { if (original) globalThis.AudioContext = original; else delete globalThis.AudioContext; });
   const engine = new StoryAudio();
+  if (options.deviceVoice) engine.setDeviceVoice(true);
   t.after(() => engine.dispose());
   let state;
   engine.subscribe(value => { state = value; });
@@ -191,10 +195,174 @@ test('pending voice and rain stay stopped after privacy exit or disposal', async
   for (const release of releases) release({ ok: true, arrayBuffer: async () => new ArrayBuffer(512) });
   await Promise.all([voice, rain]);
   assert.equal(context.sources.length, 0);
-  assert.deepEqual(state(), { voice: 'idle', rain: 'off' });
+  assert.deepEqual(state(), { voice: 'idle', rain: 'off', source: null });
   engine.dispose();
   assert.equal(context.state, 'closed');
   // React Strict Mode's effect remount can reuse an engine instance safely.
   engine.unlock();
   assert.notEqual(Context.instances.at(-1), context);
+});
+
+// Test-only Web Speech API: records utterances; the test fires their events.
+class FakeUtterance { constructor(text) { this.text = text; } }
+const voice = (name, lang, localService = true) => ({ name, lang, localService, default: false });
+function speechFixture(t, voices) {
+  const synth = {
+    voices, spoken: [], cancels: 0, speaking: false, pending: false, paused: false, listeners: [],
+    getVoices() { return this.voices; },
+    speak(utterance) { this.spoken.push(utterance); this.speaking = true; },
+    pause() { this.pauses = (this.pauses ?? 0) + 1; },
+    cancel() { this.cancels++; this.speaking = false; },
+    resume() { this.paused = false; },
+    addEventListener(type, listener) { this.listeners.push(listener); },
+    removeEventListener(type, listener) { this.listeners = this.listeners.filter(item => item !== listener); },
+  };
+  globalThis.speechSynthesis = synth;
+  globalThis.SpeechSynthesisUtterance = FakeUtterance;
+  t.after(() => { delete globalThis.speechSynthesis; delete globalThis.SpeechSynthesisUtterance; });
+  return synth;
+}
+const line = (text, lang = 'en', locales = ['en-AU']) => ({ cue: `test/${lang}`, text, lang, locales });
+
+test('device voice reads a line without a recording in short chunks, then ends', async t => {
+  const synth = speechFixture(t, [voice('Albert', 'en-AU'), voice('Samantha', 'en-US'), voice('Karen', 'en-AU'), voice('Linh', 'vi-VN')]);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  engine.unlock();
+  assert.equal(synth.spoken[0].text, ' ', 'iOS speech is primed inside the gesture');
+  assert.equal(synth.spoken[0].volume, 0);
+  const text = residents.find(item => item.id === 'linh').nodes.hello.text.en.repeat(3);
+  await engine.playVoice(null, line(text));
+  assert.deepEqual(state(), { voice: 'playing', rain: 'off', source: 'device' });
+  assert.equal(synth.cancels, 0, 'the silent primer is never cancelled (Chrome can stall after an immediate cancel)');
+  const chunks = [];
+  while (state().voice === 'playing') {
+    const utterance = synth.spoken.at(-1);
+    assert.equal(utterance.voice.name, 'Karen', 'novelty voices are skipped; the character locale wins');
+    assert.equal(utterance.lang, 'en-AU');
+    assert.ok(utterance.text.length <= MAX_CHUNK_LENGTH);
+    chunks.push(utterance.text);
+    utterance.onstart?.();
+    utterance.onend();
+  }
+  assert.ok(chunks.length > 1);
+  assert.equal(chunks.join('').replace(/\s/g, ''), text.replace(/\s/g, ''));
+  assert.deepEqual(state(), { voice: 'ended', rain: 'off', source: null });
+  assert.ok(console.warn.mock.calls.some(call => /device voice "Karen"/.test(call.arguments[0])));
+});
+
+test('no Vietnamese voice is reported; switching the device voice off reports a missing recording', async t => {
+  const synth = speechFixture(t, [voice('Karen', 'en-AU')]);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  await engine.playVoice(null, line('Chị chờ em chút.', 'vi', ['vi-VN']));
+  assert.equal(state().voice, 'no-voice');
+  assert.equal(synth.spoken.length, 0);
+  assert.ok(console.warn.mock.calls.some(call => /No Vietnamese voice/.test(call.arguments[0])));
+  synth.voices.push(voice('Linh', 'vi_VN'));
+  await engine.playVoice(null, line('Chị chờ em chút.', 'vi', ['vi-VN']));
+  assert.equal(synth.spoken.at(-1).voice.name, 'Linh', 'Android-style vi_VN locales are recognised');
+  engine.setDeviceVoice(false);
+  assert.equal(state().voice, 'idle', 'turning it off stops the device voice');
+  await engine.playVoice(null, line('Chị chờ em chút.', 'vi'));
+  assert.equal(state().voice, 'missing');
+  engine.unlock();
+  assert.ok(!synth.spoken.some(item => item.text === ' '), 'no speech priming while the device voice is off');
+});
+
+test('late voices are awaited, and a newer line silences the older one', async t => {
+  const synth = speechFixture(t, []);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  const pending = engine.playVoice(null, line('First line. It is long enough to matter.'));
+  await new Promise(resolve => setTimeout(resolve, 30));
+  assert.equal(state().voice, 'loading');
+  synth.voices = [voice('Karen', 'en-AU')];
+  synth.listeners.forEach(listener => listener());
+  await pending;
+  const first = synth.spoken.at(-1);
+  assert.equal(first.text, 'First line. It is long enough to matter.');
+  const cancels = synth.cancels;
+  await engine.playVoice(null, line('Second line.'));
+  assert.ok(synth.cancels > cancels);
+  const second = synth.spoken.at(-1);
+  first.onend();
+  assert.equal(synth.spoken.at(-1), second, 'a stale end event starts nothing');
+  assert.equal(state().source, 'device');
+  second.onend();
+  assert.equal(state().voice, 'ended');
+});
+
+test('blocked device speech asks for a tap; interruptions and silent volume are quiet', async t => {
+  const synth = speechFixture(t, [voice('Karen', 'en-AU')]);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  await engine.playVoice(null, line('A line.'));
+  synth.spoken.at(-1).onerror({ error: 'interrupted' });
+  assert.equal(state().voice, 'playing');
+  synth.spoken.at(-1).onerror({ error: 'not-allowed' });
+  assert.equal(state().voice, 'blocked');
+  engine.setVolumes(0, .5);
+  const count = synth.spoken.length;
+  await engine.playVoice(null, line('Muted.'));
+  assert.equal(synth.spoken.length, count);
+  assert.equal(state().voice, 'idle');
+});
+
+test('an approved recording always wins over the device voice', async t => {
+  const synth = speechFixture(t, [voice('Karen', 'en-AU')]);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  await engine.playVoice('/line.mp3', line('A line.'));
+  assert.deepEqual(state(), { voice: 'playing', rain: 'off', source: 'recording' });
+  assert.equal(synth.spoken.length, 0);
+});
+
+test('voice choice and chunking cover every story caption and cast accent', () => {
+  assert.equal(pickVoice([voice('Bubbles', 'en-US'), voice('Karen', 'en-AU', true)], 'en', ['en-US'])?.name, 'Karen');
+  assert.equal(pickVoice([voice('Daniel', 'en-GB'), voice('Samantha', 'en-US')], 'en', ['en-US', 'en-AU'])?.name, 'Samantha');
+  assert.equal(pickVoice([voice('Karen', 'en-AU')], 'vi'), null);
+  assert.deepEqual(deviceVoiceLocales('tram', 'en'), ['en-US', 'en-AU', 'en-GB']);
+  assert.deepEqual(deviceVoiceLocales('linh', 'vi'), ['vi-VN']);
+  for (const resident of residents) for (const language of ['vi', 'en']) {
+    for (const text of [...Object.values(resident.nodes).map(node => node.text[language]), resident.epilogue.kept[language], resident.epilogue.missed[language]]) {
+      const chunks = speechChunks(text);
+      assert.ok(chunks.length && chunks.every(chunk => chunk.length <= MAX_CHUNK_LENGTH), `${resident.id}: ${text.slice(0, 30)}`);
+      assert.equal(chunks.join('').replace(/\s/g, ''), text.replace(/\s/g, ''), `${resident.id}: characters preserved`);
+    }
+  }
+});
+
+test('a stalled device voice is nudged, then reported as blocked if it never starts', async t => {
+  t.mock.timers.enable({ apis: ['setTimeout', 'setInterval'] });
+  const synth = speechFixture(t, [voice('Karen', 'en-AU')]);
+  const { engine, state } = fixture(t, undefined, { deviceVoice: true });
+  const flush = () => new Promise(resolve => setImmediate(resolve));
+  const pending = engine.playVoice(null, line('A line that never starts.'));
+  await flush();
+  t.mock.timers.tick(60);
+  await pending;
+  assert.equal(state().voice, 'playing');
+  t.mock.timers.tick(1200);
+  assert.equal(synth.pauses, 1, 'pause() + resume() restarts a stalled Chrome queue');
+  const restarted = synth.spoken.at(-1);
+  t.mock.timers.tick(4800);
+  assert.equal(state().voice, 'blocked');
+  assert.equal(synth.cancels, 1);
+  restarted.onstart?.();
+  restarted.onend();
+  assert.equal(state().voice, 'blocked', 'events from the abandoned line change nothing');
+
+  const next = engine.playVoice(null, line('Another line.'));
+  await flush();
+  t.mock.timers.tick(60);
+  await next;
+  synth.spoken.at(-1).onstart();
+  t.mock.timers.tick(6000);
+  assert.equal(state().voice, 'playing', 'a line that started is never treated as blocked');
+  assert.equal(synth.pauses, 1);
+});
+
+test('the device voice is off by default, so a missing recording is only reported', async t => {
+  const synth = speechFixture(t, [voice('Karen', 'en-AU')]);
+  const { engine, state } = fixture(t);
+  engine.unlock();
+  await engine.playVoice(null, line('A line.'));
+  assert.equal(state().voice, 'missing');
+  assert.equal(synth.spoken.length, 0, 'no speech and no priming unless the visitor opts in');
 });

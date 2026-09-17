@@ -6,6 +6,7 @@ import { intakeCopy, RMWC_CLINIC_URL } from '../data/intakeCopy';
 import PayComparison from './PayComparison';
 import CommunityFlagOptIn from './CommunityFlagOptIn';
 import { assessPay, awardRates, money, payCopy, payFindingText } from '../data/payRules';
+import { industryText, occupationText } from '../data/occupations';
 import { CrisisOptions, EmployerFields, EvidenceFields, Field, SafeContactFields, needsImmediateSupport, type CasePageProps } from './Intake';
 import '../intake.css';
 
@@ -27,7 +28,7 @@ const archetypes = ['underpayment', 'unfair_dismissal', 'sham_contracting', 'wor
 const yesNoUnknown = oneOf('yes', 'no', 'unknown');
 const caseValidator = shape({
   id: string, createdAt: value => string(value) && !Number.isNaN(Date.parse(value as string)), language: oneOf('vi', 'en'), source: oneOf('street', 'agent'), status: oneOf('draft'),
-  profile: shape({ visaSubclass: oneOf(...visas), industry: string, role: string, tenureMonths: number, stillEmployed: boolean, employerSizeUnder15: boolean, suburb: string, ageBand: string }),
+  profile: shape({ visaSubclass: oneOf(...visas), industry: string, industryOther: string, role: string, roleOther: string, tenureMonths: number, stillEmployed: boolean, employerSizeUnder15: boolean, suburb: string, ageBand: string }),
   pay: shape({ award: oneOf('hospitality', 'restaurant', 'fast_food', 'retail', 'cleaning', 'general'), employmentBasis: oneOf('casual', 'part_time', 'full_time'), hourlyRate: number, hoursPerWeek: number, superPaid: yesNoUnknown, paidCash: boolean }),
   selfReported: shape({ categories: list(oneOf(...archetypes)), preferNotSay: boolean, other: string, reasons: shape(Object.fromEntries(archetypes.map(key => [key, string]))) }),
   flags: list(shape({ archetype: oneOf(...archetypes), confidence: oneOf('strong', 'possible'), declaredBy: oneOf('worker'), signals: list(string), sourceNpc: string }, ['archetype', 'confidence', 'signals'])),
@@ -55,8 +56,8 @@ export function validateCaseFile(value: unknown): value is CaseFile { return cas
 export function caseFacts(file: CaseFile, language: Language): Array<[string, string]> {
   const copy = intakeCopy[language];
   return [
-    [copy.role, file.profile.role ?? copy.notProvided],
-    [copy.industry, file.profile.industry ?? copy.notProvided],
+    [copy.role, occupationText(file.profile, language) ?? copy.notProvided],
+    [copy.industry, industryText(file.profile, language) ?? copy.notProvided],
     [copy.workplace, file.profile.stillEmployed === undefined ? copy.notProvided : file.profile.stillEmployed ? copy.stillEmployed : copy.noLongerEmployed],
     [copy.tenure, file.profile.tenureMonths === undefined ? copy.notProvided : `${file.profile.tenureMonths} ${copy.months}`],
     [copy.visa, file.profile.visaSubclass ? copy.visaOptions[file.profile.visaSubclass] : copy.notProvided],

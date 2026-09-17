@@ -2,7 +2,7 @@
 
 ## What is ready, and what is not
 
-The application uses locally hosted recordings, not browser speech synthesis or a voice-generation service. The complete [performer packets](recording-scripts/README.md) contain every existing character scene and both endings in both languages. Until actors record and review those files, the app displays a missing-recording notice and continues normally. Scripts and engineering cannot manufacture authentic human voices.
+Approved, locally hosted human recordings are the intended voice of every character; no voice-generation service is used. The complete [performer packets](recording-scripts/README.md) contain every existing character scene and both endings in both languages. Until actors record and review a file, the app shows a missing-recording notice; a visitor may opt in, in Settings, to hear the caption in their own device voice (Web Speech API, clearly labelled, off by default). A device voice is a stopgap for access, not a substitute for casting: it cannot carry the accents, ages or direction below. Scripts and engineering cannot manufacture authentic human voices.
 
 The rain assets are real field recordings, bundled locally. They are not recordings of Cabramatta itself. Source descriptions, credits and hashes are in [audio credits](../public/audio/ambience/CREDITS.md). Technical decoding and automated mixing tests do not replace listening approval on headphones and a phone speaker.
 
@@ -86,7 +86,7 @@ Run `npm run audio:prepare`, then `npm run audio:check` and `npm run build`. The
 - Listen replays from the beginning; while loading/playing it becomes Stop. Pausing, opening a modal, navigating away, hiding the tab and quick exit stop dialogue. Returning to an active scene restarts its line when auto-play is enabled. Pausing during the choice reaction suspends that transition; resuming allows its full 1.8-second reaction again.
 - Rain starts only when enabled. Pause, reset, hidden tabs and leaving the supported story/landing pages stop it. After hiding the tab, the visitor must turn rain back on. No audio is persisted across reloads, and nothing reads private intake/reflection text aloud.
 - Separate voice and rain volumes support zero/mute. Auto-play can be disabled while retaining manual Listen. Disabling adaptive rain keeps a constant moderate texture. This is independent of reduced visual motion.
-- Unsupported/blocked playback and failed downloads produce a readable status with a retry action; missing human clips stay silent with captions. Browser gestures unlock playback; the app does not bypass browser autoplay rules or substitute speech synthesis.
+- Unsupported/blocked playback and failed downloads produce a readable status with a retry action. A line without an approved clip is read by the device voice, split into short sentences (Chrome cuts long utterances off), preferring the character's English accent locale and an on-device voice; if no voice exists for the language, a bilingual notice appears. Browser gestures unlock playback (including the one-time speech unlock iOS requires); the app does not bypass browser autoplay rules. Console warnings name any missing or stale clip.
 
 ## Weather direction
 

@@ -39,7 +39,7 @@ The default handoff uses [RMWC's existing legal-help page](https://migrants.org.
 
 The [14 complete performer packets](docs/recording-scripts/README.md) cover 170 Vietnamese/English recordings, including every branch and both endings. See the [recording and import guide](docs/audio-production.md) for casting, recording without generation services, exact filenames and listening review. Rain sources and licences are in [audio credits](public/audio/ambience/CREDITS.md).
 
-Dialogue auto-plays when entering or advancing a scene once its approved recording is present. Missing recordings display a notice and leave the story playable; there is no synthetic speech fallback. Voice and rain have separate volume controls, and adaptive rain can be switched off. Personal answers never affect the weather.
+Dialogue auto-plays when entering or advancing a scene. An approved human recording always takes priority. Until one exists, the line shows a "no recording yet" notice. Visitors can opt in (Settings, off by default) to have the device's built-in voice (Web Speech API) read it, labelled as such; if the device has no voice for the language, a short bilingual notice appears and the text stays readable. Only fixed story captions are ever spoken, never anything a visitor types. Voice and rain have separate volume controls, and adaptive rain can be switched off. Personal answers never affect the weather.
 
 ```sh
 npm run audio:prepare

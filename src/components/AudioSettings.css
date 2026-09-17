@@ -9,3 +9,5 @@
 .audio-volume output { font-variant-numeric: tabular-nums; }
 .audio-volume input { display: block; width: 100%; margin-top: .65rem; min-height: 24px; accent-color: #d4aa67; }
 .audio-rain-status { max-width: 65ch; margin: 1rem auto; padding: 0 1rem; font-size: .85rem; }
+.audio-device-note { margin-top: 10px; color: #aeb3a4; font-size: 11px; letter-spacing: .02em; }
+.audio-error-secondary { display: block; margin-top: 4px; color: #b9a98c; font-size: 11px; }

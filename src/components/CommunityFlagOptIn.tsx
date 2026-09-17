@@ -4,9 +4,24 @@ import type { CaseFile, Language } from '../types';
 import { archetypeLabels } from '../data/stories';
 import { watchCopy } from '../data/watchCopy';
 import { industryKeys, loadReports, removeReport, reportKey, saveReport, type IndustryKey } from '../data/employerReports';
+import { findOccupation, isIndustryCode, workFreeText, type IndustryCode } from '../data/occupations';
 import { Field } from './Intake';
 
-/** Best guess of the board's industry from the free-text trade the worker typed. The worker can change it. */
+/** The board's buckets are narrower than ANZSIC (nail salons sit under "Other Services"), so the job decides first. */
+const boardBucketByJob: Record<string, IndustryKey> = {
+  nail_technician: 'nail_beauty', beauty_therapist: 'nail_beauty', hairdresser: 'nail_beauty', massage_therapist: 'nail_beauty',
+  fast_food_crew: 'fast_food',
+  commercial_cleaner: 'cleaning', domestic_cleaner: 'cleaning', hotel_housekeeper: 'cleaning',
+  delivery_rider: 'delivery', delivery_driver: 'delivery', rideshare_driver: 'delivery', truck_driver: 'delivery',
+  aged_care_worker: 'aged_care', care_team_leader: 'aged_care', home_care_worker: 'aged_care', assistant_in_nursing: 'aged_care',
+  retail_assistant: 'grocery_retail', cashier: 'grocery_retail', shelf_filler: 'grocery_retail', grocery_store_worker: 'grocery_retail',
+  hotel_receptionist: 'other',
+};
+const boardBucketByIndustry: Partial<Record<IndustryCode, IndustryKey>> = {
+  accommodation_food: 'restaurant_cafe', retail_trade: 'grocery_retail', construction: 'construction',
+};
+
+/** Words for the worker's own "Other" answer, or free text from an older draft. */
 const industryHints: Array<[IndustryKey, RegExp]> = [
   ['nail_beauty', /nail|mong|móng|beauty|spa|tham my|thẩm mỹ|salon|toc|tóc/i],
   ['fast_food', /fast food|thuc an nhanh|thức ăn nhanh|kfc|mcdonald|hungry/i],
@@ -18,8 +33,14 @@ const industryHints: Array<[IndustryKey, RegExp]> = [
   ['aged_care', /aged care|cham soc|chăm sóc|disability|nurse|dieu duong|điều dưỡng/i],
 ];
 
-function guessIndustry(text: string): IndustryKey {
-  return industryHints.find(([, pattern]) => pattern.test(text))?.[0] ?? 'other';
+/** Best guess of the board's bucket from the draft. The worker can change it before adding anything. */
+function guessIndustry(profile: CaseFile['profile']): IndustryKey {
+  const byJob = findOccupation(profile.role) && boardBucketByJob[profile.role!];
+  if (byJob) return byJob;
+  const byIndustry = isIndustryCode(profile.industry) ? boardBucketByIndustry[profile.industry] : undefined;
+  if (byIndustry) return byIndustry;
+  const ownWords = workFreeText(profile).join(' ');
+  return industryHints.find(([, pattern]) => pattern.test(ownWords))?.[0] ?? 'other';
 }
 
 /**
@@ -31,7 +52,7 @@ export default function CommunityFlagOptIn({ language, caseFile }: { language: L
   const copy = watchCopy[language];
   const patterns = caseFile.selfReported?.categories ?? [];
   const month = new Date().toISOString().slice(0, 7);
-  const [industry, setIndustry] = useState<IndustryKey>(() => guessIndustry(`${caseFile.profile.industry ?? ''} ${caseFile.profile.role ?? ''}`));
+  const [industry, setIndustry] = useState<IndustryKey>(() => guessIndustry(caseFile.profile));
   const [suburb, setSuburb] = useState(() => caseFile.profile.suburb?.trim() ?? '');
   const [added, setAdded] = useState(false);
 

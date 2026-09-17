@@ -5,14 +5,14 @@ import { fileURLToPath } from 'node:url';
 
 const result = await build({
   stdin: {
-    contents: "export { needsImmediateSupport, flagsFromOwnWords } from './src/components/Intake.tsx'; export { validateCaseFile, plainSummary } from './src/components/Summary.tsx'; export { createCaseFile } from './src/types.ts';",
+    contents: "export { needsImmediateSupport, flagsFromOwnWords } from './src/components/Intake.tsx'; export { validateCaseFile, plainSummary } from './src/components/Summary.tsx'; export { createCaseFile } from './src/types.ts'; export { workFreeText } from './src/data/occupations.ts';",
     resolveDir: fileURLToPath(new URL('../', import.meta.url)),
     loader: 'ts',
   },
   bundle: true, format: 'esm', platform: 'node', write: false,
   loader: { '.css': 'empty' }, logLevel: 'silent',
 });
-const { needsImmediateSupport, flagsFromOwnWords, validateCaseFile, plainSummary, createCaseFile } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
+const { needsImmediateSupport, flagsFromOwnWords, validateCaseFile, plainSummary, createCaseFile, workFreeText } = await import(`data:text/javascript;base64,${Buffer.from(result.outputFiles[0].text).toString('base64')}`);
 
 test('immediate support recognizes each required English crisis category', () => {
   for (const statement of [
@@ -79,4 +79,25 @@ test('bilingual summaries keep original free text and do not invent missing fact
   assert.ok(english.includes('Visa type: Not provided'));
   assert.ok(english.includes('Is it safe to leave a voicemail message?: No'));
   assert.equal(file.narrative.en, '');
+});
+
+test('summaries show job and industry labels in each language, never raw keys', () => {
+  const file = createCaseFile('en', 'agent');
+  file.profile.industry = 'other_services';
+  file.profile.role = 'nail_technician';
+  assert.ok(plainSummary(file, 'en').includes('Job / role: Nail technician'));
+  assert.ok(plainSummary(file, 'en').includes('Industry / sector: Other Services'));
+  assert.ok(plainSummary(file, 'vi').includes('Thợ làm móng (thợ nail)'));
+  assert.ok(!plainSummary(file, 'vi').includes('nail_technician'));
+  file.profile.role = 'other';
+  file.profile.roleOther = 'Thợ in áo';
+  assert.ok(plainSummary(file, 'en').includes('Job / role: Other: Thợ in áo'));
+  assert.equal(validateCaseFile(file), true);
+  assert.equal(validateCaseFile({ ...file, profile: { ...file.profile, roleOther: 5 } }), false);
+});
+
+test('an "Other" job is still checked for crisis words', () => {
+  const words = workFreeText({ role: 'other', roleOther: 'boss is holding my passport' }).join('\n');
+  assert.equal(needsImmediateSupport(words), true);
+  assert.deepEqual(workFreeText({ role: 'kitchen_hand', industry: 'accommodation_food' }), []);
 });

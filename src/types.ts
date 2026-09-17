@@ -13,8 +13,14 @@ export interface CaseFile {
   status: 'draft' | 'submitted' | 'assigned' | 'contacted' | 'closed';
   profile: {
     visaSubclass?: '500' | '482' | '485' | '417' | '462' | 'PALM' | 'bridging' | 'PR' | 'citizen' | 'other' | 'prefer_not_say';
+    /** An ANZSIC key from src/data/occupations.ts, or 'other'. Older drafts may hold free text. */
     industry?: string;
+    /** The person's own words when `industry` is 'other'. */
+    industryOther?: string;
+    /** An occupation key from src/data/occupations.ts, or 'other'. Older drafts may hold free text. */
     role?: string;
+    /** The person's own words when `role` is 'other'. */
+    roleOther?: string;
     tenureMonths?: number;
     stillEmployed?: boolean;
     employerSizeUnder15?: boolean;

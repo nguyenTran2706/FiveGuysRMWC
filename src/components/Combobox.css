@@ -1,0 +1,27 @@
+.combobox { position: relative; scroll-margin-top: 120px; }
+.combobox-label { font-size: 10px; letter-spacing: .02em; }
+.combobox-control { position: relative; }
+.intake-field .combobox-control input { padding-right: 84px; text-overflow: ellipsis; }
+.combobox-buttons { position: absolute; top: 0; right: 2px; bottom: 0; display: flex; align-items: center; }
+.combobox-button { width: 40px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: none; color: #aeb3a4; cursor: pointer; }
+.combobox-button:hover, .combobox-button:focus-visible { color: #ebe9df; }
+.combobox-button svg { transition: transform .2s; }
+.combobox-button .is-flipped { transform: rotate(180deg); }
+.combobox-menu { display: none; position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 4px); margin: 0; padding: 0 0 4px; list-style: none; max-height: min(340px, 52vh); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background: #141914; border: 1px solid #c6ab7f59; box-shadow: 0 18px 50px #000000b0; }
+.combobox-menu.is-open { display: block; }
+.combobox-group ul { list-style: none; margin: 0; padding: 0; }
+.combobox-group-label { position: sticky; top: 0; z-index: 1; padding: 11px 14px 7px; font-size: 9px; font-weight: 600; letter-spacing: .16em; line-height: 1.5; text-transform: uppercase; color: #c5aa7e; background: #141914; }
+.combobox-option { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 14px; cursor: pointer; color: #dfe1d6; font-size: 12px; line-height: 1.45; }
+.combobox-option-text { display: flex; flex-direction: column; min-width: 0; }
+.combobox-option-text small { font-size: 10px; color: #8f978a; }
+.combobox-option.is-highlighted { background: #c6ab7f24; color: #fff; }
+.combobox-option svg { margin-left: auto; flex-shrink: 0; color: #d8b780; }
+.combobox-other { border-top: 1px solid #ffffff17; margin-top: 4px; color: #d9bc8f; }
+.combobox-empty { padding: 12px 14px 8px; font-size: 11px; color: #959d8b; }
+@media (max-width: 600px) {
+  /* 16px stops iOS Safari zooming the page when the field is focused. */
+  .intake-field .combobox-control input { font-size: 16px; }
+  .combobox-menu { max-height: 44vh; }
+  .combobox-option { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .combobox-button svg { transition: none; } }

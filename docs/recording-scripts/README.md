@@ -2,7 +2,7 @@
 
 7 residents · 85 story cues · 170 recordings across Vietnamese and English.
 
-Ready: **0/170**. Pending clips are intentionally silent in the app, with a readable notice; no text-to-speech fallback.
+Ready: **0/170**. Until a clip is approved, the app shows a readable notice. Visitors may opt in to their device voice (off by default); there is no generated voice in the app.
 
 These are fixed assignments, not three full alternate casts and not random choices. Accent families are shared, but every character keeps an individual performer and delivery. Assignments are casting proposals, not new character biography.
 
