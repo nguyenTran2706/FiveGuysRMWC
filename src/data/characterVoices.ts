@@ -25,3 +25,15 @@ export const characterVoices: Record<string, { vi: VoicePack; en: VoicePack; dir
 export function assignedVoice(character: string, language: Language): VoicePack | undefined {
   return characterVoices[character]?.[language];
 }
+
+// Device voices rarely offer regional Vietnamese, so only the English accents steer the choice.
+const packLocales: Record<VoicePack, string[]> = {
+  'vi-north': ['vi-VN'], 'vi-central': ['vi-VN'], 'vi-south': ['vi-VN'],
+  'en-vietnamese': ['en-AU', 'en-GB', 'en-US'], 'en-australian': ['en-AU', 'en-GB', 'en-US'], 'en-american': ['en-US', 'en-AU', 'en-GB'],
+};
+
+/** Preferred fallback locales, used only when no matching MP3 exists and the visitor opts in. */
+export function deviceVoiceLocales(character: string, language: Language): string[] {
+  const pack = assignedVoice(character, language);
+  return pack ? packLocales[pack] : [language === 'vi' ? 'vi-VN' : 'en-AU'];
+}

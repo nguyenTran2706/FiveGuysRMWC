@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, FileText, LockKeyhole, Phone, ShieldCheck, Spark
 import type { Archetype, CaseFile, Language } from '../types';
 import { FAIR_WORK_VISA_URL, intakeCopy } from '../data/intakeCopy';
 import { flagsFromSelfReport, mergeFlags } from '../data/selfReport';
+import { workFreeText } from '../data/occupations';
 import QuestionFields from './IntakeQuestionFields';
 import '../intake.css';
 
@@ -90,7 +91,7 @@ export default function Intake({ language, caseFile, onChange, onReview, onBack 
   const pages: number[][] = [[0, 1, 2, 3, 4], [5, 6], [7, 8, 9, 10]];
 
   function turn(review = false) {
-    const words = [caseFile.narrative.vi, caseFile.narrative.en, caseFile.profile.role, caseFile.profile.industry, caseFile.evidenceHeld.notes, caseFile.contactSafety.notes, caseFile.contactSafety.bestTimeOfDay, caseFile.emergencyContact?.name, caseFile.emergencyContact?.relationship, caseFile.employer?.name, caseFile.employer?.address].filter(Boolean).join('\n');
+    const words = [caseFile.narrative.vi, caseFile.narrative.en, ...workFreeText(caseFile.profile), caseFile.evidenceHeld.notes, caseFile.contactSafety.notes, caseFile.contactSafety.bestTimeOfDay, caseFile.emergencyContact?.name, caseFile.emergencyContact?.relationship, caseFile.employer?.name, caseFile.employer?.address].filter(Boolean).join('\n');
     if (needsImmediateSupport(words)) { setCrisis(true); return; }
     if (/visa|deport|immigra|di tru|truc xuat|bi duoi ve/.test(normalize(words))) setVisaFear(true);
     const ownWords = `${caseFile.narrative.vi}\n${caseFile.narrative.en}`;

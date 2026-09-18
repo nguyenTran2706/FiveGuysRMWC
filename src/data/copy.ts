@@ -3,7 +3,7 @@ export type Copy = (typeof copy)['vi'] | (typeof copy)['en'];
 
 export const copy = {
   vi: {
-    brand: 'KNOW YOUR RIGHTS', byline: 'MỘT TRẢI NGHIỆM TỪ RMWC', story: 'Những câu chuyện', about: 'Giới thiệu', help: 'Yêu cầu hỗ trợ', exit: 'Thoát nhanh', exitHint: 'Thoát nhanh sang trang web RMWC. Nhấn phím Esc.',
+    brand: 'KNOW YOUR RIGHTS', byline: 'MỘT TRẢI NGHIỆM TỪ RMWC', story: 'Những câu chuyện', about: 'Giới thiệu', help: 'Yêu cầu hỗ trợ', exit: 'Thoát nhanh',
     newGame: 'Bắt đầu', mainMenu: 'Menu chính', meetNeighbours: 'Gặp hàng xóm', menuSettings: 'Cài đặt', liveClock: 'Đồng hồ trực tiếp',
     presents: 'RMWC GIỚI THIỆU', interactive: 'MỘT CÂU CHUYỆN TƯƠNG TÁC', titleFirst: 'SAU', titleSecond: 'GIỜ LÀM.', englishTitle: 'AFTER HOURS',
     intro: 'Một con phố. Bảy người hàng xóm.', introSecond: 'Những chuyện chưa kể sau mỗi ca làm.', description: 'Lắng nghe, lựa chọn cách đáp lời, và bạn có thể nhận ra một phần hoàn cảnh của chính mình.', understand: 'Tôi muốn tìm hiểu', understandSub: 'BƯỚC VÀO CÂU CHUYỆN', helpNow: 'Tôi cần được hỗ trợ', helpSub: 'TRAO ĐỔI THEO NHỊP CỦA BẠN',
@@ -29,7 +29,7 @@ export const copy = {
     bootSteps: ['Mở phiên ẩn danh — không lưu gì lại', 'Tải lời thoại tiếng Việt', 'Dựng cảnh: tiệm nail, 21:40', 'Giới thiệu những người bạn sẽ gặp', 'Bật lối thoát nhanh'], bootStart: 'Bắt đầu ca làm', bootWait: 'ĐANG CHUẨN BỊ', bootNote: 'Trước khi bắt đầu: các câu chuyện có nội dung về việc bị nợ lương, bị đe doạ và bị gây áp lực làm thêm giờ. Nhấn ESC vào bất cứ lúc nào để rời đi ngay.',
   },
   en: {
-    brand: 'KNOW YOUR RIGHTS', byline: 'AN EXPERIENCE FROM RMWC', story: 'The stories', about: 'About this experience', help: 'Request support', exit: 'Quick exit', exitHint: 'Quick exit to the RMWC website. Press Escape.',
+    brand: 'KNOW YOUR RIGHTS', byline: 'AN EXPERIENCE FROM RMWC', story: 'The stories', about: 'About this experience', help: 'Request support', exit: 'Quick exit',
     newGame: 'New game', mainMenu: 'Main menu', meetNeighbours: 'Meet the neighbours', menuSettings: 'Settings', liveClock: 'Live clock',
     presents: 'RMWC PRESENTS', interactive: 'AN INTERACTIVE STORY', titleFirst: 'AFTER', titleSecond: 'HOURS.', englishTitle: 'SAU GIỜ LÀM',
     intro: 'One street. Seven neighbours.', introSecond: 'The stories that do not clock off.', description: 'Listen, choose how to respond, and you may recognise something of your own experience.', understand: 'I would like to understand', understandSub: 'ENTER THE STORY', helpNow: 'I need support now', helpSub: 'A CONVERSATION AT YOUR OWN PACE',

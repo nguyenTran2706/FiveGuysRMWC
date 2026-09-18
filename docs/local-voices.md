@@ -15,6 +15,8 @@ public/audio/dialogue/en-american/tram/hello.mp3
 
 The generated package contains all 170 clips: 85 Vietnamese and 85 English, covering all 71 story nodes and both endings for all seven characters. The final MP3s total about 40.8 MB and 33 minutes 49 seconds. These are **AI-generated**, not human performances. File availability and technical validation are separate from accent, pronunciation and naturalness approval. The library and review metadata explicitly retain that distinction.
 
+Bundled MP3s always take priority. Settings also offers an optional device-voice fallback, off by default, for a caption with no matching MP3. It cannot guarantee character identity or regional accents, and some device voices use the browser vendor's online service. It reads only fixed story captions, never visitor input. This fallback does not replace the local generation workflow below.
+
 ## Fixed casting and performance
 
 | Character | Vietnamese preset / intended region | English source / intended accent | Delivery |

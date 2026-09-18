@@ -5,6 +5,7 @@ import { EmployerFields, EvidenceFields, Field, SafeContactFields } from './Inta
 import PayFields from './PayFields';
 import SelfReportFields from './SelfReportFields';
 import CategoryDetailFields from './CategoryDetailFields';
+import WorkFields from './WorkFields';
 
 interface QuestionFieldsProps {
   step: number;
@@ -22,7 +23,7 @@ export default function QuestionFields({ step, language, caseFile, onChange, nar
   const updateEmergency = (patch: Partial<NonNullable<CaseFile['emergencyContact']>>) => onChange({ ...caseFile, emergencyContact: { ...caseFile.emergencyContact, ...patch } });
 
   if (step === 0) return <Field label={copy.answer}><textarea autoComplete="off" rows={6} value={caseFile.narrative[narrativeLanguage]} placeholder={copy.narrativePlaceholder} onChange={event => onNarrativeChange(event.target.value)} /></Field>;
-  if (step === 1) return <div className="intake-field-stack"><Field label={copy.industry}><input value={caseFile.profile.industry ?? ''} placeholder={copy.industryPlaceholder} onChange={event => updateProfile({ industry: event.target.value })} /></Field><Field label={copy.role}><input value={caseFile.profile.role ?? ''} placeholder={copy.rolePlaceholder} onChange={event => updateProfile({ role: event.target.value })} /></Field></div>;
+  if (step === 1) return <WorkFields language={language} caseFile={caseFile} onChange={onChange} />;
   if (step === 2) return <><div className="intake-option-buttons">{[true, false].map(value => <button key={String(value)} type="button" aria-pressed={caseFile.profile.stillEmployed === value} className={caseFile.profile.stillEmployed === value ? 'intake-option intake-selected' : 'intake-option'} onClick={() => updateProfile({ stillEmployed: caseFile.profile.stillEmployed === value ? undefined : value })}>{value ? copy.stillEmployed : copy.noLongerEmployed}{caseFile.profile.stillEmployed === value ? <Check size={17} /> : <ChevronRight size={17} />}</button>)}</div><Field label={copy.tenure}><input type="number" min="0" max="1000" value={caseFile.profile.tenureMonths ?? ''} placeholder={copy.tenurePlaceholder} onChange={event => updateProfile({ tenureMonths: event.target.value === '' ? undefined : Number(event.target.value) })} /></Field></>;
   if (step === 3) return <Field label={copy.visa}><select value={caseFile.profile.visaSubclass ?? ''} onChange={event => updateProfile({ visaSubclass: (event.target.value || undefined) as CaseFile['profile']['visaSubclass'] })}><option value="">{copy.choose}</option>{Object.entries(copy.visaOptions).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></Field>;
   if (step === 4) return <PayFields language={language} caseFile={caseFile} onChange={onChange} />;

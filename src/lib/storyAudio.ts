@@ -1,8 +1,20 @@
 import { clamp, rainMix } from './weather';
+import { SPEAK_AFTER_CANCEL_MS, SPEECH_RATE, pickVoice, speechChunks, waitForVoices } from './deviceVoice';
 
-export type VoiceState = 'idle' | 'loading' | 'playing' | 'ended' | 'missing' | 'blocked' | 'error';
+/** 'no-voice': no recording, and the device has no speech voice for the line's language. */
+export type VoiceState = 'idle' | 'loading' | 'playing' | 'ended' | 'missing' | 'no-voice' | 'blocked' | 'error';
 export type RainState = 'off' | 'loading' | 'playing' | 'blocked' | 'error';
-export type AudioState = { voice: VoiceState; rain: RainState };
+/** Where the current line's sound comes from, so the UI can say when a device voice is reading. */
+export type VoiceSource = 'recording' | 'device' | null;
+export type AudioState = { voice: VoiceState; rain: RainState; source: VoiceSource };
+/** A story caption the device voice may read when no matching bundled MP3 exists. */
+export type SpeechLine = { cue: string; text: string; lang: 'vi' | 'en'; locales?: readonly string[] };
+type WithSpeech = typeof globalThis & { speechSynthesis?: SpeechSynthesis; SpeechSynthesisUtterance?: typeof SpeechSynthesisUtterance };
+type IOSNavigator = Navigator & { audioSession?: { type: string } };
+/** Chrome can leave a line queued but silent after a recent cancel(); pause() + resume() restarts it. */
+const SPEECH_STALL_MS = 1200;
+/** Safari may neither start nor reject speech that lacks permission; treat silence this long as blocked. */
+const SPEECH_START_TIMEOUT_MS = 6000;
 type Layer = keyof ReturnType<typeof rainMix>;
 type Loop = { source: AudioBufferSourceNode; gain: GainNode; filter?: BiquadFilterNode };
 const rainFiles: Record<Layer, string> = {
@@ -27,7 +39,13 @@ export class StoryAudio {
   private rainVolume = 0.45;
   private tension = 0.4;
   private adaptive = true;
-  private state: AudioState = { voice: 'idle', rain: 'off' };
+  private deviceVoice = false;
+  private speechPrimed = false;
+  // Chrome can garbage-collect an utterance mid-line and never fire its end event, so keep a reference.
+  private utterance: SpeechSynthesisUtterance | null = null;
+  private speechTimer: ReturnType<typeof setTimeout> | undefined;
+  private warned = new Set<string>();
+  private state: AudioState = { voice: 'idle', rain: 'off', source: null };
 
   subscribe(listener: (state: AudioState) => void) {
     this.listeners.add(listener);
@@ -53,12 +71,42 @@ export class StoryAudio {
     return context;
   }
 
+  private warnOnce(key: string, message: string) {
+    if (this.warned.has(key)) return;
+    this.warned.add(key);
+    console.warn(message);
+  }
+
+  private synth(): SpeechSynthesis | null {
+    const scope = globalThis as WithSpeech;
+    return scope.speechSynthesis && typeof scope.SpeechSynthesisUtterance === 'function' ? scope.speechSynthesis : null;
+  }
+
+  private wake() {
+    const context = this.ensureContext();
+    // iOS reports 'interrupted' after a call or Siri; it resumes like 'suspended'.
+    if (context.state === 'suspended' || (context.state as string) === 'interrupted') void context.resume().catch(() => {});
+    return context;
+  }
+
   /** Called directly during a click/key gesture, before async loading. */
   unlock() {
     try {
-      const context = this.ensureContext();
-      if (context.state === 'suspended') void context.resume().catch(() => {});
+      // Without this, iPhones in silent mode mute Web Audio (Safari 16.4+).
+      const session = typeof navigator === 'undefined' ? undefined : (navigator as IOSNavigator).audioSession;
+      if (session && session.type !== 'playback') session.type = 'playback';
+      this.wake();
     } catch { /* Playback reports unsupported audio when requested. */ }
+    // iOS only allows speech after a speak() call made inside a user gesture.
+    const synth = this.synth();
+    if (synth && this.deviceVoice && !this.speechPrimed) {
+      this.speechPrimed = true;
+      try {
+        const primer = new SpeechSynthesisUtterance(' ');
+        primer.volume = 0;
+        synth.speak(primer);
+      } catch { /* Speaking reports its own state when requested. */ }
+    }
   }
 
   private async load(src: string, context: AudioContext): Promise<AudioBuffer> {
@@ -69,7 +117,10 @@ export class StoryAudio {
     const timer = setTimeout(() => controller.abort(), 20000);
     const promise = (async () => {
       const response = await fetch(src, { signal: controller.signal });
-      if (!response.ok) throw new Error('Audio unavailable');
+      if (!response.ok) {
+        console.warn(`[audio] ${src} returned HTTP ${response.status}. Check the file exists in public/ with the exact same letter case.`);
+        throw new Error('Audio unavailable');
+      }
       const bytes = await response.arrayBuffer();
       if (bytes.byteLength > 12_000_000) throw new Error('Audio too large');
       const buffer = await context.decodeAudioData(bytes);
@@ -108,6 +159,11 @@ export class StoryAudio {
     this.duck(this.state.voice === 'playing');
   }
 
+  setDeviceVoice(enabled: boolean) {
+    this.deviceVoice = enabled;
+    if (!enabled && this.state.source === 'device') this.stopVoice();
+  }
+
   stopVoice(nextState: VoiceState = 'idle') {
     ++this.voiceRevision;
     if (this.voiceSource) {
@@ -116,17 +172,22 @@ export class StoryAudio {
       this.voiceSource.disconnect();
       this.voiceSource = null;
     }
+    clearTimeout(this.speechTimer);
+    // Only cancel our own line: cancelling the iOS primer straight after speak() stalls Chrome's queue.
+    if (this.utterance) this.synth()?.cancel();
+    this.utterance = null;
     this.duck(false);
-    this.publish({ voice: nextState });
+    this.publish({ voice: nextState, source: null });
   }
 
-  async playVoice(src: string | null) {
+  /** Plays the bundled MP3; without one, the device voice reads `speech` only if switched on. */
+  async playVoice(src: string | null, speech?: SpeechLine | null) {
+    if (!src && speech && this.deviceVoice) return this.speak(speech);
     this.stopVoice(src ? 'loading' : 'missing');
     if (!src) return;
     const revision = this.voiceRevision;
     try {
-      const context = this.ensureContext();
-      this.unlock();
+      const context = this.wake();
       const buffer = await this.load(src, context);
       if (revision !== this.voiceRevision || context !== this.context) return;
       if (context.state !== 'running') { this.publish({ voice: 'blocked' }); return; }
@@ -138,15 +199,86 @@ export class StoryAudio {
         source.disconnect();
         this.voiceSource = null;
         this.duck(false);
-        this.publish({ voice: 'ended' });
+        this.publish({ voice: 'ended', source: null });
       };
       this.voiceSource = source;
       source.start();
       this.duck(true);
-      this.publish({ voice: 'playing' });
-    } catch {
-      if (revision === this.voiceRevision) { this.duck(false); this.publish({ voice: 'error' }); }
+      this.publish({ voice: 'playing', source: 'recording' });
+    } catch (error) {
+      if (revision !== this.voiceRevision) return;
+      console.warn(`[audio] Could not play ${src}:`, error);
+      this.duck(false);
+      this.publish({ voice: 'error' });
     }
+  }
+
+  private async speak(line: SpeechLine) {
+    this.stopVoice('loading');
+    const revision = this.voiceRevision;
+    const synth = this.synth();
+    if (!synth) {
+      this.warnOnce('no-speech', '[audio] This browser has no speech synthesis, so lines without a recording stay text-only.');
+      this.publish({ voice: 'no-voice' });
+      return;
+    }
+    const voices = await waitForVoices(synth);
+    if (revision !== this.voiceRevision) return;
+    const voice = pickVoice(voices, line.lang, line.locales);
+    if (!voice) {
+      this.warnOnce(`no-voice-${line.lang}`, `[audio] No ${line.lang === 'vi' ? 'Vietnamese' : 'English'} voice on this device (${voices.length} voices found); ${line.cue} stays text-only.`);
+      this.publish({ voice: 'no-voice' });
+      return;
+    }
+    if (this.voiceVolume <= 0) { this.publish({ voice: 'idle' }); return; }
+    this.warnOnce(`device-${line.cue}`, `[audio] No matching MP3 for ${line.cue}; reading it with the device voice "${voice.name}" (${voice.lang}).`);
+    await new Promise(resolve => setTimeout(resolve, SPEAK_AFTER_CANCEL_MS));
+    if (revision !== this.voiceRevision) return;
+    if (synth.paused) synth.resume();
+    const chunks = speechChunks(line.text);
+    const nudge = typeof navigator === 'undefined' || !/android/i.test(navigator.userAgent); // Android treats pause() as stop.
+    const watch = (utterance: SpeechSynthesisUtterance, chunkStarted: () => boolean) => {
+      clearTimeout(this.speechTimer);
+      this.speechTimer = setTimeout(() => {
+        if (revision !== this.voiceRevision || this.utterance !== utterance || chunkStarted()) return;
+        if (nudge) { synth.pause(); synth.resume(); }
+        this.speechTimer = setTimeout(() => {
+          if (revision !== this.voiceRevision || this.utterance !== utterance || chunkStarted()) return;
+          console.warn(`[audio] The device voice did not start for ${line.cue}; waiting for a tap on Listen.`);
+          this.stopVoice('blocked');
+        }, SPEECH_START_TIMEOUT_MS - SPEECH_STALL_MS);
+      }, SPEECH_STALL_MS);
+    };
+    const next = (index: number) => {
+      if (revision !== this.voiceRevision) return;
+      if (index >= chunks.length) {
+        clearTimeout(this.speechTimer);
+        this.utterance = null;
+        this.duck(false);
+        this.publish({ voice: 'ended', source: null });
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(chunks[index]);
+      utterance.voice = voice;
+      utterance.lang = voice.lang;
+      utterance.rate = SPEECH_RATE;
+      utterance.volume = this.voiceVolume;
+      let chunkStarted = false;
+      const begin = () => { chunkStarted = true; clearTimeout(this.speechTimer); };
+      utterance.onstart = begin;
+      utterance.onend = () => { begin(); next(index + 1); };
+      utterance.onerror = event => {
+        if (revision !== this.voiceRevision || event.error === 'interrupted' || event.error === 'canceled') return;
+        console.warn(`[audio] The device voice stopped (${event.error}) while reading ${line.cue}.`);
+        this.stopVoice(event.error === 'not-allowed' ? 'blocked' : 'error');
+      };
+      this.utterance = utterance;
+      synth.speak(utterance);
+      watch(utterance, () => chunkStarted);
+    };
+    this.duck(true);
+    this.publish({ voice: 'playing', source: 'device' });
+    next(0);
   }
 
   setWeather(tension: number, adaptive: boolean) {
@@ -178,8 +310,7 @@ export class StoryAudio {
     const revision = this.rainRevision;
     this.publish({ rain: 'loading' });
     try {
-      const context = this.ensureContext();
-      this.unlock();
+      const context = this.wake();
       const results = await Promise.allSettled((Object.entries(rainFiles) as [Layer, string][]).map(async ([key, src]) => {
         const buffer = await this.load(src, context);
         if (revision !== this.rainRevision || context !== this.context || context.state !== 'running') return;
@@ -201,6 +332,7 @@ export class StoryAudio {
         this.ramp(gain.gain, rainMix(this.tension, this.adaptive)[key], 2);
       }));
       if (revision !== this.rainRevision) return;
+      for (const result of results) if (result.status === 'rejected') console.warn('[audio] A rain layer could not load:', result.reason);
       this.publish({ rain: context.state !== 'running' ? 'blocked' : results.some(result => result.status === 'rejected') ? 'error' : 'playing' });
     } catch { if (revision === this.rainRevision) this.publish({ rain: 'error' }); }
   }

@@ -6,6 +6,7 @@ type Props = {
   language: Language;
   autoplay: boolean; onAutoplay: (value: boolean) => void;
   adaptive: boolean; onAdaptive: (value: boolean) => void;
+  deviceVoice: boolean; onDeviceVoice: (value: boolean) => void;
   voiceVolume: number; onVoiceVolume: (value: number) => void;
   rainVolume: number; onRainVolume: (value: number) => void;
 };
@@ -15,6 +16,7 @@ export function AudioSettings(props: Props) {
   return <div className="audio-settings">
     {([
       [t.autoplay, props.autoplay, props.onAutoplay],
+      [t.deviceVoice, props.deviceVoice, props.onDeviceVoice],
       [t.adaptive, props.adaptive, props.onAdaptive],
     ] as const).map(([label, value, change]) => <div className="setting-row" key={label}>
       <span>{label}</span><button className={`switch ${value ? 'on' : ''}`} role="switch" aria-checked={value} aria-label={label} onClick={() => change(!value)}><i /></button>

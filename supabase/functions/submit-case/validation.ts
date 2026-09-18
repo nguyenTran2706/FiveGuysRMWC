@@ -12,7 +12,7 @@ const visa = one('500', '482', '485', '417', '462', 'PALM', 'bridging', 'PR', 'c
 const rule = obj({
   id: text(100), createdAt: text(50), language: one('vi', 'en'), source: one('street', 'agent'),
   status: one('draft', 'submitted', 'assigned', 'contacted', 'closed'),
-  profile: obj({ visaSubclass: visa, industry: text(100), role: text(200), tenureMonths: { kind: 'number', max: 1200 }, stillEmployed: bool, employerSizeUnder15: bool, suburb: text(100), ageBand: text(100) }),
+  profile: obj({ visaSubclass: visa, industry: text(100), industryOther: text(100), role: text(200), roleOther: text(200), tenureMonths: { kind: 'number', max: 1200 }, stillEmployed: bool, employerSizeUnder15: bool, suburb: text(100), ageBand: text(100) }),
   flags: list(obj({ archetype: one(...archetypes), confidence: one('strong', 'possible'), signals: list(text(1000), 16), sourceNpc: text(100) }, ['archetype', 'confidence', 'signals']), 7),
   detail: obj({
     underpayment: obj({ rateOrCashPerShift: text(), paidCash: bool, payslips: one('always', 'sometimes', 'never'), hoursBand: text(100), unpaidTrial: bool, unpaidTimeAroundShift: bool, deductions: list(text(300)), superPaid: one('yes', 'no', 'unknown'), penaltyRates: one('yes', 'no', 'unknown') }),

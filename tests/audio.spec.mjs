@@ -26,9 +26,32 @@ async function instrument(page) {
         return source;
       }
     };
-    if (window.speechSynthesis) window.speechSynthesis.speak = () => { throw new Error('Synthetic speech must not run'); };
+    // Deterministic stand-in for the device voice: records what would be read and finishes after a moment.
+    const speech = window.__speech = { spoken: [], cancels: 0, duration: 400, voices: [
+      { name: 'Linh', lang: 'vi-VN', localService: true, default: false },
+      { name: 'Karen', lang: 'en-AU', localService: true, default: true },
+    ] };
+    class Utterance { constructor(text) { this.text = text; } }
+    const synth = {
+      speaking: false, pending: false, paused: false,
+      getVoices: () => speech.voices,
+      speak(utterance) {
+        speech.spoken.push(utterance);
+        this.speaking = true;
+        setTimeout(() => {
+          if (utterance.cancelled) return;
+          utterance.onstart?.({});
+          setTimeout(() => { if (!utterance.cancelled) { this.speaking = false; utterance.onend?.({}); } }, speech.duration);
+        }, 10);
+      },
+      cancel() { speech.cancels++; speech.spoken.forEach(item => { item.cancelled = true; }); this.speaking = false; },
+      pause() {}, resume() {}, addEventListener() {}, removeEventListener() {},
+    };
+    Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: synth });
+    window.SpeechSynthesisUtterance = Utterance;
   });
 }
+const spokenLines = page => page.evaluate(() => window.__speech.spoken.filter(item => item.text.trim()).map(item => ({ text: item.text, voice: item.voice?.name, cancelled: !!item.cancelled })));
 
 async function installTransportFixtures(page) {
   // In-memory test registry only. Real rain verifies MP3 transport/decoding;
@@ -108,32 +131,78 @@ for (const character of ['linh', 'bao', 'hanh', 'tram', 'duc', 'khoa', 'mai']) {
     await expect(page.locator('.audio-error')).toHaveCount(0);
     await page.locator('.game-topbar > button').click();
     await expect.poll(() => liveVoiceCount(page)).toBe(0);
+    expect(await spokenLines(page)).toEqual([]);
     expect(errors).toEqual([]);
   });
 }
 
-test('missing recordings are honest; settings fit mobile and do not use browser TTS', async ({ page }) => {
+const enableDeviceVoice = async page => {
+  await page.getByRole('button', { name: /^(Experience settings|Cài đặt trải nghiệm)$/ }).click();
+  await page.getByRole('switch', { name: /Use the device voice|Dùng giọng đọc của thiết bị/ }).click();
+  await page.getByRole('button', { name: /^(Close|Đóng)$/ }).click();
+};
+
+test('bundled Vietnamese and English MP3s still win when device fallback is enabled', async ({ page }) => {
+  await instrument(page);
+  await page.addInitScript(() => { window.__speech.voices = []; });
+  await page.goto('/');
+  await enterLinh(page);
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await enableDeviceVoice(page);
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await expect(page.locator('.audio-error, .audio-device-note')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await expect.poll(() => liveVoiceCount(page)).toBe(1);
+  await expect(page.locator('.audio-error, .audio-device-note')).toHaveCount(0);
+  expect(await spokenLines(page)).toEqual([]);
+});
+
+test('without recordings nothing synthetic plays by default; the opt-in device voice works; settings fit mobile', async ({ page }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await instrument(page);
+  await page.addInitScript(() => { window.__speech.duration = 60000; });
   await page.goto('/');
   await page.evaluate(async () => { const { recordings } = await import('/src/data/dialogueAudio.ts'); for (const key of Object.keys(recordings)) delete recordings[key]; });
   await page.getByRole('button', { name: 'Switch to English' }).click();
   await enterLinh(page);
   await expect(page.locator('.audio-error')).toContainText('no voice recording yet');
+  await page.locator('.speaker-line button').click();
+  expect(await spokenLines(page)).toEqual([]);
   await expect(page.locator('.choice-button')).toHaveCount(3);
   await page.getByRole('button', { name: 'Experience settings', exact: true }).click();
-  await expect(page.getByRole('switch', { name: 'Auto-play dialogue' })).toHaveAttribute('aria-checked', 'true');
-  await page.getByRole('switch', { name: 'Auto-play dialogue' }).click();
-  await page.getByRole('slider', { name: /Voice volume/ }).fill('0');
-  await expect(page.locator('output[for="voice-volume"]')).toHaveText('0%');
+  const deviceVoice = page.getByRole('switch', { name: 'Use the device voice when there is no recording' });
+  await expect(deviceVoice).toHaveAttribute('aria-checked', 'false');
+  await deviceVoice.click();
+  await page.getByRole('slider', { name: /Voice volume/ }).fill('50');
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await mkdir('artifacts', { recursive: true });
   await page.screenshot({ path: 'artifacts/audio-settings-mobile.png', fullPage: true });
   await page.getByRole('button', { name: 'Close', exact: true }).click();
-  await expect(page.locator('.audio-error')).toHaveCount(0);
+  await expect(page.locator('.audio-device-note')).toHaveText('Read by your device’s built-in voice');
+  await expect.poll(async () => (await spokenLines(page)).at(-1)).toMatchObject({ voice: 'Karen', cancelled: false });
+  expect((await spokenLines(page)).at(-1).text).toContain('The rain has almost emptied the street.');
+  expect(await liveVoiceCount(page)).toBe(0);
   expect(errors).toEqual([]);
+});
+
+test('with the device voice on, a device with no Vietnamese voice shows a bilingual notice', async ({ page }) => {
+  await instrument(page);
+  await page.addInitScript(() => { window.__speech.voices = window.__speech.voices.filter(item => !item.lang.startsWith('vi')); });
+  await page.goto('/');
+  await page.evaluate(async () => { const { recordings } = await import('/src/data/dialogueAudio.ts'); for (const key of Object.keys(recordings)) delete recordings[key]; });
+  await page.locator('.title-start').click();
+  await page.locator('.resident-linh').click();
+  await enableDeviceVoice(page);
+  await expect(page.locator('.dialogue-text')).toContainText('Mưa gần như dọn sạch con đường');
+  const notice = page.locator('.audio-error');
+  await expect(notice).toContainText('chưa có giọng đọc tiếng Việt');
+  await expect(notice.locator('[lang="en"]')).toHaveText(/no Vietnamese voice/);
+  expect(await spokenLines(page)).toEqual([]);
+  await page.getByRole('button', { name: 'Switch to English' }).click();
+  await expect(page.locator('.audio-device-note')).toBeVisible();
+  await expect.poll(async () => (await spokenLines(page)).length).toBe(1);
 });
 
 test('automatic MP3 playback follows choice/next/language; pause and navigation stop it', async ({ page }) => {

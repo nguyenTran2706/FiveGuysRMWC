@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react';
-import { StoryAudio, type AudioState } from '../lib/storyAudio';
+import { useEffect, useRef, useState } from 'react';
+import { StoryAudio, type AudioState, type SpeechLine } from '../lib/storyAudio';
 
 type Options = {
   cue: string; src: string | null; active: boolean; autoplay: boolean; preloads: string[];
+  /** Read by the device voice when `src` is null and `deviceVoice` is on. */
+  speech: SpeechLine | null; deviceVoice: boolean;
   rain: boolean; tension: number; adaptive: boolean; voiceVolume: number; rainVolume: number;
 };
 
 export function useStoryAudio(options: Options) {
   const [engine] = useState(() => new StoryAudio());
-  const [state, setState] = useState<AudioState>({ voice: 'idle', rain: 'off' });
+  const [state, setState] = useState<AudioState>({ voice: 'idle', rain: 'off', source: null });
+  const speech = useRef(options.speech);
+  speech.current = options.speech;
   const [visible, setVisible] = useState(() => !document.hidden);
   useEffect(() => {
     const unsubscribe = engine.subscribe(setState);
@@ -20,11 +24,13 @@ export function useStoryAudio(options: Options) {
   }, [engine]);
   useEffect(() => { engine.setVolumes(options.voiceVolume, options.rainVolume); }, [engine, options.voiceVolume, options.rainVolume]);
   useEffect(() => { engine.setWeather(options.tension, options.adaptive); }, [engine, options.tension, options.adaptive]);
+  useEffect(() => { engine.setDeviceVoice(options.deviceVoice); }, [engine, options.deviceVoice]);
+  const speechText = options.speech?.text;
   useEffect(() => {
-    if (options.active && options.autoplay && visible) void engine.playVoice(options.src);
+    if (options.active && options.autoplay && visible) void engine.playVoice(options.src, speech.current);
     else engine.stopVoice();
     return () => engine.stopVoice();
-  }, [engine, options.cue, options.src, options.active, options.autoplay, visible]);
+  }, [engine, options.cue, options.src, speechText, options.deviceVoice, options.active, options.autoplay, visible]);
   useEffect(() => {
     if (options.rain && visible) void engine.startRain();
     else engine.stopRain();
