@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/en-australian/khoa/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `8212618f9bc4a47216cd9d969e163f565000add991c5ad81b7a415b416e1b945`
@@ -35,7 +35,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## work
 
 - File: `public/audio/dialogue/en-australian/khoa/work.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `83db514b24a097a266af9248531489b0ac5771f0171d72d6d0cc7cde13e1a543`
@@ -54,7 +54,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/en-australian/khoa/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “What happened after they said that?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `8f0c70d95a154a7b83e88944402f395d08099e4103e0ecd3781de368895bcc61`
@@ -72,7 +72,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/en-australian/khoa/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `d5c21e2ad5928d9ec6836580d0e465dceb5185559ffd7abbf24416dfaa0fcc0e`
@@ -91,7 +91,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/en-australian/khoa/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “If you want, note what you remember and keep the email privately.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `0dae8000ca0c2f070423337c54f6cf762e3f3c75eb1df44806d3b633818461ae`
@@ -109,7 +109,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/en-australian/khoa/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “You don’t need to prove anything to me now.”; kept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `b77ccdae307f87d9ab68914e6726ae9b36dcf69c00275f0f723b302813d2f807`
@@ -127,7 +127,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/en-australian/khoa/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “Maybe your English just isn’t good enough.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `30db69d673175d70e868767e934f270eca322342f1912e3c9fd751e4a0eff9ae`
@@ -145,7 +145,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/en-australian/khoa/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `895c96c486e2b1423038f7e43131a86e7c1911a17991509eeed572166bab1efc`
@@ -163,7 +163,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/en-australian/khoa/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `881a2777ed0be580afb9278871ab7abc0593d1c4b9cec629137563487068aefd`

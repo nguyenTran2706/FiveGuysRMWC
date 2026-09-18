@@ -16,7 +16,9 @@
   "performance": {
     "mood": "cautious relief",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 7.645,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "293d0055bfadb428f34d34abcada400d2de3fafaa703f41e6e02fc94edd96ac6",
     "model": "Systran/faster-whisper-small",
     "transcript": "I have somewhere private, away from the work computer. I'll do it when I feel comfortable. Thanks for not making me open every message here.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

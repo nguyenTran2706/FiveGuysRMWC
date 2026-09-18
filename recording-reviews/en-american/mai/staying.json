@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.694,
   "sampleRate": 48000,
   "peak": 0.725708,
-  "rms": 0.098556
+  "rms": 0.098556,
+  "transcriptionCheck": {
+    "audioSha256": "d6f6a7030eca5a20f95099c0a74b1d0fbf74878d05cab32753cbd72fe6861f6c",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Before a shift, a buzzing phone makes my stomach hurt. I'm waiting on paperwork, on a bridging visa, but rent doesn't wait. Someone at the company helped me find this room, too.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

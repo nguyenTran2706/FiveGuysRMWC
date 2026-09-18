@@ -2,7 +2,7 @@
 
 7 residents · 85 story cues · 170 Vietnamese/English clips.
 
-**Audio available: 139/170. Locally AI-generated: 139.** Availability is not human listening approval.
+**Audio available: 170/170. Locally AI-generated: 170.** Availability is not human listening approval.
 
 Listen and download each file at **/audio/voice-preview.html** on your local app server. Actual MP3s are under **public/audio/dialogue/**, grouped by accent, character and cue.
 

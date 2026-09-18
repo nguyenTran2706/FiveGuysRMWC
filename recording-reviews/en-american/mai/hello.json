@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.305,
   "sampleRate": 48000,
   "peak": 0.747822,
-  "rms": 0.107588
+  "rms": 0.107588,
+  "transcriptionCheck": {
+    "audioSha256": "6d9598deaf4aa7bb0e08b34ee27530ba4c8245cce36d47cb5b13bbe93678089a",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Sorry, I didn't open earlier. I was on the phone and didn't want to. I'm fixing a dress for my niece. The machine is old and the seams keep wandering.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

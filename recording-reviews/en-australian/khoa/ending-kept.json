@@ -16,10 +16,21 @@
   "performance": {
     "mood": "reflective narration",
     "tempo": 0.9506,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 12.51,
   "sampleRate": 48000,
   "peak": 0.795784,
-  "rms": 0.116735
+  "rms": 0.116735,
+  "transcriptionCheck": {
+    "audioSha256": "4e6b6a73be997be9715f137738b14c47b65a3eb58a7dc949b837730b4a53d5c5",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fictional ending, Hua keeps the email and notes the conversation. He chooses an appointment to discuss his treatment and still makes Sunday choir practice. The records help him explain. They do not determine the outcome.",
+    "expectedWordCoverage": 0.971,
+    "matchedWordPrecision": 0.971,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

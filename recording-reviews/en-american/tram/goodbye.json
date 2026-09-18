@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 12.412,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "3826a917817252fcd6b908627b59b56747fed767e5c2b62e7a6e6a224cc49fd9",
     "model": "Systran/faster-whisper-small",
     "transcript": "Tonight, I'll ask a friend to come over and keep me company. That's enough. I'm still buying the camera. I don't want everything I talk about to be about work. That blue light looks best just after the rain stops.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

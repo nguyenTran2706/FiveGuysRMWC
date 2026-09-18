@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.98,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.482,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "fa1c9aeb20e5af22c5a4882001ec7301d48f7b9d08f0531d2e89732956bdb302",
     "model": "Systran/faster-whisper-small",
     "transcript": "I kept the email asking about training. The answer was spoken in the break room and a colleague was there. I remember professional. I've replayed the rest so often that the words around it are getting muddled.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

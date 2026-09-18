@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.98,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.842,
   "sampleRate": 48000,
   "peak": 0.791262,
-  "rms": 0.115812
+  "rms": 0.115812,
+  "transcriptionCheck": {
+    "audioSha256": "0abc35a09d09ef08aee1ef82aab46fa04f5460dc4c3818d6ee9570f52da79c28",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I'll move the pod closer to the wall. The wind is picking up. The choir has a free performance at the hall on Sunday. I need to learn the words, at least there I get to sing in my own voice.",
+    "expectedWordCoverage": 0.976,
+    "matchedWordPrecision": 0.976,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

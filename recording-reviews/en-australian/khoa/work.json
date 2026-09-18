@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.98,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 14.175,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "be2f9576f3cdd3db7123eab9bae968c2425d76d05b0e7de6c99b0683681826dd",
     "model": "Systran/faster-whisper-small",
     "transcript": "I've cared for some residents for years. A few remember my name more easily than their grandchildren's. When I asked about team leader training, the manager said my accent wasn't professional enough. Someone who started after me got the training and I was asked to show them the work.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

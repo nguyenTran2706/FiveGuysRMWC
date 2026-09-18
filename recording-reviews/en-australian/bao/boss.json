@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 9.502,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "fd83f5064c56c694fcabab6513cab6002cc0b272318308a2fb8a4c9ea4e8f21f",
     "model": "Systran/faster-whisper-small",
     "transcript": "Yes! When the car died, he picked me up and lent me money for the battery. I remember that. So every time I want to ask about a deduction, I worry it sounds ungrateful.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

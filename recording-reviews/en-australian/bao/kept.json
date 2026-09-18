@@ -16,7 +16,9 @@
   "performance": {
     "mood": "cautious relief",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.473,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "7ff0f078f4f3ab9080c7ba75a051cfdd981e5fb4c173661d4e9e645df2ee02d4",
     "model": "Systran/faster-whisper-small",
     "transcript": "One week I can do, I'll keep it on my own device, including the message about not sending a substitute. Then if I talk to someone, I can show it instead of saying I think.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

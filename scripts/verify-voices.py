@@ -69,7 +69,7 @@ def main():
         precision = matched / max(1, len(actual))
         result = {"audioSha256": audio_hash, "model": "Systran/faster-whisper-small", "transcript": transcript, "expectedWordCoverage": round(coverage, 3), "matchedWordPrecision": round(precision, 3), "flag": coverage < .65 or precision < .65, "note": "Automated transcription comparison only; not human listening or accent approval."}
         metadata["transcriptionCheck"] = result
-        review.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        review.write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         results.append(result)
         print(f"{'FLAG' if result['flag'] else 'CHECK'} {cue['character']}/{cue['language']}/{cue['cue']} coverage={coverage:.2f} precision={precision:.2f}: {transcript}", flush=True)
     print(f"Transcription checks: {len(results)}, flagged: {sum(result['flag'] for result in results)}", flush=True)

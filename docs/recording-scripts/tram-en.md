@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/en-american/tram/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `b785c4c1b14a27b2973d873c2f5963f070af77cc1ea4e8e1297797e01e8ad71e`
@@ -36,7 +36,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## messages
 
 - File: `public/audio/dialogue/en-american/tram/messages.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “Which signs would you photograph?”; hello: listener chooses “We can just be quiet for a moment.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `062f5a1bd02ebd0259cea945bcfe6c02a9afc0514ed3c58f4d83933cc34e0189`
@@ -55,7 +55,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/en-american/tram/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): messages: listener chooses “You only need to tell me what you want to.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `bb96ffff4a875bbec4921599181f763060dd63b23facafc93309cc22cb8acbe7`
@@ -73,7 +73,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/en-american/tram/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `32ddb67c9bcd9fb9792efbb0ad36c81f097bc4b1f0f442e29bc6da94c96380f4`
@@ -93,7 +93,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/en-american/tram/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “If safe, you could keep a private copy and hide the chat.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `1ae99638d0c2a2b19c20da76288d693d7a6c88fea41715f1b7cdb6192df37715`
@@ -111,7 +111,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/en-american/tram/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “We don’t need to do anything more tonight.”; kept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `526b766a2a5a40bd6cedebf387cdac1331df9e981de429f898603cd2864a0918`
@@ -129,7 +129,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/en-american/tram/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): messages: listener chooses “Maybe he is only joking?”; records: listener chooses “We need to confront him right now.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `98e8981a583a3eec3aaa47a66e797abbad1c661ab3fade607afd8b82d151e09a`
@@ -147,7 +147,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/en-american/tram/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `6c7422281a9cf6c8c203481ae88b7fafcfff48f99ef6a53ca039777a77a25a06`
@@ -165,7 +165,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/en-american/tram/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `0b86e792f5240c5293f225bb1206dfbfc68e24968a17a26638970104b43f4580`

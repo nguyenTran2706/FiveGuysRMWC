@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 7.012,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "09065534a24e15e5c8d90f2c4fb44efc0bf497e3dfb9724d9eb4fcfe11319411",
     "model": "Systran/faster-whisper-small",
     "transcript": "Once he put his hand on my waist while I was getting glasses, I moved away. He laughed and told me not to be sensitive.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

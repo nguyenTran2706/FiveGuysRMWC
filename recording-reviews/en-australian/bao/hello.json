@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.647,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "1deb5354e6d255f23717cbb959c0edc59c1aba05adfc9fa072a4cecbb72d9591",
     "model": "Systran/faster-whisper-small",
     "transcript": "Stay under the awning. It drips right where you're standing. I've just got home from the last delivery. The food stayed dry, but I didn't. The restaurant forgot the sauce, and the customer called me three times as if I had hidden it.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

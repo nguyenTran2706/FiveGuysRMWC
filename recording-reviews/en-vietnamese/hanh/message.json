@@ -16,7 +16,9 @@
   "performance": {
     "mood": "clear document narration",
     "tempo": 0.9408,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 14.966,
   "sampleRate": 48000,

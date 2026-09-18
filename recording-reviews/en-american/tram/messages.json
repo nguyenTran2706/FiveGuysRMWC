@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.165,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "a60855a8801c47f6619798e0887765e2fc102f12d0486e150ef3aa5745d18038",
     "model": "Systran/faster-whisper-small",
     "transcript": "The blue one at the corner. I shared a photo in the staff group once and then the manager started messaging me privately about things that weren't work. If I don't reply, the next day he stands close and asks why I'm acting so stuck up.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

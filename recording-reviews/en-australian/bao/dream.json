@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.256,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "c238a0604eb8b2811ba4fb5e06f372c5c36b17b3da1f5a4698fc505618b66212",
     "model": "Systran/faster-whisper-small",
     "transcript": "I've had my eye on a silver Corolla for months. Nothing fancy, just air conditioning that doesn't sound like a blender. If I get it, the first trip will be to the coast, phone silent, no food bag in the back.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

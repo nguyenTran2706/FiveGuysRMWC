@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 14.626,
   "sampleRate": 48000,
   "peak": 0.755856,
-  "rms": 0.11009
+  "rms": 0.11009,
+  "transcriptionCheck": {
+    "audioSha256": "b28d69d13ddef553ad088d197710319eb5394a18d506908c2b6b67430df4c268",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I often delete the voice messages after listening because I don't want to see them on the phone again. A woman on the next shift asked if I was all right and I said I was tired. I'm afraid if I tell someone they'll call work before I've had time to think.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

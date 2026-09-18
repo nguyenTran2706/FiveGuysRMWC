@@ -16,10 +16,21 @@
   "performance": {
     "mood": "reflective narration",
     "tempo": 0.9409,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 15.414,
   "sampleRate": 48000,
   "peak": 0.799003,
-  "rms": 0.103921
+  "rms": 0.103921,
+  "transcriptionCheck": {
+    "audioSha256": "87c5e7e71c7bff9fd4004296dd4873c2fcdff86e6730c2b96398bc2967391927",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Fictional ending. Mai saves the remaining messages and notes on her own device. She chooses a safe contact method before sharing her story. The dress arrives for the birthday. What happens next remains her decision.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

@@ -116,7 +116,7 @@ def export_clip(cue, audio, sr, actor, model_key, seed, text, profile):
     }
     review_path = ROOT / cue["reviewFile"]
     review_path.parent.mkdir(parents=True, exist_ok=True)
-    review_path.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    review_path.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"SAVED {cue['pack']}/{cue['character']}/{cue['cue']}: {duration:.1f}s, {target.stat().st_size} bytes", flush=True)
 
 
@@ -183,6 +183,10 @@ def main():
         actor = CAST["characters"][cue["character"]]
         text = spoken_text(cue["text"], cue["language"])
         profile = performance(cue, actor)
+        profile["textChunkChars"] = args.chunk_chars if args.engine == "vieneu" else None
+        profile["device"] = args.device
+        if args.engine == "qwen":
+            profile["temperature"] = .8
         seed = actor["seed"] + int(digest(cue["cue"] + cue["language"])[:6], 16) + args.take * 100003
         torch.manual_seed(seed)
         np.random.seed(seed)
@@ -196,7 +200,7 @@ def main():
                 if cue["character"] not in prompts:
                     reference = REFERENCES / f"{cue['character']}-en.wav"
                     prompts[cue["character"]] = model.create_voice_clone_prompt(ref_audio=str(reference), ref_text=actor["referenceText"], x_vector_only_mode=False)
-                wavs, sr = model.generate_voice_clone(text=text, language="English", voice_clone_prompt=prompts[cue["character"]], max_new_tokens=1800, temperature=.8, top_p=.95, repetition_penalty=1.05)
+                wavs, sr = model.generate_voice_clone(text=text, language="English", voice_clone_prompt=prompts[cue["character"]], max_new_tokens=1800, temperature=profile["temperature"], top_p=.95, repetition_penalty=1.05)
                 audio = wavs[0]
             export_clip(cue, audio, sr, actor, "vieneu" if args.engine == "vieneu" else "english", seed, text, profile)
             print(f"ELAPSED {time.monotonic()-started:.1f}s", flush=True)

@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 14.212,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "cfc6885ed2b506be36bb3dc5fa7875797642341a19369dc9eda304b7b7c68aff",
     "model": "Systran/faster-whisper-small",
     "transcript": "Em cứ muốn xóa máy tin nhắn cho khỏi nhìn thấy. Chị làm cùng có thấy một lần, nhưng em chưa hỏi chị có nhớ không. Em chưa muốn ai gọi vào tiệm. Chị muốn ngủ một đêm mà không giật mình khi điện thoại sáng.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

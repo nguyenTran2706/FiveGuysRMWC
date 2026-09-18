@@ -27,6 +27,8 @@ test('all 170 character MP3s exist, are distinct, and are honestly labelled synt
     assert.equal(review.technicalValidated, true);
     assert.ok(review.durationSeconds > 1 && review.durationSeconds < 180);
     assert.ok(review.rms > .003 && review.peak < 1);
+    assert.equal(review.transcriptionCheck?.audioSha256, audioHash, 'Wording smoke check must cover the current audio');
+    assert.equal(review.transcriptionCheck?.flag, false, 'Flagged wording requires investigation, not silent approval');
     assert.ok(bytes.length > 10000 && bytes.length < 12_000_000);
     assert.equal(registry[`${cue.pack}/${cue.character}/${cue.cue}`].text, cue.text);
     assert.equal(registry[`${cue.pack}/${cue.character}/${cue.cue}`].production, 'local-synthetic');

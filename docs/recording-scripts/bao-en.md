@@ -240,7 +240,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/en-australian/bao/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): kept: Continue; unkept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `e0adfae03156f5886cfe3bc8713ea4df78fcf2d175de14d8b4f293ce9e77e6d3`
@@ -258,7 +258,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/en-australian/bao/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): roster: listener chooses “You signed it. That’s on you.”; tax: listener chooses “Just quit and the problem goes away.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `dc4c334840363cd10559e4f27aaf3146f7f445af4038242118b87653dba64e45`
@@ -276,7 +276,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/en-australian/bao/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `b9ec7411d4a6a41eda102bffa3ff66efca0b29303a5a6da006e9c41344904b2c`
@@ -294,7 +294,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/en-australian/bao/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `5e388b2d46092e594440971fd706d972bcf6f64dab776602db7251df4f5a8066`

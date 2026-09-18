@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.96,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 18.277,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "4a6fd7949368e0d6f7f6c07d7987aa7f96a69b0617b56447d6f6f5d042cf5cb2",
     "model": "Systran/faster-whisper-small",
     "transcript": "my daughter made an appointment. I kept thinking of cancelling the cost more time away. She said let me handle the booking. You just go. I haven't told her everything about the kitchen. I don't want her sitting there worrying instead of studying.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

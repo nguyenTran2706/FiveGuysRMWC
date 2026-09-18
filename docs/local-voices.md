@@ -13,7 +13,7 @@ public/audio/dialogue/en-australian/bao/hello.mp3
 public/audio/dialogue/en-american/tram/hello.mp3
 ```
 
-The complete target is 170 clips: 85 Vietnamese and 85 English, covering all 71 story nodes and both endings for all seven characters. These are **AI-generated**, not human performances. File availability and technical validation are separate from accent, pronunciation and naturalness approval. The library and review metadata explicitly retain that distinction.
+The generated package contains all 170 clips: 85 Vietnamese and 85 English, covering all 71 story nodes and both endings for all seven characters. The final MP3s total about 40.8 MB and 33 minutes 49 seconds. These are **AI-generated**, not human performances. File availability and technical validation are separate from accent, pronunciation and naturalness approval. The library and review metadata explicitly retain that distinction.
 
 ## Fixed casting and performance
 
@@ -39,7 +39,7 @@ VieNeu-TTS v3 Turbo produces the Vietnamese clips and the three Vietnamese-accen
 
 Original 24-bit WAV renders are retained under `.tools/voice-production/masters/`; model caches, Python environments and intermediates are ignored by Git. The four selected synthetic English voice references are preserved in `scripts/voice-references/` with the project, so future pickups can reuse the same identity without redesigning it. The application needs only the final MP3s, not Python or a GPU. Final files are mono 48 kHz MP3 at 160 kbps, with conservative edge trimming, short boundary fades and a loudness target of -18 LUFS / -1.5 dBTP. Do not treat this target as a measured guarantee for every short clip: decoded peak, RMS and duration are recorded individually.
 
-The generator checks decoding, finite samples, non-silence, peak and duration before marking a clip technically validated. The local Whisper check compares transcripts with expected spoken input to flag probable omissions or repetition. Transcription makes mistakes, particularly on regional Vietnamese, names and code-switching. It is a smoke test, not a substitute for listening or a proof that every word was pronounced correctly.
+The generator checks decoding, finite samples, non-silence, peak and duration before marking a clip technically validated. All 170 current files have matching technical checks and local Whisper transcription comparisons. Linh's English `hours` and Đức's Vietnamese `closed` were regenerated after the first comparison flagged possible wording problems. No current comparison falls below the smoke-check threshold; this does **not** mean every word is correct. The comparison normalises English numeric typography (for example "$800" versus "eight hundred dollars"). Transcription makes mistakes, particularly on regional Vietnamese, names and code-switching. It is a smoke test, not a substitute for listening or a proof that every word was pronounced correctly.
 
 Review JSON in `recording-reviews/<accent>/<character>/<cue>.json` stores caption/audio SHA-256, model/revision, voice, seed, exact spoken text, performance settings, measured duration/levels and transcription results when available. Synthetic entries always retain `humanPerformed: false`. They are playable after technical validation, but `approved: false` and `listeningApproval: pending` remain until a person actually reviews them. Do not stamp an approval on files just to make a check pass.
 

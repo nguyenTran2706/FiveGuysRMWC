@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.96,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 16.369,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "3f66d918ce7931861ea9c5915831b78b965a230df79f68c2eccdfe85e48c3971",
     "model": "Systran/faster-whisper-small",
     "transcript": "He says there are fewer customers, so there are fewer shifts. I don't know if it's my arm. I only know next week's money will be short. The revision books are paid for. The electricity bill is under that pot, unopened.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

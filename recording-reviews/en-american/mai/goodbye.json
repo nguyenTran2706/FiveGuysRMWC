@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.413,
   "sampleRate": 48000,
   "peak": 0.783984,
-  "rms": 0.103055
+  "rms": 0.103055,
+  "transcriptionCheck": {
+    "audioSha256": "5e43a3d116e18f2bdec5021cd3e34d4216b186b888bd3e8337569e66f4f68d43",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "The pocket is finished. Big enough for a handful of stones, I'll silence the notifications for a while and finish the hem. Thanks for coming back without acting as though I owed you an answer.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

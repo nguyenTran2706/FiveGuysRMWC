@@ -12,4 +12,4 @@ cast = json.loads((ROOT / "scripts/voice-cast.json").read_text(encoding="utf-8")
 for key, model in cast["models"].items():
     options = {"allow_patterns": ["update/*", "config.json", "speaker_encoder.onnx", "denoiser.onnx", "README.md"]} if key == "vieneu" else {}
     print(snapshot_download(model["repo"], revision=model["revision"], local_dir=ROOT / model["path"], **options))
-print(snapshot_download("Systran/faster-whisper-small", allow_patterns=["model.bin", "config.json", "tokenizer.json", "vocabulary.txt", "preprocessor_config.json"], local_dir=ROOT / ".tools/voice-models/whisper-small"))
+print(snapshot_download("Systran/faster-whisper-small", revision="536b0662742c02347bc0e980a01041f333bce120", allow_patterns=["model.bin", "config.json", "tokenizer.json", "vocabulary.txt", "preprocessor_config.json"], local_dir=ROOT / ".tools/voice-models/whisper-small"))

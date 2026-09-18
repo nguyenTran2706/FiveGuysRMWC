@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.98,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 9.311,
   "sampleRate": 48000,

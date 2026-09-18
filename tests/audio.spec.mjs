@@ -78,6 +78,23 @@ for (const character of ['linh', 'bao', 'hanh', 'tram', 'duc', 'khoa', 'mai']) {
     await page.goto('/');
     await page.locator('.title-start').click();
     await page.locator(`.resident-${character}`).click();
+    if (character === 'duc' || character === 'mai') {
+      // Respect the story's return-visit gate: finish another encounter first.
+      await page.getByRole('dialog').locator('.button-outline').click();
+      await page.locator('.resident-linh').click();
+      await page.locator('.choice-button').last().click();
+      await page.locator('.choice-button').last().click();
+      await page.locator('.continue-button').click();
+      await expect(page.locator('.debrief-panel')).toBeVisible();
+      await page.locator('.game-topbar > button').click();
+      await page.evaluate(() => { window.__audioTest.sources = []; });
+      await page.locator(`.resident-${character}`).click();
+    }
+    if (await page.locator('.modal-actions').count()) {
+      expect(await liveVoiceCount(page)).toBe(0);
+      await page.locator('.modal-actions button').first().click();
+    }
+    await expect(page.locator('.dialogue-text')).toBeVisible();
     await expect.poll(() => liveVoiceCount(page)).toBe(1);
     expect(requests.some(url => new RegExp(`/vi-[^/]+/${character}/hello\\.mp3`).test(url))).toBe(true);
     await expect(page.locator('.audio-error')).toHaveCount(0);

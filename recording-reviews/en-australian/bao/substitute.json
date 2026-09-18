@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 15.789,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "51d6e5dd9b2156eb75d13171c8218f7fbb652485d3347dd5b07690a52ba2580e",
     "model": "Systran/faster-whisper-small",
     "transcript": "Once I had a fever and asked if a friend could cover, they said no. But if the vehicle breaks down, petrol goes up, or a customer won't come downstairs, that's mine to deal with. The dispatcher calls me a partner, then messages to ask why my break is so long.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

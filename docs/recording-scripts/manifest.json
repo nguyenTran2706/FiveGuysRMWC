@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total": 170,
-  "ready": 139,
+  "ready": 170,
   "cues": [
     {
       "character": "linh",
@@ -758,7 +758,7 @@
       "status": "ready",
       "production": "local-synthetic",
       "listeningApproval": "pending",
-      "audioSha256": "186d69d65f06173e74614221b0ce93f83548633978bc6393d4d2e6663cba07de"
+      "audioSha256": "b753e5543207a9a3ae6ef686af70496f1e82f6380532264a4f5bd3a8bb7e662e"
     },
     {
       "character": "linh",
@@ -2187,9 +2187,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "943e3c2dc432628812d6986e29143360b2c0d765ba7cb614affd883677097552"
     },
     {
       "character": "bao",
@@ -2227,9 +2228,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "1bb36df4360c34410c67361b351fd03433abc260bd791177b7e44f232dc66f25"
     },
     {
       "character": "bao",
@@ -2248,9 +2250,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "f83c206115214fa2549f7fd37951084d3bc3aa5a7b5259a8764bdc9e9b24761a"
     },
     {
       "character": "bao",
@@ -2269,9 +2272,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "76139446629d4629561df95aff464544f6c73324ddf9e97b6a12fabd55bbf401"
     },
     {
       "character": "hanh",
@@ -3654,9 +3658,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "e38ac780eea6b3481a3fd1e04ef1ea774a2c20d86b5c4a825b27a216546c29f5"
     },
     {
       "character": "tram",
@@ -3701,9 +3706,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "a60855a8801c47f6619798e0887765e2fc102f12d0486e150ef3aa5745d18038"
     },
     {
       "character": "tram",
@@ -3730,9 +3736,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "09065534a24e15e5c8d90f2c4fb44efc0bf497e3dfb9724d9eb4fcfe11319411"
     },
     {
       "character": "tram",
@@ -3772,9 +3779,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "201dd780c31b788f026d42e3e55d1ad68c8834d43fb008d5fb26d13780ec3ffb"
     },
     {
       "character": "tram",
@@ -3801,9 +3809,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more agency and ease; cautious relief, not a triumphant resolution."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "293d0055bfadb428f34d34abcada400d2de3fafaa703f41e6e02fc94edd96ac6"
     },
     {
       "character": "tram",
@@ -3834,9 +3843,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "3826a917817252fcd6b908627b59b56747fed767e5c2b62e7a6e6a224cc49fd9"
     },
     {
       "character": "tram",
@@ -3874,9 +3884,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "4ae8b82ab01c696e0ab8032d20b582b05a862142875c119d586bfc775e3f4021"
     },
     {
       "character": "tram",
@@ -3895,9 +3906,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "c5ff7ecc6df7ac96fca5e850efd9d6462545ef74abac30f90aa215eb7298a6a0"
     },
     {
       "character": "tram",
@@ -3916,9 +3928,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "22cca58d0d50e34ef9caa65a403fe6dca7be60ac998bdfe3d5282f626d8bcbac"
     },
     {
       "character": "duc",
@@ -4192,7 +4205,7 @@
       "status": "ready",
       "production": "local-synthetic",
       "listeningApproval": "pending",
-      "audioSha256": "d7a5d0c191cb09a064e07a8c5ae8a2ca366c18ee589d9f70d0d4761fbf466380"
+      "audioSha256": "5fc41ab84f5851e4e41e5a55291de8cf385e30fa1ff4a27f1bb95684fc2182fa"
     },
     {
       "character": "duc",
@@ -4843,9 +4856,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "b9758f5871c44f4be3a656810c73a367c004cbfe58b75976b6d330ed71a1eec4"
     },
     {
       "character": "khoa",
@@ -4880,9 +4894,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "be2f9576f3cdd3db7123eab9bae968c2425d76d05b0e7de6c99b0683681826dd"
     },
     {
       "character": "khoa",
@@ -4909,9 +4924,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "62dd704e736b2504cb6052dacfb893c4be20231d5562be225f79d9da356d6102"
     },
     {
       "character": "khoa",
@@ -4946,9 +4962,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "fa1c9aeb20e5af22c5a4882001ec7301d48f7b9d08f0531d2e89732956bdb302"
     },
     {
       "character": "khoa",
@@ -4975,9 +4992,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more agency and ease; cautious relief, not a triumphant resolution."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "57a2265b1305ff568e3ec372962c7a61e1667bb9bbfea87d1e0ff0fa1cdf2321"
     },
     {
       "character": "khoa",
@@ -5008,9 +5026,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "0abc35a09d09ef08aee1ef82aab46fa04f5460dc4c3818d6ee9570f52da79c28"
     },
     {
       "character": "khoa",
@@ -5041,9 +5060,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "18826e96d5367cee1d54686c54107bf4b901f94c9232c89e03d5319867945ddd"
     },
     {
       "character": "khoa",
@@ -5062,9 +5082,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "4e6b6a73be997be9715f137738b14c47b65a3eb58a7dc949b837730b4a53d5c5"
     },
     {
       "character": "khoa",
@@ -5083,9 +5104,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "870031b5d8aeb6ab7e68e4bf682675eaf1dfde48750ad972203a8824c2a312b9"
     },
     {
       "character": "mai",
@@ -5418,9 +5440,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "6d9598deaf4aa7bb0e08b34ee27530ba4c8245cce36d47cb5b13bbe93678089a"
     },
     {
       "character": "mai",
@@ -5465,9 +5488,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "42813323dfdb3c27c33a45ab81835f2c5ef2b8305f3139c6ebd4e8b5a5e52002"
     },
     {
       "character": "mai",
@@ -5494,9 +5518,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "d6f6a7030eca5a20f95099c0a74b1d0fbf74878d05cab32753cbd72fe6861f6c"
     },
     {
       "character": "mai",
@@ -5536,9 +5561,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "b28d69d13ddef553ad088d197710319eb5394a18d506908c2b6b67430df4c268"
     },
     {
       "character": "mai",
@@ -5565,9 +5591,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more agency and ease; cautious relief, not a triumphant resolution."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "2638860c51da31391a5e54bae643a0d9b16413d679c79394e32ef7fe3468023c"
     },
     {
       "character": "mai",
@@ -5598,9 +5625,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "A little more space and trust; keep the vulnerability conversational."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "5e43a3d116e18f2bdec5021cd3e34d4216b186b888bd3e8337569e66f4f68d43"
     },
     {
       "character": "mai",
@@ -5638,9 +5666,10 @@
         "Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor.",
         "After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "0fbbad94f2dd859785a83f02fa9617747d73e15e55448645d2517d214f1d1a9b"
     },
     {
       "character": "mai",
@@ -5659,9 +5688,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "87c5e7e71c7bff9fd4004296dd4873c2fcdff86e6730c2b96398bc2967391927"
     },
     {
       "character": "mai",
@@ -5680,9 +5710,10 @@
         "Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome.",
         "Continue from the preceding scene; keep voice identity and microphone distance consistent."
       ],
-      "status": "pending-recording",
-      "production": null,
-      "listeningApproval": "pending"
+      "status": "ready",
+      "production": "local-synthetic",
+      "listeningApproval": "pending",
+      "audioSha256": "00d788be92d6e8f3c6d47fd1a2941fec42dcb128b728d79dbc477e45e0f6caea"
     }
   ]
 }

@@ -16,7 +16,9 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9994,
-    "temperature": 0.78
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 6.099,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "1bb36df4360c34410c67361b351fd03433abc260bd791177b7e44f232dc66f25",
     "model": "Systran/faster-whisper-small",
     "transcript": "Right? I'll work it out. There's an order I need to check. Maybe we'll talk another time.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

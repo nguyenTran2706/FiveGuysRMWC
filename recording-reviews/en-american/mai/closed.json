@@ -16,10 +16,21 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9457,
-    "temperature": 0.78
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 7.068,
   "sampleRate": 48000,
   "peak": 0.628496,
-  "rms": 0.10148
+  "rms": 0.10148,
+  "transcriptionCheck": {
+    "audioSha256": "0fbbad94f2dd859785a83f02fa9617747d73e15e55448645d2517d214f1d1a9b",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "I don't want to keep talking. I need to choose what happens with this. I'm closing the window now.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

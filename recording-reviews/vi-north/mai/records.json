@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 11.193,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "6f76c57fdbaef77dfbd4640aa4bc8c30b17631f100053ad9c123c24796bc1c25",
     "model": "Systran/faster-whisper-small",
     "transcript": "Em hay xóa tin nhắn thoại sau khi nghe, không muốn mở máy ra thấy nữa. Chị làm ca bên cạnh có hỏi em ổn không mà em chỉ bảo mệt. Em sợ kể ra rồi người ta gọi về chỗ làm trước khi em kịp nghĩ.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

@@ -16,7 +16,9 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9555,
-    "temperature": 0.78
+    "temperature": 0.78,
+    "textChunkChars": 100,
+    "device": "cpu"
   },
   "durationSeconds": 4.024,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "5fc41ab84f5851e4e41e5a55291de8cf385e30fa1ff4a27f1bb95684fc2182fa",
     "model": "Systran/faster-whisper-small",
     "transcript": "Anh biết rồi, anh còn cái xe đang tháo dở để anh làm nốt nhé.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

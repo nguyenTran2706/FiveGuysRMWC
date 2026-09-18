@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 12.786,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "201dd780c31b788f026d42e3e55d1ad68c8834d43fb008d5fb26d13780ec3ffb",
     "model": "Systran/faster-whisper-small",
     "transcript": "I want to delete the messages so I don't have to see them. A woman I work with saw something once, but I haven't asked if she remembers. I don't want anyone calling the restaurant. I just want one night without flinching when the phone lights up.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

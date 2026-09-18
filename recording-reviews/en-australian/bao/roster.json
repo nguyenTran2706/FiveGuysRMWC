@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 11.993,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "0677aac8bec7ca4ff8ace9af93c45a42c31072a348904d72e1f692b183fcfaa2",
     "model": "Systran/faster-whisper-small",
     "transcript": "The delivery company sends the roster on Sunday night. I have to ask to change it and they assign the routes. Last week I turned down an evening for a friend's graduation. This week two shifts disappeared.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

@@ -16,10 +16,21 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9555,
-    "temperature": 0.78
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 5.33,
   "sampleRate": 48000,
   "peak": 0.799789,
-  "rms": 0.116928
+  "rms": 0.116928,
+  "transcriptionCheck": {
+    "audioSha256": "18826e96d5367cee1d54686c54107bf4b901f94c9232c89e03d5319867945ddd",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "Yes. I've heard that before. I need to get ready for the morning shift. Good night.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

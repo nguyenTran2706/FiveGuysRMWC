@@ -16,7 +16,9 @@
   "performance": {
     "mood": "cautious relief",
     "tempo": 0.98,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 9.816,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "57a2265b1305ff568e3ec372962c7a61e1667bb9bbfea87d1e0ff0fa1cdf2321",
     "model": "Systran/faster-whisper-small",
     "transcript": "I'll note the date and who was there, and say where I don't remember the exact words. I also want to ask for the training criteria by email so I'm not guessing what they want. Small steps first.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

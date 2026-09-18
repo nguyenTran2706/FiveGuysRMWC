@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 1.025,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 13.522,
   "sampleRate": 48000,
@@ -26,7 +28,7 @@
     "audioSha256": "86b3a323ace899e6b04c158ddac5c6486cfe9c48df4d07bcdcca24a212d023de",
     "model": "Systran/faster-whisper-small",
     "transcript": "No! I bought a bottle at the convenience store. I'm saving for a used car so I can stop paying $300 a week to rent one. This bike is for the short runs. Maybe Rain wouldn't make me hate the job so much if the car were mine.",
-    "expectedWordCoverage": 1.0,
+    "expectedWordCoverage": 1,
     "matchedWordPrecision": 0.981,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."

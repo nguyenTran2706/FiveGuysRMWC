@@ -1,7 +1,7 @@
 {
   "total": 170,
-  "ready": 139,
-  "syntheticCount": 139,
+  "ready": 170,
+  "syntheticCount": 170,
   "voices": [
     {
       "character": "linh",
@@ -219,7 +219,7 @@
       "accent": "English — natural Vietnamese accent",
       "cue": "hours",
       "text": "Inside, Linh counts the money. Once. Twice. Then a third time. She stops. There is still only $800. “Six days.” A pause. “Eight hundred dollars.” “Started at nine.”",
-      "src": "/audio/dialogue/en-vietnamese/linh/hours.mp3?v=186d69d65f06",
+      "src": "/audio/dialogue/en-vietnamese/linh/hours.mp3?v=b753e5543207",
       "production": "local-synthetic",
       "listeningApproval": "pending"
     },
@@ -670,8 +670,8 @@
       "accent": "English — Australian accent",
       "cue": "goodbye",
       "text": "Thanks for not telling me I have to do something right away. I’ve stopped taking orders. Really. I’m going to get some congee before they close; all I’ve had today is a roll at lunch.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/bao/goodbye.mp3?v=943e3c2dc432",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -681,8 +681,8 @@
       "accent": "English — Australian accent",
       "cue": "closed",
       "text": "Right. I’ll work it out. There’s an order I need to check. Maybe we’ll talk another time.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/bao/closed.mp3?v=1bb36df4360c",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -692,8 +692,8 @@
       "accent": "English — Australian accent",
       "cue": "ending-kept",
       "text": "Fictional ending: Bảo saves the contract, shifts and messages. He brings them to an appointment, explains who controls the work and starts finding out about the tax he fears. The silver car is still a plan, but he is no longer guessing alone.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/bao/ending-kept.mp3?v=f83c20611521",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -703,8 +703,8 @@
       "accent": "English — Australian accent",
       "cue": "ending-missed",
       "text": "Fictional ending: Bảo loses access to the roster after changing jobs. Someone still listens, but he has to piece weeks together from memory. His story is unfinished; missing documents do not mean there are no options.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/bao/ending-missed.mp3?v=76139446629d",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1165,8 +1165,8 @@
       "accent": "English — General American accent",
       "cue": "hello",
       "text": "I’ve just got home and haven’t even put my apron away. I’m saving for a used camera to photograph the signs on this street in the rain. After an evening shift, though, I only want to lie down.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/hello.mp3?v=e38ac780eea6",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1176,8 +1176,8 @@
       "accent": "English — General American accent",
       "cue": "messages",
       "text": "The blue one at the corner. I shared a photo in the staff group once, and then the manager started messaging me privately about things that weren’t work. If I don’t reply, the next day he stands close and asks why I’m acting so stuck-up.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/messages.mp3?v=a60855a8801c",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1187,8 +1187,8 @@
       "accent": "English — General American accent",
       "cue": "staying",
       "text": "Once he put his hand on my waist while I was getting glasses. I moved away; he laughed and told me not to be sensitive.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/staying.mp3?v=09065534a24e",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1198,8 +1198,8 @@
       "accent": "English — General American accent",
       "cue": "records",
       "text": "I want to delete the messages so I don’t have to see them. A woman I work with saw something once, but I haven’t asked if she remembers. I don’t want anyone calling the restaurant. I just want one night without flinching when the phone lights up.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/records.mp3?v=201dd780c31b",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1209,8 +1209,8 @@
       "accent": "English — General American accent",
       "cue": "kept",
       "text": "I have somewhere private, away from the work computer. I’ll do it when I feel comfortable. Thanks for not making me open every message here.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/kept.mp3?v=293d0055bfad",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1220,8 +1220,8 @@
       "accent": "English — General American accent",
       "cue": "goodbye",
       "text": "Tonight I’ll ask a friend to come over and keep me company. That’s enough. I’m still buying the camera; I don’t want everything I talk about to be about work. That blue light looks best just after the rain stops.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/goodbye.mp3?v=3826a9178172",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1231,8 +1231,8 @@
       "accent": "English — General American accent",
       "cue": "closed",
       "text": "I don’t want to say any more. I need some quiet. Get home safely.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/closed.mp3?v=4ae8b82ab01c",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1242,8 +1242,8 @@
       "accent": "English — General American accent",
       "cue": "ending-kept",
       "text": "Fictional ending: Trâm keeps a private copy of the messages and chooses someone she trusts to speak with. She decides how much to share. Keeping a record does not commit her to a complaint or guarantee an outcome.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/ending-kept.mp3?v=c5ff7ecc6df7",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1253,8 +1253,8 @@
       "accent": "English — General American accent",
       "cue": "ending-missed",
       "text": "Fictional ending: Trâm has not kept the messages. She still calls a friend to keep her company and can still seek support when ready. She is not responsible for the behaviour.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/tram/ending-missed.mp3?v=22cca58d0d50",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1341,7 +1341,7 @@
       "accent": "Vietnamese — Northern",
       "cue": "closed",
       "text": "Anh biết rồi. Anh còn cái xe đang tháo dở. Để anh làm nốt nhé.",
-      "src": "/audio/dialogue/vi-north/duc/closed.mp3?v=d7a5d0c191cb",
+      "src": "/audio/dialogue/vi-north/duc/closed.mp3?v=5fc41ab84f58",
       "production": "local-synthetic",
       "listeningApproval": "pending"
     },
@@ -1583,8 +1583,8 @@
       "accent": "English — Australian accent",
       "cue": "hello",
       "text": "The rain never reaches this pot, so I still have to water it. I want one lemon, just to prove to my wife it isn’t ornamental. I sing on weekends too. The community choir needs men, but somehow they still put me at the back.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/hello.mp3?v=b9758f5871c4",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1594,8 +1594,8 @@
       "accent": "English — Australian accent",
       "cue": "work",
       "text": "I’ve cared for some residents for years. A few remember my name more easily than their grandchildren’s. When I asked about team-leader training, the manager said my accent wasn’t “professional” enough. Someone who started after me got the training, and I was asked to show them the work.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/work.mp3?v=be2f9576f3cd",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1605,8 +1605,8 @@
       "accent": "English — Australian accent",
       "cue": "staying",
       "text": "I went home and practised the handover sentence a dozen times, then felt strange about doing it. I’m a permanent resident, but that doesn’t mean I want to walk away from the people I care for.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/staying.mp3?v=62dd704e736b",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1616,8 +1616,8 @@
       "accent": "English — Australian accent",
       "cue": "records",
       "text": "I kept the email asking about training. The answer was spoken in the break room, and a colleague was there. I remember “professional”. I’ve replayed the rest so often that the words around it are getting muddled.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/records.mp3?v=fa1c9aeb20e5",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1627,8 +1627,8 @@
       "accent": "English — Australian accent",
       "cue": "kept",
       "text": "I’ll note the date and who was there, and say where I don’t remember the exact words. I also want to ask for the training criteria by email so I’m not guessing what they want. Small steps first.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/kept.mp3?v=57a2265b1305",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1638,8 +1638,8 @@
       "accent": "English — Australian accent",
       "cue": "goodbye",
       "text": "I’ll move the pot closer to the wall; the wind is picking up. The choir has a free performance at the hall on Sunday. I need to learn the words. At least there I get to sing in my own voice.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/goodbye.mp3?v=0abc35a09d09",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1649,8 +1649,8 @@
       "accent": "English — Australian accent",
       "cue": "closed",
       "text": "Yes. I’ve heard that before. I need to get ready for the morning shift. Good night.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/closed.mp3?v=18826e96d536",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1660,8 +1660,8 @@
       "accent": "English — Australian accent",
       "cue": "ending-kept",
       "text": "Fictional ending: Khoa keeps the email and notes the conversation. He chooses an appointment to discuss his treatment, and still makes Sunday choir practice. The records help him explain; they do not determine the outcome.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/ending-kept.mp3?v=4e6b6a73be99",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1671,8 +1671,8 @@
       "accent": "English — Australian accent",
       "cue": "ending-missed",
       "text": "Fictional ending: Khoa has not recorded the conversation. He keeps thinking about what he wants to ask; his memory and someone who was there may still be a starting point for seeking support.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-australian/khoa/ending-missed.mp3?v=870031b5d8ae",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1781,8 +1781,8 @@
       "accent": "English — General American accent",
       "cue": "hello",
       "text": "Sorry I didn’t open earlier. I was on the phone and didn’t want to. I’m fixing a dress for my niece. The machine is old and the seams keep wandering.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/hello.mp3?v=6d9598deaf4a",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1792,8 +1792,8 @@
       "accent": "English — General American accent",
       "cue": "work",
       "text": "The supervisor posts floor photos in the group, circles things in red and writes my name. Almost every shift. Sometimes it isn’t even my area.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/work.mp3?v=42813323dfdb",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1803,8 +1803,8 @@
       "accent": "English — General American accent",
       "cue": "staying",
       "text": "Before a shift, a buzzing phone makes my stomach hurt. I’m waiting on paperwork, on a bridging visa, but rent doesn’t wait. Someone at the company helped me find this room too.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/staying.mp3?v=d6f6a7030eca",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1814,8 +1814,8 @@
       "accent": "English — General American accent",
       "cue": "records",
       "text": "I often delete the voice messages after listening because I don’t want to see them on the phone again. A woman on the next shift asked if I was all right, and I said I was tired. I’m afraid if I tell someone they’ll call work before I’ve had time to think.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/records.mp3?v=b28d69d13dde",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1825,8 +1825,8 @@
       "accent": "English — General American accent",
       "cue": "kept",
       "text": "I have my own device that the company can’t access. I’ll save what is left and note which shift each thing happened on; I can leave gaps where I’m unsure. Before anything else, I want to ask about a private way to stay in touch. No calls while I’m working.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/kept.mp3?v=2638860c51da",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1836,8 +1836,8 @@
       "accent": "English — General American accent",
       "cue": "goodbye",
       "text": "The pocket is finished. Big enough for a handful of stones. I’ll silence the notifications for a while and finish the hem. Thanks for coming back without acting as though I owed you an answer.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/goodbye.mp3?v=5e43a3d116e1",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1847,8 +1847,8 @@
       "accent": "English — General American accent",
       "cue": "closed",
       "text": "I don’t want to keep talking. I need to choose what happens with this. I’m closing the window now.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/closed.mp3?v=0fbbad94f2dd",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1858,8 +1858,8 @@
       "accent": "English — General American accent",
       "cue": "ending-kept",
       "text": "Fictional ending: Mai saves the remaining messages and notes on her own device. She chooses a safe contact method before sharing her story. The dress arrives for the birthday. What happens next remains her decision.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/ending-kept.mp3?v=87c5e7e71c7b",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     },
     {
@@ -1869,8 +1869,8 @@
       "accent": "English — General American accent",
       "cue": "ending-missed",
       "text": "Fictional ending: Mai has not saved the messages. She finishes the dress and considers speaking with someone she trusts. Having no documents, or not being ready to tell everything, does not prevent seeking support.",
-      "src": null,
-      "production": null,
+      "src": "/audio/dialogue/en-american/mai/ending-missed.mp3?v=00d788be92d6",
+      "production": "local-synthetic",
       "listeningApproval": "pending"
     }
   ]

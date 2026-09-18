@@ -16,7 +16,9 @@
   "performance": {
     "mood": "reflective narration",
     "tempo": 0.9942,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.386,
   "sampleRate": 48000,

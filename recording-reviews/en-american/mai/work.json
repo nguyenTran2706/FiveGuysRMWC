@@ -16,10 +16,21 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.97,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 10.352,
   "sampleRate": 48000,
   "peak": 0.748271,
-  "rms": 0.118613
+  "rms": 0.118613,
+  "transcriptionCheck": {
+    "audioSha256": "42813323dfdb3c27c33a45ab81835f2c5ef2b8305f3139c6ebd4e8b5a5e52002",
+    "model": "Systran/faster-whisper-small",
+    "transcript": "The supervisor posts floor photos in the group, circles things in red and writes my name, almost every shift. Sometimes it isn't even my area.",
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
+    "flag": false,
+    "note": "Automated transcription comparison only; not human listening or accent approval."
+  }
 }

@@ -16,7 +16,9 @@
   "performance": {
     "mood": "conversational",
     "tempo": 0.96,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 8.5,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "598794032ced0a673fd2748d8cef18906b5c62d5df673ffd8703cb857d5e799f",
     "model": "Systran/faster-whisper-small",
     "transcript": "Tonight I'll rest. I'll still go to the doctor's appointment. As for the kitchen, let me think about who I want to speak with.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

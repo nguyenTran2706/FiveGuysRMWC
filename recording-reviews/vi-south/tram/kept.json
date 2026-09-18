@@ -16,7 +16,9 @@
   "performance": {
     "mood": "cautious relief",
     "tempo": 0.99,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 9.55,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "bf8a9bb95f4d24e75d7bd9df49fd3b3fe6edee7e38046a5adf5a51e45effa184",
     "model": "Systran/faster-whisper-small",
     "transcript": "Em có một chỗ lưu riêng, không dùng máy của tiệm. Để em làm lúc thấy yên tâm. Cảm ơn vì không bắt em mở lại từng tin nhắn ở đây.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

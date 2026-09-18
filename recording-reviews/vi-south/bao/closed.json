@@ -16,7 +16,9 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9994,
-    "temperature": 0.78
+    "temperature": 0.78,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 4.442,
   "sampleRate": 48000,

@@ -17,7 +17,7 @@ Read narration in a gentle storyteller register and quotations as the character,
 ## hello
 
 - File: `public/audio/dialogue/en-american/mai/hello.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): First meeting after entering this story.
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `cb5dce0ae0996d6b8970e0d63098034a77b66483ef505dfd58e303795915b2c7`
@@ -36,7 +36,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## work
 
 - File: `public/audio/dialogue/en-american/mai/work.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): hello: listener chooses “That pocket matters. Take your time.”; hello: listener chooses “Would you like to talk for a while?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `d46c45cb90ead7ad21c71d713158d144f48b54409eda2ef0ceef1197ca14df26`
@@ -55,7 +55,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## staying
 
 - File: `public/audio/dialogue/en-american/mai/staying.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “What has it been like having that happen repeatedly?”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `4db8ba59a0b169ee2b0350d4d4d0fabd5389e559b0ccf98c4d303015dd9a5c87`
@@ -73,7 +73,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## records
 
 - File: `public/audio/dialogue/en-american/mai/records.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): staying: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `12e7952243f170beebbcc0a21686f6bc47332c1822cb571d619697234c8d1b1d`
@@ -93,7 +93,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## kept
 
 - File: `public/audio/dialogue/en-american/mai/kept.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “If safe, you could keep private copies and dates in a way you choose.”
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more agency and ease; cautious relief, not a triumphant resolution.
 - Caption SHA-256: `796d8d8366e8c8d124856beb623651dfd62dec4d605078b7bd402d3f900663a8`
@@ -111,7 +111,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## goodbye
 
 - File: `public/audio/dialogue/en-american/mai/goodbye.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): records: listener chooses “You can choose who you tell and how much you share.”; kept: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. A little more space and trust; keep the vulnerability conversational.
 - Caption SHA-256: `6120ce924d2de9f69f36b88a47916c5aa6078730f5d2365dd41915cbb7c4b3ee`
@@ -129,7 +129,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## closed
 
 - File: `public/audio/dialogue/en-american/mai/closed.mp3`
-- Type: dialogue; status: pending-recording
+- Type: dialogue; status: ready
 - Lead-in (do not read): work: listener chooses “Work is stressful. You have to take it.”; records: listener chooses “Give me the number. I’ll deal with that supervisor.”; closed: Continue
 - Direction (do not read): Speak to one nearby listener. Read the entire caption, including narration; subtly shift into quoted speech without introducing another actor. After a pushy response: a smaller, more guarded delivery, never a punishment or angry accusation.
 - Caption SHA-256: `e1969eaea848947cc3d041c32fd5b4dddd021ac67441fe0f2fcd292d646a6e81`
@@ -147,7 +147,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-kept
 
 - File: `public/audio/dialogue/en-american/mai/ending-kept.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `0663304c17186f82b0a92e4da6bab8060d5f66c4741e4412db05732eb5829f03`
@@ -165,7 +165,7 @@ Takes: A [ ] B [ ] Selected: ______  Pronunciation checked [ ]  Full caption che
 ## ending-missed
 
 - File: `public/audio/dialogue/en-american/mai/ending-missed.mp3`
-- Type: epilogue; status: pending-recording
+- Type: epilogue; status: ready
 - Lead-in (do not read): After the debrief; use this ending only when selected by the story.
 - Direction (do not read): Reflective narration. Read the fictional-ending label and final caveat. Never promise a real outcome. Continue from the preceding scene; keep voice identity and microphone distance consistent.
 - Caption SHA-256: `2a1dcbf82d77bc888d522d82d2b8a7053b6980317495a765660b1a3006d3ecdc`

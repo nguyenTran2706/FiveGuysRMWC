@@ -16,7 +16,9 @@
   "performance": {
     "mood": "guarded, contained",
     "tempo": 0.9457,
-    "temperature": 0.78
+    "temperature": 0.78,
+    "textChunkChars": 200,
+    "device": "cuda:0"
   },
   "durationSeconds": 5.071,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "9e0761b96a57846aa74de97f7eade87b190df821b6817f8bbde14d5b7cc5a7ee",
     "model": "Systran/faster-whisper-small",
     "transcript": "Em không muốn nói tiếp nữa. Em cần tự chọn chuyện này, được không? Em đóng cửa đây.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }

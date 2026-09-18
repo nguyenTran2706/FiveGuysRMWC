@@ -16,7 +16,9 @@
   "performance": {
     "mood": "reflective narration",
     "tempo": 0.9603,
-    "temperature": 0.8
+    "temperature": 0.8,
+    "textChunkChars": null,
+    "device": "cuda:0"
   },
   "durationSeconds": 11.986,
   "sampleRate": 48000,
@@ -26,8 +28,8 @@
     "audioSha256": "c5ff7ecc6df7ac96fca5e850efd9d6462545ef74abac30f90aa215eb7298a6a0",
     "model": "Systran/faster-whisper-small",
     "transcript": "Fictional ending. Tram keeps a private copy of the messages and chooses someone she trusts to speak with. She decides how much to share. Keeping a record does not commit her to a complaint or guarantee an outcome.",
-    "expectedWordCoverage": 1.0,
-    "matchedWordPrecision": 1.0,
+    "expectedWordCoverage": 1,
+    "matchedWordPrecision": 1,
     "flag": false,
     "note": "Automated transcription comparison only; not human listening or accent approval."
   }
