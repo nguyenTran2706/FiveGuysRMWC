@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { answerQuestion, buildPrompt, REFUSAL, GREETING, isUnusable, looksVietnamese } from '../api/rightsChat.mjs';
+import { answerQuestion, buildPrompt, REFUSAL, GREETING, isUnusable, looksVietnamese } from '../src/lib/rightsAnswer.mjs';
 import { retrieve, knowledgeBase } from '../src/lib/retrieval.mjs';
 
 const echoModel = ({ user }) => `Answer grounded in: ${user.slice(0, 40)}`;

@@ -1,8 +1,10 @@
-// Minimal dev API that keeps the model API key out of the browser.
+// Local dev API. In production the same answers come from api/rights-chat.mjs on the host.
 import { createServer } from 'node:http';
-import { answerQuestion } from './rightsChat.mjs';
+import { answerQuestion, callLocalModel } from '../src/lib/rightsAnswer.mjs';
 
 const PORT = Number(process.env.PORT || 8787);
+// Same rule as the hosted function: the model only rephrases passages, and only when one is configured.
+const model = process.env.MODEL_URL ? callLocalModel : null;
 
 function send(response, status, body) {
   const payload = JSON.stringify(body);
@@ -23,10 +25,10 @@ createServer((request, response) => {
     try {
       const { question, language } = JSON.parse(body || '{}');
       if (typeof question !== 'string' || !question.trim()) return send(response, 400, { error: 'question_required' });
-      send(response, 200, await answerQuestion(question.trim().slice(0, 600), language));
+      send(response, 200, await answerQuestion(question.trim().slice(0, 600), language, model));
     } catch (error) {
       const reason = error?.message === 'model_loading' ? 'model_loading' : 'model_unavailable';
       send(response, reason === 'model_loading' ? 503 : 502, { error: reason });
     }
   });
-}).listen(PORT, '0.0.0.0', () => console.log(`rights-chat api on ${PORT}`));
+}).listen(PORT, '0.0.0.0', () => console.log(`rights-chat api on ${PORT} — ${model ? `model at ${process.env.MODEL_URL}` : 'curated Fair Work passages only (set MODEL_URL to add a local model)'}`));

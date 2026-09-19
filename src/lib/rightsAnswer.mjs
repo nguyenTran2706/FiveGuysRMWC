@@ -1,6 +1,6 @@
 // Grounded answer pipeline. Retrieval and refusal are deterministic here; the model
 // only ever rephrases passages that retrieval already selected.
-import { retrieve, knowledgeBase } from '../src/lib/retrieval.mjs';
+import { retrieve, knowledgeBase } from './retrieval.mjs';
 
 const REFUSAL = {
   en: 'I can only answer from the Fair Work Ombudsman information in this app, and I could not find anything about that. Here are topics I do cover. For anything else, call the Fair Work Infoline on 13 13 94, or the Refugee and Migrant Workers Centre on 1300 513 107 for help with your own case.',
@@ -58,8 +58,8 @@ export function buildPrompt(question, language, passages) {
   };
 }
 
-// Self-hosted llama.cpp server (OpenAI-compatible). No external service, no API key.
-async function callLocalModel({ system, user }) {
+/** Self-hosted llama.cpp server (OpenAI-compatible). No external service, no API key. */
+export async function callLocalModel({ system, user }) {
   const url = process.env.MODEL_URL || 'http://127.0.0.1:8080/v1/chat/completions';
   let response;
   try {
@@ -82,7 +82,11 @@ async function callLocalModel({ system, user }) {
   return data.choices?.[0]?.message?.content?.trim() ?? '';
 }
 
-/** Answer a question strictly from the knowledge base. `callModel` is injectable for tests. */
+/**
+ * Answer a question strictly from the knowledge base. `callModel` is injectable for tests, and may be
+ * null: retrieval, refusals and greetings never need a model, and a grounded answer then uses the
+ * curated Fair Work passage as written. That is what a static host without the model server serves.
+ */
 export async function answerQuestion(question, language = 'en', callModel = callLocalModel) {
   const lang = language === 'vi' ? 'vi' : 'en';
   const { grounded, passages, suggestions } = retrieve(question ?? '');
@@ -96,7 +100,7 @@ export async function answerQuestion(question, language = 'en', callModel = call
   // back to the curated passage text, which is already safe, sourced and bilingual.
   let answer = '';
   try {
-    answer = await callModel(buildPrompt(question, lang, passages));
+    if (callModel) answer = await callModel(buildPrompt(question, lang, passages));
   } catch (error) {
     if (error?.message === 'model_loading') throw error;
   }

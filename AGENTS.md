@@ -14,8 +14,8 @@ docker compose -f docker-compose.base44.yml up -d
 ## Workplace rights chatbot
 - Knowledge base: `src/data/fairworkRights.mjs` (curated Fair Work Ombudsman content, bilingual EN/VI, one source URL per entry). Re-check sources with `node scripts/refresh-rights-kb.mjs [--write]`.
 - Retrieval + refusal: `src/lib/retrieval.mjs` (shared by browser and server; below `RELEVANCE_THRESHOLD` the answer is a deterministic refusal, the model is never called).
-- Server: `api/server.mjs` (`POST /api/rights-chat`, proxied from Vite `/api`), grounded prompt in `api/rightsChat.mjs`.
-- Model: self-hosted `llama.cpp` server (`model` service) running Qwen2.5-1.5B-Instruct GGUF pulled from Hugging Face into the `model_cache` volume. First boot downloads ~1 GB; until it's healthy the API returns `model_loading` (503) and the UI asks the user to retry. No API key or external AI service is used.
+- Answering: `src/lib/rightsAnswer.mjs` (retrieval, refusal, grounded prompt). Local dev server: `scripts/rights-api.mjs` (`POST /api/rights-chat`, proxied from Vite `/api`). Hosted: `api/rights-chat.mjs`, a serverless function that answers from the curated passages and only calls a model when `MODEL_URL` is set.
+- Model (optional): self-hosted `llama.cpp` server (`model` service) running Qwen2.5-1.5B-Instruct GGUF pulled from Hugging Face into the `model_cache` volume. First boot downloads ~1 GB; until it's healthy the API returns `model_loading` (503) and the UI asks the user to retry. It is used only when `MODEL_URL` is set; otherwise answers are the curated passages verbatim. No API key or external AI service is used.
 
 ## Environment
 - `VITE_CASE_SUBMIT_URL` (optional, empty by default): leave empty to use RMWC's existing clinic enquiry handoff. No external credentials are required to boot.

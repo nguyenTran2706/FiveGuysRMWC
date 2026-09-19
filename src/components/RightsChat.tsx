@@ -41,7 +41,7 @@ export default function RightsChat({ language: appLanguage }: { language: Langua
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ question: trimmed, language }),
       });
-      if (response.status === 404) console.warn('[rights-chat] /api/rights-chat is not deployed on this host. The chat needs api/server.mjs and its local model (see AGENTS.md); a static Vercel deployment does not include them.');
+      if (response.status === 404) console.warn('[rights-chat] /api/rights-chat is missing on this host. Deploy api/rights-chat.mjs, or run scripts/rights-api.mjs locally (see AGENTS.md).');
       const data = await response.json();
       result = response.ok
         ? { question: trimmed, answer: data.answer, kind: data.kind, sources: data.sources, suggestions: data.suggestions }
