@@ -7,7 +7,7 @@
 .title-screen-logo span { display: block; }
 .title-screen-sub { font: 10px var(--font-mono); letter-spacing: .35em; color: #aaa9a5; margin-top: 24px; }
 .title-screen-menu { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
-.title-screen-menu button { position: relative; text-align: left; font-size: clamp(16px, 1.5vw, 24px); font-weight: 350; line-height: 1.4; color: #a3a3a3; padding: 10px 0; transition: color .2s, transform .2s; }
+.title-screen-menu button { position: relative; text-align: left; font-size: clamp(16px, 1.5vw, 24px); font-weight: 350; line-height: 1.4; color: #a3a3a3; padding: 10px 0; transition: color .2s, transform .2s; text-transform: uppercase; letter-spacing: .02em; }
 .title-screen-menu button::before { content: ''; position: absolute; left: -20px; top: 50%; height: 1px; width: 0; background: #fff; transition: width .2s; }
 .title-screen-menu .is-primary { color: #fff; }
 .title-screen-menu button:hover, .title-screen-menu button:focus-visible { color: #fff; transform: translateX(4px); }

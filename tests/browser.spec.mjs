@@ -88,7 +88,7 @@ test('the live clock remains AEST during Sydney summer and switches locale', asy
 test('title settings, continue and about preserve the current conversation', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Switch to English' }).click();
-  await expect(page.locator('.title-start')).toHaveText('New game');
+  await expect(page.locator('.title-start')).toHaveText('Begin');
   await page.locator('.title-settings').click();
   const dialog = page.getByRole('dialog');
   const subtitles = dialog.getByRole('switch', { name: 'Show both languages' });
